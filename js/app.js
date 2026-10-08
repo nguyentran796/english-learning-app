@@ -177,6 +177,34 @@ class EnglishApp {
             this.toggleFlip();
         });
 
+        // Touch swipe gestures for mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchStartTime = 0;
+
+        this.fcCard.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].clientX;
+            touchStartY = e.changedTouches[0].clientY;
+            touchStartTime = Date.now();
+        }, { passive: true });
+
+        this.fcCard.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+            const timeDiff = Date.now() - touchStartTime;
+
+            // Horizontal swipe detected
+            if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.4 && timeDiff < 600) {
+                if (diffX < 0) {
+                    this.nextFlashcard();
+                } else {
+                    this.prevFlashcard();
+                }
+            }
+        }, { passive: true });
+
         this.fcPrevBtn.addEventListener('click', () => this.prevFlashcard());
         this.fcNextBtn.addEventListener('click', () => this.nextFlashcard());
         this.fcShuffleBtn.addEventListener('click', () => this.shuffleFlashcards());

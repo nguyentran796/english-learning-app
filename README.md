@@ -1,49 +1,45 @@
-# English EasyLearn - Sổ Tay Học Tiếng Anh Cho Người Mới Bắt Đầu
+# English Mastery - Sổ Tay Từ Vựng & Mẫu Câu Tiếng Anh Nâng Cao (B2 - C1)
 
-Ứng dụng web được xây dựng nhằm giúp người mất gốc hoặc bắt đầu từ level A0 - A1 dễ dàng **nạp từ vựng, mẫu câu, nghe phát âm chuẩn và luyện phản xạ hàng ngày**.
+Ứng dụng web hiện đại giúp người học nâng cao vốn từ vựng học thuật, đàm phán công sở, thành ngữ chuyên sâu và rèn luyện phản xạ giao tiếp mỗi ngày.
 
 ---
 
 ## 🌟 Tính Năng Nổi Bật
 
-1. **Bộ Dữ Liệu Sẵn Có 520 Từ Vựng & Mẫu Câu Cốt Lõi (A0 - A1):**
-   - Đầy đủ 13 chủ đề quan trọng nhất:
-     * *Chào hỏi & Xã giao (35)*
-     * *Động từ cốt lõi (65)*
-     * *Sinh hoạt hàng ngày (35)*
-     * *Gia đình & Bản thân (35)*
-     * *Ăn uống & Ẩm thực (45)*
-     * *Mua sắm & Tiền bạc (35)*
-     * *Nhà cửa & Đồ đạc (40)*
-     * *Giao thông & Đi lại (35)*
-     * *Thời gian & Thời tiết (40)*
-     * *Nghề nghiệp & Nơi chốn (30)*
-     * *Tính từ thông dụng (45)*
-     * *Sức khỏe & Cảm xúc (25)*
-     * *Mẫu câu giao tiếp & Sinh tồn (55)*
-   - Mỗi từ/câu đều có: Phiên âm chuẩn IPA, Nghĩa tiếng Việt, Câu ví dụ thực tế có dịch nghĩa, và Ghi chú ngữ pháp/collocation rõ ràng.
+1. **Bộ Dữ Liệu 502 Từ Vựng & Mẫu Câu Nâng Cao (B2 - C1 / Academic & Business):**
+   - Đầy đủ các chủ đề chuyên sâu:
+     * *Tư duy Phản biện & Học thuật (98)*
+     * *Công sở, Quản lý & Đàm phán (85)*
+     * *Tính cách & Phẩm chất Tinh tế (70)*
+     * *Khoa học, Công nghệ & Đổi mới (46)*
+     * *Pháp luật, Xã hội & Thể chế (37)*
+     * *Tài chính & Kinh tế Thị trường (31)*
+     * *Thành ngữ & Cụm từ hay (30)*
+     * *Nghệ thuật & Triết học (20)*
+     * *Tâm lý & Nhận thức (18)*
+     * *Mẫu câu Giao tiếp Chuyên nghiệp (10)*
+   - Mỗi mục đều có: Phiên âm quốc tế IPA, Nghĩa tiếng Việt, Câu ví dụ ngữ cảnh có dịch nghĩa, và Ghi chú ngữ pháp/collocation rõ ràng.
 
-2. **Nạp Thêm Từ Vựng & Mẫu Câu Không Giới Hạn:**
-   - Người dùng có thể tự thêm bất kỳ từ mới hoặc mẫu câu nào vào bộ sưu tập cá nhân.
+2. **Tối Ưu Hoàn Hảo Cho Thiết Bị Di Động (Mobile Responsive):**
+   - Tương thích 100% với màn hình điện thoại và máy tính bảng.
+   - **Hỗ trợ thao tác vuốt cảm ứng (Touch Swipe):** Vuốt sang trái để chuyển từ tiếp theo, vuốt sang phải để quay lại từ trước. Chạm vào thẻ để lật mặt xem nghĩa.
+   - Bố cục co giãn thông minh, thanh điều hướng và nút bấm lớn dễ thao tác bằng ngón tay.
 
-2. **Lật Thẻ Flashcard 3D Thông Minh:**
-   - Mặt trước: Hiển thị từ/câu, phiên âm IPA, chủ đề.
-   - Mặt sau: Hiển thị nghĩa, câu ví dụ, và giải thích chi tiết.
-   - Tích hợp phím tắt: Bấm **Space** để lật thẻ, **Mũi tên trái/phải** để chuyển từ.
+3. **Lật Thẻ Flashcard 3D Thông Minh:**
+   - Mặt trước: Từ/câu tiếng Anh, phiên âm IPA, chủ đề.
+   - Mặt sau: Nghĩa tiếng Việt, câu ví dụ thực tế và giải thích chi tiết.
+   - Tích hợp phím tắt trên máy tính: Phím `Space` để lật thẻ, `Mũi tên Trái / Phải` để chuyển từ.
 
-3. **Phát Âm Bản Xứ Tích Hợp (Text-to-Speech):**
-   - Hỗ trợ 2 chế độ: **Bình thường (1.0x)** và **Chậm (0.7x)** giúp người mới nghe rõ từng phụ âm và trọng âm.
+4. **Phát Âm Bản Xứ Tích Hợp (Text-to-Speech):**
+   - Hỗ trợ 2 chế độ: **Bình thường (1.0x)** và **Chậm (0.7x)** giúp nghe rõ từng âm tiết và trọng âm.
 
-4. **Trắc Nghiệm Phản Xạ Nhanh (Quiz):**
-   - Tự động tạo bài tập trắc nghiệm 4 lựa chọn từ kho từ vựng đã nạp.
-   - Chấm điểm ngay lập tức kèm giải thích chi tiết khi trả lời sai.
-
-5. **Lộ Trình Xây Nền 30 Ngày:**
-   - Tích hợp sẵn thời khóa biểu phân bổ theo 4 tuần giúp bạn không bị lạc hướng.
+5. **Trắc Nghiệm Phản Xạ Nhanh (Quiz):**
+   - Tự động tạo bài kiểm tra 10 câu trắc nghiệm ngẫu nhiên từ kho từ vựng.
+   - Chấm điểm tức thì kèm giải thích chi tiết khi chọn sai.
 
 6. **Lưu Trữ Tự Động & Sao Lưu (JSON):**
-   - Dữ liệu được lưu trực tiếp trên trình duyệt (`localStorage`).
-   - Có thể Xuất file JSON (Export) để gửi qua điện thoại hoặc Sao lưu dữ liệu dự phòng.
+   - Tự động lưu trên trình duyệt (`localStorage`).
+   - Hỗ trợ Xuất/Nhập file JSON để đồng bộ dữ liệu dễ dàng giữa các thiết bị.
 
 ---
 
