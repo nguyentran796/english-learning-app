@@ -301,6 +301,66 @@ class SpeechPracticeManager {
     }
 }
 
+// ================= GAME SOUND EFFECTS (WEB AUDIO API) =================
+class GameSoundEffects {
+    constructor() {
+        this.ctx = null;
+        this.enabled = true;
+    }
+
+    init() {
+        if (!this.ctx && (window.AudioContext || window.webkitAudioContext)) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            this.ctx = new AudioCtx();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+            this.ctx.resume();
+        }
+    }
+
+    playTone(freq, type = 'sine', duration = 0.1, delay = 0) {
+        if (!this.enabled) return;
+        try {
+            this.init();
+            if (!this.ctx) return;
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, this.ctx.currentTime + delay);
+            gain.gain.setValueAtTime(0.12, this.ctx.currentTime + delay);
+            gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + delay + duration);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(this.ctx.currentTime + delay);
+            osc.stop(this.ctx.currentTime + delay + duration);
+        } catch (e) {}
+    }
+
+    playClick() {
+        this.playTone(600, 'sine', 0.05);
+    }
+
+    playMatch() {
+        // High upbeat C-major chime
+        this.playTone(523.25, 'sine', 0.12, 0);     // C5
+        this.playTone(659.25, 'sine', 0.12, 0.08);  // E5
+        this.playTone(783.99, 'sine', 0.22, 0.16);  // G5
+    }
+
+    playMismatch() {
+        // Soft error buzz
+        this.playTone(180, 'triangle', 0.18);
+    }
+
+    playVictory() {
+        // Triumphant fanfare
+        this.playTone(523.25, 'triangle', 0.15, 0);
+        this.playTone(659.25, 'triangle', 0.15, 0.1);
+        this.playTone(783.99, 'triangle', 0.15, 0.2);
+        this.playTone(1046.50, 'triangle', 0.35, 0.3);
+    }
+}
+
 // App logic for English Learning Companion
 class EnglishApp {
     constructor() {
@@ -329,6 +389,30 @@ class EnglishApp {
         this.spTopic = 'all';
         this.spIsRecording = false;
         this.fcIsRecording = false;
+
+        // Matching Game State
+        this.sfx = new GameSoundEffects();
+        this.mgMode = 'speed'; // speed | classic | audio
+        this.mgPairCount = 6;
+        this.mgTopic = 'all';
+        this.mgCards = [];
+        this.mgSelectedCards = [];
+        this.mgMatchedPairs = 0;
+        this.mgScore = 0;
+        this.mgCombo = 1;
+        this.mgMaxCombo = 1;
+        this.mgFlips = 0;
+        this.mgTimeLeft = 60;
+        this.mgTimeElapsed = 0;
+        this.mgTimerInterval = null;
+        this.mgIsPlaying = false;
+        this.mgIsLocked = false;
+        this.mgSoundEnabled = localStorage.getItem('mg_sound_enabled') !== 'false';
+        this.mgAutoTts = localStorage.getItem('mg_auto_tts') !== 'false';
+        this.sfx.enabled = this.mgSoundEnabled;
+        this.mgBestScore = parseInt(localStorage.getItem('mg_best_score') || '0', 10);
+        this.mgBestCombo = parseInt(localStorage.getItem('mg_best_combo') || '0', 10);
+        this.mgBestTime = parseInt(localStorage.getItem('mg_best_time') || '0', 10);
 
         // Quiz State
         this.quizQuestions = [];
@@ -560,6 +644,41 @@ class EnglishApp {
         this.spRetryBtn = document.getElementById('sp-retry-btn');
         this.spPrevBtn = document.getElementById('sp-prev-btn');
         this.spNextBtn = document.getElementById('sp-next-btn');
+
+        // Matching Game elements
+        this.mgHudBestScore = document.getElementById('mg-hud-best-score');
+        this.mgHudBestCombo = document.getElementById('mg-hud-best-combo');
+        this.mgHudBestTime = document.getElementById('mg-hud-best-time');
+        this.mgSetupCard = document.getElementById('mg-setup-card');
+        this.mgPlayArena = document.getElementById('mg-play-arena');
+        this.mgToggleSoundBtn = document.getElementById('mg-toggle-sound-btn');
+        this.mgSoundIcon = document.getElementById('mg-sound-icon');
+        this.mgToggleTtsBtn = document.getElementById('mg-toggle-tts-btn');
+        this.mgTtsIcon = document.getElementById('mg-tts-icon');
+        this.mgModeBtns = document.querySelectorAll('.mg-mode-btn');
+        this.mgSizeBtns = document.querySelectorAll('.mg-size-btn');
+        this.mgTopicSelect = document.getElementById('mg-topic-select');
+        this.mgStartGameBtn = document.getElementById('mg-start-game-btn');
+        this.mgLiveTimer = document.getElementById('mg-live-timer');
+        this.mgLiveScore = document.getElementById('mg-live-score');
+        this.mgLiveCombo = document.getElementById('mg-live-combo');
+        this.mgLiveProgress = document.getElementById('mg-live-progress');
+        this.mgTimerBar = document.getElementById('mg-timer-bar');
+        this.mgComboToast = document.getElementById('mg-combo-toast');
+        this.mgGridBoard = document.getElementById('mg-grid-board');
+        this.mgHintBtn = document.getElementById('mg-hint-btn');
+        this.mgQuitBtn = document.getElementById('mg-quit-btn');
+        this.mgSummaryModal = document.getElementById('mg-summary-modal');
+        this.mgModalStars = document.getElementById('mg-modal-stars');
+        this.mgModalTitle = document.getElementById('mg-modal-title');
+        this.mgModalSub = document.getElementById('mg-modal-sub');
+        this.mgSumScore = document.getElementById('mg-sum-score');
+        this.mgSumTime = document.getElementById('mg-sum-time');
+        this.mgSumCombo = document.getElementById('mg-sum-combo');
+        this.mgSumAcc = document.getElementById('mg-sum-acc');
+        this.mgSumVocabList = document.getElementById('mg-sum-vocab-list');
+        this.mgModalAgainBtn = document.getElementById('mg-modal-again-btn');
+        this.mgModalSettingsBtn = document.getElementById('mg-modal-settings-btn');
     }
 
     initEvents() {
@@ -819,6 +938,57 @@ class EnglishApp {
         if (this.spNextBtn) {
             this.spNextBtn.addEventListener('click', () => this.nextSpeakingItem());
         }
+
+        // Matching Game Events
+        if (this.mgToggleSoundBtn) {
+            this.mgToggleSoundBtn.addEventListener('click', () => this.toggleMatchingSound());
+        }
+        if (this.mgToggleTtsBtn) {
+            this.mgToggleTtsBtn.addEventListener('click', () => this.toggleMatchingAutoTts());
+        }
+        if (this.mgModeBtns) {
+            this.mgModeBtns.forEach(btn => {
+                btn.addEventListener('click', () => this.setMatchingMode(btn.dataset.mode));
+            });
+        }
+        if (this.mgSizeBtns) {
+            this.mgSizeBtns.forEach(btn => {
+                btn.addEventListener('click', () => this.setMatchingPairCount(parseInt(btn.dataset.pairs, 10)));
+            });
+        }
+        if (this.mgTopicSelect) {
+            this.mgTopicSelect.addEventListener('change', (e) => {
+                this.mgTopic = e.target.value;
+            });
+        }
+        if (this.mgStartGameBtn) {
+            this.mgStartGameBtn.addEventListener('click', () => this.startMatchingGame());
+        }
+        if (this.mgHintBtn) {
+            this.mgHintBtn.addEventListener('click', () => this.showMatchingHint());
+        }
+        if (this.mgQuitBtn) {
+            this.mgQuitBtn.addEventListener('click', () => this.quitMatchingGame());
+        }
+        if (this.mgModalAgainBtn) {
+            this.mgModalAgainBtn.addEventListener('click', () => {
+                this.closeMatchingSummaryModal();
+                this.startMatchingGame();
+            });
+        }
+        if (this.mgModalSettingsBtn) {
+            this.mgModalSettingsBtn.addEventListener('click', () => {
+                this.closeMatchingSummaryModal();
+                this.showMatchingSetup();
+            });
+        }
+        if (this.mgSummaryModal) {
+            this.mgSummaryModal.addEventListener('click', (e) => {
+                if (e.target === this.mgSummaryModal) {
+                    this.closeMatchingSummaryModal();
+                }
+            });
+        }
     }
 
     switchTab(tabId) {
@@ -849,6 +1019,8 @@ class EnglishApp {
             this.initReadingModule();
         } else if (tabId === 'speaking') {
             this.initSpeakingLab();
+        } else if (tabId === 'matching') {
+            this.initMatchingGameModule();
         }
 
         if (tabId !== 'reading') {
@@ -860,6 +1032,9 @@ class EnglishApp {
         if (tabId !== 'flashcard') {
             this.closeFlashcardSpeechBox();
         }
+        if (tabId !== 'matching') {
+            this.pauseMatchingGame();
+        }
     }
 
     refreshAll() {
@@ -869,6 +1044,7 @@ class EnglishApp {
         this.renderLibrary();
         this.initReadingModule();
         this.initSpeakingLab();
+        this.initMatchingGameModule();
     }
 
     refreshStats() {
@@ -2446,6 +2622,616 @@ class EnglishApp {
 
         const targetEl = document.getElementById('sp-target-text');
         if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // ================= MINI-GAME MATCHING PAIRS METHODS =================
+    initMatchingGameModule() {
+        this.updateMatchingTopicsDropdown();
+        this.renderMatchingHudRecords();
+        this.updateMatchingSettingsUI();
+    }
+
+    renderMatchingHudRecords() {
+        if (this.mgHudBestScore) {
+            this.mgHudBestScore.textContent = this.mgBestScore.toLocaleString('vi-VN');
+        }
+        if (this.mgHudBestCombo) {
+            this.mgHudBestCombo.textContent = `x${this.mgBestCombo}`;
+        }
+        if (this.mgHudBestTime) {
+            if (this.mgBestTime > 0) {
+                const mins = Math.floor(this.mgBestTime / 60);
+                const secs = this.mgBestTime % 60;
+                this.mgHudBestTime.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            } else {
+                this.mgHudBestTime.textContent = '--:--';
+            }
+        }
+    }
+
+    updateMatchingTopicsDropdown() {
+        if (!this.mgTopicSelect) return;
+        const vocabs = this.items.filter(i => i.type === 'vocab');
+        const topics = Array.from(new Set(vocabs.map(i => i.topic))).filter(Boolean);
+
+        let html = '<option value="all">Tất cả chủ đề (' + vocabs.length + ' từ B2-C1)</option>';
+        topics.forEach(t => {
+            const count = vocabs.filter(i => i.topic === t).length;
+            html += `<option value="${t}" ${this.mgTopic === t ? 'selected' : ''}>${t} (${count})</option>`;
+        });
+        this.mgTopicSelect.innerHTML = html;
+    }
+
+    updateMatchingSettingsUI() {
+        if (this.mgModeBtns) {
+            this.mgModeBtns.forEach(btn => {
+                const isActive = btn.dataset.mode === this.mgMode;
+                if (isActive) {
+                    btn.className = 'mg-mode-btn active p-3.5 rounded-2xl border-2 border-indigo-600 bg-indigo-50/60 text-left transition';
+                } else {
+                    btn.className = 'mg-mode-btn p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50/50 hover:bg-slate-50 text-left transition';
+                }
+            });
+        }
+
+        if (this.mgSizeBtns) {
+            this.mgSizeBtns.forEach(btn => {
+                const pairs = parseInt(btn.dataset.pairs, 10);
+                const isActive = pairs === this.mgPairCount;
+                if (isActive) {
+                    btn.className = 'mg-size-btn active p-2.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/70 text-center text-xs font-bold text-indigo-900 transition';
+                } else {
+                    btn.className = 'mg-size-btn p-2.5 rounded-xl border-2 border-slate-200 text-center text-xs font-bold text-slate-700 hover:bg-slate-50 transition';
+                }
+            });
+        }
+
+        if (this.mgSoundIcon) {
+            this.mgSoundIcon.textContent = this.mgSoundEnabled ? '🔊' : '🔇';
+        }
+        if (this.mgTtsIcon) {
+            this.mgTtsIcon.textContent = this.mgAutoTts ? '🗣️' : '🤫';
+        }
+    }
+
+    toggleMatchingSound() {
+        this.mgSoundEnabled = !this.mgSoundEnabled;
+        this.sfx.enabled = this.mgSoundEnabled;
+        localStorage.setItem('mg_sound_enabled', this.mgSoundEnabled);
+        if (this.mgSoundIcon) {
+            this.mgSoundIcon.textContent = this.mgSoundEnabled ? '🔊' : '🔇';
+        }
+        if (this.mgSoundEnabled) {
+            this.sfx.playClick();
+        }
+    }
+
+    toggleMatchingAutoTts() {
+        this.mgAutoTts = !this.mgAutoTts;
+        localStorage.setItem('mg_auto_tts', this.mgAutoTts);
+        if (this.mgTtsIcon) {
+            this.mgTtsIcon.textContent = this.mgAutoTts ? '🗣️' : '🤫';
+        }
+        if (this.mgSoundEnabled) {
+            this.sfx.playClick();
+        }
+    }
+
+    setMatchingMode(mode) {
+        this.mgMode = mode;
+        this.updateMatchingSettingsUI();
+        if (this.mgSoundEnabled) this.sfx.playClick();
+    }
+
+    setMatchingPairCount(count) {
+        this.mgPairCount = count;
+        this.updateMatchingSettingsUI();
+        if (this.mgSoundEnabled) this.sfx.playClick();
+    }
+
+    showMatchingSetup() {
+        this.pauseMatchingGame();
+        if (this.mgPlayArena) this.mgPlayArena.classList.add('hidden');
+        if (this.mgSetupCard) this.mgSetupCard.classList.remove('hidden');
+        this.renderMatchingHudRecords();
+    }
+
+    startMatchingGame() {
+        // Collect candidate items
+        let pool = this.items.filter(i => i.type === 'vocab');
+        if (this.mgTopic !== 'all') {
+            const filteredByTopic = pool.filter(i => i.topic === this.mgTopic);
+            if (filteredByTopic.length >= this.mgPairCount) {
+                pool = filteredByTopic;
+            }
+        }
+
+        if (pool.length < this.mgPairCount) {
+            alert(`Chủ đề này không đủ ${this.mgPairCount} từ vựng để tạo bàn cờ. Vui lòng chọn "Tất cả chủ đề".`);
+            return;
+        }
+
+        // Shuffle candidate items and take mgPairCount
+        const shuffledPool = [...pool].sort(() => 0.5 - Math.random());
+        const selectedItems = shuffledPool.slice(0, this.mgPairCount);
+        this.mgCurrentRoundItems = selectedItems;
+
+        // Generate card pairs
+        const cards = [];
+        selectedItems.forEach((item, idx) => {
+            cards.push({
+                id: `card_${idx}_word`,
+                pairId: item.id,
+                type: 'word',
+                text: item.text,
+                ipa: item.ipa || '',
+                rawItem: item,
+                isMatched: false
+            });
+            cards.push({
+                id: `card_${idx}_meaning`,
+                pairId: item.id,
+                type: 'meaning',
+                text: item.meaning,
+                ipa: '',
+                rawItem: item,
+                isMatched: false
+            });
+        });
+
+        // Shuffle tiles
+        cards.sort(() => 0.5 - Math.random());
+        this.mgCards = cards;
+
+        // Reset live game state
+        this.mgScore = 0;
+        this.mgCombo = 1;
+        this.mgMaxCombo = 1;
+        this.mgFlips = 0;
+        this.mgMatchedPairs = 0;
+        this.mgSelectedCards = [];
+        this.mgIsLocked = false;
+        this.mgIsPlaying = true;
+
+        if (this.mgMode === 'speed') {
+            this.mgTimeLeft = 60;
+        } else {
+            this.mgTimeElapsed = 0;
+        }
+
+        // Switch visible view
+        if (this.mgSetupCard) this.mgSetupCard.classList.add('hidden');
+        if (this.mgPlayArena) this.mgPlayArena.classList.remove('hidden');
+
+        // Start timer
+        this.startMatchingTimer();
+
+        // Render HUD and Grid
+        this.updateMatchingLiveHud();
+        this.renderMatchingGrid();
+
+        if (this.mgSoundEnabled) {
+            this.sfx.playClick();
+        }
+    }
+
+    startMatchingTimer() {
+        if (this.mgTimerInterval) {
+            clearInterval(this.mgTimerInterval);
+        }
+
+        this.mgTimerInterval = setInterval(() => {
+            if (!this.mgIsPlaying) return;
+
+            if (this.mgMode === 'speed') {
+                this.mgTimeLeft--;
+                this.updateMatchingLiveHud();
+
+                if (this.mgTimeLeft <= 0) {
+                    this.endMatchingGame(false);
+                }
+            } else {
+                this.mgTimeElapsed++;
+                this.updateMatchingLiveHud();
+            }
+        }, 1000);
+    }
+
+    pauseMatchingGame() {
+        this.mgIsPlaying = false;
+        if (this.mgTimerInterval) {
+            clearInterval(this.mgTimerInterval);
+            this.mgTimerInterval = null;
+        }
+    }
+
+    quitMatchingGame() {
+        if (confirm("Bạn có chắc muốn thoát ván đấu hiện tại không?")) {
+            this.showMatchingSetup();
+        }
+    }
+
+    updateMatchingLiveHud() {
+        if (this.mgLiveScore) {
+            this.mgLiveScore.textContent = this.mgScore.toLocaleString('vi-VN');
+        }
+        if (this.mgLiveCombo) {
+            this.mgLiveCombo.textContent = `x${this.mgCombo}`;
+            if (this.mgCombo >= 3) {
+                this.mgLiveCombo.className = 'text-sm sm:text-lg font-black text-rose-600 font-mono animate-bounce';
+            } else if (this.mgCombo >= 2) {
+                this.mgLiveCombo.className = 'text-sm sm:text-lg font-black text-amber-600 font-mono';
+            } else {
+                this.mgLiveCombo.className = 'text-sm sm:text-lg font-black text-slate-700 font-mono';
+            }
+        }
+        if (this.mgLiveProgress) {
+            this.mgLiveProgress.textContent = `${this.mgMatchedPairs} / ${this.mgPairCount}`;
+        }
+
+        if (this.mgLiveTimer) {
+            if (this.mgMode === 'speed') {
+                this.mgLiveTimer.textContent = `${this.mgTimeLeft}s`;
+                if (this.mgTimeLeft <= 10) {
+                    this.mgLiveTimer.className = 'text-sm sm:text-lg font-black text-rose-600 font-mono animate-pulse';
+                } else {
+                    this.mgLiveTimer.className = 'text-sm sm:text-lg font-black text-slate-900 font-mono';
+                }
+            } else {
+                const mins = Math.floor(this.mgTimeElapsed / 60);
+                const secs = this.mgTimeElapsed % 60;
+                this.mgLiveTimer.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                this.mgLiveTimer.className = 'text-sm sm:text-lg font-black text-slate-900 font-mono';
+            }
+        }
+
+        if (this.mgTimerBar) {
+            if (this.mgMode === 'speed') {
+                const pct = Math.min(100, Math.max(0, (this.mgTimeLeft / 60) * 100));
+                this.mgTimerBar.style.width = `${pct}%`;
+                if (this.mgTimeLeft <= 10) {
+                    this.mgTimerBar.className = 'bg-rose-500 h-1.5 rounded-full transition-all duration-300';
+                } else if (this.mgTimeLeft <= 25) {
+                    this.mgTimerBar.className = 'bg-amber-500 h-1.5 rounded-full transition-all duration-300';
+                } else {
+                    this.mgTimerBar.className = 'bg-indigo-600 h-1.5 rounded-full transition-all duration-300';
+                }
+            } else {
+                const pct = Math.min(100, (this.mgMatchedPairs / this.mgPairCount) * 100);
+                this.mgTimerBar.style.width = `${pct}%`;
+                this.mgTimerBar.className = 'bg-emerald-500 h-1.5 rounded-full transition-all duration-300';
+            }
+        }
+    }
+
+    renderMatchingGrid() {
+        if (!this.mgGridBoard) return;
+
+        this.mgGridBoard.innerHTML = this.mgCards.map(card => {
+            const isWord = card.type === 'word';
+            let tileBg = isWord
+                ? 'bg-white border-indigo-200 hover:border-indigo-400 hover:shadow-md text-indigo-950'
+                : 'bg-slate-50 border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/20 hover:shadow-md text-slate-800';
+
+            let typeBadge = isWord
+                ? '<span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 self-start">English</span>'
+                : '<span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 self-start">Tiếng Việt</span>';
+
+            let mainContent = '';
+            if (this.mgMode === 'audio' && isWord) {
+                mainContent = `
+                    <div class="my-auto flex flex-col items-center justify-center gap-1">
+                        <span class="text-2xl sm:text-3xl">🔊</span>
+                        <span class="text-[11px] font-bold text-indigo-600">Bấm nghe âm</span>
+                    </div>
+                `;
+            } else {
+                mainContent = `
+                    <div class="my-auto text-center w-full px-1">
+                        <div class="font-bold text-xs sm:text-sm sm:font-extrabold leading-snug break-words">${card.text}</div>
+                        ${card.ipa ? `<div class="text-[10px] sm:text-xs text-indigo-600 font-mono mt-0.5 truncate">${card.ipa}</div>` : ''}
+                    </div>
+                `;
+            }
+
+            return `
+                <div id="tile_${card.id}"
+                     class="mg-card-tile p-3 sm:p-4 rounded-2xl border-2 cursor-pointer transition-all duration-150 flex flex-col justify-between items-center shadow-2xs active:scale-95 min-h-[92px] sm:min-h-[115px] select-none ${tileBg}"
+                     onclick="app.handleMatchingCardClick('${card.id}')">
+                    <div class="w-full flex items-center justify-between">
+                        ${typeBadge}
+                        <span id="check_${card.id}" class="hidden text-emerald-600 font-black text-xs">✓</span>
+                    </div>
+                    ${mainContent}
+                    <div class="w-full flex justify-end">
+                        <span class="text-[10px] text-slate-300">#${card.pairId.toString().slice(-4)}</span>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    handleMatchingCardClick(cardId) {
+        if (!this.mgIsPlaying || this.mgIsLocked) return;
+
+        const card = this.mgCards.find(c => c.id === cardId);
+        if (!card || card.isMatched) return;
+
+        // Check if card is already selected
+        if (this.mgSelectedCards.some(c => c.id === card.id)) return;
+
+        // If in audio mode and clicking word tile: speak word
+        if (this.mgMode === 'audio' && card.type === 'word') {
+            this.speak(card.text, 0.9);
+        }
+
+        // Play click sound
+        if (this.mgSoundEnabled) {
+            this.sfx.playClick();
+        }
+
+        // Visual selection
+        const tileEl = document.getElementById(`tile_${card.id}`);
+        if (tileEl) {
+            tileEl.classList.add('ring-4', 'ring-indigo-400', 'border-indigo-600', 'bg-indigo-50/80', 'scale-[1.02]', 'shadow-md');
+        }
+
+        this.mgSelectedCards.push(card);
+
+        // Check pair if 2 selected
+        if (this.mgSelectedCards.length === 2) {
+            this.mgFlips++;
+            this.checkMatchingPair();
+        }
+    }
+
+    checkMatchingPair() {
+        this.mgIsLocked = true;
+        const [c1, c2] = this.mgSelectedCards;
+        const el1 = document.getElementById(`tile_${c1.id}`);
+        const el2 = document.getElementById(`tile_${c2.id}`);
+
+        const isMatch = c1.pairId === c2.pairId && c1.type !== c2.type;
+
+        if (isMatch) {
+            // MATCH!
+            this.mgMatchedPairs++;
+            c1.isMatched = true;
+            c2.isMatched = true;
+
+            const comboBonus = Math.min(this.mgCombo, 5);
+            const points = 100 * comboBonus;
+            this.mgScore += points;
+
+            if (this.mgMode === 'speed') {
+                this.mgTimeLeft = Math.min(90, this.mgTimeLeft + 3);
+            }
+
+            // Sound
+            if (this.mgSoundEnabled) {
+                this.sfx.playMatch();
+            }
+
+            // Auto TTS
+            if (this.mgAutoTts) {
+                const wordCard = c1.type === 'word' ? c1 : c2;
+                this.speak(wordCard.text, 0.9);
+            }
+
+            // Show combo toast if combo >= 2
+            if (this.mgCombo >= 2) {
+                this.showMatchingComboToast(`🔥 x${this.mgCombo} COMBO! +${points}`);
+            }
+
+            // Increase combo streak
+            this.mgCombo++;
+            if (this.mgCombo > this.mgMaxCombo) {
+                this.mgMaxCombo = this.mgCombo;
+            }
+
+            // Animate matched tiles
+            [el1, el2].forEach(el => {
+                if (el) {
+                    el.className = 'mg-card-tile p-3 sm:p-4 rounded-2xl border-2 flex flex-col justify-between items-center shadow-xs min-h-[92px] sm:min-h-[115px] border-emerald-500 bg-emerald-50/90 text-emerald-950 ring-2 ring-emerald-300 pop-success pointer-events-none';
+                }
+            });
+
+            const check1 = document.getElementById(`check_${c1.id}`);
+            const check2 = document.getElementById(`check_${c2.id}`);
+            if (check1) check1.classList.remove('hidden');
+            if (check2) check2.classList.remove('hidden');
+
+            this.updateMatchingLiveHud();
+            this.mgSelectedCards = [];
+            this.mgIsLocked = false;
+
+            // Check if all pairs matched
+            if (this.mgMatchedPairs === this.mgPairCount) {
+                setTimeout(() => {
+                    this.endMatchingGame(true);
+                }, 400);
+            }
+
+        } else {
+            // MISMATCH!
+            this.mgCombo = 1;
+
+            if (this.mgMode === 'speed') {
+                this.mgTimeLeft = Math.max(0, this.mgTimeLeft - 1);
+            }
+
+            if (this.mgSoundEnabled) {
+                this.sfx.playMismatch();
+            }
+
+            [el1, el2].forEach(el => {
+                if (el) {
+                    el.classList.remove('ring-4', 'ring-indigo-400', 'border-indigo-600', 'bg-indigo-50/80');
+                    el.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900', 'shake-error', 'ring-2', 'ring-rose-300');
+                }
+            });
+
+            this.updateMatchingLiveHud();
+
+            setTimeout(() => {
+                [el1, el2].forEach(el => {
+                    if (el) {
+                        const cardObj = this.mgCards.find(c => `tile_${c.id}` === el.id);
+                        const isWord = cardObj && cardObj.type === 'word';
+                        el.className = `mg-card-tile p-3 sm:p-4 rounded-2xl border-2 cursor-pointer transition-all duration-150 flex flex-col justify-between items-center shadow-2xs active:scale-95 min-h-[92px] sm:min-h-[115px] select-none ${isWord ? 'bg-white border-indigo-200 hover:border-indigo-400 text-indigo-950' : 'bg-slate-50 border-slate-200 hover:border-emerald-400 text-slate-800'}`;
+                    }
+                });
+                this.mgSelectedCards = [];
+                this.mgIsLocked = false;
+            }, 600);
+        }
+    }
+
+    showMatchingComboToast(text) {
+        if (!this.mgComboToast) return;
+        this.mgComboToast.textContent = text;
+        this.mgComboToast.classList.remove('hidden');
+
+        clearTimeout(this.comboToastTimeout);
+        this.comboToastTimeout = setTimeout(() => {
+            if (this.mgComboToast) this.mgComboToast.classList.add('hidden');
+        }, 1100);
+    }
+
+    showMatchingHint() {
+        if (!this.mgIsPlaying || this.mgIsLocked) return;
+
+        // Find first unmatched pair
+        const unmatched = this.mgCards.filter(c => !c.isMatched);
+        if (unmatched.length === 0) return;
+
+        const targetPairId = unmatched[0].pairId;
+        const pairCards = unmatched.filter(c => c.pairId === targetPairId);
+        if (pairCards.length < 2) return;
+
+        // Apply penalty
+        this.mgScore = Math.max(0, this.mgScore - 40);
+        this.updateMatchingLiveHud();
+
+        // Highlight pair for 1.2s
+        pairCards.forEach(c => {
+            const el = document.getElementById(`tile_${c.id}`);
+            if (el) {
+                el.classList.add('ring-4', 'ring-amber-400', 'border-amber-500', 'bg-amber-50', 'scale-105');
+                setTimeout(() => {
+                    el.classList.remove('ring-4', 'ring-amber-400', 'border-amber-500', 'bg-amber-50', 'scale-105');
+                }, 1200);
+            }
+        });
+
+        if (this.mgSoundEnabled) {
+            this.sfx.playTone(880, 'sine', 0.15);
+        }
+    }
+
+    endMatchingGame(isWin = true) {
+        this.pauseMatchingGame();
+
+        // Time bonus in speed mode
+        if (isWin && this.mgMode === 'speed' && this.mgTimeLeft > 0) {
+            const timeBonus = this.mgTimeLeft * 15;
+            this.mgScore += timeBonus;
+        }
+
+        // Calculate accuracy
+        const totalAttempts = Math.max(this.mgFlips, this.mgMatchedPairs);
+        const accuracy = totalAttempts > 0 ? Math.round((this.mgMatchedPairs / totalAttempts) * 100) : 100;
+
+        // Check records
+        let isNewBestScore = false;
+        if (this.mgScore > this.mgBestScore) {
+            this.mgBestScore = this.mgScore;
+            localStorage.setItem('mg_best_score', this.mgBestScore);
+            isNewBestScore = true;
+        }
+        if (this.mgMaxCombo > this.mgBestCombo) {
+            this.mgBestCombo = this.mgMaxCombo;
+            localStorage.setItem('mg_best_combo', this.mgBestCombo);
+        }
+        const timeTaken = this.mgMode === 'speed' ? (60 - this.mgTimeLeft) : this.mgTimeElapsed;
+        if (isWin && (this.mgBestTime === 0 || timeTaken < this.mgBestTime)) {
+            this.mgBestTime = timeTaken;
+            localStorage.setItem('mg_best_time', this.mgBestTime);
+        }
+
+        // Stars
+        let stars = '⭐⭐⭐';
+        let title = 'Hoàn Hảo! Chiến Thắng!';
+        let sub = 'Bạn có phản xạ nhận diện từ vựng siêu nhanh!';
+
+        if (!isWin) {
+            stars = '⏱️';
+            title = 'Hết Giờ!';
+            sub = 'Đồng hồ đếm ngược đã chạm số 0. Hãy thử lại để nối nhanh hơn nhé!';
+        } else if (accuracy < 60) {
+            stars = '⭐';
+            title = 'Hoàn Thành!';
+            sub = 'Bạn đã nối hết các cặp! Hãy cố gắng giảm số lần lật sai ở ván sau.';
+        } else if (accuracy < 85) {
+            stars = '⭐⭐';
+            title = 'Rất Tốt!';
+            sub = 'Phản xạ từ vựng của bạn rất nhạy bén!';
+        }
+
+        if (isNewBestScore && isWin) {
+            title = '🎉 KỶ LỤC MỚI!';
+            sub = `Bạn vừa phá kỷ lục cá nhân với ${this.mgScore.toLocaleString('vi-VN')} điểm!`;
+        }
+
+        // Audio
+        if (this.mgSoundEnabled) {
+            if (isWin) {
+                this.sfx.playVictory();
+            } else {
+                this.sfx.playMismatch();
+            }
+        }
+
+        // Populate summary modal
+        if (this.mgModalStars) this.mgModalStars.textContent = stars;
+        if (this.mgModalTitle) this.mgModalTitle.textContent = title;
+        if (this.mgModalSub) this.mgModalSub.textContent = sub;
+        if (this.mgSumScore) this.mgSumScore.textContent = this.mgScore.toLocaleString('vi-VN');
+        if (this.mgSumTime) this.mgSumTime.textContent = `${Math.max(1, timeTaken)}s`;
+        if (this.mgSumCombo) this.mgSumCombo.textContent = `x${this.mgMaxCombo}`;
+        if (this.mgSumAcc) this.mgSumAcc.textContent = `${accuracy}%`;
+
+        // Render review vocab list
+        if (this.mgSumVocabList && this.mgCurrentRoundItems) {
+            this.mgSumVocabList.innerHTML = this.mgCurrentRoundItems.map(item => {
+                const cleanWord = item.text.replace(/'/g, "\\'");
+                return `
+                    <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+                        <div class="min-w-0 flex-1 pr-2">
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="font-bold text-slate-900">${item.text}</span>
+                                ${item.ipa ? `<span class="text-[11px] text-indigo-600 font-mono">${item.ipa}</span>` : ''}
+                            </div>
+                            <div class="text-slate-600 truncate mt-0.5">${item.meaning}</div>
+                        </div>
+                        <button type="button" class="p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-white shrink-0 transition" title="Nghe phát âm" onclick="app.speak('${cleanWord}', 0.85)">
+                            🔊
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Open summary modal
+        if (this.mgSummaryModal) {
+            this.mgSummaryModal.classList.add('active');
+        }
+    }
+
+    closeMatchingSummaryModal() {
+        if (this.mgSummaryModal) {
+            this.mgSummaryModal.classList.remove('active');
+        }
     }
 }
 

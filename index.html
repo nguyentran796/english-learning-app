@@ -89,6 +89,35 @@
         .wave-bar {
             animation: sound-wave 1s ease-in-out infinite;
         }
+
+        /* Matching Game Animations */
+        @keyframes tile-shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+        .shake-error {
+            animation: tile-shake 0.45s ease-in-out;
+        }
+
+        @keyframes tile-pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+        .pop-success {
+            animation: tile-pop 0.4s ease-out;
+        }
+
+        @keyframes combo-float {
+            0% { opacity: 0; transform: translate(-50%, 8px) scale(0.85); }
+            40% { opacity: 1; transform: translate(-50%, -8px) scale(1.15); }
+            80% { opacity: 1; transform: translate(-50%, -12px) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -24px) scale(0.9); }
+        }
+        .combo-badge-anim {
+            animation: combo-float 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
     </style>
 </head>
 <body class="min-h-full flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
@@ -149,6 +178,9 @@
                 </button>
                 <button data-tab="speaking" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-700 py-2 px-2.5 sm:px-3 text-xs sm:text-sm whitespace-nowrap flex items-center gap-1 shrink-0">
                     🎙️ Luyện Nói AI
+                </button>
+                <button data-tab="matching" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-700 py-2 px-2.5 sm:px-3 text-xs sm:text-sm whitespace-nowrap flex items-center gap-1 shrink-0">
+                    🎮 Game Nối Cặp
                 </button>
                 <button data-tab="quiz" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-700 py-2 px-2.5 sm:px-3 text-xs sm:text-sm whitespace-nowrap flex items-center gap-1 shrink-0">
                     🎯 Trắc Nghiệm
@@ -726,6 +758,253 @@
                         <p class="text-slate-500 leading-relaxed">
                             Khi phụ âm cuối gặp nguyên âm đầu của từ tiếp theo, hãy nối nhẹ nhàng (ví dụ: <em>collaborate on</em> → <em>collaborate-on</em>).
                         </p>
+                    </div>
+                </div>
+
+        </section>
+
+        <!-- TAB 3.6: MINI-GAME MATCHING PAIRS / NỐI CẶP PHẢN XẠ -->
+        <section id="tab-matching" class="tab-content hidden">
+            <div class="max-w-4xl mx-auto space-y-6">
+
+                <!-- Game Header Banner -->
+                <div class="bg-gradient-to-r from-violet-950 via-indigo-900 to-purple-950 rounded-3xl p-5 sm:p-7 text-white shadow-lg relative overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-xs text-purple-200 text-xs font-semibold mb-3">
+                            <span>⚡</span> <span>Speed Vocabulary Match Game</span>
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        </div>
+                        <h2 class="text-xl sm:text-3xl font-extrabold tracking-tight">Mini-Game: Nối Cặp Phản Xạ Thần Tốc</h2>
+                        <p class="text-xs sm:text-sm text-purple-200 mt-1.5 max-w-2xl leading-relaxed">
+                            Thử thách tốc độ nhận diện từ vựng Anh - Việt! Nối đúng các cặp từ càng nhanh càng ghi nhiều điểm, kích hoạt chuỗi Combo rực lửa và phá kỷ lục cá nhân.
+                        </p>
+                    </div>
+
+                    <!-- Floating Badges / Record summary -->
+                    <div class="grid grid-cols-3 gap-2 sm:gap-4 mt-5 pt-4 border-t border-white/10 text-center">
+                        <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-2 sm:p-3">
+                            <div class="text-[10px] sm:text-xs text-purple-200 uppercase font-semibold">🏆 Kỷ lục điểm</div>
+                            <div id="mg-hud-best-score" class="text-base sm:text-2xl font-black text-amber-300">0</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-2 sm:p-3">
+                            <div class="text-[10px] sm:text-xs text-purple-200 uppercase font-semibold">🔥 Chuỗi Combo đỉnh</div>
+                            <div id="mg-hud-best-combo" class="text-base sm:text-2xl font-black text-rose-300">x0</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-2 sm:p-3">
+                            <div class="text-[10px] sm:text-xs text-purple-200 uppercase font-semibold">⏱️ Kỷ lục nhanh nhất</div>
+                            <div id="mg-hud-best-time" class="text-base sm:text-2xl font-black text-emerald-300">--:--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Configuration Panel (Shown when not playing or between rounds) -->
+                <div id="mg-setup-card" class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200 shadow-md space-y-5">
+                    <div class="flex items-center justify-between pb-3 border-b border-slate-100 flex-wrap gap-2">
+                        <h3 class="text-sm sm:text-base font-bold text-slate-900 flex items-center gap-2">
+                            <span>⚙️</span> <span>Cài Đặt Ván Đấu</span>
+                        </h3>
+                        <div class="flex items-center gap-2">
+                            <button id="mg-toggle-sound-btn" type="button" class="text-xs font-semibold px-2.5 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 transition" title="Bật/Tắt hiệu ứng âm thanh">
+                                <span id="mg-sound-icon">🔊</span> <span class="hidden sm:inline">Âm thanh</span>
+                            </button>
+                            <button id="mg-toggle-tts-btn" type="button" class="text-xs font-semibold px-2.5 py-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 transition" title="Tự động phát âm khi nối đúng">
+                                <span id="mg-tts-icon">🗣️</span> <span class="hidden sm:inline">Đọc từ chuẩn</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Modes -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">1. Chọn Chế Độ Chơi:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <button type="button" class="mg-mode-btn active p-3.5 rounded-2xl border-2 border-indigo-600 bg-indigo-50/60 text-left transition" data-mode="speed">
+                                <div class="text-xs sm:text-sm font-bold text-indigo-950 flex items-center justify-between">
+                                    <span>⚡ Tốc Độ (Speed Run)</span>
+                                    <span class="text-[10px] font-black uppercase text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-full">Phổ biến</span>
+                                </div>
+                                <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                                    Đua với đồng hồ 60 giây. Nối đúng mỗi cặp được cộng +3 giây và nhân điểm combo!
+                                </p>
+                            </button>
+
+                            <button type="button" class="mg-mode-btn p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50/50 hover:bg-slate-50 text-left transition" data-mode="classic">
+                                <div class="text-xs sm:text-sm font-bold text-slate-800 flex items-center justify-between">
+                                    <span>🧠 Cổ Điển (Classic)</span>
+                                </div>
+                                <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                                    Không áp lực thời gian. Hoàn thành toàn bộ cặp thẻ với số lần lật ít nhất và thời gian ngắn nhất.
+                                </p>
+                            </button>
+
+                            <button type="button" class="mg-mode-btn p-3.5 rounded-2xl border-2 border-slate-200 bg-slate-50/50 hover:bg-slate-50 text-left transition" data-mode="audio">
+                                <div class="text-xs sm:text-sm font-bold text-slate-800 flex items-center justify-between">
+                                    <span>🎧 Nghe & Nối (Audio Match)</span>
+                                </div>
+                                <p class="text-[11px] text-slate-500 mt-1 leading-snug">
+                                    Thẻ tiếng Anh ẩn chữ, chỉ phát âm thanh giọng bản xứ. Rèn luyện phản xạ nghe cực nhạy!
+                                </p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Grid Size & Topic in 2 columns -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Grid Size / Pair Count -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">2. Số Lượng Cặp Thẻ:</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button type="button" class="mg-size-btn p-2.5 rounded-xl border-2 border-slate-200 text-center text-xs font-bold text-slate-700 hover:bg-slate-50 transition" data-pairs="4">
+                                    4 Cặp (8 thẻ)
+                                </button>
+                                <button type="button" class="mg-size-btn active p-2.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/70 text-center text-xs font-bold text-indigo-900 transition" data-pairs="6">
+                                    6 Cặp (12 thẻ)
+                                </button>
+                                <button type="button" class="mg-size-btn p-2.5 rounded-xl border-2 border-slate-200 text-center text-xs font-bold text-slate-700 hover:bg-slate-50 transition" data-pairs="8">
+                                    8 Cặp (16 thẻ)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Topic Select -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">3. Chủ Đề Từ Vựng:</label>
+                            <select id="mg-topic-select" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm font-medium bg-slate-50 focus:ring-2 focus:ring-indigo-500">
+                                <option value="all">Tất cả chủ đề (502 từ B2-C1)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Start Button -->
+                    <div class="pt-2 text-center">
+                        <button id="mg-start-game-btn" type="button" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-indigo-200 transition active:scale-95 inline-flex items-center justify-center gap-2">
+                            <span>🎮</span> <span>BẮT ĐẦU CHƠI NGAY</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Game Arena (Hidden until started) -->
+                <div id="mg-play-arena" class="hidden space-y-4">
+
+                    <!-- Live Game HUD Bar -->
+                    <div class="bg-white rounded-2xl p-3 sm:p-4 border border-slate-200 shadow-sm flex items-center justify-between gap-2 flex-wrap">
+                        <!-- Timer display -->
+                        <div class="flex items-center gap-2 min-w-[100px]">
+                            <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-base shrink-0">
+                                ⏱️
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Thời gian</div>
+                                <div id="mg-live-timer" class="text-sm sm:text-lg font-black text-slate-900 font-mono">60s</div>
+                            </div>
+                        </div>
+
+                        <!-- Score display -->
+                        <div class="flex items-center gap-2 min-w-[100px]">
+                            <div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-base shrink-0">
+                                🎯
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Điểm số</div>
+                                <div id="mg-live-score" class="text-sm sm:text-lg font-black text-indigo-600 font-mono">0</div>
+                            </div>
+                        </div>
+
+                        <!-- Combo streak badge -->
+                        <div class="flex items-center gap-2 min-w-[100px]">
+                            <div class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-base shrink-0">
+                                🔥
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Combo</div>
+                                <div id="mg-live-combo" class="text-sm sm:text-lg font-black text-rose-600 font-mono">x1</div>
+                            </div>
+                        </div>
+
+                        <!-- Matched Progress -->
+                        <div class="flex items-center gap-2 min-w-[100px]">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-base shrink-0">
+                                🧩
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Tiến độ</div>
+                                <div id="mg-live-progress" class="text-sm sm:text-lg font-black text-emerald-600 font-mono">0 / 6</div>
+                            </div>
+                        </div>
+
+                        <!-- Game actions -->
+                        <div class="flex items-center gap-1.5 ml-auto">
+                            <button id="mg-hint-btn" type="button" class="px-2.5 py-1.5 rounded-xl border border-amber-200 bg-amber-50 text-amber-800 hover:bg-amber-100 text-xs font-bold transition flex items-center gap-1" title="Xem gợi ý 1 cặp (trừ 40 điểm)">
+                                <span>💡</span> <span class="hidden sm:inline">Gợi ý</span>
+                            </button>
+                            <button id="mg-quit-btn" type="button" class="px-2.5 py-1.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 text-xs font-semibold transition" title="Dừng ván đấu">
+                                ✕ Thoát
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar (for speed countdown) -->
+                    <div id="mg-timer-bar-wrap" class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                        <div id="mg-timer-bar" class="bg-indigo-600 h-1.5 rounded-full transition-all duration-300 w-full"></div>
+                    </div>
+
+                    <!-- Floating Combo Toast -->
+                    <div id="mg-combo-toast" class="hidden pointer-events-none fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 px-6 py-3 rounded-2xl bg-slate-900/90 text-amber-300 font-black text-xl sm:text-2xl shadow-2xl backdrop-blur-xs combo-badge-anim">
+                        🔥 x2 COMBO!
+                    </div>
+
+                    <!-- Grid Board Area -->
+                    <div id="mg-grid-board" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3.5 select-none touch-manipulation">
+                        <!-- Dynamically populated card tiles -->
+                    </div>
+                </div>
+
+                <!-- Round Summary / Victory Modal -->
+                <div id="mg-summary-modal" class="modal-overlay fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+                    <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-slate-100 text-center">
+                        <div id="mg-modal-stars" class="text-3xl sm:text-4xl mb-2">⭐⭐⭐</div>
+                        <h3 id="mg-modal-title" class="text-xl sm:text-2xl font-black text-slate-900">Chiến Thắng Xuất Sắc!</h3>
+                        <p id="mg-modal-sub" class="text-xs sm:text-sm text-slate-500 mt-1">Bạn đã hoàn thành thử thách nối cặp phản xạ thành công.</p>
+
+                        <!-- Stats Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-6 text-left">
+                            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Điểm số</div>
+                                <div id="mg-sum-score" class="text-lg font-black text-indigo-600">0</div>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Thời gian</div>
+                                <div id="mg-sum-time" class="text-lg font-black text-slate-900">0s</div>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Max Combo</div>
+                                <div id="mg-sum-combo" class="text-lg font-black text-rose-600">x1</div>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Chính xác</div>
+                                <div id="mg-sum-acc" class="text-lg font-black text-emerald-600">100%</div>
+                            </div>
+                        </div>
+
+                        <!-- Review Vocabulary list from this round -->
+                        <div class="text-left mb-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-slate-700 uppercase tracking-wide">Từ vựng vừa ôn:</span>
+                                <span class="text-[11px] text-slate-400">Chạm 🔊 để nghe âm</span>
+                            </div>
+                            <div id="mg-sum-vocab-list" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="flex items-center justify-center gap-3 pt-2 border-t border-slate-100 flex-wrap">
+                            <button id="mg-modal-again-btn" type="button" class="flex-1 min-w-[140px] px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow-md transition active:scale-95">
+                                🔄 Chơi Ván Tiếp
+                            </button>
+                            <button id="mg-modal-settings-btn" type="button" class="flex-1 min-w-[140px] px-5 py-3 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 font-bold text-xs sm:text-sm transition active:scale-95">
+                                ⚙️ Cài Đặt Khác
+                            </button>
+                        </div>
                     </div>
                 </div>
 

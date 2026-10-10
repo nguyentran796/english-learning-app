@@ -19,7 +19,24 @@
      * **Thẻ Flashcard 3D:** Nút `🎙️ Luyện nói AI` ngay trên mặt thẻ với bảng đánh giá co giãn nhanh gọn.
      * **Bài đọc hiểu & Đối thoại:** Nút `🎙️` cạnh mỗi lượt thoại nhân vật để luyện phát âm theo đúng ngữ cảnh thực tế.
 
-2. **Bộ Dữ Liệu 502 Từ Vựng & Mẫu Câu Nâng Cao (B2 - C1 / Academic & Business):**
+2. **Mini-Game Nối Cặp Phản Xạ Nhanh (Speed Vocabulary Matching Pairs Game):**
+   - **Luyện phản xạ từ vựng đỉnh cao:** Ghép nối thẻ Tiếng Anh (English) với nghĩa Tiếng Việt (Vietnamese) trong giao diện ô vuông bóng bẩy, mượt mà trên cả máy tính và điện thoại.
+   - **3 Chế độ chơi đa dạng:**
+     * ⚡ **Tốc độ (Speed Run):** Đếm ngược 60 giây nghẹt thở, mỗi cặp đúng được cộng dồn +3 giây và nhân điểm combo!
+     * 🧠 **Cổ điển (Classic):** Rèn luyện trí nhớ và tốc độ với đồng hồ bấm giờ tính thời gian hoàn thành và số lượt lật thẻ.
+     * 🎧 **Nghe & Nối (Audio Match):** Ẩn chữ tiếng Anh, phát âm thanh bản xứ TTS trước khi lật thẻ để kiểm tra phản xạ thính giác.
+   - **Quy mô bàn cờ tùy biến:**
+     * 4 cặp (8 ô) – Khởi động nhanh
+     * 6 cặp (12 ô) – Cân bằng tiêu chuẩn
+     * 8 cặp (16 ô) – Thử thách phản xạ cao cấp
+   - **Lọc theo chủ đề:** Tự do chọn chủ đề từ kho hơn 500 từ vựng B2 - C1 để luyện tập tập trung.
+   - **Hệ thống âm thanh sống động (Web Audio API):** Hiệu ứng click, hợp âm khi ghép đúng, âm báo khi ghép sai và nhạc chiến thắng fanfare tổng hợp không cần tải file ngoài. Có nút bật/tắt âm thanh tức thì.
+   - **Tự động phát âm chuẩn TTS:** Đọc to từ vựng tiếng Anh kèm phiên âm IPA ngay khi ghép đúng.
+   - **Gợi ý thông minh (Hint):** Hỗ trợ gợi ý 1 cặp từ khi người chơi bị bí.
+   - **Chuỗi Combo & Kỷ lục cá nhân:** Tính điểm hệ số nhân Combo (`x2`, `x3`, `x4`...) khi ghép liên tiếp; lưu trữ Điểm kỷ lục, Chuỗi Combo dài nhất và Thời gian nhanh nhất vào `localStorage`.
+   - **Bảng tổng kết chiến thắng (Victory Modal):** Đánh giá 1 - 3 Sao ⭐, thống kê số lượt lật, độ chính xác (Accuracy %), danh sách từ vựng trong ván chơi kèm nút nghe lại phát âm 🔊.
+
+3. **Bộ Dữ Liệu 502 Từ Vựng & Mẫu Câu Nâng Cao (B2 - C1 / Academic & Business):**
    - Đầy đủ các chủ đề chuyên sâu:
      * *Tư duy Phản biện & Học thuật (98)*
      * *Công sở, Quản lý & Đàm phán (85)*
@@ -33,17 +50,17 @@
      * *Mẫu câu Giao tiếp Chuyên nghiệp (10)*
    - Mỗi mục đều có: Phiên âm quốc tế IPA, Nghĩa tiếng Việt, Câu ví dụ ngữ cảnh có dịch nghĩa, và Ghi chú ngữ pháp/collocation rõ ràng.
 
-2. **Tối Ưu Hoàn Hảo Cho Thiết Bị Di Động (Mobile Responsive):**
+4. **Tối Ưu Hoàn Hảo Cho Thiết Bị Di Động (Mobile Responsive):**
    - Tương thích 100% với màn hình điện thoại và máy tính bảng.
    - **Hỗ trợ thao tác vuốt cảm ứng (Touch Swipe):** Vuốt sang trái để chuyển từ tiếp theo, vuốt sang phải để quay lại từ trước. Chạm vào thẻ để lật mặt xem nghĩa.
    - Bố cục co giãn thông minh, thanh điều hướng và nút bấm lớn dễ thao tác bằng ngón tay.
 
-3. **Lật Thẻ Flashcard 3D Thông Minh:**
+5. **Lật Thẻ Flashcard 3D Thông Minh:**
    - Mặt trước: Từ/câu tiếng Anh, phiên âm IPA, chủ đề.
    - Mặt sau: Nghĩa tiếng Việt, câu ví dụ thực tế và giải thích chi tiết.
    - Tích hợp phím tắt trên máy tính: Phím `Space` để lật thẻ, `Mũi tên Trái / Phải` để chuyển từ.
 
-4. **Luyện Đọc Hiểu Đoạn Văn & Hội Thoại (Reading & Dialogue Module - 21 Bài Học):**
+6. **Luyện Đọc Hiểu Đoạn Văn & Hội Thoại (Reading & Dialogue Module - 21 Bài Học):**
    - **Kho 21 bài đọc & đối thoại chuyên sâu (B1 - C1):**
      * *💬 Contract Negotiation & Scope Alignment* (Đàm phán hợp đồng phần mềm)
      * *📰 The Transformative Role of AI in Contemporary Medicine* (AI trong y khoa hiện đại)
@@ -74,14 +91,14 @@
    - **Bản dịch song ngữ linh hoạt:** Nút bấm bật/tắt bản dịch tiếng Việt song song từng câu thoại hoặc đoạn văn.
    - **105 từ vựng trọng tâm:** Tổng hợp các cụm từ đắt giá của từng bài kèm phiên âm IPA, nghĩa tiếng Việt và phát âm riêng.
 
-5. **Phát Âm Bản Xứ Tích Hợp (Text-to-Speech):**
+7. **Phát Âm Bản Xứ Tích Hợp (Text-to-Speech):**
    - Hỗ trợ phát âm chuẩn tiếng Anh bản xứ với nhiều mức tốc độ giúp rèn luyện kỹ năng nghe và nói.
 
-6. **Trắc Nghiệm Phản Xạ Nhanh Từ Vựng (Vocabulary Quiz):**
+8. **Trắc Nghiệm Phản Xạ Nhanh Từ Vựng (Vocabulary Quiz):**
    - Tự động tạo bài kiểm tra 10 câu trắc nghiệm ngẫu nhiên từ kho từ vựng.
    - Chấm điểm tức thì kèm giải thích chi tiết khi chọn sai.
 
-7. **Lưu Trữ Tự Động & Sao Lưu (JSON):**
+9. **Lưu Trữ Tự Động & Sao Lưu (JSON):**
    - Tự động lưu trên trình duyệt (`localStorage`).
    - Hỗ trợ Xuất/Nhập file JSON để đồng bộ dữ liệu dễ dàng giữa các thiết bị.
 
