@@ -1,3 +1,306 @@
+// ================= AI PRONUNCIATION EVALUATOR =================
+class PronunciationEvaluator {
+    levenshtein(a, b) {
+        const matrix = [];
+        for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+        for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+        for (let i = 1; i <= b.length; i++) {
+            for (let j = 1; j <= a.length; j++) {
+                if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                    matrix[i][j] = matrix[i - 1][j - 1];
+                } else {
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j - 1] + 1,
+                        matrix[i][j - 1] + 1,
+                        matrix[i - 1][j] + 1
+                    );
+                }
+            }
+        }
+        return matrix[b.length][a.length];
+    }
+
+    wordSimilarity(w1, w2) {
+        if (!w1 || !w2) return 0;
+        if (w1 === w2) return 1.0;
+        const maxLen = Math.max(w1.length, w2.length);
+        if (maxLen === 0) return 1.0;
+        const dist = this.levenshtein(w1, w2);
+        return Math.max(0, 1 - dist / maxLen);
+    }
+
+    cleanWord(w) {
+        return (w || '').toLowerCase().replace(/[.,/#!$%^&*;:{}=\-_`~()?'’"“”…–—]/g, '').trim();
+    }
+
+    evaluate(targetText, spokenText) {
+        const rawTargetWords = (targetText || '').trim().split(/\s+/).filter(Boolean);
+        const targetClean = rawTargetWords.map(w => this.cleanWord(w));
+        const spokenClean = (spokenText || '').trim().split(/\s+/).map(w => this.cleanWord(w)).filter(Boolean);
+
+        const n = targetClean.length;
+        const m = spokenClean.length;
+        if (n === 0) {
+            return {
+                overallScore: 0,
+                verdict: 'Chưa có văn bản mẫu',
+                feedback: 'Không tìm thấy câu hoặc từ cần phát âm.',
+                badgeClass: 'bg-slate-100 text-slate-700 border-slate-300',
+                scoreColorClass: 'text-slate-600',
+                tokens: [],
+                targetText,
+                spokenText
+            };
+        }
+
+        if (m === 0) {
+            return {
+                overallScore: 0,
+                verdict: 'Chưa nghe thấy giọng nói 🔇',
+                feedback: 'AI chưa thu được âm thanh rõ ràng. Hãy kiểm tra lại micro và thử nói to hơn nhé.',
+                badgeClass: 'bg-rose-100 text-rose-800 border-rose-300',
+                scoreColorClass: 'text-rose-600',
+                tokens: rawTargetWords.map(rawW => ({
+                    raw: rawW,
+                    clean: this.cleanWord(rawW),
+                    spoken: null,
+                    similarity: 0,
+                    status: 'missed',
+                    score: 0
+                })),
+                targetText,
+                spokenText: ''
+            };
+        }
+
+        // Needleman-Wunsch sequence alignment
+        const dp = Array.from({ length: n + 1 }, () => Array(m + 1).fill(0));
+
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= m; j++) {
+                const sim = this.wordSimilarity(targetClean[i - 1], spokenClean[j - 1]);
+                const matchScore = sim >= 0.5 ? (sim >= 0.85 ? 2.0 : sim * 1.5) : -0.5;
+                dp[i][j] = Math.max(
+                    dp[i - 1][j - 1] + matchScore,
+                    dp[i - 1][j] - 0.2,
+                    dp[i][j - 1] - 0.2
+                );
+            }
+        }
+
+        // Backtrack to find aligned pairs
+        let i = n, j = m;
+        const matches = new Map();
+        while (i > 0 && j > 0) {
+            const sim = this.wordSimilarity(targetClean[i - 1], spokenClean[j - 1]);
+            const matchScore = sim >= 0.5 ? (sim >= 0.85 ? 2.0 : sim * 1.5) : -0.5;
+            if (Math.abs(dp[i][j] - (dp[i - 1][j - 1] + matchScore)) < 0.001) {
+                if (sim >= 0.5) {
+                    matches.set(i - 1, { spokenIdx: j - 1, spokenWord: spokenClean[j - 1], sim });
+                }
+                i--; j--;
+            } else if (dp[i][j] === dp[i - 1][j] - 0.2) {
+                i--;
+            } else {
+                j--;
+            }
+        }
+
+        let totalScore = 0;
+        const tokens = targetClean.map((targetW, idx) => {
+            const rawW = rawTargetWords[idx];
+            const match = matches.get(idx);
+            if (!match) {
+                return {
+                    raw: rawW,
+                    clean: targetW,
+                    spoken: null,
+                    similarity: 0,
+                    status: 'missed',
+                    score: 0
+                };
+            }
+            const sim = match.sim;
+            let status = 'missed';
+            let score = 0;
+            if (sim >= 0.85) {
+                status = 'correct';
+                score = 100;
+            } else if (sim >= 0.50) {
+                status = 'close';
+                score = Math.round(sim * 100);
+            }
+            totalScore += score;
+            return {
+                raw: rawW,
+                clean: targetW,
+                spoken: match.spokenWord,
+                similarity: Math.round(sim * 100),
+                status,
+                score
+            };
+        });
+
+        const overallScore = Math.min(100, Math.max(0, Math.round(totalScore / n)));
+
+        let verdict = 'Cần luyện thêm 🔄';
+        let feedback = 'Chưa nhận diện chính xác nhiều từ. Bạn hãy nghe mẫu vài lần, chú ý nhấn trọng âm và nói dứt khoát hơn nhé.';
+        let badgeClass = 'bg-rose-100 text-rose-800 border-rose-300';
+        let scoreColorClass = 'text-rose-600';
+
+        if (overallScore >= 90) {
+            verdict = 'Xuất sắc! 🎉';
+            feedback = 'Phát âm rất chuẩn xác! Các âm tiết rõ ràng, ngữ điệu tự nhiên và chuẩn bản xứ.';
+            badgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-300';
+            scoreColorClass = 'text-emerald-600';
+        } else if (overallScore >= 75) {
+            verdict = 'Rất tốt! ⭐';
+            feedback = 'Phát âm khá tốt, người bản xứ nghe hiểu dễ dàng. Hãy bấm vào các từ màu cam để nghe lại và chuốt âm gió nhé.';
+            badgeClass = 'bg-blue-100 text-blue-800 border-blue-300';
+            scoreColorClass = 'text-blue-600';
+        } else if (overallScore >= 50) {
+            verdict = 'Cần cải thiện 💪';
+            feedback = 'Có một số từ phát âm chưa chuẩn hoặc bị nuốt âm đuôi. Bấm vào nút "Nghe chậm" rồi bấm từng từ để sửa lỗi nhé.';
+            badgeClass = 'bg-amber-100 text-amber-800 border-amber-300';
+            scoreColorClass = 'text-amber-600';
+        }
+
+        return {
+            overallScore,
+            verdict,
+            feedback,
+            badgeClass,
+            scoreColorClass,
+            tokens,
+            targetText,
+            spokenText
+        };
+    }
+}
+
+// ================= SPEECH RECOGNITION MANAGER =================
+class SpeechPracticeManager {
+    constructor() {
+        const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+        this.SpeechRecClass = SpeechRec || null;
+        this.recognition = null;
+        this.isRecording = false;
+        this.callbacks = null;
+    }
+
+    static isSupported() {
+        return !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+    }
+
+    start(callbacks = {}) {
+        if (!SpeechPracticeManager.isSupported()) {
+            if (callbacks.onError) {
+                callbacks.onError({
+                    error: 'not-supported',
+                    message: 'Trình duyệt hiện tại chưa hỗ trợ Web Speech API. Bạn nên mở web bằng Google Chrome hoặc Microsoft Edge để nhận diện giọng nói mượt mà nhất!'
+                });
+            }
+            return false;
+        }
+
+        // Cancel any active TTS playback to avoid audio echoing into mic
+        if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+        }
+
+        this.stop();
+
+        this.callbacks = callbacks;
+        this.recognition = new this.SpeechRecClass();
+        this.recognition.lang = callbacks.lang || 'en-US';
+        this.recognition.continuous = false;
+        this.recognition.interimResults = true;
+        this.recognition.maxAlternatives = 1;
+
+        let finalTranscript = '';
+
+        this.recognition.onstart = () => {
+            this.isRecording = true;
+            if (this.callbacks && this.callbacks.onStart) {
+                this.callbacks.onStart();
+            }
+        };
+
+        this.recognition.onresult = (event) => {
+            let interim = '';
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                const res = event.results[i];
+                if (res.isFinal) {
+                    finalTranscript += res[0].transcript + ' ';
+                } else {
+                    interim += res[0].transcript;
+                }
+            }
+
+            if (this.callbacks && this.callbacks.onInterim) {
+                this.callbacks.onInterim(interim || finalTranscript);
+            }
+        };
+
+        this.recognition.onerror = (event) => {
+            let userMsg = 'Đã xảy ra lỗi khi nhận diện giọng nói.';
+            if (event.error === 'not-allowed') {
+                userMsg = 'Quyền truy cập micro đã bị chặn. Vui lòng nhấn vào biểu tượng ổ khóa bên trái thanh địa chỉ trình duyệt để Cho phép Micro.';
+            } else if (event.error === 'no-speech') {
+                userMsg = 'Chưa nhận diện được giọng nói. Bạn hãy thử lại và nói to hơn vào micro nhé.';
+            } else if (event.error === 'audio-capture') {
+                userMsg = 'Không tìm thấy thiết bị micro. Hãy cắm tai nghe hoặc kiểm tra cài đặt âm thanh.';
+            } else if (event.error === 'network') {
+                userMsg = 'Lỗi kết nối mạng của dịch vụ nhận diện giọng nói.';
+            }
+
+            if (this.callbacks && this.callbacks.onError) {
+                this.callbacks.onError({ error: event.error, message: userMsg });
+            }
+        };
+
+        this.recognition.onend = () => {
+            this.isRecording = false;
+            const resText = finalTranscript.trim();
+            if (this.callbacks && this.callbacks.onResult) {
+                this.callbacks.onResult(resText);
+            }
+            if (this.callbacks && this.callbacks.onEnd) {
+                this.callbacks.onEnd();
+            }
+        };
+
+        try {
+            this.recognition.start();
+            return true;
+        } catch (e) {
+            console.error('SpeechRecognition start error:', e);
+            if (callbacks.onError) {
+                callbacks.onError({ error: 'start-failed', message: 'Không thể khởi động micro: ' + e.message });
+            }
+            return false;
+        }
+    }
+
+    stop() {
+        if (this.recognition && this.isRecording) {
+            try {
+                this.recognition.stop();
+            } catch (e) {}
+        }
+        this.isRecording = false;
+    }
+
+    abort() {
+        if (this.recognition) {
+            try {
+                this.recognition.abort();
+            } catch (e) {}
+        }
+        this.isRecording = false;
+    }
+}
+
 // App logic for English Learning Companion
 class EnglishApp {
     constructor() {
@@ -17,6 +320,15 @@ class EnglishApp {
         this.flashcardIndex = 0;
         this.isFlipped = false;
         this.flashcardList = [];
+
+        // Speech Practice & Recognition State
+        this.evaluator = new PronunciationEvaluator();
+        this.speechManager = new SpeechPracticeManager();
+        this.spMode = 'words'; // words | sentences | dialogues
+        this.spIndex = 0;
+        this.spTopic = 'all';
+        this.spIsRecording = false;
+        this.fcIsRecording = false;
 
         // Quiz State
         this.quizQuestions = [];
@@ -128,6 +440,22 @@ class EnglishApp {
         this.fcSpeakSlowBtn = document.getElementById('fc-speak-slow-btn');
         this.fcMasterBtn = document.getElementById('fc-master-btn');
 
+        // Flashcard Speech elements
+        this.fcMicBtn = document.getElementById('fc-mic-btn');
+        this.fcSpeechBox = document.getElementById('fc-speech-box');
+        this.fcSpeechCloseBtn = document.getElementById('fc-speech-close-btn');
+        this.fcSpeechStatusText = document.getElementById('fc-speech-status-text');
+        this.fcSpeechRecBtn = document.getElementById('fc-speech-rec-btn');
+        this.fcSpeechRecText = document.getElementById('fc-speech-rec-text');
+        this.fcSpeechMicDot = document.getElementById('fc-speech-mic-dot');
+        this.fcSpeechInterimBox = document.getElementById('fc-speech-interim-box');
+        this.fcSpeechInterimText = document.getElementById('fc-speech-interim-text');
+        this.fcSpeechResultBox = document.getElementById('fc-speech-result-box');
+        this.fcSpeechScore = document.getElementById('fc-speech-score');
+        this.fcSpeechVerdict = document.getElementById('fc-speech-verdict');
+        this.fcSpeechTokens = document.getElementById('fc-speech-tokens');
+        this.fcSpeechSpoken = document.getElementById('fc-speech-spoken');
+
         // Library elements
         this.libraryContainer = document.getElementById('library-list');
         this.searchInput = document.getElementById('search-input');
@@ -195,6 +523,43 @@ class EnglishApp {
         this.readingQuizScoreBanner = document.getElementById('reading-quiz-score-banner');
         this.readingSubmitQuizBtn = document.getElementById('reading-submit-quiz-btn');
         this.readingRetryQuizBtn = document.getElementById('reading-retry-quiz-btn');
+
+        // Speaking Lab elements
+        this.spModeBtns = document.querySelectorAll('.sp-mode-btn');
+        this.spTopicSelect = document.getElementById('sp-topic-select');
+        this.spRandomBtn = document.getElementById('sp-random-btn');
+        this.spTargetBadge = document.getElementById('sp-target-badge');
+        this.spTargetTopic = document.getElementById('sp-target-topic');
+        this.spProgressText = document.getElementById('sp-progress-text');
+        this.spTargetText = document.getElementById('sp-target-text');
+        this.spTargetIpa = document.getElementById('sp-target-ipa');
+        this.spTargetMeaning = document.getElementById('sp-target-meaning');
+        this.spTargetExampleBox = document.getElementById('sp-target-example-box');
+        this.spTargetExample = document.getElementById('sp-target-example');
+        this.spListenStdBtn = document.getElementById('sp-listen-std-btn');
+        this.spListenSlowBtn = document.getElementById('sp-listen-slow-btn');
+        this.spRecordBtn = document.getElementById('sp-record-btn');
+        this.spPulseRing = document.getElementById('sp-pulse-ring');
+        this.spWaveBars = document.getElementById('sp-wave-bars');
+        this.spRecordIcon = document.getElementById('sp-record-icon');
+        this.spRecordSub = document.getElementById('sp-record-sub');
+        this.spStatusText = document.getElementById('sp-status-text');
+        this.spInterimBox = document.getElementById('sp-interim-box');
+        this.spInterimText = document.getElementById('sp-interim-text');
+        this.spToggleFallbackBtn = document.getElementById('sp-toggle-fallback-btn');
+        this.spFallbackInputBox = document.getElementById('sp-fallback-input-box');
+        this.spFallbackInput = document.getElementById('sp-fallback-input');
+        this.spFallbackSubmitBtn = document.getElementById('sp-fallback-submit-btn');
+        this.spResultCard = document.getElementById('sp-result-card');
+        this.spResultScore = document.getElementById('sp-result-score');
+        this.spResultBadge = document.getElementById('sp-result-badge');
+        this.spResultFeedback = document.getElementById('sp-result-feedback');
+        this.spCompTarget = document.getElementById('sp-comp-target');
+        this.spCompSpoken = document.getElementById('sp-comp-spoken');
+        this.spTokensContainer = document.getElementById('sp-tokens-container');
+        this.spRetryBtn = document.getElementById('sp-retry-btn');
+        this.spPrevBtn = document.getElementById('sp-prev-btn');
+        this.spNextBtn = document.getElementById('sp-next-btn');
     }
 
     initEvents() {
@@ -366,6 +731,94 @@ class EnglishApp {
         if (this.readingRetryQuizBtn) {
             this.readingRetryQuizBtn.addEventListener('click', () => this.retryReadingQuiz());
         }
+
+        // Flashcard Speech Events
+        if (this.fcMicBtn) {
+            this.fcMicBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleFlashcardSpeechBox();
+            });
+        }
+        if (this.fcSpeechCloseBtn) {
+            this.fcSpeechCloseBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.closeFlashcardSpeechBox();
+            });
+        }
+        if (this.fcSpeechRecBtn) {
+            this.fcSpeechRecBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleFlashcardRecording();
+            });
+        }
+
+        // Speaking Lab Events
+        if (this.spModeBtns) {
+            this.spModeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    this.setSpeakingMode(btn.dataset.mode);
+                });
+            });
+        }
+        if (this.spTopicSelect) {
+            this.spTopicSelect.addEventListener('change', (e) => {
+                this.spTopic = e.target.value;
+                this.spIndex = 0;
+                this.renderSpeakingLab();
+            });
+        }
+        if (this.spRandomBtn) {
+            this.spRandomBtn.addEventListener('click', () => this.randomSpeakingItem());
+        }
+        if (this.spListenStdBtn) {
+            this.spListenStdBtn.addEventListener('click', () => this.listenCurrentSpeakingTarget(1.0));
+        }
+        if (this.spListenSlowBtn) {
+            this.spListenSlowBtn.addEventListener('click', () => this.listenCurrentSpeakingTarget(0.7));
+        }
+        if (this.spRecordBtn) {
+            this.spRecordBtn.addEventListener('click', () => this.toggleSpeakingLabRecording());
+        }
+        if (this.spToggleFallbackBtn) {
+            this.spToggleFallbackBtn.addEventListener('click', () => {
+                if (this.spFallbackInputBox) {
+                    this.spFallbackInputBox.classList.toggle('hidden');
+                    if (!this.spFallbackInputBox.classList.contains('hidden') && this.spFallbackInput) {
+                        this.spFallbackInput.focus();
+                    }
+                }
+            });
+        }
+        if (this.spFallbackSubmitBtn) {
+            this.spFallbackSubmitBtn.addEventListener('click', () => {
+                if (this.spFallbackInput) {
+                    const text = this.spFallbackInput.value.trim();
+                    if (text) {
+                        this.evaluateSpeakingInput(text);
+                        this.spFallbackInput.value = '';
+                    }
+                }
+            });
+        }
+        if (this.spFallbackInput) {
+            this.spFallbackInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (this.spFallbackSubmitBtn) this.spFallbackSubmitBtn.click();
+                }
+            });
+        }
+        if (this.spRetryBtn) {
+            this.spRetryBtn.addEventListener('click', () => {
+                this.toggleSpeakingLabRecording();
+            });
+        }
+        if (this.spPrevBtn) {
+            this.spPrevBtn.addEventListener('click', () => this.prevSpeakingItem());
+        }
+        if (this.spNextBtn) {
+            this.spNextBtn.addEventListener('click', () => this.nextSpeakingItem());
+        }
     }
 
     switchTab(tabId) {
@@ -394,10 +847,18 @@ class EnglishApp {
             this.renderLibrary();
         } else if (tabId === 'reading') {
             this.initReadingModule();
+        } else if (tabId === 'speaking') {
+            this.initSpeakingLab();
         }
 
         if (tabId !== 'reading') {
             this.stopReadingTTS();
+        }
+        if (tabId !== 'speaking') {
+            this.stopSpeakingLabRecording();
+        }
+        if (tabId !== 'flashcard') {
+            this.closeFlashcardSpeechBox();
         }
     }
 
@@ -407,6 +868,7 @@ class EnglishApp {
         this.updateFlashcardList();
         this.renderLibrary();
         this.initReadingModule();
+        this.initSpeakingLab();
     }
 
     refreshStats() {
@@ -1133,9 +1595,14 @@ class EnglishApp {
                                     <span class="text-xs ${nameColor}">${turn.speaker}</span>
                                     ${genderBadge}
                                 </div>
-                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white transition" title="Nghe giọng này" onclick="app.speakReadingLine(${idx})">
-                                    <span>🔊</span>
-                                </button>
+                                <div class="flex items-center gap-1">
+                                    <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white transition" title="Nghe giọng này" onclick="app.speakReadingLine(${idx})">
+                                        <span>🔊</span>
+                                    </button>
+                                    <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white transition" title="Luyện đọc câu này cùng AI" onclick="app.practiceDialogueLine(${idx})">
+                                        <span>🎙️</span>
+                                    </button>
+                                </div>
                             </div>
                             <p class="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">${turn.text}</p>
                             ${this.showReadingTranslation && lineTrans ? `
@@ -1162,9 +1629,14 @@ class EnglishApp {
                     <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-indigo-200 transition">
                         <div class="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-200/50">
                             <span class="text-[11px] sm:text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full">Đoạn ${idx + 1}</span>
-                            <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-indigo-600 px-2 py-1 rounded-lg hover:bg-white transition" onclick="app.speakReadingParagraph(${idx})">
-                                <span>🔊</span> <span class="hidden sm:inline">Nghe đoạn</span>
-                            </button>
+                            <div class="flex items-center gap-1">
+                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-indigo-600 px-2 py-1 rounded-lg hover:bg-white transition" onclick="app.speakReadingParagraph(${idx})">
+                                    <span>🔊</span> <span class="hidden sm:inline">Nghe đoạn</span>
+                                </button>
+                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-indigo-600 px-2 py-1 rounded-lg hover:bg-white transition" title="Luyện đọc câu này cùng AI" onclick="app.practiceReadingParagraph(${idx})">
+                                    <span>🎙️</span> <span class="hidden sm:inline">Luyện đọc</span>
+                                </button>
+                            </div>
                         </div>
                         <p class="text-xs sm:text-sm sm:leading-relaxed text-slate-800 font-normal leading-relaxed">${para}</p>
                         ${this.showReadingTranslation && paraTrans ? `
@@ -1465,6 +1937,515 @@ class EnglishApp {
             this.refreshAll();
             alert("Đã khôi phục dữ liệu ban đầu!");
         }
+    }
+
+    // ================= FLASHCARD PRONUNCIATION METHODS =================
+    toggleFlashcardSpeechBox() {
+        if (!this.fcSpeechBox) return;
+        const isHidden = this.fcSpeechBox.classList.contains('hidden');
+        if (isHidden) {
+            this.fcSpeechBox.classList.remove('hidden');
+            if (this.fcSpeechResultBox) this.fcSpeechResultBox.classList.add('hidden');
+            if (this.fcSpeechInterimBox) this.fcSpeechInterimBox.classList.add('hidden');
+            if (this.fcSpeechStatusText) this.fcSpeechStatusText.textContent = 'Sẵn sàng. Chạm "Nói ngay" để bắt đầu.';
+            this.toggleFlashcardRecording();
+        } else {
+            this.closeFlashcardSpeechBox();
+        }
+    }
+
+    closeFlashcardSpeechBox() {
+        if (!this.fcSpeechBox) return;
+        this.fcSpeechBox.classList.add('hidden');
+        if (this.fcIsRecording) {
+            this.speechManager.stop();
+            this.fcIsRecording = false;
+        }
+    }
+
+    toggleFlashcardRecording() {
+        if (this.flashcardList.length === 0) return;
+        const currentItem = this.flashcardList[this.flashcardIndex];
+        const targetText = currentItem.text;
+
+        if (this.fcIsRecording) {
+            this.speechManager.stop();
+            this.fcIsRecording = false;
+            if (this.fcSpeechRecText) this.fcSpeechRecText.textContent = 'Nói ngay';
+            if (this.fcSpeechMicDot) this.fcSpeechMicDot.className = 'w-3 h-3 rounded-full bg-slate-300 shrink-0';
+            return;
+        }
+
+        this.fcIsRecording = true;
+        if (this.fcSpeechRecText) this.fcSpeechRecText.textContent = 'Dừng';
+        if (this.fcSpeechMicDot) this.fcSpeechMicDot.className = 'w-3 h-3 rounded-full bg-rose-500 animate-ping shrink-0';
+        if (this.fcSpeechStatusText) this.fcSpeechStatusText.textContent = '🔴 Đang nghe... Hãy nói to: "' + targetText + '"';
+        if (this.fcSpeechInterimBox) this.fcSpeechInterimBox.classList.remove('hidden');
+        if (this.fcSpeechInterimText) this.fcSpeechInterimText.textContent = '...';
+
+        this.speechManager.start({
+            lang: 'en-US',
+            onStart: () => {
+                if (this.fcSpeechStatusText) this.fcSpeechStatusText.textContent = '🔴 Đang nghe... Hãy đọc to: "' + targetText + '"';
+            },
+            onInterim: (interim) => {
+                if (this.fcSpeechInterimText) this.fcSpeechInterimText.textContent = interim;
+            },
+            onResult: (spoken) => {
+                this.evaluateFlashcardPronunciation(spoken);
+            },
+            onError: (err) => {
+                if (this.fcSpeechStatusText) this.fcSpeechStatusText.textContent = '⚠️ ' + err.message;
+                if (this.fcSpeechInterimBox) this.fcSpeechInterimBox.classList.add('hidden');
+            },
+            onEnd: () => {
+                this.fcIsRecording = false;
+                if (this.fcSpeechRecText) this.fcSpeechRecText.textContent = 'Nói ngay';
+                if (this.fcSpeechMicDot) this.fcSpeechMicDot.className = 'w-3 h-3 rounded-full bg-slate-300 shrink-0';
+            }
+        });
+    }
+
+    evaluateFlashcardPronunciation(spokenText) {
+        if (this.flashcardList.length === 0) return;
+        const targetText = this.flashcardList[this.flashcardIndex].text;
+        const evalResult = this.evaluator.evaluate(targetText, spokenText);
+
+        if (this.fcSpeechInterimBox) this.fcSpeechInterimBox.classList.add('hidden');
+        if (this.fcSpeechResultBox) this.fcSpeechResultBox.classList.remove('hidden');
+
+        if (this.fcSpeechScore) {
+            this.fcSpeechScore.textContent = `${evalResult.overallScore}%`;
+            this.fcSpeechScore.className = `text-2xl font-black ${evalResult.scoreColorClass}`;
+        }
+        if (this.fcSpeechVerdict) {
+            this.fcSpeechVerdict.textContent = evalResult.verdict;
+            this.fcSpeechVerdict.className = `text-xs font-bold px-2.5 py-1 rounded-full ${evalResult.badgeClass}`;
+        }
+        if (this.fcSpeechSpoken) {
+            this.fcSpeechSpoken.textContent = spokenText ? `"${spokenText}"` : '(Không nghe thấy)';
+        }
+        if (this.fcSpeechStatusText) {
+            this.fcSpeechStatusText.textContent = `Đã chấm điểm: ${evalResult.overallScore}% - ${evalResult.verdict}`;
+        }
+
+        this.renderFlashcardTokens(evalResult.tokens);
+    }
+
+    renderFlashcardTokens(tokens) {
+        if (!this.fcSpeechTokens) return;
+        if (!tokens || tokens.length === 0) {
+            this.fcSpeechTokens.innerHTML = '';
+            return;
+        }
+
+        const colorClasses = {
+            correct: 'bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100',
+            close: 'bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100',
+            missed: 'bg-rose-50 text-rose-800 border-rose-300 hover:bg-rose-100'
+        };
+
+        this.fcSpeechTokens.innerHTML = tokens.map(t => {
+            const icon = t.status === 'correct' ? '✓' : (t.status === 'close' ? '⚠️' : '✗');
+            const scoreLabel = t.status === 'missed' ? '0%' : `${t.score}%`;
+            const cleanEscaped = t.clean.replace(/'/g, "\\'");
+            return `
+                <button type="button"
+                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl border text-xs font-semibold transition cursor-pointer active:scale-95 ${colorClasses[t.status]}"
+                        title="Nghe lại âm chuẩn từ: ${t.clean}"
+                        onclick="app.speak('${cleanEscaped}', 0.8)">
+                    <span>${icon}</span>
+                    <span>${t.raw}</span>
+                    <span class="text-[10px] opacity-75 font-mono">(${scoreLabel})</span>
+                    <span class="text-[10px]">🔊</span>
+                </button>
+            `;
+        }).join('');
+    }
+
+    // ================= SPEAKING LAB METHODS =================
+    initSpeakingLab() {
+        this.updateSpeakingModeButtons();
+        this.updateSpeakingTopicDropdown();
+        this.renderSpeakingLab();
+    }
+
+    setSpeakingMode(mode) {
+        if (this.spMode === mode) return;
+        this.spMode = mode;
+        this.spIndex = 0;
+        this.updateSpeakingModeButtons();
+        this.updateSpeakingTopicDropdown();
+        this.renderSpeakingLab();
+    }
+
+    updateSpeakingModeButtons() {
+        if (!this.spModeBtns) return;
+        this.spModeBtns.forEach(btn => {
+            if (btn.dataset.mode === this.spMode) {
+                btn.className = 'sp-mode-btn active px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-600 text-white transition shadow-xs';
+            } else {
+                btn.className = 'sp-mode-btn px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+            }
+        });
+    }
+
+    updateSpeakingTopicDropdown() {
+        if (!this.spTopicSelect) return;
+        let topics = [];
+        if (this.spMode === 'words') {
+            topics = Array.from(new Set(this.items.filter(i => i.type === 'vocab').map(i => i.topic))).filter(Boolean);
+        } else if (this.spMode === 'sentences') {
+            topics = Array.from(new Set(this.items.filter(i => i.type === 'sentence').map(i => i.topic))).filter(Boolean);
+        } else if (this.spMode === 'dialogues') {
+            if (window.READING_DATA && Array.isArray(window.READING_DATA)) {
+                topics = Array.from(new Set(window.READING_DATA.filter(r => r.type === 'conversation').map(r => r.topic))).filter(Boolean);
+            }
+        }
+
+        let html = '<option value="all">Tất cả chủ đề</option>';
+        topics.forEach(t => {
+            html += `<option value="${t}" ${this.spTopic === t ? 'selected' : ''}>${t}</option>`;
+        });
+        this.spTopicSelect.innerHTML = html;
+    }
+
+    getSpeakingItems() {
+        if (this.spMode === 'words') {
+            const list = this.items.filter(i => i.type === 'vocab');
+            return this.spTopic === 'all' ? list : list.filter(i => i.topic === this.spTopic);
+        } else if (this.spMode === 'sentences') {
+            const list = this.items.filter(i => i.type === 'sentence');
+            return this.spTopic === 'all' ? list : list.filter(i => i.topic === this.spTopic);
+        } else if (this.spMode === 'dialogues') {
+            const list = [];
+            if (window.READING_DATA && Array.isArray(window.READING_DATA)) {
+                window.READING_DATA.forEach(r => {
+                    if (r.type === 'conversation' && Array.isArray(r.content)) {
+                        r.content.forEach((turn, idx) => {
+                            list.push({
+                                id: `dial_${r.id}_${idx}`,
+                                text: turn.text,
+                                ipa: '',
+                                meaning: `[${turn.speaker}] ${r.title}`,
+                                example: turn.vietnamese || '',
+                                topic: r.topic || 'Hội thoại',
+                                type: 'dialogue'
+                            });
+                        });
+                    }
+                });
+            }
+            return this.spTopic === 'all' ? list : list.filter(i => i.topic === this.spTopic);
+        }
+        return this.items;
+    }
+
+    renderSpeakingLab() {
+        const items = this.getSpeakingItems();
+        if (!items || items.length === 0) {
+            if (this.spTargetText) this.spTargetText.textContent = 'Chưa có dữ liệu';
+            if (this.spTargetIpa) this.spTargetIpa.textContent = '';
+            if (this.spTargetMeaning) this.spTargetMeaning.textContent = 'Hãy chọn chủ đề hoặc chế độ khác.';
+            if (this.spProgressText) this.spProgressText.textContent = '0 / 0';
+            return;
+        }
+
+        if (this.spIndex >= items.length) {
+            this.spIndex = 0;
+        }
+
+        const current = items[this.spIndex];
+
+        if (this.spTargetBadge) {
+            this.spTargetBadge.textContent = this.spMode === 'words' ? 'Từ vựng' : (this.spMode === 'sentences' ? 'Mẫu câu' : 'Hội thoại');
+        }
+        if (this.spTargetTopic) {
+            this.spTargetTopic.textContent = current.topic || 'Chung';
+        }
+        if (this.spProgressText) {
+            this.spProgressText.textContent = `Mục ${this.spIndex + 1} / ${items.length}`;
+        }
+        if (this.spTargetText) {
+            this.spTargetText.textContent = current.text;
+        }
+        if (this.spTargetIpa) {
+            this.spTargetIpa.textContent = current.ipa || '';
+            this.spTargetIpa.classList.toggle('hidden', !current.ipa);
+        }
+        if (this.spTargetMeaning) {
+            this.spTargetMeaning.textContent = current.meaning;
+        }
+        if (this.spTargetExampleBox && this.spTargetExample) {
+            if (current.example) {
+                this.spTargetExampleBox.classList.remove('hidden');
+                this.spTargetExample.textContent = `"${current.example}"`;
+            } else {
+                this.spTargetExampleBox.classList.add('hidden');
+            }
+        }
+
+        // Reset recognition & result card when changing phrase
+        if (this.spResultCard) this.spResultCard.classList.add('hidden');
+        if (this.spInterimBox) this.spInterimBox.classList.add('hidden');
+        if (this.spStatusText) this.spStatusText.textContent = 'Chạm vào nút micro để bắt đầu nói tiếng Anh';
+        this.stopSpeakingLabRecording();
+    }
+
+    prevSpeakingItem() {
+        const items = this.getSpeakingItems();
+        if (!items || items.length <= 1) return;
+        this.spIndex = (this.spIndex - 1 + items.length) % items.length;
+        this.renderSpeakingLab();
+    }
+
+    nextSpeakingItem() {
+        const items = this.getSpeakingItems();
+        if (!items || items.length <= 1) return;
+        this.spIndex = (this.spIndex + 1) % items.length;
+        this.renderSpeakingLab();
+    }
+
+    randomSpeakingItem() {
+        const items = this.getSpeakingItems();
+        if (!items || items.length <= 1) return;
+        let nextIdx = Math.floor(Math.random() * items.length);
+        if (nextIdx === this.spIndex && items.length > 1) {
+            nextIdx = (nextIdx + 1) % items.length;
+        }
+        this.spIndex = nextIdx;
+        this.renderSpeakingLab();
+    }
+
+    listenCurrentSpeakingTarget(rate = 1.0) {
+        const items = this.getSpeakingItems();
+        if (!items || !items[this.spIndex]) return;
+        this.speak(items[this.spIndex].text, rate);
+    }
+
+    toggleSpeakingLabRecording() {
+        const items = this.getSpeakingItems();
+        if (!items || !items[this.spIndex]) return;
+        const targetText = items[this.spIndex].text;
+
+        if (this.spIsRecording) {
+            this.speechManager.stop();
+            this.spIsRecording = false;
+            this.updateSpeakingRecordUI(false);
+            return;
+        }
+
+        this.spIsRecording = true;
+        this.updateSpeakingRecordUI(true);
+
+        if (this.spStatusText) {
+            this.spStatusText.textContent = '🔴 Đang nghe... Hãy nói to: "' + targetText + '"';
+        }
+        if (this.spInterimBox) {
+            this.spInterimBox.classList.remove('hidden');
+        }
+        if (this.spInterimText) {
+            this.spInterimText.textContent = '...';
+        }
+
+        this.speechManager.start({
+            lang: 'en-US',
+            onStart: () => {
+                this.updateSpeakingRecordUI(true);
+            },
+            onInterim: (interim) => {
+                if (this.spInterimText) this.spInterimText.textContent = interim;
+            },
+            onResult: (spoken) => {
+                this.evaluateSpeakingInput(spoken);
+            },
+            onError: (err) => {
+                if (this.spStatusText) this.spStatusText.textContent = '⚠️ ' + err.message;
+                if (this.spInterimBox) this.spInterimBox.classList.add('hidden');
+                this.updateSpeakingRecordUI(false);
+            },
+            onEnd: () => {
+                this.spIsRecording = false;
+                this.updateSpeakingRecordUI(false);
+            }
+        });
+    }
+
+    stopSpeakingLabRecording() {
+        if (this.spIsRecording) {
+            this.speechManager.stop();
+            this.spIsRecording = false;
+            this.updateSpeakingRecordUI(false);
+        }
+    }
+
+    updateSpeakingRecordUI(isRecording) {
+        if (this.spPulseRing) {
+            this.spPulseRing.classList.toggle('hidden', !isRecording);
+        }
+        if (this.spWaveBars) {
+            this.spWaveBars.classList.toggle('hidden', !isRecording);
+        }
+        if (this.spRecordBtn) {
+            if (isRecording) {
+                this.spRecordBtn.className = 'relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-rose-600 hover:bg-rose-700 text-white shadow-xl shadow-rose-200 flex flex-col items-center justify-center transition active:scale-90 focus:outline-none';
+            } else {
+                this.spRecordBtn.className = 'relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-xl shadow-indigo-200 flex flex-col items-center justify-center transition active:scale-90 focus:outline-none';
+            }
+        }
+        if (this.spRecordIcon) {
+            this.spRecordIcon.textContent = isRecording ? '⏹️' : '🎙️';
+        }
+        if (this.spRecordSub) {
+            this.spRecordSub.textContent = isRecording ? 'Dừng' : 'Nói ngay';
+        }
+    }
+
+    evaluateSpeakingInput(spokenText) {
+        const items = this.getSpeakingItems();
+        if (!items || !items[this.spIndex]) return;
+        const targetText = items[this.spIndex].text;
+
+        const evalResult = this.evaluator.evaluate(targetText, spokenText);
+        this.renderSpeakingAssessment(evalResult);
+    }
+
+    renderSpeakingAssessment(evalResult) {
+        if (this.spInterimBox) this.spInterimBox.classList.add('hidden');
+        if (!this.spResultCard) return;
+
+        this.spResultCard.classList.remove('hidden');
+
+        if (this.spResultScore) {
+            this.spResultScore.textContent = `${evalResult.overallScore}%`;
+            this.spResultScore.className = `text-4xl sm:text-5xl font-black ${evalResult.scoreColorClass}`;
+        }
+        if (this.spResultBadge) {
+            this.spResultBadge.textContent = evalResult.verdict;
+            this.spResultBadge.className = `inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold ${evalResult.badgeClass}`;
+        }
+        if (this.spResultFeedback) {
+            this.spResultFeedback.textContent = evalResult.feedback;
+        }
+        if (this.spCompTarget) {
+            this.spCompTarget.textContent = evalResult.targetText;
+        }
+        if (this.spCompSpoken) {
+            this.spCompSpoken.textContent = evalResult.spokenText ? `"${evalResult.spokenText}"` : '(Không thu được âm thanh)';
+        }
+        if (this.spStatusText) {
+            this.spStatusText.textContent = `Hoàn thành đánh giá: ${evalResult.overallScore}% - ${evalResult.verdict}`;
+        }
+
+        this.renderSpeakingTokens(evalResult.tokens);
+
+        // Smooth scroll into result card
+        this.spResultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    renderSpeakingTokens(tokens) {
+        if (!this.spTokensContainer) return;
+        if (!tokens || tokens.length === 0) {
+            this.spTokensContainer.innerHTML = '<span class="text-xs text-slate-400">Không có dữ liệu từ.</span>';
+            return;
+        }
+
+        const colorClasses = {
+            correct: 'bg-emerald-100 text-emerald-900 border-emerald-300 hover:bg-emerald-200',
+            close: 'bg-amber-100 text-amber-900 border-amber-300 hover:bg-amber-200',
+            missed: 'bg-rose-100 text-rose-900 border-rose-300 hover:bg-rose-200'
+        };
+
+        this.spTokensContainer.innerHTML = tokens.map(t => {
+            const icon = t.status === 'correct' ? '✓' : (t.status === 'close' ? '⚠️' : '✗');
+            const scoreLabel = t.status === 'missed' ? 'Chưa đạt' : `${t.score}%`;
+            const tip = t.spoken && t.spoken !== t.clean ? ` (Bạn nói: "${t.spoken}")` : '';
+            const cleanEscaped = t.clean.replace(/'/g, "\\'");
+
+            return `
+                <button type="button"
+                        class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition cursor-pointer active:scale-95 shadow-2xs ${colorClasses[t.status]}"
+                        title="Bấm để nghe âm chuẩn từ này${tip}"
+                        onclick="app.speak('${cleanEscaped}', 0.8)">
+                    <span>${icon}</span>
+                    <span>${t.raw}</span>
+                    <span class="text-[11px] opacity-75 font-mono">(${scoreLabel})</span>
+                    <span class="text-xs ml-0.5">🔊</span>
+                </button>
+            `;
+        }).join('');
+    }
+
+    // ================= READING PRACTICE INTEGRATION =================
+    practiceDialogueLine(turnIdx) {
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) return;
+        const item = filtered[this.readingIndex];
+        if (item.type !== 'conversation' || !item.content[turnIdx]) return;
+        const turn = item.content[turnIdx];
+
+        this.spMode = 'dialogues';
+        this.updateSpeakingModeButtons();
+        this.spTopic = 'all';
+        this.updateSpeakingTopicDropdown();
+
+        const items = this.getSpeakingItems();
+        const foundIdx = items.findIndex(i => i.text === turn.text);
+        if (foundIdx !== -1) {
+            this.spIndex = foundIdx;
+        } else {
+            items.unshift({
+                id: `dial_jump_${Date.now()}`,
+                text: turn.text,
+                ipa: '',
+                meaning: `[${turn.speaker}] ${item.title}`,
+                example: turn.vietnamese || '',
+                topic: item.topic || 'Hội thoại',
+                type: 'dialogue'
+            });
+            this.spIndex = 0;
+        }
+
+        this.switchTab('speaking');
+        this.renderSpeakingLab();
+
+        const targetEl = document.getElementById('sp-target-text');
+        if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    practiceReadingParagraph(paraIdx) {
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) return;
+        const item = filtered[this.readingIndex];
+        const paras = item.content.split('\n\n').map(p => p.trim()).filter(Boolean);
+        const paraText = paras[paraIdx];
+        if (!paraText) return;
+
+        // Choose first sentence of the paragraph for comfortable pronunciation practice
+        const firstSentence = paraText.split(/(?<=[.?!])\s+/)[0] || paraText;
+
+        this.spMode = 'sentences';
+        this.updateSpeakingModeButtons();
+        this.spTopic = 'all';
+        this.updateSpeakingTopicDropdown();
+
+        const items = this.getSpeakingItems();
+        items.unshift({
+            id: `para_jump_${Date.now()}`,
+            text: firstSentence,
+            ipa: '',
+            meaning: `Trích từ: ${item.title}`,
+            example: paraText,
+            topic: item.topic || 'Bài đọc',
+            type: 'sentence'
+        });
+        this.spIndex = 0;
+
+        this.switchTab('speaking');
+        this.renderSpeakingLab();
+
+        const targetEl = document.getElementById('sp-target-text');
+        if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 }
 

@@ -6,7 +6,20 @@
 
 ## 🌟 Tính Năng Nổi Bật
 
-1. **Bộ Dữ Liệu 502 Từ Vựng & Mẫu Câu Nâng Cao (B2 - C1 / Academic & Business):**
+1. **Luyện Phát Âm & Nhận Diện Giọng Nói AI (AI Speaking Lab & Pronunciation Assessment):**
+   - **Nhận diện giọng nói thời gian thực (Speech Recognition):** Tích hợp Web Speech API chất lượng cao, ghi âm trực tiếp qua micro trình duyệt với hiệu ứng sóng âm (soundwave) và vòng xung lực (pulse ring) hiện đại.
+   - **Chấm điểm độ chính xác phát âm (0 - 100%):** Thuật toán so khớp ngôn ngữ học và căn chỉnh chuỗi (Needleman-Wunsch & Levenshtein Distance) so sánh câu nói của bạn với chuẩn bản xứ.
+   - **Phân tích trực quan từng từ (Token-by-Token Breakdown):**
+     * 🟢 **Màu xanh (≥85%):** Phát âm chuẩn xác, rõ ràng.
+     * 🟡 **Màu cam (50 - 84%):** Phát âm gần đúng, cần chuốt lại âm gió, trọng âm hoặc đuôi âm.
+     * 🔴 **Màu đỏ (<50%):** Bỏ sót từ hoặc phát âm chưa đạt.
+   - **Tương tác sửa lỗi 1-chạm (Click-to-Hear):** Chạm vào bất kỳ từ nào trên bảng kết quả để nghe lại ngay phát âm chuẩn IPA của riêng từ đó.
+   - **Tích hợp đồng bộ ở 3 phân hệ:**
+     * **Phòng Luyện Nói AI chuyên dụng (`tab-speaking`):** Luyện theo 3 chế độ: *Từ vựng B2-C1*, *Mẫu câu giao tiếp* và *Hội thoại thực tế*, hỗ trợ đổi câu ngẫu nhiên và nghe chuẩn 1.0x / nghe chậm 0.7x.
+     * **Thẻ Flashcard 3D:** Nút `🎙️ Luyện nói AI` ngay trên mặt thẻ với bảng đánh giá co giãn nhanh gọn.
+     * **Bài đọc hiểu & Đối thoại:** Nút `🎙️` cạnh mỗi lượt thoại nhân vật để luyện phát âm theo đúng ngữ cảnh thực tế.
+
+2. **Bộ Dữ Liệu 502 Từ Vựng & Mẫu Câu Nâng Cao (B2 - C1 / Academic & Business):**
    - Đầy đủ các chủ đề chuyên sâu:
      * *Tư duy Phản biện & Học thuật (98)*
      * *Công sở, Quản lý & Đàm phán (85)*
