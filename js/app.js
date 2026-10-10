@@ -540,22 +540,56 @@ class EnglishApp {
     }
 
     // ================= TTS AUDIO =================
-    speak(text, rate = 0.85) {
+    getVoiceForSpeaker(speakerText = '') {
+        if (!('speechSynthesis' in window)) return { voice: null, pitch: 1.0 };
+        const voices = window.speechSynthesis.getVoices() || [];
+        const englishVoices = voices.filter(v => v.lang && v.lang.startsWith('en'));
+
+        const lower = (speakerText || '').toLowerCase();
+        const isFemale = lower.includes('female') || 
+                         /\b(sarah|lin|chloe|olivia|victoria|sophia|emma|maya|clara|emily)\b/i.test(lower);
+        const isMale = lower.includes('male') || 
+                       /\b(david|marcus|richard|julian|alex|ethan|daniel|arthur|brandon|james|liam)\b/i.test(lower);
+
+        if (isFemale) {
+            const femaleKeywords = ['zira', 'jenny', 'samantha', 'victoria', 'karen', 'female', 'susan', 'hazel', 'aria', 'catherine'];
+            const found = englishVoices.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
+            return {
+                voice: found || englishVoices.find(v => !v.name.toLowerCase().includes('david') && !v.name.toLowerCase().includes('male')) || englishVoices[0] || null,
+                pitch: 1.15 // Nâng nhẹ cao độ cho giọng nữ
+            };
+        }
+
+        if (isMale) {
+            const maleKeywords = ['david', 'mark', 'george', 'guy', 'male', 'richard', 'daniel', 'james', 'brian'];
+            const found = englishVoices.find(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
+            return {
+                voice: found || englishVoices.find(v => v.name.toLowerCase().includes('david') || v.name.toLowerCase().includes('male')) || englishVoices[0] || null,
+                pitch: 0.90 // Hạ nhẹ cao độ cho giọng nam trầm ấm
+            };
+        }
+
+        const naturalVoice = englishVoices.find(v => v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha')) || englishVoices[0] || null;
+        return { voice: naturalVoice, pitch: 1.0 };
+    }
+
+    speak(text, rate = 0.85, voiceConfig = null) {
         if (!('speechSynthesis' in window)) {
             alert('Trình duyệt của bạn không hỗ trợ tính năng phát âm trực tiếp.');
             return;
         }
 
-        window.speechSynthesis.cancel(); // Dừng câu đang phát trước đó
+        window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'en-US';
-        utterance.rate = rate; // 0.7 cho người mới, 1.0 tốc độ bình thường
+        utterance.rate = rate;
 
-        // Cố gắng chọn voice chuẩn tiếng Anh nếu có
-        const voices = window.speechSynthesis.getVoices();
-        const englishVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha')));
-        if (englishVoice) {
-            utterance.voice = englishVoice;
+        const config = voiceConfig || this.getVoiceForSpeaker();
+        if (config.voice) {
+            utterance.voice = config.voice;
+        }
+        if (config.pitch) {
+            utterance.pitch = config.pitch;
         }
 
         window.speechSynthesis.speak(utterance);
@@ -1069,24 +1103,37 @@ class EnglishApp {
             });
 
             this.readingBody.innerHTML = current.content.map((turn, idx) => {
-                const speakerIdx = speakerNames.indexOf(turn.speaker);
-                const isSpeaker0 = speakerIdx === 0;
-                const initial = turn.speaker.charAt(0).toUpperCase();
+                const speakerLower = turn.speaker.toLowerCase();
+                const isFemale = speakerLower.includes('female');
+                const isMale = speakerLower.includes('male');
 
                 let lineTrans = '';
                 if (transLines[idx]) {
                     lineTrans = transLines[idx].replace(/^-\s*\*\*[^*]+\*\*:\s*/, '').replace(/^-\s*/, '');
                 }
 
+                const cardBg = isFemale ? 'bg-rose-50/40 border-rose-200/80' : 'bg-slate-50 border-slate-200/90';
+                const avatarBg = isFemale 
+                    ? 'bg-gradient-to-tr from-pink-500 to-rose-600 text-white shadow-xs' 
+                    : 'bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-xs';
+                const avatarIcon = isFemale ? '👩' : (isMale ? '👨' : '👤');
+                const genderBadge = isFemale 
+                    ? '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">👩 Giọng Nữ</span>' 
+                    : '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">👨 Giọng Nam</span>';
+                const nameColor = isFemale ? 'text-rose-950 font-bold' : 'text-slate-900 font-bold';
+
                 return `
-                    <div class="flex items-start gap-2.5 sm:gap-3.5 p-3.5 sm:p-4 rounded-2xl ${isSpeaker0 ? 'bg-slate-50 border border-slate-200/90' : 'bg-indigo-50/40 border border-indigo-100'}">
-                        <div class="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-xl ${isSpeaker0 ? 'bg-indigo-600 text-white' : 'bg-emerald-600 text-white'} flex items-center justify-center font-bold text-xs sm:text-sm shadow-xs">
-                            ${initial}
+                    <div class="flex items-start gap-2.5 sm:gap-3.5 p-3.5 sm:p-4 rounded-2xl border ${cardBg}">
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-xl ${avatarBg} flex items-center justify-center font-bold text-sm sm:text-base">
+                            ${avatarIcon}
                         </div>
                         <div class="flex-1 min-w-0">
-                            <div class="flex items-center justify-between gap-2 mb-1">
-                                <span class="text-xs font-bold ${isSpeaker0 ? 'text-indigo-900' : 'text-emerald-900'}">${turn.speaker}</span>
-                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white transition" title="Nghe câu này" onclick="app.speakReadingLine(${idx})">
+                            <div class="flex items-center justify-between gap-2 mb-1 flex-wrap">
+                                <div class="flex items-center gap-1.5 flex-wrap">
+                                    <span class="text-xs ${nameColor}">${turn.speaker}</span>
+                                    ${genderBadge}
+                                </div>
+                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white transition" title="Nghe giọng này" onclick="app.speakReadingLine(${idx})">
                                     <span>🔊</span>
                                 </button>
                             </div>
@@ -1283,7 +1330,8 @@ class EnglishApp {
         const turn = filtered[this.readingIndex].content[idx];
         const speechRate = parseFloat(this.readingSpeechRate ? this.readingSpeechRate.value : 1.0) || 1.0;
         if (turn) {
-            this.speak(turn.text, speechRate);
+            const voiceConfig = this.getVoiceForSpeaker(turn.speaker);
+            this.speak(turn.text, speechRate, voiceConfig);
         }
     }
 
@@ -1311,44 +1359,49 @@ class EnglishApp {
         const filtered = this.getFilteredReadings();
         if (!filtered || !filtered[this.readingIndex]) return;
         const current = filtered[this.readingIndex];
-
-        let textToRead = '';
-        if (current.type === 'conversation') {
-            textToRead = current.content.map(turn => `${turn.speaker.split('(')[0].trim()}: ${turn.text}`).join('. ');
-        } else {
-            textToRead = current.content;
-        }
+        const speechRate = parseFloat(this.readingSpeechRate ? this.readingSpeechRate.value : 1.0) || 1.0;
 
         window.speechSynthesis.cancel();
-
-        const utterance = new SpeechSynthesisUtterance(textToRead);
-        utterance.lang = 'en-US';
-        utterance.rate = parseFloat(this.readingSpeechRate ? this.readingSpeechRate.value : 1.0) || 1.0;
-
-        const voices = window.speechSynthesis.getVoices();
-        const englishVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha')));
-        if (englishVoice) {
-            utterance.voice = englishVoice;
+        this.isReadingSpeaking = true;
+        if (this.readingTtsIcon) this.readingTtsIcon.textContent = '⏹';
+        if (this.readingTtsText) this.readingTtsText.textContent = 'Dừng đọc';
+        if (this.readingTtsBtn) {
+            this.readingTtsBtn.className = 'inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-rose-600 text-white transition active:scale-95 shadow-xs font-semibold text-xs';
         }
 
-        utterance.onstart = () => {
-            this.isReadingSpeaking = true;
-            if (this.readingTtsIcon) this.readingTtsIcon.textContent = '⏹';
-            if (this.readingTtsText) this.readingTtsText.textContent = 'Dừng đọc';
-            if (this.readingTtsBtn) {
-                this.readingTtsBtn.className = 'inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-rose-600 text-white transition active:scale-95 shadow-xs font-semibold text-xs';
-            }
-        };
+        if (current.type === 'conversation') {
+            // Đọc đối thoại tự động chuyển đổi giữa giọng Nam và giọng Nữ
+            const totalTurns = current.content.length;
+            current.content.forEach((turn, idx) => {
+                const utterance = new SpeechSynthesisUtterance(turn.text);
+                utterance.lang = 'en-US';
+                utterance.rate = speechRate;
 
-        utterance.onend = () => {
-            this.stopReadingTTS();
-        };
+                const voiceConfig = this.getVoiceForSpeaker(turn.speaker);
+                if (voiceConfig.voice) utterance.voice = voiceConfig.voice;
+                if (voiceConfig.pitch) utterance.pitch = voiceConfig.pitch;
 
-        utterance.onerror = () => {
-            this.stopReadingTTS();
-        };
+                if (idx === totalTurns - 1) {
+                    utterance.onend = () => this.stopReadingTTS();
+                    utterance.onerror = () => this.stopReadingTTS();
+                }
 
-        window.speechSynthesis.speak(utterance);
+                window.speechSynthesis.speak(utterance);
+            });
+        } else {
+            // Đọc bài văn học thuật
+            const utterance = new SpeechSynthesisUtterance(current.content);
+            utterance.lang = 'en-US';
+            utterance.rate = speechRate;
+
+            const voiceConfig = this.getVoiceForSpeaker();
+            if (voiceConfig.voice) utterance.voice = voiceConfig.voice;
+
+            utterance.onend = () => this.stopReadingTTS();
+            utterance.onerror = () => this.stopReadingTTS();
+
+            window.speechSynthesis.speak(utterance);
+        }
     }
 
     stopReadingTTS() {

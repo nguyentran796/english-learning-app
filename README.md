@@ -30,18 +30,36 @@
    - Mặt sau: Nghĩa tiếng Việt, câu ví dụ thực tế và giải thích chi tiết.
    - Tích hợp phím tắt trên máy tính: Phím `Space` để lật thẻ, `Mũi tên Trái / Phải` để chuyển từ.
 
-4. **Luyện Đọc Hiểu Đoạn Văn & Hội Thoại (Reading & Dialogue Module):**
-   - **6 bài đọc & đối thoại chuyên sâu (B1 - C1):**
+4. **Luyện Đọc Hiểu Đoạn Văn & Hội Thoại (Reading & Dialogue Module - 21 Bài Học):**
+   - **Kho 21 bài đọc & đối thoại chuyên sâu (B1 - C1):**
      * *💬 Contract Negotiation & Scope Alignment* (Đàm phán hợp đồng phần mềm)
      * *📰 The Transformative Role of AI in Contemporary Medicine* (AI trong y khoa hiện đại)
      * *💬 Resolving Interdepartmental Friction* (Tháo gỡ xung đột Marketing & Kỹ thuật)
      * *📰 The Architecture of Sustainable Urban Ecosystems* (Đô thị sinh thái 15 phút)
      * *💬 Flight Cancellation & Emergency Rerouting* (Xử lý sự cố hủy chuyến bay khẩn cấp)
      * *📰 The Psychology of Habit Formation & Cognitive Momentum* (Cơ chế hình thành thói quen não bộ)
-   - **Dạng bài tập trắc nghiệm đọc hiểu A-Z:** 4 câu trắc nghiệm cho mỗi bài đọc, chấm điểm tức thì, hiển thị bằng chứng trong bài và giải thích chi tiết bằng tiếng Việt.
-   - **Bản dịch song ngữ linh hoạt:** Nút bấm bật/tắt bản dịch tiếng Việt song song từng câu/đoạn.
-   - **Tích hợp phát âm giọng đọc chuẩn (TTS):** Nghe toàn bài hoặc nghe từng câu/từng đoạn riêng lẻ kèm tùy chỉnh tốc độ đọc (0.8x, 1.0x, 1.2x).
-   - **Bảng từ vựng trọng tâm:** Tổng hợp các cụm từ đắt giá của từng bài kèm phiên âm IPA và phát âm mẫu.
+     * *💬 Cross-Border Supply Chain Disruption* (Tắc nghẽn chuỗi cung ứng quốc tế)
+     * *📰 The Neurological Underpinnings of Bilingualism* (Cơ chế thần kinh học của sự song ngữ)
+     * *💬 Quarterly Performance Appraisal & Salary Review* (Đánh giá hiệu suất & đàm phán lương)
+     * *📰 Decentralized Finance and Sovereign Monetary Policy* (Tài chính phi tập trung & CBDC)
+     * *💬 Startup Pitch & Angel Investor Interrogation* (Thuyết trình gọi vốn hạt giống)
+     * *📰 The Ethics of Genetic Engineering & CRISPR Therapeutics* (Đạo đức sinh học & chỉnh sửa gen)
+     * *💬 Crisis Management: Data Breach & PR Response* (Ứng phó sự cố rò rỉ dữ liệu an ninh mạng)
+     * *📰 The Economics of Renewable Transition and Grid Modernization* (Kinh tế học năng lượng tái tạo)
+     * *💬 Architectural Critique & Sustainable Building Design* (Thiết kế kiến trúc xanh & kết cấu cao tầng)
+     * *📰 Cognitive Biases in Executive Decision-Making* (Thiên kiến nhận thức trong phòng họp điều hành)
+     * *💬 Handling Customer Dispute & Warranty Litigation* (Xử lý tranh chấp bảo hành khách hàng doanh nghiệp)
+     * *📰 The Epistemology of Misinformation in the Algorithmic Age* (Tin giả & thuật toán mạng xã hội)
+     * *💬 Academic Thesis Defense & Cross-Examination* (Bảo vệ luận án tiến sĩ thiên văn học)
+     * *📰 Microbiome Diversity and Psychosomatic Well-being* (Trục ruột - não & sức khỏe tinh thần)
+     * *💬 High-Stakes Real Estate Acquisition & Zoning Compliance* (Đàm phán quy hoạch bất động sản thương mại)
+   - **Phân vai giọng Nam & Nữ chuẩn xác (Gender-Aware TTS):**
+     * Trong các bài đối thoại, mỗi nhân vật đều được gán nhãn rõ ràng: 👨 Giọng Nam và 👩 Giọng Nữ.
+     * Tự động điều chỉnh cao độ (pitch) và giọng đọc bản xứ phù hợp cho từng nhân vật.
+     * Chế độ **Nghe đọc toàn bài** tự động luân phiên đổi giọng Nam/Nữ trơn tru như một cuộc đối thoại thực thụ ngoài đời.
+   - **84 câu hỏi trắc nghiệm đọc hiểu (A-Z):** 4 câu hỏi/bài, chấm điểm tức thì kèm giải thích chi tiết và trích dẫn bằng chứng trong bài bằng tiếng Việt.
+   - **Bản dịch song ngữ linh hoạt:** Nút bấm bật/tắt bản dịch tiếng Việt song song từng câu thoại hoặc đoạn văn.
+   - **105 từ vựng trọng tâm:** Tổng hợp các cụm từ đắt giá của từng bài kèm phiên âm IPA, nghĩa tiếng Việt và phát âm riêng.
 
 5. **Phát Âm Bản Xứ Tích Hợp (Text-to-Speech):**
    - Hỗ trợ phát âm chuẩn tiếng Anh bản xứ với nhiều mức tốc độ giúp rèn luyện kỹ năng nghe và nói.
