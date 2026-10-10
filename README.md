@@ -30,14 +30,27 @@
    - Mặt sau: Nghĩa tiếng Việt, câu ví dụ thực tế và giải thích chi tiết.
    - Tích hợp phím tắt trên máy tính: Phím `Space` để lật thẻ, `Mũi tên Trái / Phải` để chuyển từ.
 
-4. **Phát Âm Bản Xứ Tích Hợp (Text-to-Speech):**
-   - Hỗ trợ 2 chế độ: **Bình thường (1.0x)** và **Chậm (0.7x)** giúp nghe rõ từng âm tiết và trọng âm.
+4. **Luyện Đọc Hiểu Đoạn Văn & Hội Thoại (Reading & Dialogue Module):**
+   - **6 bài đọc & đối thoại chuyên sâu (B1 - C1):**
+     * *💬 Contract Negotiation & Scope Alignment* (Đàm phán hợp đồng phần mềm)
+     * *📰 The Transformative Role of AI in Contemporary Medicine* (AI trong y khoa hiện đại)
+     * *💬 Resolving Interdepartmental Friction* (Tháo gỡ xung đột Marketing & Kỹ thuật)
+     * *📰 The Architecture of Sustainable Urban Ecosystems* (Đô thị sinh thái 15 phút)
+     * *💬 Flight Cancellation & Emergency Rerouting* (Xử lý sự cố hủy chuyến bay khẩn cấp)
+     * *📰 The Psychology of Habit Formation & Cognitive Momentum* (Cơ chế hình thành thói quen não bộ)
+   - **Dạng bài tập trắc nghiệm đọc hiểu A-Z:** 4 câu trắc nghiệm cho mỗi bài đọc, chấm điểm tức thì, hiển thị bằng chứng trong bài và giải thích chi tiết bằng tiếng Việt.
+   - **Bản dịch song ngữ linh hoạt:** Nút bấm bật/tắt bản dịch tiếng Việt song song từng câu/đoạn.
+   - **Tích hợp phát âm giọng đọc chuẩn (TTS):** Nghe toàn bài hoặc nghe từng câu/từng đoạn riêng lẻ kèm tùy chỉnh tốc độ đọc (0.8x, 1.0x, 1.2x).
+   - **Bảng từ vựng trọng tâm:** Tổng hợp các cụm từ đắt giá của từng bài kèm phiên âm IPA và phát âm mẫu.
 
-5. **Trắc Nghiệm Phản Xạ Nhanh (Quiz):**
+5. **Phát Âm Bản Xứ Tích Hợp (Text-to-Speech):**
+   - Hỗ trợ phát âm chuẩn tiếng Anh bản xứ với nhiều mức tốc độ giúp rèn luyện kỹ năng nghe và nói.
+
+6. **Trắc Nghiệm Phản Xạ Nhanh Từ Vựng (Vocabulary Quiz):**
    - Tự động tạo bài kiểm tra 10 câu trắc nghiệm ngẫu nhiên từ kho từ vựng.
    - Chấm điểm tức thì kèm giải thích chi tiết khi chọn sai.
 
-6. **Lưu Trữ Tự Động & Sao Lưu (JSON):**
+7. **Lưu Trữ Tự Động & Sao Lưu (JSON):**
    - Tự động lưu trên trình duyệt (`localStorage`).
    - Hỗ trợ Xuất/Nhập file JSON để đồng bộ dữ liệu dễ dàng giữa các thiết bị.
 

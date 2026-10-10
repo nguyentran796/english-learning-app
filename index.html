@@ -127,6 +127,9 @@
                 <button data-tab="library" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-700 py-2 px-2.5 sm:px-3 text-xs sm:text-sm whitespace-nowrap flex items-center gap-1 shrink-0">
                     📋 Kho Từ (502)
                 </button>
+                <button data-tab="reading" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-700 py-2 px-2.5 sm:px-3 text-xs sm:text-sm whitespace-nowrap flex items-center gap-1 shrink-0">
+                    📖 Đọc Hiểu (6)
+                </button>
                 <button data-tab="quiz" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-700 py-2 px-2.5 sm:px-3 text-xs sm:text-sm whitespace-nowrap flex items-center gap-1 shrink-0">
                     🎯 Trắc Nghiệm
                 </button>
@@ -279,7 +282,153 @@
             </div>
         </section>
 
-        <!-- TAB 3: QUIZ / TRẮC NGHIỆM -->
+        <!-- TAB: READING & DIALOGUE / ĐỌC HIỂU & HỘI THOẠI -->
+        <section id="tab-reading" class="tab-content hidden">
+            <div class="max-w-4xl mx-auto space-y-6">
+
+                <!-- Header / Category Filter Bar -->
+                <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none pb-1 md:pb-0">
+                        <button id="reading-filter-all" class="reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600 text-white shadow-xs shrink-0 transition" data-filter="all">
+                            Tất cả (6)
+                        </button>
+                        <button id="reading-filter-conv" class="reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 shrink-0 transition" data-filter="conversation">
+                            💬 Hội thoại (3)
+                        </button>
+                        <button id="reading-filter-passage" class="reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 shrink-0 transition" data-filter="passage">
+                            📰 Đoạn văn (3)
+                        </button>
+                    </div>
+
+                    <!-- Article Dropdown Selector & Navigation -->
+                    <div class="flex items-center gap-2 w-full md:w-auto">
+                        <button id="reading-prev-btn" class="p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 shrink-0 transition active:scale-95" title="Bài trước">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <select id="reading-select" class="flex-1 md:w-72 px-3 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm font-medium focus:ring-2 focus:ring-indigo-500 bg-white truncate">
+                            <!-- Populated dynamically -->
+                        </select>
+                        <button id="reading-next-btn" class="p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 shrink-0 transition active:scale-95" title="Bài tiếp theo">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Reading Card -->
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    
+                    <!-- Article Meta Top Header -->
+                    <div class="p-5 sm:p-6 border-b border-slate-100 bg-gradient-to-r from-slate-50/80 via-white to-indigo-50/30">
+                        <div class="flex flex-wrap items-center gap-2 mb-2.5">
+                            <span id="reading-type-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">
+                                💬 Hội thoại
+                            </span>
+                            <span id="reading-level-badge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
+                                B2 - C1
+                            </span>
+                            <span id="reading-topic-badge" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+                                Công sở & Đàm phán
+                            </span>
+                        </div>
+
+                        <h2 id="reading-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight mb-2">
+                            Tiêu đề bài đọc
+                        </h2>
+                        
+                        <p id="reading-summary" class="text-xs sm:text-sm text-slate-600 leading-relaxed bg-white/80 p-3 rounded-xl border border-slate-100">
+                            Tóm tắt nội dung bài học...
+                        </p>
+
+                        <!-- Action Toolbar -->
+                        <div class="flex flex-wrap items-center justify-between gap-2.5 mt-4 pt-3 border-t border-slate-100 text-xs font-semibold">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <!-- TTS Button -->
+                                <button id="reading-tts-btn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 transition active:scale-95">
+                                    <span id="reading-tts-icon">🔊</span>
+                                    <span id="reading-tts-text">Nghe đọc toàn bài</span>
+                                </button>
+                                <!-- TTS Speed Selector -->
+                                <select id="reading-speech-rate" class="px-2.5 py-2 rounded-xl border border-slate-200 text-slate-700 bg-white font-medium focus:ring-2 focus:ring-indigo-500">
+                                    <option value="0.8">Tốc độ: 0.8x (Chậm)</option>
+                                    <option value="1.0" selected>Tốc độ: 1.0x (Chuẩn)</option>
+                                    <option value="1.2">Tốc độ: 1.2x (Nhanh)</option>
+                                </select>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <!-- Bilingual Translation Toggle -->
+                                <button id="reading-toggle-trans-btn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 transition active:scale-95">
+                                    <span>👁️</span>
+                                    <span id="reading-trans-btn-text">Hiện bản dịch TV</span>
+                                </button>
+                                <!-- Key Vocab Toggle -->
+                                <button id="reading-toggle-vocab-btn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-amber-200 bg-amber-50 hover:bg-amber-100 text-amber-800 transition active:scale-95">
+                                    <span>💡</span>
+                                    <span>Từ vựng trọng tâm</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Vocabulary Collapsible Panel -->
+                    <div id="reading-vocab-panel" class="p-4 sm:p-5 bg-amber-50/50 border-b border-amber-100">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-900 flex items-center gap-1.5">
+                                <span>💡</span> Từ vựng & Cụm từ trọng tâm trong bài
+                            </span>
+                            <span class="text-[11px] text-amber-700">Chạm 🔊 để nghe phát âm</span>
+                        </div>
+                        <div id="reading-vocab-chips" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Main Content Reading Area -->
+                    <div id="reading-body" class="p-5 sm:p-7 space-y-4">
+                        <!-- Populated dynamically (Dialogue chat bubbles or Passage paragraphs) -->
+                    </div>
+                </div>
+
+                <!-- Comprehensive Quiz Section -->
+                <div id="reading-quiz-card" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-7">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-6 border-b border-slate-100">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-600 text-white">Trắc nghiệm</span>
+                                <h3 class="text-lg sm:text-xl font-bold text-slate-900">Kiểm Tra Đọc Hiểu & Phản Xạ</h3>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1">Đọc kỹ văn bản ở trên và chọn đáp án chính xác nhất cho từng câu hỏi.</p>
+                        </div>
+                        <div id="reading-quiz-badge-count" class="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl self-start sm:self-auto">
+                            4 câu hỏi
+                        </div>
+                    </div>
+
+                    <!-- Quiz Questions Container -->
+                    <div id="reading-quiz-container" class="space-y-6">
+                        <!-- Populated dynamically -->
+                    </div>
+
+                    <!-- Submit & Result Actions Bar -->
+                    <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div id="reading-quiz-score-banner" class="hidden w-full sm:w-auto p-3 sm:px-5 sm:py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2">
+                            <!-- Dynamic score banner -->
+                        </div>
+                        <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+                            <button id="reading-retry-quiz-btn" class="hidden px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 text-sm font-semibold transition active:scale-95">
+                                🔄 Làm lại
+                            </button>
+                            <button id="reading-submit-quiz-btn" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold shadow-md transition active:scale-95">
+                                Nộp bài & Xem giải thích
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 4: QUIZ / TRẮC NGHIỆM TỪ VỰNG -->
         <section id="tab-quiz" class="tab-content hidden">
             <div class="max-w-2xl mx-auto">
                 <!-- Start Screen -->
@@ -569,6 +718,7 @@
 
     <!-- Scripts -->
     <script src="js/data.js"></script>
+    <script src="js/reading_data.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

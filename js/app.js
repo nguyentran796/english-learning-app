@@ -24,6 +24,15 @@ class EnglishApp {
         this.quizScore = 0;
         this.isQuizActive = false;
 
+        // Reading & Dialogue State
+        this.readingFilter = 'all'; // all | conversation | passage
+        this.readingIndex = 0;
+        this.showReadingTranslation = false;
+        this.showReadingVocab = true;
+        this.readingUserAnswers = {};
+        this.readingQuizSubmitted = false;
+        this.isReadingSpeaking = false;
+
         // TTS Speech Rate
         this.speechRate = 0.85; // Tốc độ chuẩn chậm cho người mới
 
@@ -159,6 +168,33 @@ class EnglishApp {
         this.exportBtn = document.getElementById('export-data-btn');
         this.importInput = document.getElementById('import-file-input');
         this.resetDataBtn = document.getElementById('reset-data-btn');
+
+        // Reading elements
+        this.readingFilterBtns = document.querySelectorAll('.reading-filter-btn');
+        this.readingSelect = document.getElementById('reading-select');
+        this.readingPrevBtn = document.getElementById('reading-prev-btn');
+        this.readingNextBtn = document.getElementById('reading-next-btn');
+        this.readingTypeBadge = document.getElementById('reading-type-badge');
+        this.readingLevelBadge = document.getElementById('reading-level-badge');
+        this.readingTopicBadge = document.getElementById('reading-topic-badge');
+        this.readingTitle = document.getElementById('reading-title');
+        this.readingSummary = document.getElementById('reading-summary');
+        this.readingTtsBtn = document.getElementById('reading-tts-btn');
+        this.readingTtsIcon = document.getElementById('reading-tts-icon');
+        this.readingTtsText = document.getElementById('reading-tts-text');
+        this.readingSpeechRate = document.getElementById('reading-speech-rate');
+        this.readingToggleTransBtn = document.getElementById('reading-toggle-trans-btn');
+        this.readingTransBtnText = document.getElementById('reading-trans-btn-text');
+        this.readingToggleVocabBtn = document.getElementById('reading-toggle-vocab-btn');
+        this.readingVocabPanel = document.getElementById('reading-vocab-panel');
+        this.readingVocabChips = document.getElementById('reading-vocab-chips');
+        this.readingBody = document.getElementById('reading-body');
+        this.readingQuizCard = document.getElementById('reading-quiz-card');
+        this.readingQuizContainer = document.getElementById('reading-quiz-container');
+        this.readingQuizBadgeCount = document.getElementById('reading-quiz-badge-count');
+        this.readingQuizScoreBanner = document.getElementById('reading-quiz-score-banner');
+        this.readingSubmitQuizBtn = document.getElementById('reading-submit-quiz-btn');
+        this.readingRetryQuizBtn = document.getElementById('reading-retry-quiz-btn');
     }
 
     initEvents() {
@@ -288,6 +324,48 @@ class EnglishApp {
         this.exportBtn.addEventListener('click', () => this.exportData());
         this.importInput.addEventListener('change', (e) => this.importData(e));
         this.resetDataBtn.addEventListener('click', () => this.resetData());
+
+        // Reading events
+        if (this.readingFilterBtns) {
+            this.readingFilterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    this.setReadingFilter(btn.dataset.filter);
+                });
+            });
+        }
+        if (this.readingSelect) {
+            this.readingSelect.addEventListener('change', (e) => {
+                const filtered = this.getFilteredReadings();
+                const idx = filtered.findIndex(r => r.id === e.target.value);
+                if (idx !== -1) {
+                    this.readingIndex = idx;
+                    this.stopReadingTTS();
+                    this.resetReadingQuizState();
+                    this.renderCurrentReading();
+                }
+            });
+        }
+        if (this.readingPrevBtn) {
+            this.readingPrevBtn.addEventListener('click', () => this.prevReading());
+        }
+        if (this.readingNextBtn) {
+            this.readingNextBtn.addEventListener('click', () => this.nextReading());
+        }
+        if (this.readingTtsBtn) {
+            this.readingTtsBtn.addEventListener('click', () => this.toggleReadingTTS());
+        }
+        if (this.readingToggleTransBtn) {
+            this.readingToggleTransBtn.addEventListener('click', () => this.toggleReadingTranslation());
+        }
+        if (this.readingToggleVocabBtn) {
+            this.readingToggleVocabBtn.addEventListener('click', () => this.toggleReadingVocabPanel());
+        }
+        if (this.readingSubmitQuizBtn) {
+            this.readingSubmitQuizBtn.addEventListener('click', () => this.submitReadingQuiz());
+        }
+        if (this.readingRetryQuizBtn) {
+            this.readingRetryQuizBtn.addEventListener('click', () => this.retryReadingQuiz());
+        }
     }
 
     switchTab(tabId) {
@@ -314,6 +392,12 @@ class EnglishApp {
             this.updateFlashcardList();
         } else if (tabId === 'library') {
             this.renderLibrary();
+        } else if (tabId === 'reading') {
+            this.initReadingModule();
+        }
+
+        if (tabId !== 'reading') {
+            this.stopReadingTTS();
         }
     }
 
@@ -322,6 +406,7 @@ class EnglishApp {
         this.refreshStats();
         this.updateFlashcardList();
         this.renderLibrary();
+        this.initReadingModule();
     }
 
     refreshStats() {
@@ -796,6 +881,485 @@ class EnglishApp {
             finalMsg.textContent = "Rất tốt! Bạn đang tiến bộ rất nhanh mỗi ngày.";
         } else {
             finalMsg.textContent = "Đừng nản lòng! Hãy ôn lại qua Flashcard một lần nữa nhé!";
+        }
+    }
+
+    // ================= READING & DIALOGUE MODULE =================
+    getFilteredReadings() {
+        if (typeof READING_DATA === 'undefined' || !Array.isArray(READING_DATA)) {
+            return [];
+        }
+        if (this.readingFilter === 'all') return READING_DATA;
+        return READING_DATA.filter(item => item.type === this.readingFilter);
+    }
+
+    initReadingModule() {
+        this.updateReadingFilterButtons();
+        this.populateReadingSelect();
+        this.renderCurrentReading();
+    }
+
+    setReadingFilter(filter) {
+        this.readingFilter = filter;
+        this.readingIndex = 0;
+        this.stopReadingTTS();
+        this.resetReadingQuizState();
+        this.updateReadingFilterButtons();
+        this.populateReadingSelect();
+        this.renderCurrentReading();
+    }
+
+    updateReadingFilterButtons() {
+        if (!this.readingFilterBtns) return;
+        this.readingFilterBtns.forEach(btn => {
+            if (btn.dataset.filter === this.readingFilter) {
+                btn.className = 'reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600 text-white shadow-xs shrink-0 transition';
+            } else {
+                btn.className = 'reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 shrink-0 transition';
+            }
+        });
+    }
+
+    populateReadingSelect() {
+        if (!this.readingSelect) return;
+        const filtered = this.getFilteredReadings();
+        this.readingSelect.innerHTML = '';
+        filtered.forEach(r => {
+            const opt = document.createElement('option');
+            opt.value = r.id;
+            opt.textContent = `${r.type === 'conversation' ? '💬' : '📰'} ${r.title} (${r.level})`;
+            this.readingSelect.appendChild(opt);
+        });
+
+        if (filtered[this.readingIndex]) {
+            this.readingSelect.value = filtered[this.readingIndex].id;
+        }
+    }
+
+    prevReading() {
+        const filtered = this.getFilteredReadings();
+        if (filtered.length <= 1) return;
+        this.readingIndex = (this.readingIndex - 1 + filtered.length) % filtered.length;
+        this.stopReadingTTS();
+        this.resetReadingQuizState();
+        this.populateReadingSelect();
+        this.renderCurrentReading();
+    }
+
+    nextReading() {
+        const filtered = this.getFilteredReadings();
+        if (filtered.length <= 1) return;
+        this.readingIndex = (this.readingIndex + 1) % filtered.length;
+        this.stopReadingTTS();
+        this.resetReadingQuizState();
+        this.populateReadingSelect();
+        this.renderCurrentReading();
+    }
+
+    toggleReadingTranslation() {
+        this.showReadingTranslation = !this.showReadingTranslation;
+        if (this.readingTransBtnText) {
+            this.readingTransBtnText.textContent = this.showReadingTranslation ? 'Ẩn bản dịch TV' : 'Hiện bản dịch TV';
+        }
+        if (this.readingToggleTransBtn) {
+            if (this.showReadingTranslation) {
+                this.readingToggleTransBtn.classList.add('bg-indigo-50', 'text-indigo-700', 'border-indigo-300');
+            } else {
+                this.readingToggleTransBtn.classList.remove('bg-indigo-50', 'text-indigo-700', 'border-indigo-300');
+            }
+        }
+        this.renderReadingBodyOnly();
+    }
+
+    toggleReadingVocabPanel() {
+        this.showReadingVocab = !this.showReadingVocab;
+        if (this.readingVocabPanel) {
+            if (this.showReadingVocab) {
+                this.readingVocabPanel.classList.remove('hidden');
+            } else {
+                this.readingVocabPanel.classList.add('hidden');
+            }
+        }
+    }
+
+    resetReadingQuizState() {
+        this.readingUserAnswers = {};
+        this.readingQuizSubmitted = false;
+        if (this.readingQuizScoreBanner) {
+            this.readingQuizScoreBanner.classList.add('hidden');
+        }
+        if (this.readingRetryQuizBtn) {
+            this.readingRetryQuizBtn.classList.add('hidden');
+        }
+        if (this.readingSubmitQuizBtn) {
+            this.readingSubmitQuizBtn.classList.remove('hidden');
+        }
+    }
+
+    retryReadingQuiz() {
+        this.resetReadingQuizState();
+        this.renderReadingQuizOnly();
+        if (this.readingQuizCard) {
+            this.readingQuizCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    renderCurrentReading() {
+        const filtered = this.getFilteredReadings();
+        if (!filtered || filtered.length === 0) {
+            if (this.readingTitle) this.readingTitle.textContent = 'Không có bài đọc nào phù hợp.';
+            if (this.readingBody) this.readingBody.innerHTML = '';
+            return;
+        }
+
+        if (this.readingIndex >= filtered.length) {
+            this.readingIndex = 0;
+        }
+
+        const current = filtered[this.readingIndex];
+
+        // Metadata badges
+        if (this.readingTypeBadge) {
+            this.readingTypeBadge.textContent = current.type === 'conversation' ? '💬 Hội thoại' : '📰 Đoạn văn';
+            this.readingTypeBadge.className = current.type === 'conversation' 
+                ? 'px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700'
+                : 'px-2.5 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700';
+        }
+        if (this.readingLevelBadge) this.readingLevelBadge.textContent = current.level;
+        if (this.readingTopicBadge) this.readingTopicBadge.textContent = current.topic;
+        if (this.readingTitle) this.readingTitle.textContent = current.title;
+        if (this.readingSummary) this.readingSummary.textContent = current.summary;
+
+        // Key Vocab Panel
+        if (this.readingVocabChips) {
+            this.readingVocabChips.innerHTML = current.keyVocab.map((v, vIdx) => `
+                <div class="bg-white p-2.5 sm:p-3 rounded-xl border border-amber-200/80 shadow-2xs flex items-center justify-between gap-2">
+                    <div class="min-w-0 flex-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="font-bold text-slate-900 text-xs sm:text-sm">${v.word}</span>
+                            <span class="text-[11px] text-indigo-600 font-mono">${v.ipa}</span>
+                        </div>
+                        <div class="text-xs text-slate-600 mt-0.5 truncate">${v.meaning}</div>
+                    </div>
+                    <button type="button" class="p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 shrink-0 transition" title="Nghe phát âm" onclick="app.speakReadingVocab(${vIdx})">
+                        🔊
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        this.renderReadingBodyOnly();
+        this.renderReadingQuizOnly();
+    }
+
+    renderReadingBodyOnly() {
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) return;
+        const current = filtered[this.readingIndex];
+
+        if (current.type === 'conversation') {
+            const transLines = (current.vietnameseTranslation || '')
+                .split('\n')
+                .map(l => l.trim())
+                .filter(l => l.startsWith('- **') || l.startsWith('-'));
+
+            let speakerNames = [];
+            current.content.forEach(turn => {
+                if (!speakerNames.includes(turn.speaker)) speakerNames.push(turn.speaker);
+            });
+
+            this.readingBody.innerHTML = current.content.map((turn, idx) => {
+                const speakerIdx = speakerNames.indexOf(turn.speaker);
+                const isSpeaker0 = speakerIdx === 0;
+                const initial = turn.speaker.charAt(0).toUpperCase();
+
+                let lineTrans = '';
+                if (transLines[idx]) {
+                    lineTrans = transLines[idx].replace(/^-\s*\*\*[^*]+\*\*:\s*/, '').replace(/^-\s*/, '');
+                }
+
+                return `
+                    <div class="flex items-start gap-2.5 sm:gap-3.5 p-3.5 sm:p-4 rounded-2xl ${isSpeaker0 ? 'bg-slate-50 border border-slate-200/90' : 'bg-indigo-50/40 border border-indigo-100'}">
+                        <div class="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-xl ${isSpeaker0 ? 'bg-indigo-600 text-white' : 'bg-emerald-600 text-white'} flex items-center justify-center font-bold text-xs sm:text-sm shadow-xs">
+                            ${initial}
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between gap-2 mb-1">
+                                <span class="text-xs font-bold ${isSpeaker0 ? 'text-indigo-900' : 'text-emerald-900'}">${turn.speaker}</span>
+                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white transition" title="Nghe câu này" onclick="app.speakReadingLine(${idx})">
+                                    <span>🔊</span>
+                                </button>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">${turn.text}</p>
+                            ${this.showReadingTranslation && lineTrans ? `
+                                <div class="mt-2 pt-2 border-t border-slate-200/70 text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+                                    <span class="font-semibold text-slate-500 not-italic mr-1">Dịch:</span>${lineTrans}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        } else {
+            const paragraphs = current.content.split('\n\n').map(p => p.trim()).filter(Boolean);
+            const transParas = (current.vietnameseTranslation || '')
+                .replace(/\*\*Bản dịch tiếng Việt:\*\*\n?/g, '')
+                .split('\n\n')
+                .map(p => p.trim())
+                .filter(Boolean);
+
+            this.readingBody.innerHTML = paragraphs.map((para, idx) => {
+                const paraTrans = transParas[idx] || '';
+
+                return `
+                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-indigo-200 transition">
+                        <div class="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-200/50">
+                            <span class="text-[11px] sm:text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full">Đoạn ${idx + 1}</span>
+                            <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-indigo-600 px-2 py-1 rounded-lg hover:bg-white transition" onclick="app.speakReadingParagraph(${idx})">
+                                <span>🔊</span> <span class="hidden sm:inline">Nghe đoạn</span>
+                            </button>
+                        </div>
+                        <p class="text-xs sm:text-sm sm:leading-relaxed text-slate-800 font-normal leading-relaxed">${para}</p>
+                        ${this.showReadingTranslation && paraTrans ? `
+                            <div class="mt-3 p-3 rounded-xl bg-indigo-50/50 border-l-4 border-indigo-400 text-xs sm:text-sm text-slate-600 italic leading-relaxed">
+                                <span class="font-semibold text-indigo-700 not-italic block mb-0.5">Bản dịch tiếng Việt:</span>
+                                ${paraTrans}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+    }
+
+    renderReadingQuizOnly() {
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) return;
+        const current = filtered[this.readingIndex];
+
+        if (this.readingQuizBadgeCount) {
+            this.readingQuizBadgeCount.textContent = `${current.questions.length} câu hỏi`;
+        }
+
+        if (!this.readingQuizContainer) return;
+
+        this.readingQuizContainer.innerHTML = current.questions.map((q, qIdx) => {
+            const userChoice = this.readingUserAnswers[q.id];
+            const isCorrect = userChoice === q.answerIndex;
+
+            let cardBorder = 'border-slate-200 bg-white';
+            if (this.readingQuizSubmitted) {
+                cardBorder = isCorrect ? 'border-emerald-300 bg-emerald-50/20' : 'border-rose-300 bg-rose-50/20';
+            }
+
+            return `
+                <div class="quiz-question-card p-4 sm:p-5 rounded-2xl border ${cardBorder} shadow-2xs transition" data-qid="${q.id}">
+                    <div class="flex items-start justify-between gap-3 mb-3.5">
+                        <h4 class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                            <span class="text-indigo-600 font-extrabold mr-1">Câu ${qIdx + 1}:</span> ${q.question}
+                        </h4>
+                        ${this.readingQuizSubmitted ? (
+                            isCorrect 
+                                ? '<span class="shrink-0 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">✓ Đúng</span>' 
+                                : '<span class="shrink-0 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800">✗ Sai</span>'
+                        ) : ''}
+                    </div>
+
+                    <div class="space-y-2">
+                        ${q.options.map((optText, optIdx) => {
+                            const isSelected = userChoice === optIdx;
+                            let optClass = 'border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700';
+
+                            if (this.readingQuizSubmitted) {
+                                if (optIdx === q.answerIndex) {
+                                    optClass = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-semibold ring-1 ring-emerald-500';
+                                } else if (isSelected && !isCorrect) {
+                                    optClass = 'border-rose-400 bg-rose-50 text-rose-900 ring-1 ring-rose-400';
+                                } else {
+                                    optClass = 'border-slate-200 opacity-60 text-slate-500';
+                                }
+                            } else if (isSelected) {
+                                optClass = 'border-indigo-600 bg-indigo-50/70 text-indigo-900 font-semibold ring-1 ring-indigo-500';
+                            }
+
+                            const disabledAttr = this.readingQuizSubmitted ? 'disabled' : '';
+
+                            return `
+                                <label class="flex items-start gap-3 p-3 rounded-xl border text-xs sm:text-sm cursor-pointer transition select-none ${optClass}">
+                                    <input type="radio" 
+                                           name="q_${q.id}" 
+                                           value="${optIdx}" 
+                                           class="mt-0.5 text-indigo-600 focus:ring-indigo-500 shrink-0" 
+                                           ${isSelected ? 'checked' : ''} 
+                                           ${disabledAttr}
+                                           onchange="app.handleReadingQuizSelect('${q.id}', ${optIdx})">
+                                    <span class="flex-1 min-w-0">${optText}</span>
+                                </label>
+                            `;
+                        }).join('')}
+                    </div>
+
+                    ${this.readingQuizSubmitted ? `
+                        <div class="mt-3.5 p-3 sm:p-4 rounded-xl bg-indigo-50 border border-indigo-100 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            <div class="font-bold text-indigo-900 mb-1 flex items-center gap-1.5">
+                                <span>💡</span> <span>Bằng chứng & Giải thích chi tiết:</span>
+                            </div>
+                            <p class="text-slate-700">${q.explanation}</p>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }).join('');
+    }
+
+    handleReadingQuizSelect(qId, optionIdx) {
+        if (this.readingQuizSubmitted) return;
+        this.readingUserAnswers[qId] = optionIdx;
+        this.renderReadingQuizOnly();
+    }
+
+    submitReadingQuiz() {
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) return;
+        const current = filtered[this.readingIndex];
+
+        const unanswered = current.questions.filter(q => typeof this.readingUserAnswers[q.id] === 'undefined');
+        if (unanswered.length > 0) {
+            if (!confirm(`Bạn còn ${unanswered.length} câu chưa chọn đáp án. Bạn có chắc chắn muốn nộp bài ngay không?`)) {
+                return;
+            }
+        }
+
+        this.readingQuizSubmitted = true;
+
+        let correctCount = 0;
+        current.questions.forEach(q => {
+            if (this.readingUserAnswers[q.id] === q.answerIndex) {
+                correctCount++;
+            }
+        });
+
+        const total = current.questions.length;
+        const percent = Math.round((correctCount / total) * 100);
+
+        if (this.readingQuizScoreBanner) {
+            this.readingQuizScoreBanner.classList.remove('hidden');
+            let bannerBg = '';
+            let message = '';
+
+            if (percent === 100) {
+                bannerBg = 'bg-emerald-100 border border-emerald-300 text-emerald-900';
+                message = `🎉 <strong>Điểm số: ${correctCount}/${total} (100%)</strong> — Hoàn hảo! Bạn đã nắm trọn vẹn toàn bộ ý đồ và chi tiết bài đọc.`;
+            } else if (percent >= 75) {
+                bannerBg = 'bg-blue-100 border border-blue-300 text-blue-900';
+                message = `⭐ <strong>Điểm số: ${correctCount}/${total} (${percent}%)</strong> — Rất tốt! Hãy đối chiếu phần giải thích cho câu chưa đúng nhé.`;
+            } else {
+                bannerBg = 'bg-amber-100 border border-amber-300 text-amber-900';
+                message = `📖 <strong>Điểm số: ${correctCount}/${total} (${percent}%)</strong> — Hãy bật bản dịch tiếng Việt, đọc kỹ lại văn bản và xem phần giải thích bên dưới nhé.`;
+            }
+
+            this.readingQuizScoreBanner.className = `w-full sm:w-auto p-3 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 ${bannerBg}`;
+            this.readingQuizScoreBanner.innerHTML = message;
+        }
+
+        if (this.readingSubmitQuizBtn) this.readingSubmitQuizBtn.classList.add('hidden');
+        if (this.readingRetryQuizBtn) this.readingRetryQuizBtn.classList.remove('hidden');
+
+        this.renderReadingQuizOnly();
+    }
+
+    speakReadingVocab(idx) {
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) return;
+        const vocab = filtered[this.readingIndex].keyVocab[idx];
+        if (vocab) {
+            this.speak(vocab.word, 0.85);
+        }
+    }
+
+    speakReadingLine(idx) {
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) return;
+        const turn = filtered[this.readingIndex].content[idx];
+        const speechRate = parseFloat(this.readingSpeechRate ? this.readingSpeechRate.value : 1.0) || 1.0;
+        if (turn) {
+            this.speak(turn.text, speechRate);
+        }
+    }
+
+    speakReadingParagraph(idx) {
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) return;
+        const paragraphs = filtered[this.readingIndex].content.split('\n\n').map(p => p.trim()).filter(Boolean);
+        const speechRate = parseFloat(this.readingSpeechRate ? this.readingSpeechRate.value : 1.0) || 1.0;
+        if (paragraphs[idx]) {
+            this.speak(paragraphs[idx], speechRate);
+        }
+    }
+
+    toggleReadingTTS() {
+        if (!('speechSynthesis' in window)) {
+            alert('Trình duyệt của bạn không hỗ trợ tính năng phát âm trực tiếp.');
+            return;
+        }
+
+        if (this.isReadingSpeaking) {
+            this.stopReadingTTS();
+            return;
+        }
+
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) return;
+        const current = filtered[this.readingIndex];
+
+        let textToRead = '';
+        if (current.type === 'conversation') {
+            textToRead = current.content.map(turn => `${turn.speaker.split('(')[0].trim()}: ${turn.text}`).join('. ');
+        } else {
+            textToRead = current.content;
+        }
+
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.lang = 'en-US';
+        utterance.rate = parseFloat(this.readingSpeechRate ? this.readingSpeechRate.value : 1.0) || 1.0;
+
+        const voices = window.speechSynthesis.getVoices();
+        const englishVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha')));
+        if (englishVoice) {
+            utterance.voice = englishVoice;
+        }
+
+        utterance.onstart = () => {
+            this.isReadingSpeaking = true;
+            if (this.readingTtsIcon) this.readingTtsIcon.textContent = '⏹';
+            if (this.readingTtsText) this.readingTtsText.textContent = 'Dừng đọc';
+            if (this.readingTtsBtn) {
+                this.readingTtsBtn.className = 'inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-rose-600 text-white transition active:scale-95 shadow-xs font-semibold text-xs';
+            }
+        };
+
+        utterance.onend = () => {
+            this.stopReadingTTS();
+        };
+
+        utterance.onerror = () => {
+            this.stopReadingTTS();
+        };
+
+        window.speechSynthesis.speak(utterance);
+    }
+
+    stopReadingTTS() {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+        }
+        this.isReadingSpeaking = false;
+        if (this.readingTtsIcon) this.readingTtsIcon.textContent = '🔊';
+        if (this.readingTtsText) this.readingTtsText.textContent = 'Nghe đọc toàn bài';
+        if (this.readingTtsBtn) {
+            this.readingTtsBtn.className = 'inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 transition active:scale-95 text-xs font-semibold';
         }
     }
 
