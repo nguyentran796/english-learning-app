@@ -2957,11 +2957,33 @@ class EnglishApp {
         const card = this.mgCards.find(c => c.id === cardId);
         if (!card || card.isMatched) return;
 
-        // Check if card is already selected
-        if (this.mgSelectedCards.some(c => c.id === card.id)) return;
+        // 1. Nếu thẻ này đã được chọn -> Bấm lại 1 lần nữa để BỎ CHỌN
+        const existingIndex = this.mgSelectedCards.findIndex(c => c.id === card.id);
+        if (existingIndex !== -1) {
+            this.mgSelectedCards.splice(existingIndex, 1);
+            const tileEl = document.getElementById(`tile_${card.id}`);
+            if (tileEl) {
+                tileEl.classList.remove('ring-4', 'ring-indigo-400', 'border-indigo-600', 'bg-indigo-50/80', 'scale-[1.02]', 'shadow-md');
+            }
+            if (this.mgSoundEnabled) {
+                this.sfx.playClick();
+            }
+            return;
+        }
 
-        // If in audio mode and clicking word tile: speak word
-        if (this.mgMode === 'audio' && card.type === 'word') {
+        // 2. Nếu đang chọn 1 thẻ cùng loại (ví dụ: đang chọn English A mà lại bấm English B để nghe phát âm)
+        // -> Tự động bỏ chọn thẻ A để chuyển sang chọn thẻ B
+        if (this.mgSelectedCards.length === 1 && this.mgSelectedCards[0].type === card.type) {
+            const prevCard = this.mgSelectedCards[0];
+            const prevTileEl = document.getElementById(`tile_${prevCard.id}`);
+            if (prevTileEl) {
+                prevTileEl.classList.remove('ring-4', 'ring-indigo-400', 'border-indigo-600', 'bg-indigo-50/80', 'scale-[1.02]', 'shadow-md');
+            }
+            this.mgSelectedCards = [];
+        }
+
+        // Phát âm khi chọn thẻ Tiếng Anh để người học nghe phát âm trước khi chọn đáp án
+        if (card.type === 'word') {
             this.speak(card.text, 0.9);
         }
 
@@ -2978,7 +3000,7 @@ class EnglishApp {
 
         this.mgSelectedCards.push(card);
 
-        // Check pair if 2 selected
+        // Check pair if 2 selected (khác loại)
         if (this.mgSelectedCards.length === 2) {
             this.mgFlips++;
             this.checkMatchingPair();
