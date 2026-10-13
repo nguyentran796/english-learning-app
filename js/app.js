@@ -419,6 +419,8 @@ class EnglishApp {
         this.quizIndex = 0;
         this.quizScore = 0;
         this.isQuizActive = false;
+        this.quizMode = 'fillin'; // fillin | meaning | mixed
+        this.quizTopic = 'all';
 
         // Reading & Dialogue State
         this.readingFilter = 'all'; // all | conversation | passage
@@ -575,6 +577,11 @@ class EnglishApp {
         this.quizScoreText = document.getElementById('quiz-score-text');
         this.quizFeedback = document.getElementById('quiz-feedback');
         this.quizNextBtn = document.getElementById('quiz-next-btn');
+        this.quizModeBtns = document.querySelectorAll('.quiz-mode-btn');
+        this.quizTopicSelect = document.getElementById('quiz-topic-select');
+        this.quizTypeBadge = document.getElementById('quiz-type-badge');
+        this.quizPromptLabel = document.getElementById('quiz-prompt-label');
+        this.quizAudioBtn = document.getElementById('quiz-audio-btn');
 
         // Backup elements
         this.exportBtn = document.getElementById('export-data-btn');
@@ -800,9 +807,48 @@ class EnglishApp {
         });
 
         // Quiz
-        this.startQuizBtn.addEventListener('click', () => this.startQuiz());
-        this.quizNextBtn.addEventListener('click', () => this.nextQuizQuestion());
-        document.getElementById('restart-quiz-btn').addEventListener('click', () => this.startQuiz());
+        if (this.startQuizBtn) {
+            this.startQuizBtn.addEventListener('click', () => this.startQuiz());
+        }
+        if (this.quizNextBtn) {
+            this.quizNextBtn.addEventListener('click', () => this.nextQuizQuestion());
+        }
+        const restartQuizBtn = document.getElementById('restart-quiz-btn');
+        if (restartQuizBtn) {
+            restartQuizBtn.addEventListener('click', () => {
+                if (this.quizResultBox) this.quizResultBox.classList.add('hidden');
+                if (this.quizStartBox) this.quizStartBox.classList.remove('hidden');
+            });
+        }
+        if (this.quizModeBtns) {
+            this.quizModeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    this.quizModeBtns.forEach(b => {
+                        b.classList.remove('active', 'border-indigo-600', 'bg-white', 'shadow-2xs');
+                        b.classList.add('border-slate-200');
+                    });
+                    btn.classList.add('active', 'border-indigo-600', 'bg-white', 'shadow-2xs');
+                    btn.classList.remove('border-slate-200');
+                    this.quizMode = btn.dataset.mode;
+                });
+            });
+        }
+        if (this.quizTopicSelect) {
+            this.quizTopicSelect.addEventListener('change', (e) => {
+                this.quizTopic = e.target.value;
+            });
+        }
+        if (this.quizAudioBtn) {
+            this.quizAudioBtn.addEventListener('click', () => {
+                const q = this.quizQuestions[this.quizIndex];
+                if (!q) return;
+                if (q.type === 'fillin') {
+                    this.speak(q.target.example, 0.9);
+                } else {
+                    this.speak(q.target.text, 0.85);
+                }
+            });
+        }
 
         // Backup
         this.exportBtn.addEventListener('click', () => this.exportData());
@@ -1076,6 +1122,15 @@ class EnglishApp {
         });
         modalHtml += `<option value="__new__">+ Thêm chủ đề mới...</option>`;
         this.formTopic.innerHTML = modalHtml;
+
+        // Quiz topic select
+        if (this.quizTopicSelect) {
+            let quizHtml = `<option value="all">Tất cả chủ đề (${uniqueTopics.length})</option>`;
+            uniqueTopics.forEach(t => {
+                quizHtml += `<option value="${t}">${t}</option>`;
+            });
+            this.quizTopicSelect.innerHTML = quizHtml;
+        }
     }
 
     // ================= FLASHCARD LOGIC =================
@@ -1435,29 +1490,80 @@ class EnglishApp {
 
     // ================= QUIZ LOGIC =================
     startQuiz() {
-        if (this.items.length < 4) {
+        let pool = [...this.items];
+        if (this.quizTopic && this.quizTopic !== 'all') {
+            const filteredByTopic = pool.filter(i => i.topic === this.quizTopic);
+            if (filteredByTopic.length >= 4) {
+                pool = filteredByTopic;
+            }
+        }
+
+        if (pool.length < 4) {
             alert("Bạn cần ít nhất 4 từ hoặc mẫu câu để bắt đầu làm bài trắc nghiệm!");
             return;
         }
 
-        // Tạo bộ 5-10 câu hỏi ngẫu nhiên từ kho từ vựng
-        const shuffled = [...this.items].sort(() => 0.5 - Math.random());
+        // Tạo bộ 10 câu hỏi ngẫu nhiên từ kho từ vựng
+        const shuffled = [...pool].sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, Math.min(10, shuffled.length));
 
-        this.quizQuestions = selected.map(item => {
-            // Lấy 3 lựa chọn sai ngẫu nhiên
-            const wrongOptions = this.items
-                .filter(i => i.id !== item.id)
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 3)
-                .map(i => i.meaning);
+        this.quizQuestions = selected.map((item, idx) => {
+            let qType = this.quizMode;
+            if (qType === 'mixed') {
+                qType = (idx % 2 === 0 && item.example) ? 'fillin' : 'meaning';
+            } else if (qType === 'fillin' && !item.example) {
+                qType = 'meaning';
+            }
 
-            const options = [...wrongOptions, item.meaning].sort(() => 0.5 - Math.random());
-            return {
-                target: item,
-                options: options,
-                correctAnswer: item.meaning
-            };
+            if (qType === 'fillin') {
+                // Tạo câu trắc nghiệm điền từ vào chỗ trống (...)
+                const escapedText = item.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp(`\\b${escapedText}\\b`, 'gi');
+                let sentenceWithBlank = item.example;
+                if (regex.test(item.example)) {
+                    sentenceWithBlank = item.example.replace(regex, '________');
+                } else {
+                    const lowerEx = item.example.toLowerCase();
+                    const lowerTxt = item.text.toLowerCase();
+                    const pos = lowerEx.indexOf(lowerTxt);
+                    if (pos !== -1) {
+                        sentenceWithBlank = item.example.slice(0, pos) + '________' + item.example.slice(pos + item.text.length);
+                    } else {
+                        sentenceWithBlank = item.example.replace(/[.!?]+$/, '') + ' (________)';
+                    }
+                }
+
+                // Lấy 3 lựa chọn sai là các từ tiếng Anh khác
+                const wrongOptions = this.items
+                    .filter(i => i.id !== item.id && i.text !== item.text)
+                    .sort(() => 0.5 - Math.random())
+                    .slice(0, 3)
+                    .map(i => i.text);
+
+                const options = [...wrongOptions, item.text].sort(() => 0.5 - Math.random());
+                return {
+                    type: 'fillin',
+                    target: item,
+                    sentenceWithBlank: sentenceWithBlank,
+                    options: options,
+                    correctAnswer: item.text
+                };
+            } else {
+                // Dạng câu hỏi nghĩa của từ
+                const wrongOptions = this.items
+                    .filter(i => i.id !== item.id && i.meaning !== item.meaning)
+                    .sort(() => 0.5 - Math.random())
+                    .slice(0, 3)
+                    .map(i => i.meaning);
+
+                const options = [...wrongOptions, item.meaning].sort(() => 0.5 - Math.random());
+                return {
+                    type: 'meaning',
+                    target: item,
+                    options: options,
+                    correctAnswer: item.meaning
+                };
+            }
         });
 
         this.quizIndex = 0;
@@ -1476,22 +1582,45 @@ class EnglishApp {
         this.quizProgress.textContent = `Câu ${this.quizIndex + 1} / ${this.quizQuestions.length}`;
         this.quizScoreText.textContent = `Điểm: ${this.quizScore}`;
 
-        this.quizQuestionText.textContent = q.target.text;
-        this.quizQuestionSub.textContent = q.target.ipa ? `${q.target.ipa} • ${q.target.topic}` : q.target.topic;
+        if (this.quizTypeBadge) {
+            this.quizTypeBadge.textContent = q.type === 'fillin' ? '✍️ Điền từ vào câu' : '🎯 Nghĩa của từ';
+            this.quizTypeBadge.className = q.type === 'fillin'
+                ? 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-50 text-indigo-700'
+                : 'px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800';
+        }
+
+        if (this.quizPromptLabel) {
+            this.quizPromptLabel.textContent = q.type === 'fillin'
+                ? 'Chọn từ còn thiếu điền vào chỗ (...):'
+                : 'Nghĩa đúng của từ/mẫu câu này là gì:';
+        }
+
+        if (q.type === 'fillin') {
+            this.quizQuestionText.innerHTML = q.sentenceWithBlank.replace(
+                /________/g,
+                '<span class="inline-block px-3 py-0.5 mx-1 border-b-2 border-indigo-500 font-black text-indigo-600 bg-indigo-50/80 rounded tracking-wider">. . . . . .</span>'
+            );
+            this.quizQuestionSub.textContent = q.target.exampleMeaning
+                ? `(Dịch nghĩa: ${q.target.exampleMeaning})`
+                : `(Chủ đề: ${q.target.topic})`;
+        } else {
+            this.quizQuestionText.textContent = q.target.text;
+            this.quizQuestionSub.textContent = q.target.ipa ? `${q.target.ipa} • ${q.target.topic}` : q.target.topic;
+            // Phát âm từ vựng
+            this.speak(q.target.text, 0.85);
+        }
+
         this.quizFeedback.classList.add('hidden');
         this.quizNextBtn.classList.add('hidden');
 
         this.quizOptionsContainer.innerHTML = q.options.map((opt, idx) => `
-            <button class="quiz-option-btn w-full text-left p-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-indigo-500 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium transition" onclick="app.checkAnswer('${opt.replace(/'/g, "\\'")}', this)">
-                <span class="inline-block w-7 h-7 text-center leading-7 rounded-full bg-gray-100 dark:bg-gray-700 text-sm font-bold mr-2">
+            <button class="quiz-option-btn w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/30 bg-white text-slate-800 font-semibold transition active:scale-[0.99] flex items-center shadow-2xs" onclick="app.checkAnswer('${opt.replace(/'/g, "\\'")}', this)">
+                <span class="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-slate-100 text-slate-700 text-xs font-black mr-3 shrink-0">
                     ${String.fromCharCode(65 + idx)}
                 </span>
-                ${opt}
+                <span class="text-xs sm:text-sm leading-snug break-words">${opt}</span>
             </button>
         `).join('');
-
-        // Phát âm câu hỏi
-        this.speak(q.target.text, 0.85);
     }
 
     checkAnswer(selectedAnswer, buttonElement) {
@@ -1499,26 +1628,60 @@ class EnglishApp {
         const allButtons = this.quizOptionsContainer.querySelectorAll('.quiz-option-btn');
         allButtons.forEach(btn => btn.disabled = true);
 
-        if (selectedAnswer === q.correctAnswer) {
-            buttonElement.classList.add('border-emerald-500', 'bg-emerald-50', 'dark:bg-emerald-950/30', 'text-emerald-800');
+        const isCorrect = selectedAnswer === q.correctAnswer;
+
+        if (isCorrect) {
+            buttonElement.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900', 'shadow-xs');
+            const badge = buttonElement.querySelector('span');
+            if (badge) badge.classList.add('bg-emerald-200', 'text-emerald-900');
             this.quizScore += 10;
+
+            if (q.type === 'fillin') {
+                this.quizQuestionText.innerHTML = q.sentenceWithBlank.replace(
+                    /________/g,
+                    `<span class="inline-block px-3 py-0.5 mx-1 bg-emerald-100 text-emerald-800 font-black rounded border border-emerald-300 animate-pulse">${q.correctAnswer}</span>`
+                );
+                // Đọc cả câu mẫu hoàn chỉnh sau khi điền đúng
+                this.speak(q.target.example, 0.9);
+            }
+
             this.quizFeedback.innerHTML = `
-                <div class="p-3 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200 rounded-lg text-sm font-medium">
-                    🎉 Chính xác! <strong>"${q.target.text}"</strong> = ${q.correctAnswer}
-                    ${q.target.note ? `<p class="text-xs mt-1 text-emerald-700 dark:text-emerald-300">💡 ${q.target.note}</p>` : ''}
+                <div class="p-4 bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-2xl text-xs sm:text-sm font-medium">
+                    <div class="flex items-center gap-1.5 font-bold text-emerald-800 text-sm mb-1">
+                        <span>🎉</span> <span>Chính xác! (+10 điểm)</span>
+                    </div>
+                    <p><strong>"${q.target.text}"</strong>: ${q.target.meaning}</p>
+                    ${q.target.note ? `<p class="text-xs mt-1 text-emerald-700">💡 <em>${q.target.note}</em></p>` : ''}
                 </div>
             `;
         } else {
-            buttonElement.classList.add('border-rose-500', 'bg-rose-50', 'dark:bg-rose-950/30', 'text-rose-800');
+            buttonElement.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+            const badge = buttonElement.querySelector('span');
+            if (badge) badge.classList.add('bg-rose-200', 'text-rose-900');
+
             // Tô xanh đáp án đúng
             allButtons.forEach(btn => {
                 if (btn.innerText.includes(q.correctAnswer)) {
-                    btn.classList.add('border-emerald-500', 'bg-emerald-50', 'dark:bg-emerald-950/30', 'text-emerald-800');
+                    btn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+                    const b = btn.querySelector('span');
+                    if (b) b.classList.add('bg-emerald-200', 'text-emerald-900');
                 }
             });
+
+            if (q.type === 'fillin') {
+                this.quizQuestionText.innerHTML = q.sentenceWithBlank.replace(
+                    /________/g,
+                    `<span class="inline-block px-3 py-0.5 mx-1 bg-emerald-100 text-emerald-800 font-black rounded border border-emerald-300">${q.correctAnswer}</span>`
+                );
+            }
+
             this.quizFeedback.innerHTML = `
-                <div class="p-3 bg-rose-100 dark:bg-rose-900/40 text-rose-800 dark:text-rose-200 rounded-lg text-sm font-medium">
-                    ❌ Chưa đúng rồi! Đáp án chính xác là: <strong>${q.correctAnswer}</strong>
+                <div class="p-4 bg-rose-50 border border-rose-200 text-rose-900 rounded-2xl text-xs sm:text-sm font-medium">
+                    <div class="flex items-center gap-1.5 font-bold text-rose-800 text-sm mb-1">
+                        <span>❌</span> <span>Chưa chính xác!</span>
+                    </div>
+                    <p>Đáp án đúng là: <strong class="text-emerald-700">${q.correctAnswer}</strong> (${q.target.meaning})</p>
+                    ${q.target.note ? `<p class="text-xs mt-1 text-slate-600">💡 <em>${q.target.note}</em></p>` : ''}
                 </div>
             `;
         }
