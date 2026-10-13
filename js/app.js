@@ -380,6 +380,7 @@ class EnglishApp {
         this.flashcardIndex = 0;
         this.isFlipped = false;
         this.flashcardList = [];
+        this.fcMasteryFilter = 'unmastered'; // unmastered | mastered | all
 
         // Speech Practice & Recognition State
         this.evaluator = new PronunciationEvaluator();
@@ -525,6 +526,10 @@ class EnglishApp {
         this.fcSpeakBtn = document.getElementById('fc-speak-btn');
         this.fcSpeakSlowBtn = document.getElementById('fc-speak-slow-btn');
         this.fcMasterBtn = document.getElementById('fc-master-btn');
+        this.fcMasteryTabs = document.querySelectorAll('.fc-mastery-tab');
+        this.fcCountUnmastered = document.getElementById('fc-count-unmastered');
+        this.fcCountMastered = document.getElementById('fc-count-mastered');
+        this.fcCountAll = document.getElementById('fc-count-all');
 
         // Flashcard Speech elements
         this.fcMicBtn = document.getElementById('fc-mic-btn');
@@ -747,6 +752,15 @@ class EnglishApp {
             e.stopPropagation();
             this.toggleCurrentFlashcardMastery();
         });
+
+        if (this.fcMasteryTabs) {
+            this.fcMasteryTabs.forEach(tabBtn => {
+                tabBtn.addEventListener('click', () => {
+                    const status = tabBtn.getAttribute('data-status') || 'unmastered';
+                    this.setFlashcardMasteryFilter(status);
+                });
+            });
+        }
 
         // Keyboard shortcuts for flashcard
         document.addEventListener('keydown', (e) => {
@@ -1103,6 +1117,7 @@ class EnglishApp {
         this.statVocab.textContent = vocabs;
         this.statSentences.textContent = sentences;
         this.statMastered.textContent = mastered;
+        this.updateMasteryTabCounts();
     }
 
     updateTopicDropdowns() {
@@ -1134,11 +1149,55 @@ class EnglishApp {
     }
 
     // ================= FLASHCARD LOGIC =================
-    updateFlashcardList() {
-        this.flashcardList = this.items.filter(item => {
+    setFlashcardMasteryFilter(status) {
+        this.fcMasteryFilter = status;
+        if (this.fcMasteryTabs) {
+            this.fcMasteryTabs.forEach(tab => {
+                const tabStatus = tab.getAttribute('data-status');
+                if (tabStatus === status) {
+                    tab.className = "fc-mastery-tab active flex-1 py-1.5 px-2 rounded-xl bg-white text-indigo-700 shadow-2xs font-semibold transition flex items-center justify-center gap-1.5";
+                    const countSpan = tab.querySelector('span[id^="fc-count-"]');
+                    if (countSpan) countSpan.className = "px-1.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-[10px] font-bold";
+                } else {
+                    tab.className = "fc-mastery-tab flex-1 py-1.5 px-2 rounded-xl text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1.5";
+                    const countSpan = tab.querySelector('span[id^="fc-count-"]');
+                    if (countSpan) countSpan.className = "px-1.5 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[10px] font-bold";
+                }
+            });
+        }
+        this.flashcardIndex = 0;
+        this.updateFlashcardList();
+    }
+
+    updateMasteryTabCounts() {
+        const baseItems = this.items.filter(item => {
             const matchType = this.currentFilter === 'all' || item.type === this.currentFilter;
             const matchTopic = this.currentTopicFilter === 'all' || item.topic === this.currentTopicFilter;
             return matchType && matchTopic;
+        });
+        const unmasteredCount = baseItems.filter(i => i.status !== 'mastered').length;
+        const masteredCount = baseItems.filter(i => i.status === 'mastered').length;
+        const allCount = baseItems.length;
+
+        if (this.fcCountUnmastered) this.fcCountUnmastered.textContent = unmasteredCount;
+        if (this.fcCountMastered) this.fcCountMastered.textContent = masteredCount;
+        if (this.fcCountAll) this.fcCountAll.textContent = allCount;
+    }
+
+    updateFlashcardList() {
+        this.updateMasteryTabCounts();
+
+        this.flashcardList = this.items.filter(item => {
+            const matchType = this.currentFilter === 'all' || item.type === this.currentFilter;
+            const matchTopic = this.currentTopicFilter === 'all' || item.topic === this.currentTopicFilter;
+            if (!matchType || !matchTopic) return false;
+
+            if (this.fcMasteryFilter === 'unmastered') {
+                return item.status !== 'mastered';
+            } else if (this.fcMasteryFilter === 'mastered') {
+                return item.status === 'mastered';
+            }
+            return true;
         });
 
         if (this.flashcardIndex >= this.flashcardList.length) {
@@ -1163,10 +1222,22 @@ class EnglishApp {
         this.fcCard.classList.remove('flipped');
 
         if (this.flashcardList.length === 0) {
-            this.fcFrontText.textContent = "Chưa có nội dung phù hợp";
-            this.fcFrontIpa.textContent = "";
-            this.fcFrontTopic.textContent = "Trống";
-            this.fcBackMeaning.textContent = "Hãy thêm từ mới hoặc chọn bộ lọc khác!";
+            if (this.fcMasteryFilter === 'unmastered') {
+                this.fcFrontText.textContent = "🎉 Xuất sắc! Đã thuộc hết";
+                this.fcFrontIpa.textContent = "Great job!";
+                this.fcFrontTopic.textContent = "Hoàn thành";
+                this.fcBackMeaning.textContent = "Bạn đã thuộc tất cả các thẻ trong mục này! Hãy chuyển sang tab '⭐ Đã thuộc' để ôn lại hoặc đổi chủ đề khác nhé.";
+            } else if (this.fcMasteryFilter === 'mastered') {
+                this.fcFrontText.textContent = "Chưa có từ nào đã thuộc";
+                this.fcFrontIpa.textContent = "No mastered words";
+                this.fcFrontTopic.textContent = "Trống";
+                this.fcBackMeaning.textContent = "Ở tab '📖 Cần học', khi thuộc một từ, hãy bấm nút 'Đánh dấu đã thuộc' để gom từ vào đây.";
+            } else {
+                this.fcFrontText.textContent = "Chưa có nội dung phù hợp";
+                this.fcFrontIpa.textContent = "";
+                this.fcFrontTopic.textContent = "Trống";
+                this.fcBackMeaning.textContent = "Hãy thêm từ mới hoặc chọn bộ lọc khác!";
+            }
             this.fcBackExample.textContent = "";
             this.fcBackExMeaning.textContent = "";
             this.fcBackNote.textContent = "";
@@ -1186,11 +1257,11 @@ class EnglishApp {
 
         // Master button style
         if (item.status === 'mastered') {
-            this.fcMasterBtn.innerHTML = `⭐ Đã thuộc`;
-            this.fcMasterBtn.className = "px-3 py-1.5 text-xs rounded-full font-medium bg-amber-100 text-amber-800 border border-amber-300 dark:bg-amber-900/50 dark:text-amber-200";
+            this.fcMasterBtn.innerHTML = `⭐ Đã thuộc (Bấm để chuyển về cần học)`;
+            this.fcMasterBtn.className = "px-3 py-1.5 text-xs rounded-full font-medium bg-amber-100 text-amber-800 border border-amber-300 transition active:scale-95";
         } else {
             this.fcMasterBtn.innerHTML = `○ Đánh dấu đã thuộc`;
-            this.fcMasterBtn.className = "px-3 py-1.5 text-xs rounded-full font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300 dark:bg-gray-800 dark:text-gray-300";
+            this.fcMasterBtn.className = "px-3 py-1.5 text-xs rounded-full font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300 transition active:scale-95";
         }
 
         this.fcProgress.textContent = `${this.flashcardIndex + 1} / ${this.flashcardList.length}`;
@@ -1227,9 +1298,20 @@ class EnglishApp {
     toggleCurrentFlashcardMastery() {
         if (this.flashcardList.length === 0) return;
         const currentItem = this.flashcardList[this.flashcardIndex];
-        currentItem.status = currentItem.status === 'mastered' ? 'learning' : 'mastered';
+        const wasMastered = currentItem.status === 'mastered';
+        currentItem.status = wasMastered ? 'learning' : 'mastered';
         this.saveItems();
-        this.renderFlashcard();
+
+        if (this.fcMasteryFilter === 'unmastered' || this.fcMasteryFilter === 'mastered') {
+            this.updateFlashcardList();
+            if (this.flashcardIndex >= this.flashcardList.length) {
+                this.flashcardIndex = Math.max(0, this.flashcardList.length - 1);
+            }
+            this.renderFlashcard();
+        } else {
+            this.updateMasteryTabCounts();
+            this.renderFlashcard();
+        }
     }
 
     // ================= TTS AUDIO =================

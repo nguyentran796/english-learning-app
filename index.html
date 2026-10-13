@@ -201,7 +201,23 @@
         <!-- TAB 1: FLASHCARD -->
         <section id="tab-flashcard" class="tab-content">
             <div class="max-w-2xl mx-auto">
-                <div class="flex items-center justify-between mb-4">
+                <!-- Flashcard Mastery Segmented Control -->
+                <div class="bg-slate-100 p-1 rounded-2xl flex items-center justify-between gap-1 mb-3.5 text-xs font-semibold">
+                    <button type="button" id="fc-tab-unmastered" class="fc-mastery-tab active flex-1 py-1.5 px-2 rounded-xl bg-white text-indigo-700 shadow-2xs transition flex items-center justify-center gap-1.5" data-status="unmastered">
+                        <span>📖 Cần học</span>
+                        <span id="fc-count-unmastered" class="px-1.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-[10px] font-bold">0</span>
+                    </button>
+                    <button type="button" id="fc-tab-mastered" class="fc-mastery-tab flex-1 py-1.5 px-2 rounded-xl text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1.5" data-status="mastered">
+                        <span>⭐ Đã thuộc</span>
+                        <span id="fc-count-mastered" class="px-1.5 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[10px] font-bold">0</span>
+                    </button>
+                    <button type="button" id="fc-tab-all" class="fc-mastery-tab flex-1 py-1.5 px-2 rounded-xl text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1.5" data-status="all">
+                        <span>📚 Tất cả</span>
+                        <span id="fc-count-all" class="px-1.5 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[10px] font-bold">0</span>
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Luyện phản xạ</span>
                         <span id="fc-progress" class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">1 / 10</span>
@@ -210,7 +226,7 @@
                         <button id="fc-shuffle-btn" class="text-xs px-2.5 py-1 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-100 transition" title="Xáo trộn thẻ">
                             🔀 Xáo trộn
                         </button>
-                        <button id="fc-master-btn" class="px-3 py-1 text-xs rounded-full font-medium bg-slate-100 text-slate-700 border border-slate-300">
+                        <button id="fc-master-btn" class="px-3 py-1 text-xs rounded-full font-medium bg-slate-100 text-slate-700 border border-slate-300 transition active:scale-95">
                             ○ Đánh dấu đã thuộc
                         </button>
                     </div>
