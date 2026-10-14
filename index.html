@@ -174,7 +174,7 @@
                     📋 Kho Từ (502)
                 </button>
                 <button data-tab="reading" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-700 py-2 px-2.5 sm:px-3 text-xs sm:text-sm whitespace-nowrap flex items-center gap-1 shrink-0">
-                    📖 Đọc Hiểu (21)
+                    📖 Đọc Hiểu (<span id="nav-reading-count">36</span>)
                 </button>
                 <button data-tab="speaking" class="tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-700 py-2 px-2.5 sm:px-3 text-xs sm:text-sm whitespace-nowrap flex items-center gap-1 shrink-0">
                     🎙️ Luyện Nói AI
@@ -405,31 +405,66 @@
         <section id="tab-reading" class="tab-content hidden">
             <div class="max-w-4xl mx-auto space-y-6">
 
-                <!-- Header / Category Filter Bar -->
-                <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none pb-1 md:pb-0">
-                        <button id="reading-filter-all" class="reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600 text-white shadow-xs shrink-0 transition" data-filter="all">
-                            Tất cả (21)
-                        </button>
-                        <button id="reading-filter-conv" class="reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 shrink-0 transition" data-filter="conversation">
-                            💬 Hội thoại Nam/Nữ (11)
-                        </button>
-                        <button id="reading-filter-passage" class="reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 shrink-0 transition" data-filter="passage">
-                            📰 Bài đọc (10)
-                        </button>
+                <!-- Difficulty Level Selection & Category Filter Bar -->
+                <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs space-y-3.5">
+                    
+                    <!-- Row 1: Level Selection Segmented Bar -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5 shrink-0">
+                                <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                Độ khó bài học:
+                            </span>
+                            <div class="inline-flex bg-slate-100 p-1 rounded-xl gap-1 text-xs font-semibold flex-wrap">
+                                <button type="button" class="reading-level-btn active px-3 py-1.5 rounded-lg bg-white text-indigo-700 shadow-2xs font-bold transition flex items-center gap-1.5" data-level="all">
+                                    <span>🎯 Tất cả</span>
+                                    <span id="reading-count-lvl-all" class="px-1.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-[10px]">36</span>
+                                </button>
+                                <button type="button" class="reading-level-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5" data-level="B1 - B2">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+                                    <span>🌱 Trung cấp (B1 - B2)</span>
+                                    <span id="reading-count-lvl-b1" class="px-1.5 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[10px]">17</span>
+                                </button>
+                                <button type="button" class="reading-level-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5" data-level="B2 - C1">
+                                    <span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span>
+                                    <span>🚀 Nâng cao (B2 - C1)</span>
+                                    <span id="reading-count-lvl-b2" class="px-1.5 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[10px]">19</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Active level quick indicator -->
+                        <div id="reading-level-hint" class="text-xs text-slate-500 hidden sm:block">
+                            Hiển thị tất cả 36 bài học
+                        </div>
                     </div>
 
-                    <!-- Article Dropdown Selector & Navigation -->
-                    <div class="flex items-center gap-2 w-full md:w-auto">
-                        <button id="reading-prev-btn" class="p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 shrink-0 transition active:scale-95" title="Bài trước">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                        </button>
-                        <select id="reading-select" class="flex-1 md:w-72 px-3 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm font-medium focus:ring-2 focus:ring-indigo-500 bg-white truncate">
-                            <!-- Populated dynamically -->
-                        </select>
-                        <button id="reading-next-btn" class="p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 shrink-0 transition active:scale-95" title="Bài tiếp theo">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                        </button>
+                    <!-- Row 2: Format Filter (All/Conv/Passage) + Dropdown Selector & Navigation -->
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                        <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none pb-1 md:pb-0">
+                            <button id="reading-filter-all" class="reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600 text-white shadow-xs shrink-0 transition" data-filter="all">
+                                Tất cả (<span id="reading-count-all">36</span>)
+                            </button>
+                            <button id="reading-filter-conv" class="reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 shrink-0 transition" data-filter="conversation">
+                                💬 Hội thoại Nam/Nữ (<span id="reading-count-conv">19</span>)
+                            </button>
+                            <button id="reading-filter-passage" class="reading-filter-btn px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 shrink-0 transition" data-filter="passage">
+                                📰 Bài đọc (<span id="reading-count-passage">17</span>)
+                            </button>
+                        </div>
+
+                        <!-- Article Dropdown Selector & Navigation -->
+                        <div class="flex items-center gap-2 w-full md:w-auto">
+                            <button id="reading-prev-btn" class="p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 shrink-0 transition active:scale-95" title="Bài trước">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                            </button>
+                            <select id="reading-select" class="flex-1 md:w-80 px-3 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm font-medium focus:ring-2 focus:ring-indigo-500 bg-white truncate">
+                                <!-- Populated dynamically -->
+                            </select>
+                            <button id="reading-next-btn" class="p-2 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 shrink-0 transition active:scale-95" title="Bài tiếp theo">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 

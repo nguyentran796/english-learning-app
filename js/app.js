@@ -425,6 +425,7 @@ class EnglishApp {
 
         // Reading & Dialogue State
         this.readingFilter = 'all'; // all | conversation | passage
+        this.readingLevelFilter = 'all'; // all | 'B1 - B2' | 'B2 - C1'
         this.readingIndex = 0;
         this.showReadingTranslation = false;
         this.showReadingVocab = true;
@@ -595,6 +596,15 @@ class EnglishApp {
 
         // Reading elements
         this.readingFilterBtns = document.querySelectorAll('.reading-filter-btn');
+        this.readingLevelBtns = document.querySelectorAll('.reading-level-btn');
+        this.readingCountLvlAll = document.getElementById('reading-count-lvl-all');
+        this.readingCountLvlB1 = document.getElementById('reading-count-lvl-b1');
+        this.readingCountLvlB2 = document.getElementById('reading-count-lvl-b2');
+        this.readingCountAll = document.getElementById('reading-count-all');
+        this.readingCountConv = document.getElementById('reading-count-conv');
+        this.readingCountPassage = document.getElementById('reading-count-passage');
+        this.readingLevelHint = document.getElementById('reading-level-hint');
+        this.navReadingCount = document.getElementById('nav-reading-count');
         this.readingSelect = document.getElementById('reading-select');
         this.readingPrevBtn = document.getElementById('reading-prev-btn');
         this.readingNextBtn = document.getElementById('reading-next-btn');
@@ -870,6 +880,13 @@ class EnglishApp {
         this.resetDataBtn.addEventListener('click', () => this.resetData());
 
         // Reading events
+        if (this.readingLevelBtns) {
+            this.readingLevelBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    this.setReadingLevelFilter(btn.dataset.level || 'all');
+                });
+            });
+        }
         if (this.readingFilterBtns) {
             this.readingFilterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -1806,11 +1823,28 @@ class EnglishApp {
         if (typeof READING_DATA === 'undefined' || !Array.isArray(READING_DATA)) {
             return [];
         }
-        if (this.readingFilter === 'all') return READING_DATA;
-        return READING_DATA.filter(item => item.type === this.readingFilter);
+        return READING_DATA.filter(item => {
+            const matchType = this.readingFilter === 'all' || item.type === this.readingFilter;
+            const matchLevel = this.readingLevelFilter === 'all' || (item.level && item.level.includes(this.readingLevelFilter));
+            return matchType && matchLevel;
+        });
     }
 
     initReadingModule() {
+        this.updateReadingBadgeCounts();
+        this.updateReadingLevelButtons();
+        this.updateReadingFilterButtons();
+        this.populateReadingSelect();
+        this.renderCurrentReading();
+    }
+
+    setReadingLevelFilter(level) {
+        this.readingLevelFilter = level;
+        this.readingIndex = 0;
+        this.stopReadingTTS();
+        this.resetReadingQuizState();
+        this.updateReadingLevelButtons();
+        this.updateReadingBadgeCounts();
         this.updateReadingFilterButtons();
         this.populateReadingSelect();
         this.renderCurrentReading();
@@ -1824,6 +1858,56 @@ class EnglishApp {
         this.updateReadingFilterButtons();
         this.populateReadingSelect();
         this.renderCurrentReading();
+    }
+
+    updateReadingLevelButtons() {
+        if (!this.readingLevelBtns) return;
+        this.readingLevelBtns.forEach(btn => {
+            const btnLevel = btn.dataset.level || 'all';
+            const countSpan = btn.querySelector('span[id^="reading-count-lvl-"]');
+            if (btnLevel === this.readingLevelFilter) {
+                btn.className = 'reading-level-btn active px-3 py-1.5 rounded-lg bg-white text-indigo-700 shadow-2xs font-bold transition flex items-center gap-1.5';
+                if (countSpan) countSpan.className = 'px-1.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-[10px] font-bold';
+            } else {
+                btn.className = 'reading-level-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5';
+                if (countSpan) countSpan.className = 'px-1.5 py-0.5 rounded-full bg-slate-200 text-slate-700 text-[10px] font-bold';
+            }
+        });
+
+        if (this.readingLevelHint) {
+            if (this.readingLevelFilter === 'B1 - B2') {
+                this.readingLevelHint.innerHTML = 'Đang xem: <span class="font-bold text-emerald-700">🌱 17 bài học Trung cấp (B1 - B2)</span>';
+            } else if (this.readingLevelFilter === 'B2 - C1') {
+                this.readingLevelHint.innerHTML = 'Đang xem: <span class="font-bold text-amber-700">🚀 19 bài học Nâng cao (B2 - C1)</span>';
+            } else {
+                this.readingLevelHint.innerHTML = `Hiển thị tất cả <b>${typeof READING_DATA !== 'undefined' ? READING_DATA.length : 36}</b> bài học`;
+            }
+        }
+    }
+
+    updateReadingBadgeCounts() {
+        if (typeof READING_DATA === 'undefined' || !Array.isArray(READING_DATA)) return;
+
+        const totalAll = READING_DATA.length;
+        const totalB1 = READING_DATA.filter(r => r.level && r.level.includes('B1')).length;
+        const totalB2 = READING_DATA.filter(r => r.level && r.level.includes('C1')).length;
+
+        if (this.readingCountLvlAll) this.readingCountLvlAll.textContent = totalAll;
+        if (this.readingCountLvlB1) this.readingCountLvlB1.textContent = totalB1;
+        if (this.readingCountLvlB2) this.readingCountLvlB2.textContent = totalB2;
+        if (this.navReadingCount) this.navReadingCount.textContent = totalAll;
+
+        // Dynamic counts on type buttons according to active level filter
+        const levelPool = READING_DATA.filter(r => 
+            this.readingLevelFilter === 'all' || (r.level && r.level.includes(this.readingLevelFilter))
+        );
+        const countAll = levelPool.length;
+        const countConv = levelPool.filter(r => r.type === 'conversation').length;
+        const countPassage = levelPool.filter(r => r.type === 'passage').length;
+
+        if (this.readingCountAll) this.readingCountAll.textContent = countAll;
+        if (this.readingCountConv) this.readingCountConv.textContent = countConv;
+        if (this.readingCountPassage) this.readingCountPassage.textContent = countPassage;
     }
 
     updateReadingFilterButtons() {
@@ -1841,10 +1925,20 @@ class EnglishApp {
         if (!this.readingSelect) return;
         const filtered = this.getFilteredReadings();
         this.readingSelect.innerHTML = '';
+        if (filtered.length === 0) {
+            const opt = document.createElement('option');
+            opt.value = '';
+            opt.textContent = '-- Không có bài nào trong bộ lọc này --';
+            this.readingSelect.appendChild(opt);
+            return;
+        }
+
         filtered.forEach(r => {
             const opt = document.createElement('option');
             opt.value = r.id;
-            opt.textContent = `${r.type === 'conversation' ? '💬' : '📰'} ${r.title} (${r.level})`;
+            const tag = r.level && r.level.includes('B1') ? '[B1-B2]' : '[B2-C1]';
+            const icon = r.type === 'conversation' ? '💬' : '📰';
+            opt.textContent = `${tag} ${icon} ${r.title}`;
             this.readingSelect.appendChild(opt);
         });
 
@@ -1942,7 +2036,15 @@ class EnglishApp {
                 ? 'px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700'
                 : 'px-2.5 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-700';
         }
-        if (this.readingLevelBadge) this.readingLevelBadge.textContent = current.level;
+        if (this.readingLevelBadge) {
+            if (current.level && current.level.includes('B1')) {
+                this.readingLevelBadge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300';
+                this.readingLevelBadge.textContent = '🌱 ' + current.level;
+            } else {
+                this.readingLevelBadge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300';
+                this.readingLevelBadge.textContent = '🚀 ' + current.level;
+            }
+        }
         if (this.readingTopicBadge) this.readingTopicBadge.textContent = current.topic;
         if (this.readingTitle) this.readingTitle.textContent = current.title;
         if (this.readingSummary) this.readingSummary.textContent = current.summary;
