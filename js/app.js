@@ -438,11 +438,19 @@ class EnglishApp {
         this.readingQuizSubmitted = false;
         this.isReadingSpeaking = false;
 
-        // TTS Speech Rate
+        // TTS Speech Rate & Voice State
         this.speechRate = 0.85; // Tốc độ chuẩn chậm cho người mới
+        this.currentDialogueIndex = 0;
+        this.currentPassageParaIndex = 0;
+        this.dialogueTimer = null;
+        this.activeUtterance = null;
+        this.cachedVoices = [];
+        this.resolvedFemaleVoice = null;
+        this.resolvedMaleVoice = null;
 
         // Elements & Initialization
         this.initTheme();
+        this.initVoices();
         this.initDOMElements();
         this.initEvents();
         this.refreshAll();
@@ -1465,38 +1473,125 @@ class EnglishApp {
         }
     }
 
-    // ================= TTS AUDIO =================
-    getVoiceForSpeaker(speakerText = '') {
-        if (!('speechSynthesis' in window)) return { voice: null, pitch: 1.0 };
-        const voices = window.speechSynthesis.getVoices() || [];
-        const englishVoices = voices.filter(v => v.lang && v.lang.startsWith('en'));
+    // ================= TTS AUDIO & SMART VOICE ENGINE =================
+    initVoices() {
+        if (!('speechSynthesis' in window)) return;
+        
+        const load = () => {
+            const v = window.speechSynthesis.getVoices() || [];
+            if (v.length > 0) {
+                this.cachedVoices = v;
+                this.resolveVoiceProfiles();
+            }
+        };
+
+        load();
+        if (typeof window.speechSynthesis.onvoiceschanged !== 'undefined') {
+            window.speechSynthesis.onvoiceschanged = load;
+        }
+    }
+
+    resolveVoiceProfiles() {
+        if (!('speechSynthesis' in window)) return;
+        const voices = (this.cachedVoices && this.cachedVoices.length > 0)
+            ? this.cachedVoices
+            : (window.speechSynthesis.getVoices() || []);
+        
+        const englishVoices = voices.filter(v => v.lang && (v.lang.startsWith('en') || v.lang.includes('US') || v.lang.includes('GB')));
+        if (englishVoices.length === 0) return;
+
+        // Keywords for female TTS voice models across Windows, macOS, iOS, Android, and ChromeOS
+        const femaleKeywords = [
+            'zira', 'jenny', 'samantha', 'victoria', 'karen', 'hazel', 'aria',
+            'female', 'susan', 'catherine', 'linda', 'ava', 'heather', 'fiona',
+            'moira', 'veena', 'tessa', 'kendra', 'kimberly', 'salli', 'joanna', 'ivy'
+        ];
+
+        // Keywords for male TTS voice models across Windows, macOS, iOS, Android, and ChromeOS
+        const maleKeywords = [
+            'david', 'guy', 'mark', 'george', 'male', 'richard', 'daniel',
+            'james', 'brian', 'alex', 'fred', 'arthur', 'tom', 'ryan',
+            'oliver', 'rishi', 'matthew', 'justin', 'joey', 'stephen'
+        ];
+
+        // 1. Locate best female voice
+        let femaleVoice = englishVoices.find(v => {
+            const n = v.name.toLowerCase();
+            return femaleKeywords.some(k => n.includes(k));
+        });
+
+        // 2. Locate best male voice
+        let maleVoice = englishVoices.find(v => {
+            const n = v.name.toLowerCase();
+            return maleKeywords.some(k => n.includes(k));
+        });
+
+        // If female not found by keyword, pick an english voice that is NOT the male voice
+        if (!femaleVoice && maleVoice) {
+            femaleVoice = englishVoices.find(v => v !== maleVoice) || englishVoices[0];
+        }
+
+        // If male not found by keyword, pick an english voice that is NOT the female voice
+        if (!maleVoice && femaleVoice) {
+            maleVoice = englishVoices.find(v => v !== femaleVoice) || englishVoices[0];
+        }
+
+        // If neither was matched by keyword
+        if (!femaleVoice && !maleVoice) {
+            if (englishVoices.length >= 2) {
+                femaleVoice = englishVoices[0];
+                maleVoice = englishVoices[1];
+            } else {
+                femaleVoice = englishVoices[0];
+                maleVoice = englishVoices[0];
+            }
+        }
+
+        // Guarantee they are not pointing to the same voice object if at least 2 english voices exist
+        if (femaleVoice === maleVoice && englishVoices.length >= 2) {
+            maleVoice = englishVoices.find(v => v !== femaleVoice) || maleVoice;
+        }
+
+        this.resolvedFemaleVoice = femaleVoice || null;
+        this.resolvedMaleVoice = maleVoice || null;
+    }
+
+    getVoiceForSpeaker(speakerText = '', baseRate = 1.0) {
+        if (!this.resolvedFemaleVoice || !this.resolvedMaleVoice) {
+            this.resolveVoiceProfiles();
+        }
 
         const lower = (speakerText || '').toLowerCase();
         const isFemale = lower.includes('female') || 
-                         /\b(sarah|lin|chloe|olivia|victoria|sophia|emma|maya|clara|emily)\b/i.test(lower);
+                         /\b(sarah|lin|chloe|olivia|victoria|sophia|emma|maya|clara|emily|linh|elena)\b/i.test(lower);
         const isMale = lower.includes('male') || 
                        /\b(david|marcus|richard|julian|alex|ethan|daniel|arthur|brandon|james|liam)\b/i.test(lower);
 
         if (isFemale) {
-            const femaleKeywords = ['zira', 'jenny', 'samantha', 'victoria', 'karen', 'female', 'susan', 'hazel', 'aria', 'catherine'];
-            const found = englishVoices.find(v => femaleKeywords.some(k => v.name.toLowerCase().includes(k)));
             return {
-                voice: found || englishVoices.find(v => !v.name.toLowerCase().includes('david') && !v.name.toLowerCase().includes('male')) || englishVoices[0] || null,
-                pitch: 1.15 // Nâng nhẹ cao độ cho giọng nữ
+                voice: this.resolvedFemaleVoice || null,
+                pitch: 1.25, // Distinct, clear feminine pitch (audibly distinct on any platform)
+                rate: baseRate * 1.02,
+                gender: 'female'
             };
         }
 
         if (isMale) {
-            const maleKeywords = ['david', 'mark', 'george', 'guy', 'male', 'richard', 'daniel', 'james', 'brian'];
-            const found = englishVoices.find(v => maleKeywords.some(k => v.name.toLowerCase().includes(k)));
             return {
-                voice: found || englishVoices.find(v => v.name.toLowerCase().includes('david') || v.name.toLowerCase().includes('male')) || englishVoices[0] || null,
-                pitch: 0.90 // Hạ nhẹ cao độ cho giọng nam trầm ấm
+                voice: this.resolvedMaleVoice || null,
+                pitch: 0.78, // Deep, resonant masculine baritone pitch
+                rate: baseRate * 0.96,
+                gender: 'male'
             };
         }
 
-        const naturalVoice = englishVoices.find(v => v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha')) || englishVoices[0] || null;
-        return { voice: naturalVoice, pitch: 1.0 };
+        // Default narrator / neutral
+        return {
+            voice: this.resolvedFemaleVoice || this.resolvedMaleVoice || null,
+            pitch: 1.0,
+            rate: baseRate,
+            gender: 'neutral'
+        };
     }
 
     speak(text, rate = 0.85, voiceConfig = null) {
@@ -1508,9 +1603,9 @@ class EnglishApp {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'en-US';
-        utterance.rate = rate;
 
-        const config = voiceConfig || this.getVoiceForSpeaker();
+        const config = voiceConfig || this.getVoiceForSpeaker('', rate);
+        utterance.rate = config.rate || rate;
         if (config.voice) {
             utterance.voice = config.voice;
         }
@@ -1518,6 +1613,8 @@ class EnglishApp {
             utterance.pitch = config.pitch;
         }
 
+        // Keep persistent reference to prevent Chrome garbage-collection cancellation bug
+        this.activeUtterance = utterance;
         window.speechSynthesis.speak(utterance);
     }
 
@@ -2252,7 +2349,7 @@ class EnglishApp {
                 const nameColor = isFemale ? 'text-rose-950 dark:text-rose-300 font-bold' : 'text-slate-900 dark:text-slate-100 font-bold';
 
                 return `
-                    <div class="flex items-start gap-2.5 sm:gap-3.5 p-3.5 sm:p-4 rounded-2xl border ${cardBg}">
+                    <div id="dialogue-turn-${idx}" class="dialogue-turn-card flex items-start gap-2.5 sm:gap-3.5 p-3.5 sm:p-4 rounded-2xl border ${cardBg} transition-all duration-200">
                         <div class="w-8 h-8 sm:w-9 sm:h-9 shrink-0 rounded-xl ${avatarBg} flex items-center justify-center font-bold text-sm sm:text-base">
                             ${avatarIcon}
                         </div>
@@ -2293,7 +2390,7 @@ class EnglishApp {
                 const paraTrans = transParas[idx] || '';
 
                 return `
-                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/90 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-800 transition">
+                    <div id="passage-para-${idx}" class="passage-para-card p-4 sm:p-5 rounded-2xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/90 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-800 transition-all duration-200">
                         <div class="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-200/50 dark:border-slate-800">
                             <span class="text-[11px] sm:text-xs font-bold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-0.5 rounded-full">Đoạn ${idx + 1}</span>
                             <div class="flex items-center gap-1">
@@ -2469,8 +2566,26 @@ class EnglishApp {
         const turn = filtered[this.readingIndex].content[idx];
         const speechRate = parseFloat(this.readingSpeechRate ? this.readingSpeechRate.value : 1.0) || 1.0;
         if (turn) {
-            const voiceConfig = this.getVoiceForSpeaker(turn.speaker);
+            // Visual highlight on target line
+            const cards = document.querySelectorAll('.dialogue-turn-card');
+            cards.forEach((c, i) => {
+                if (i === idx) c.classList.add('ring-2', 'ring-indigo-500', 'shadow-md');
+                else c.classList.remove('ring-2', 'ring-indigo-500', 'shadow-md');
+            });
+
+            const voiceConfig = this.getVoiceForSpeaker(turn.speaker, speechRate);
             this.speak(turn.text, speechRate, voiceConfig);
+
+            if (this.activeUtterance) {
+                this.activeUtterance.onend = () => {
+                    const card = document.getElementById(`dialogue-turn-${idx}`);
+                    if (card && !this.isReadingSpeaking) card.classList.remove('ring-2', 'ring-indigo-500', 'shadow-md');
+                };
+                this.activeUtterance.onerror = () => {
+                    const card = document.getElementById(`dialogue-turn-${idx}`);
+                    if (card) card.classList.remove('ring-2', 'ring-indigo-500', 'shadow-md');
+                };
+            }
         }
     }
 
@@ -2480,7 +2595,21 @@ class EnglishApp {
         const paragraphs = filtered[this.readingIndex].content.split('\n\n').map(p => p.trim()).filter(Boolean);
         const speechRate = parseFloat(this.readingSpeechRate ? this.readingSpeechRate.value : 1.0) || 1.0;
         if (paragraphs[idx]) {
-            this.speak(paragraphs[idx], speechRate);
+            const cards = document.querySelectorAll('.passage-para-card');
+            cards.forEach((c, i) => {
+                if (i === idx) c.classList.add('ring-2', 'ring-indigo-500', 'shadow-md');
+                else c.classList.remove('ring-2', 'ring-indigo-500', 'shadow-md');
+            });
+
+            const voiceConfig = this.getVoiceForSpeaker('', speechRate);
+            this.speak(paragraphs[idx], speechRate, voiceConfig);
+
+            if (this.activeUtterance) {
+                this.activeUtterance.onend = () => {
+                    const card = document.getElementById(`passage-para-${idx}`);
+                    if (card && !this.isReadingSpeaking) card.classList.remove('ring-2', 'ring-indigo-500', 'shadow-md');
+                };
+            }
         }
     }
 
@@ -2509,49 +2638,152 @@ class EnglishApp {
         }
 
         if (current.type === 'conversation') {
-            // Đọc đối thoại tự động chuyển đổi giữa giọng Nam và giọng Nữ
-            const totalTurns = current.content.length;
-            current.content.forEach((turn, idx) => {
-                const utterance = new SpeechSynthesisUtterance(turn.text);
-                utterance.lang = 'en-US';
-                utterance.rate = speechRate;
-
-                const voiceConfig = this.getVoiceForSpeaker(turn.speaker);
-                if (voiceConfig.voice) utterance.voice = voiceConfig.voice;
-                if (voiceConfig.pitch) utterance.pitch = voiceConfig.pitch;
-
-                if (idx === totalTurns - 1) {
-                    utterance.onend = () => this.stopReadingTTS();
-                    utterance.onerror = () => this.stopReadingTTS();
-                }
-
-                window.speechSynthesis.speak(utterance);
-            });
+            this.currentDialogueIndex = 0;
+            this.playNextDialogueTurn(speechRate);
         } else {
-            // Đọc bài văn học thuật
-            const utterance = new SpeechSynthesisUtterance(current.content);
-            utterance.lang = 'en-US';
-            utterance.rate = speechRate;
-
-            const voiceConfig = this.getVoiceForSpeaker();
-            if (voiceConfig.voice) utterance.voice = voiceConfig.voice;
-
-            utterance.onend = () => this.stopReadingTTS();
-            utterance.onerror = () => this.stopReadingTTS();
-
-            window.speechSynthesis.speak(utterance);
+            this.currentPassageParaIndex = 0;
+            this.playNextPassageParagraph(speechRate);
         }
     }
 
+    playNextDialogueTurn(speechRate) {
+        if (!this.isReadingSpeaking) return;
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) {
+            this.stopReadingTTS();
+            return;
+        }
+        const current = filtered[this.readingIndex];
+        if (current.type !== 'conversation' || this.currentDialogueIndex >= current.content.length) {
+            this.stopReadingTTS();
+            return;
+        }
+
+        const turnIdx = this.currentDialogueIndex;
+        const turn = current.content[turnIdx];
+
+        // Highlight active turn card in UI
+        const turnCards = document.querySelectorAll('.dialogue-turn-card');
+        turnCards.forEach((card, i) => {
+            if (i === turnIdx) {
+                card.classList.add('ring-2', 'ring-indigo-500', 'shadow-md');
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                card.classList.remove('ring-2', 'ring-indigo-500', 'shadow-md');
+            }
+        });
+
+        // Resolve speaker voice (distinct Male / Female profile)
+        const voiceConfig = this.getVoiceForSpeaker(turn.speaker, speechRate);
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(turn.text);
+        utterance.lang = 'en-US';
+        utterance.rate = voiceConfig.rate || speechRate;
+        if (voiceConfig.voice) utterance.voice = voiceConfig.voice;
+        if (voiceConfig.pitch) utterance.pitch = voiceConfig.pitch;
+
+        this.activeUtterance = utterance;
+
+        utterance.onend = () => {
+            if (!this.isReadingSpeaking) return;
+            this.currentDialogueIndex++;
+            if (this.currentDialogueIndex < current.content.length) {
+                // Natural conversation interval between speaker turns (380ms)
+                this.dialogueTimer = setTimeout(() => {
+                    this.playNextDialogueTurn(speechRate);
+                }, 380);
+            } else {
+                this.stopReadingTTS();
+            }
+        };
+
+        utterance.onerror = () => {
+            this.stopReadingTTS();
+        };
+
+        window.speechSynthesis.speak(utterance);
+    }
+
+    playNextPassageParagraph(speechRate) {
+        if (!this.isReadingSpeaking) return;
+        const filtered = this.getFilteredReadings();
+        if (!filtered || !filtered[this.readingIndex]) {
+            this.stopReadingTTS();
+            return;
+        }
+        const current = filtered[this.readingIndex];
+        const paragraphs = current.content.split('\n\n').map(p => p.trim()).filter(Boolean);
+
+        if (this.currentPassageParaIndex >= paragraphs.length) {
+            this.stopReadingTTS();
+            return;
+        }
+
+        const paraIdx = this.currentPassageParaIndex;
+        const paraText = paragraphs[paraIdx];
+
+        // Highlight active paragraph card in UI
+        const paraCards = document.querySelectorAll('.passage-para-card');
+        paraCards.forEach((card, i) => {
+            if (i === paraIdx) {
+                card.classList.add('ring-2', 'ring-indigo-500', 'shadow-md');
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                card.classList.remove('ring-2', 'ring-indigo-500', 'shadow-md');
+            }
+        });
+
+        const voiceConfig = this.getVoiceForSpeaker('', speechRate);
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(paraText);
+        utterance.lang = 'en-US';
+        utterance.rate = voiceConfig.rate || speechRate;
+        if (voiceConfig.voice) utterance.voice = voiceConfig.voice;
+        if (voiceConfig.pitch) utterance.pitch = voiceConfig.pitch;
+
+        this.activeUtterance = utterance;
+
+        utterance.onend = () => {
+            if (!this.isReadingSpeaking) return;
+            this.currentPassageParaIndex++;
+            if (this.currentPassageParaIndex < paragraphs.length) {
+                this.dialogueTimer = setTimeout(() => {
+                    this.playNextPassageParagraph(speechRate);
+                }, 400);
+            } else {
+                this.stopReadingTTS();
+            }
+        };
+
+        utterance.onerror = () => {
+            this.stopReadingTTS();
+        };
+
+        window.speechSynthesis.speak(utterance);
+    }
+
     stopReadingTTS() {
+        if (this.dialogueTimer) {
+            clearTimeout(this.dialogueTimer);
+            this.dialogueTimer = null;
+        }
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
         }
         this.isReadingSpeaking = false;
+        this.currentDialogueIndex = 0;
+        this.currentPassageParaIndex = 0;
+
+        document.querySelectorAll('.dialogue-turn-card, .passage-para-card').forEach(el => {
+            el.classList.remove('ring-2', 'ring-indigo-500', 'shadow-md');
+        });
+
         if (this.readingTtsIcon) this.readingTtsIcon.textContent = '🔊';
         if (this.readingTtsText) this.readingTtsText.textContent = 'Nghe đọc toàn bài';
         if (this.readingTtsBtn) {
-            this.readingTtsBtn.className = 'inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 transition active:scale-95 text-xs font-semibold';
+            this.readingTtsBtn.className = 'inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-950/70 dark:text-indigo-300 dark:border-indigo-800 border border-indigo-200 transition active:scale-95 text-xs font-semibold';
         }
     }
 
