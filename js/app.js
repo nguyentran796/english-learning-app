@@ -1594,12 +1594,12 @@ class EnglishApp {
                 </div>
 
                 <div class="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between">
-                    <button onclick="app.toggleMastery('${item.id}')" class="text-xs font-medium ${item.status === 'mastered' ? 'text-amber-600 font-semibold' : 'text-gray-400 hover:text-gray-600'}">
+                    <button onclick="app.toggleMastery('${item.id}')" class="text-xs font-medium ${item.status === 'mastered' ? 'text-amber-600 dark:text-amber-300 font-semibold' : 'text-gray-400 hover:text-gray-600 dark:text-slate-400 dark:hover:text-slate-200'}">
                         ${item.status === 'mastered' ? '⭐ Đã thuộc' : '○ Chưa thuộc'}
                     </button>
                     <div class="flex items-center gap-2">
-                        <button onclick="app.editItem('${item.id}')" class="text-xs text-blue-600 hover:underline">Sửa</button>
-                        <button onclick="app.deleteItem('${item.id}')" class="text-xs text-rose-500 hover:underline">Xóa</button>
+                        <button onclick="app.editItem('${item.id}')" class="text-xs text-blue-600 dark:text-blue-400 hover:underline">Sửa</button>
+                        <button onclick="app.deleteItem('${item.id}')" class="text-xs text-rose-500 dark:text-rose-400 hover:underline">Xóa</button>
                     </div>
                 </div>
             </div>
@@ -1607,7 +1607,7 @@ class EnglishApp {
 
         const loadMoreHtml = hasMore ? `
             <div class="col-span-full text-center py-6">
-                <button onclick="app.loadMoreLibrary()" class="px-6 py-2.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-xl font-semibold text-sm transition">
+                <button onclick="app.loadMoreLibrary()" class="px-6 py-2.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 dark:bg-indigo-950/70 dark:text-indigo-300 dark:border-indigo-800 border border-indigo-200 rounded-xl font-semibold text-sm transition">
                     ⬇️ Hiển thị thêm (Đang xem ${visibleItems.length}/${filtered.length} mục)
                 </button>
             </div>
@@ -2073,12 +2073,16 @@ class EnglishApp {
             return;
         }
 
-        filtered.forEach(r => {
+        filtered.forEach((r, idx) => {
             const opt = document.createElement('option');
             opt.value = r.id;
             const tag = r.level && r.level.includes('B1') ? '[B1-B2]' : '[B2-C1]';
             const icon = r.type === 'conversation' ? '💬' : '📰';
-            opt.textContent = `${tag} ${icon} ${r.title}`;
+            
+            // Format concise label for select to guarantee zero horizontal overflow on mobile screens
+            const cleanTitle = r.title.length > 38 ? r.title.substring(0, 36) + '...' : r.title;
+            opt.textContent = `${idx + 1}. ${tag} ${icon} ${cleanTitle}`;
+            opt.title = `${idx + 1}. ${tag} ${r.title}`;
             this.readingSelect.appendChild(opt);
         });
 
@@ -2237,15 +2241,15 @@ class EnglishApp {
                     lineTrans = transLines[idx].replace(/^-\s*\*\*[^*]+\*\*:\s*/, '').replace(/^-\s*/, '');
                 }
 
-                const cardBg = isFemale ? 'bg-rose-50/40 border-rose-200/80' : 'bg-slate-50 border-slate-200/90';
+                const cardBg = isFemale ? 'bg-rose-50/40 border-rose-200/80 dark:bg-rose-950/20 dark:border-rose-900/40' : 'bg-slate-50 border-slate-200/90 dark:bg-slate-900/60 dark:border-slate-800';
                 const avatarBg = isFemale 
                     ? 'bg-gradient-to-tr from-pink-500 to-rose-600 text-white shadow-xs' 
                     : 'bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-xs';
                 const avatarIcon = isFemale ? '👩' : (isMale ? '👨' : '👤');
                 const genderBadge = isFemale 
-                    ? '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">👩 Giọng Nữ</span>' 
-                    : '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700">👨 Giọng Nam</span>';
-                const nameColor = isFemale ? 'text-rose-950 font-bold' : 'text-slate-900 font-bold';
+                    ? '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300 dark:border dark:border-rose-800">👩 Giọng Nữ</span>' 
+                    : '<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300 dark:border dark:border-blue-800">👨 Giọng Nam</span>';
+                const nameColor = isFemale ? 'text-rose-950 dark:text-rose-300 font-bold' : 'text-slate-900 dark:text-slate-100 font-bold';
 
                 return `
                     <div class="flex items-start gap-2.5 sm:gap-3.5 p-3.5 sm:p-4 rounded-2xl border ${cardBg}">
@@ -2259,18 +2263,18 @@ class EnglishApp {
                                     ${genderBadge}
                                 </div>
                                 <div class="flex items-center gap-1">
-                                    <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white transition" title="Nghe giọng này" onclick="app.speakReadingLine(${idx})">
+                                    <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition" title="Nghe giọng này" onclick="app.speakReadingLine(${idx})">
                                         <span>🔊</span>
                                     </button>
-                                    <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white transition" title="Luyện đọc câu này cùng AI" onclick="app.practiceDialogueLine(${idx})">
+                                    <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 p-1 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition" title="Luyện đọc câu này cùng AI" onclick="app.practiceDialogueLine(${idx})">
                                         <span>🎙️</span>
                                     </button>
                                 </div>
                             </div>
-                            <p class="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">${turn.text}</p>
+                            <p class="text-xs sm:text-sm text-slate-800 dark:text-slate-100 leading-relaxed font-normal">${turn.text}</p>
                             ${this.showReadingTranslation && lineTrans ? `
-                                <div class="mt-2 pt-2 border-t border-slate-200/70 text-xs sm:text-sm text-slate-600 italic leading-relaxed">
-                                    <span class="font-semibold text-slate-500 not-italic mr-1">Dịch:</span>${lineTrans}
+                                <div class="mt-2 pt-2 border-t border-slate-200/70 dark:border-slate-800 text-xs sm:text-sm text-slate-600 dark:text-slate-300 italic leading-relaxed">
+                                    <span class="font-semibold text-slate-500 dark:text-slate-400 not-italic mr-1">Dịch:</span>${lineTrans}
                                 </div>
                             ` : ''}
                         </div>
@@ -2289,22 +2293,22 @@ class EnglishApp {
                 const paraTrans = transParas[idx] || '';
 
                 return `
-                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/70 border border-slate-200/90 hover:border-indigo-200 transition">
-                        <div class="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-200/50">
-                            <span class="text-[11px] sm:text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-full">Đoạn ${idx + 1}</span>
+                    <div class="p-4 sm:p-5 rounded-2xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/90 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-800 transition">
+                        <div class="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-200/50 dark:border-slate-800">
+                            <span class="text-[11px] sm:text-xs font-bold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-0.5 rounded-full">Đoạn ${idx + 1}</span>
                             <div class="flex items-center gap-1">
-                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-indigo-600 px-2 py-1 rounded-lg hover:bg-white transition" onclick="app.speakReadingParagraph(${idx})">
+                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-indigo-600 px-2 py-1 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition" onclick="app.speakReadingParagraph(${idx})">
                                     <span>🔊</span> <span class="hidden sm:inline">Nghe đoạn</span>
                                 </button>
-                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-indigo-600 px-2 py-1 rounded-lg hover:bg-white transition" title="Luyện đọc câu này cùng AI" onclick="app.practiceReadingParagraph(${idx})">
+                                <button type="button" class="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-indigo-600 px-2 py-1 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition" title="Luyện đọc câu này cùng AI" onclick="app.practiceReadingParagraph(${idx})">
                                     <span>🎙️</span> <span class="hidden sm:inline">Luyện đọc</span>
                                 </button>
                             </div>
                         </div>
-                        <p class="text-xs sm:text-sm sm:leading-relaxed text-slate-800 font-normal leading-relaxed">${para}</p>
+                        <p class="text-xs sm:text-sm sm:leading-relaxed text-slate-800 dark:text-slate-100 font-normal leading-relaxed">${para}</p>
                         ${this.showReadingTranslation && paraTrans ? `
-                            <div class="mt-3 p-3 rounded-xl bg-indigo-50/50 border-l-4 border-indigo-400 text-xs sm:text-sm text-slate-600 italic leading-relaxed">
-                                <span class="font-semibold text-indigo-700 not-italic block mb-0.5">Bản dịch tiếng Việt:</span>
+                            <div class="mt-3 p-3 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/40 border-l-4 border-indigo-400 dark:border-indigo-500 text-xs sm:text-sm text-slate-600 dark:text-slate-200 italic leading-relaxed">
+                                <span class="font-semibold text-indigo-700 dark:text-indigo-300 not-italic block mb-0.5">Bản dịch tiếng Việt:</span>
                                 ${paraTrans}
                             </div>
                         ` : ''}
@@ -2350,18 +2354,18 @@ class EnglishApp {
                     <div class="space-y-2">
                         ${q.options.map((optText, optIdx) => {
                             const isSelected = userChoice === optIdx;
-                            let optClass = 'border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700';
+                            let optClass = 'border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200';
 
                             if (this.readingQuizSubmitted) {
                                 if (optIdx === q.answerIndex) {
-                                    optClass = 'border-emerald-500 bg-emerald-50 text-emerald-900 font-semibold ring-1 ring-emerald-500';
+                                    optClass = 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-200 font-semibold ring-1 ring-emerald-500';
                                 } else if (isSelected && !isCorrect) {
-                                    optClass = 'border-rose-400 bg-rose-50 text-rose-900 ring-1 ring-rose-400';
+                                    optClass = 'border-rose-400 bg-rose-50 dark:bg-rose-950/60 text-rose-900 dark:text-rose-200 ring-1 ring-rose-400';
                                 } else {
-                                    optClass = 'border-slate-200 opacity-60 text-slate-500';
+                                    optClass = 'border-slate-200 dark:border-slate-800 opacity-60 text-slate-500 dark:text-slate-400';
                                 }
                             } else if (isSelected) {
-                                optClass = 'border-indigo-600 bg-indigo-50/70 text-indigo-900 font-semibold ring-1 ring-indigo-500';
+                                optClass = 'border-indigo-600 bg-indigo-50/70 dark:bg-indigo-950/60 text-indigo-900 dark:text-indigo-200 font-semibold ring-1 ring-indigo-500';
                             }
 
                             const disabledAttr = this.readingQuizSubmitted ? 'disabled' : '';
@@ -2382,11 +2386,11 @@ class EnglishApp {
                     </div>
 
                     ${this.readingQuizSubmitted ? `
-                        <div class="mt-3.5 p-3 sm:p-4 rounded-xl bg-indigo-50 border border-indigo-100 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                            <div class="font-bold text-indigo-900 mb-1 flex items-center gap-1.5">
+                        <div class="mt-3.5 p-3 sm:p-4 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-800/60 text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+                            <div class="font-bold text-indigo-900 dark:text-indigo-300 mb-1 flex items-center gap-1.5">
                                 <span>💡</span> <span>Bằng chứng & Giải thích chi tiết:</span>
                             </div>
-                            <p class="text-slate-700">${q.explanation}</p>
+                            <p class="text-slate-700 dark:text-slate-200">${q.explanation}</p>
                         </div>
                     ` : ''}
                 </div>
@@ -2703,9 +2707,9 @@ class EnglishApp {
         }
 
         const colorClasses = {
-            correct: 'bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100',
-            close: 'bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100',
-            missed: 'bg-rose-50 text-rose-800 border-rose-300 hover:bg-rose-100'
+            correct: 'bg-emerald-50 text-emerald-800 border-emerald-300 hover:bg-emerald-100 dark:bg-emerald-950/70 dark:text-emerald-200 dark:border-emerald-700 dark:hover:bg-emerald-900/80',
+            close: 'bg-amber-50 text-amber-800 border-amber-300 hover:bg-amber-100 dark:bg-amber-950/70 dark:text-amber-200 dark:border-amber-700 dark:hover:bg-amber-900/80',
+            missed: 'bg-rose-50 text-rose-800 border-rose-300 hover:bg-rose-100 dark:bg-rose-950/70 dark:text-rose-200 dark:border-rose-700 dark:hover:bg-rose-900/80'
         };
 
         this.fcSpeechTokens.innerHTML = tokens.map(t => {
@@ -3014,9 +3018,9 @@ class EnglishApp {
         }
 
         const colorClasses = {
-            correct: 'bg-emerald-100 text-emerald-900 border-emerald-300 hover:bg-emerald-200',
-            close: 'bg-amber-100 text-amber-900 border-amber-300 hover:bg-amber-200',
-            missed: 'bg-rose-100 text-rose-900 border-rose-300 hover:bg-rose-200'
+            correct: 'bg-emerald-100 text-emerald-900 border-emerald-300 hover:bg-emerald-200 dark:bg-emerald-950/70 dark:text-emerald-200 dark:border-emerald-700 dark:hover:bg-emerald-900/80',
+            close: 'bg-amber-100 text-amber-900 border-amber-300 hover:bg-amber-200 dark:bg-amber-950/70 dark:text-amber-200 dark:border-amber-700 dark:hover:bg-amber-900/80',
+            missed: 'bg-rose-100 text-rose-900 border-rose-300 hover:bg-rose-200 dark:bg-rose-950/70 dark:text-rose-200 dark:border-rose-700 dark:hover:bg-rose-900/80'
         };
 
         this.spTokensContainer.innerHTML = tokens.map(t => {
@@ -3397,12 +3401,12 @@ class EnglishApp {
         this.mgGridBoard.innerHTML = this.mgCards.map(card => {
             const isWord = card.type === 'word';
             let tileBg = isWord
-                ? 'bg-white border-indigo-200 hover:border-indigo-400 hover:shadow-md text-indigo-950'
-                : 'bg-slate-50 border-slate-200 hover:border-emerald-400 hover:bg-emerald-50/20 hover:shadow-md text-slate-800';
+                ? 'bg-white dark:bg-slate-900 border-indigo-200 dark:border-indigo-800 hover:border-indigo-400 hover:shadow-md text-indigo-950 dark:text-indigo-200'
+                : 'bg-slate-50 dark:bg-slate-900/80 border-slate-200 dark:border-emerald-800/80 hover:border-emerald-400 hover:bg-emerald-50/20 hover:shadow-md text-slate-800 dark:text-slate-100';
 
             let typeBadge = isWord
-                ? '<span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 self-start">English</span>'
-                : '<span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 self-start">Tiếng Việt</span>';
+                ? '<span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-300 self-start">English</span>'
+                : '<span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-300 self-start">Tiếng Việt</span>';
 
             let mainContent = '';
             if (this.mgMode === 'audio' && isWord) {
