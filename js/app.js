@@ -373,14 +373,19 @@ class EnglishApp {
         this.currentTab = 'flashcard';
         this.currentFilter = 'all'; // all | vocab | sentence
         this.currentTopicFilter = 'all';
+        this.currentLevelFilter = 'all'; // all | 'B1 - B2' | 'B2 - C1'
         this.searchQuery = '';
         this.libraryVisibleCount = 48; // Phân trang nhẹ nhàng
         
+        // Dark Mode Theme State
+        this.isDarkMode = false;
+
         // Flashcard State
         this.flashcardIndex = 0;
         this.isFlipped = false;
         this.flashcardList = [];
         this.fcMasteryFilter = 'unmastered'; // unmastered | mastered | all
+        this.fcLevelFilter = 'all'; // all | 'B1 - B2' | 'B2 - C1'
 
         // Speech Practice & Recognition State
         this.evaluator = new PronunciationEvaluator();
@@ -436,7 +441,8 @@ class EnglishApp {
         // TTS Speech Rate
         this.speechRate = 0.85; // Tốc độ chuẩn chậm cho người mới
 
-        // Elements
+        // Elements & Initialization
+        this.initTheme();
         this.initDOMElements();
         this.initEvents();
         this.refreshAll();
@@ -447,20 +453,40 @@ class EnglishApp {
         if (stored) {
             try {
                 const parsed = JSON.parse(stored);
-                if (Array.isArray(parsed) && parsed.length >= INITIAL_DATA.length) {
-                    return parsed;
-                }
-                // Nếu dữ liệu lưu ít hơn bộ mẫu 520 từ, gộp thêm các từ mới vào
-                const existingIds = new Set(parsed.map(i => i.id));
-                const merged = [...parsed];
-                INITIAL_DATA.forEach(newItem => {
-                    if (!existingIds.has(newItem.id)) {
-                        merged.push(newItem);
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    const initMap = new Map(INITIAL_DATA.map(i => [i.id, i]));
+                    const existingIds = new Set(parsed.map(i => i.id));
+                    let updated = false;
+
+                    // Backfill level & any missing metadata for existing items
+                    const merged = parsed.map(item => {
+                        const initItem = initMap.get(item.id);
+                        if (initItem && !item.level) {
+                            item.level = initItem.level || 'B2 - C1';
+                            updated = true;
+                        } else if (!item.level) {
+                            item.level = 'B2 - C1';
+                        }
+                        return item;
+                    });
+
+                    // Add any new items from INITIAL_DATA (e.g. intermediate B1 - B2 additions)
+                    INITIAL_DATA.forEach(newItem => {
+                        if (!existingIds.has(newItem.id)) {
+                            merged.push({ ...newItem });
+                            updated = true;
+                        }
+                    });
+
+                    if (updated) {
+                        try {
+                            localStorage.setItem(this.storageKey, JSON.stringify(merged));
+                        } catch (err) {}
                     }
-                });
-                return merged;
+                    return merged;
+                }
             } catch (e) {
-                console.error("Lỗi đọc dữ liệu v2", e);
+                console.error("Lỗi đọc dữ liệu v3", e);
             }
         }
 
@@ -501,6 +527,10 @@ class EnglishApp {
     }
 
     initDOMElements() {
+        // Theme elements
+        this.themeToggleBtn = document.getElementById('theme-toggle-btn');
+        this.themeIcon = document.getElementById('theme-icon');
+
         // Tab buttons & containers
         this.tabBtns = document.querySelectorAll('.tab-btn');
         this.tabContents = document.querySelectorAll('.tab-content');
@@ -516,6 +546,7 @@ class EnglishApp {
         this.fcFrontText = document.getElementById('fc-front-text');
         this.fcFrontIpa = document.getElementById('fc-front-ipa');
         this.fcFrontTopic = document.getElementById('fc-front-topic');
+        this.fcFrontLevel = document.getElementById('fc-front-level');
         this.fcBackMeaning = document.getElementById('fc-back-meaning');
         this.fcBackExample = document.getElementById('fc-back-example');
         this.fcBackExMeaning = document.getElementById('fc-back-ex-meaning');
@@ -531,6 +562,12 @@ class EnglishApp {
         this.fcCountUnmastered = document.getElementById('fc-count-unmastered');
         this.fcCountMastered = document.getElementById('fc-count-mastered');
         this.fcCountAll = document.getElementById('fc-count-all');
+
+        // Flashcard Level elements
+        this.fcLevelTabs = document.querySelectorAll('.fc-level-tab');
+        this.fcCountLvlAll = document.getElementById('fc-count-lvl-all');
+        this.fcCountLvlB1 = document.getElementById('fc-count-lvl-b1');
+        this.fcCountLvlB2 = document.getElementById('fc-count-lvl-b2');
 
         // Flashcard Speech elements
         this.fcMicBtn = document.getElementById('fc-mic-btn');
@@ -553,6 +590,7 @@ class EnglishApp {
         this.searchInput = document.getElementById('search-input');
         this.typeFilter = document.getElementById('type-filter');
         this.topicFilter = document.getElementById('topic-filter');
+        this.levelFilter = document.getElementById('level-filter');
 
         // Modal elements
         this.modal = document.getElementById('item-modal');
@@ -704,6 +742,11 @@ class EnglishApp {
     }
 
     initEvents() {
+        // Theme toggle
+        if (this.themeToggleBtn) {
+            this.themeToggleBtn.addEventListener('click', () => this.toggleTheme());
+        }
+
         // Tab switching
         this.tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -763,6 +806,16 @@ class EnglishApp {
             this.toggleCurrentFlashcardMastery();
         });
 
+        // Flashcard Difficulty Level Tabs
+        if (this.fcLevelTabs) {
+            this.fcLevelTabs.forEach(tabBtn => {
+                tabBtn.addEventListener('click', () => {
+                    const level = tabBtn.getAttribute('data-level') || 'all';
+                    this.setFlashcardLevelFilter(level);
+                });
+            });
+        }
+
         if (this.fcMasteryTabs) {
             this.fcMasteryTabs.forEach(tabBtn => {
                 tabBtn.addEventListener('click', () => {
@@ -792,6 +845,14 @@ class EnglishApp {
             this.libraryVisibleCount = 48;
             this.renderLibrary();
         });
+
+        if (this.levelFilter) {
+            this.levelFilter.addEventListener('change', (e) => {
+                this.currentLevelFilter = e.target.value;
+                this.libraryVisibleCount = 48;
+                this.renderLibrary();
+            });
+        }
 
         this.typeFilter.addEventListener('change', (e) => {
             this.currentFilter = e.target.value;
@@ -1165,7 +1226,65 @@ class EnglishApp {
         }
     }
 
+    // ================= THEME (DARK / LIGHT) =================
+    initTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        this.isDarkMode = savedTheme === 'dark' || (!savedTheme && prefersDark);
+        this.applyTheme();
+    }
+
+    applyTheme() {
+        if (this.isDarkMode) {
+            document.documentElement.classList.add('dark');
+            if (this.themeIcon) this.themeIcon.textContent = '☀️';
+            if (this.themeToggleBtn) this.themeToggleBtn.title = 'Chuyển sang giao diện Sáng';
+        } else {
+            document.documentElement.classList.remove('dark');
+            if (this.themeIcon) this.themeIcon.textContent = '🌙';
+            if (this.themeToggleBtn) this.themeToggleBtn.title = 'Chuyển sang giao diện Tối ban đêm';
+        }
+    }
+
+    toggleTheme() {
+        this.isDarkMode = !this.isDarkMode;
+        localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+        this.applyTheme();
+    }
+
     // ================= FLASHCARD LOGIC =================
+    setFlashcardLevelFilter(level) {
+        this.fcLevelFilter = level;
+        this.updateFlashcardLevelButtons();
+        this.flashcardIndex = 0;
+        this.updateFlashcardList();
+    }
+
+    updateFlashcardLevelButtons() {
+        if (!this.fcLevelTabs) return;
+        this.fcLevelTabs.forEach(tab => {
+            const tabLvl = tab.getAttribute('data-level') || 'all';
+            const countSpan = tab.querySelector('span[id^="fc-count-lvl-"]');
+            if (tabLvl === this.fcLevelFilter) {
+                tab.className = 'fc-level-tab active flex-1 py-1.5 px-2 rounded-xl bg-white dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 shadow-2xs font-bold transition flex items-center justify-center gap-1.5';
+                if (countSpan) countSpan.className = 'px-1.5 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 text-[10px] font-bold';
+            } else {
+                tab.className = 'fc-level-tab flex-1 py-1.5 px-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition flex items-center justify-center gap-1.5';
+                if (countSpan) countSpan.className = 'px-1.5 py-0.5 rounded-full bg-slate-200 dark:bg-slate-600 text-slate-700 dark:text-slate-200 text-[10px] font-bold';
+            }
+        });
+    }
+
+    updateFlashcardLevelCounts() {
+        const totalAll = this.items.length;
+        const totalB1 = this.items.filter(i => i.level === 'B1 - B2').length;
+        const totalB2 = this.items.filter(i => i.level === 'B2 - C1').length;
+
+        if (this.fcCountLvlAll) this.fcCountLvlAll.textContent = totalAll;
+        if (this.fcCountLvlB1) this.fcCountLvlB1.textContent = totalB1;
+        if (this.fcCountLvlB2) this.fcCountLvlB2.textContent = totalB2;
+    }
+
     setFlashcardMasteryFilter(status) {
         this.fcMasteryFilter = status;
         if (this.fcMasteryTabs) {
@@ -1187,10 +1306,12 @@ class EnglishApp {
     }
 
     updateMasteryTabCounts() {
+        this.updateFlashcardLevelCounts();
         const baseItems = this.items.filter(item => {
             const matchType = this.currentFilter === 'all' || item.type === this.currentFilter;
             const matchTopic = this.currentTopicFilter === 'all' || item.topic === this.currentTopicFilter;
-            return matchType && matchTopic;
+            const matchLevel = this.fcLevelFilter === 'all' || item.level === this.fcLevelFilter;
+            return matchType && matchTopic && matchLevel;
         });
         const unmasteredCount = baseItems.filter(i => i.status !== 'mastered').length;
         const masteredCount = baseItems.filter(i => i.status === 'mastered').length;
@@ -1207,7 +1328,8 @@ class EnglishApp {
         this.flashcardList = this.items.filter(item => {
             const matchType = this.currentFilter === 'all' || item.type === this.currentFilter;
             const matchTopic = this.currentTopicFilter === 'all' || item.topic === this.currentTopicFilter;
-            if (!matchType || !matchTopic) return false;
+            const matchLevel = this.fcLevelFilter === 'all' || item.level === this.fcLevelFilter;
+            if (!matchType || !matchTopic || !matchLevel) return false;
 
             if (this.fcMasteryFilter === 'unmastered') {
                 return item.status !== 'mastered';
@@ -1239,6 +1361,10 @@ class EnglishApp {
         this.fcCard.classList.remove('flipped');
 
         if (this.flashcardList.length === 0) {
+            if (this.fcFrontLevel) {
+                this.fcFrontLevel.textContent = '';
+                this.fcFrontLevel.className = 'hidden';
+            }
             if (this.fcMasteryFilter === 'unmastered') {
                 this.fcFrontText.textContent = "🎉 Xuất sắc! Đã thuộc hết";
                 this.fcFrontIpa.textContent = "Great job!";
@@ -1267,6 +1393,14 @@ class EnglishApp {
         this.fcFrontIpa.textContent = item.ipa || '';
         this.fcFrontTopic.textContent = `${item.type === 'vocab' ? 'Từ vựng' : 'Mẫu câu'} • ${item.topic}`;
         
+        if (this.fcFrontLevel) {
+            const isB1 = item.level === 'B1 - B2';
+            this.fcFrontLevel.textContent = item.level || 'B2 - C1';
+            this.fcFrontLevel.className = isB1 
+                ? "text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 shrink-0"
+                : "text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200 dark:border-amber-800 shrink-0";
+        }
+
         this.fcBackMeaning.textContent = item.meaning;
         this.fcBackExample.textContent = item.example ? `"${item.example}"` : 'Chưa có ví dụ';
         this.fcBackExMeaning.textContent = item.exampleMeaning ? `→ ${item.exampleMeaning}` : '';
@@ -1397,8 +1531,9 @@ class EnglishApp {
             
             const matchType = this.currentFilter === 'all' || item.type === this.currentFilter;
             const matchTopic = this.currentTopicFilter === 'all' || item.topic === this.currentTopicFilter;
+            const matchLevel = !this.currentLevelFilter || this.currentLevelFilter === 'all' || item.level === this.currentLevelFilter;
 
-            return matchQuery && matchType && matchTopic;
+            return matchQuery && matchType && matchTopic && matchLevel;
         });
 
         if (filtered.length === 0) {
@@ -1420,10 +1555,15 @@ class EnglishApp {
             <div class="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition flex flex-col justify-between">
                 <div>
                     <div class="flex items-start justify-between gap-2 mb-2">
-                        <span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full ${item.type === 'vocab' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300' : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300'}">
-                            ${item.type === 'vocab' ? 'Từ vựng' : 'Mẫu câu'}
-                        </span>
-                        <span class="text-xs text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded truncate max-w-[150px]" title="${item.topic || 'Chung'}">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-full ${item.type === 'vocab' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300' : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300'}">
+                                ${item.type === 'vocab' ? 'Từ vựng' : 'Mẫu câu'}
+                            </span>
+                            <span class="inline-block px-2 py-0.5 text-[10px] font-bold rounded-full ${item.level === 'B1 - B2' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800' : 'bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200 dark:border-amber-800'}">
+                                ${item.level || 'B2 - C1'}
+                            </span>
+                        </div>
+                        <span class="text-xs text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded truncate max-w-[140px]" title="${item.topic || 'Chung'}">
                             ${item.topic || 'Chung'}
                         </span>
                     </div>

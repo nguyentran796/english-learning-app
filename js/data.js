@@ -1,4 +1,4 @@
-// Bộ dữ liệu 502 từ vựng & mẫu câu TIẾNG ANH NÂNG CAO (B2 - C1 / Academic, Business & IELTS 7.0+)
+// Bộ dữ liệu 699 từ vựng & mẫu câu TIẾNG ANH ĐA CẤP ĐỘ (Trung cấp B1 - B2 & Nâng cao B2 - C1)
 const INITIAL_DATA = [
     {
         "id": "adv-1",
@@ -11,7 +11,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chúng ta cần hợp tác với đội ngũ kỹ thuật quốc tế.",
         "note": "Đi với with (người) hoặc on (dự án). Danh từ: collaboration.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-2",
@@ -24,7 +25,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Họ đang đàm phán một thỏa thuận hợp tác chiến lược dài hạn.",
         "note": "Danh từ: negotiation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-3",
@@ -37,7 +39,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tổ chức đã quyết định triển khai giờ làm việc linh hoạt.",
         "note": "Danh từ: implementation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-4",
@@ -50,7 +53,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nền tảng đám mây tạo điều kiện thuận lợi cho hợp tác xuyên biên giới.",
         "note": "Từ học thuật trang trọng.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-5",
@@ -63,7 +67,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Quản lý dự án phải ưu tiên các hạng mục bàn giao cốt lõi.",
         "note": "Danh từ: priority.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-6",
@@ -76,7 +81,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lãnh đạo hiệu quả ủy quyền các nhiệm vụ vận hành cho cấp dưới.",
         "note": "Danh từ: delegation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-7",
@@ -89,7 +95,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chúng ta phải tối ưu hóa phân bổ nguồn lực để giảm lãng phí.",
         "note": "Danh từ: optimization.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-8",
@@ -102,7 +109,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tự động hóa đã giúp tinh giản các hoạt động kế toán.",
         "note": "Lược bỏ khâu cồng kềnh.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-9",
@@ -115,7 +123,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hội đồng cuối cùng đã đạt được sự đồng thuận về thương vụ mua lại.",
         "note": "Reach a consensus.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-10",
@@ -128,7 +137,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đạt được khoản vốn ban đầu là một cột mốc mang tính quyết định.",
         "note": "Achieve/reach a milestone.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-11",
@@ -141,7 +151,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tham vấn các bên liên quan chủ chốt giúp xây dựng cam kết lâu dài.",
         "note": "Khách hàng, cổ đông, nhân viên.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-12",
@@ -154,7 +165,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tiến độ gấp gáp này có khả thi về mặt kỹ thuật không?",
         "note": "Danh từ: feasibility.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-13",
@@ -167,7 +179,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Ban quản lý đã phân bổ khoản ngân sách đáng kể cho an ninh mạng.",
         "note": "Allocate budget/resources.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-14",
@@ -180,7 +193,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tỷ lệ giữ chân khách hàng của họ đóng vai trò là mốc chuẩn toàn ngành.",
         "note": "Dùng để so sánh hiệu suất.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-15",
@@ -193,7 +207,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tình trạng thiếu hụt nguồn cung đã tạo ra điểm nghẽn lớn trong sản xuất.",
         "note": "Chỗ làm chậm tiến độ chung.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-16",
@@ -206,7 +221,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chúng tôi đã xây dựng kế hoạch dự phòng cho sự cố sập máy chủ.",
         "note": "Contingency plan / fund.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-17",
@@ -219,7 +235,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Công ty tận dụng phân tích dữ liệu để cá nhân hóa tiếp thị.",
         "note": "Tận dụng lợi thế sẵn có.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-18",
@@ -232,7 +249,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tự động hóa quy trình khiến phần mềm cũ trở nên dư thừa.",
         "note": "Make someone redundant.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-19",
@@ -245,7 +263,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thực hành thân thiện môi trường thúc đẩy mô hình kinh doanh bền vững.",
         "note": "Sustainability.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-20",
@@ -258,7 +277,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vụ sáp nhập đã tạo ra sự cộng hưởng chi phí rõ rệt.",
         "note": "1 + 1 > 2.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-21",
@@ -271,7 +291,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Minh bạch tài chính trấn an các nhà đầu tư thận trọng.",
         "note": "Transparent reporting.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-22",
@@ -284,7 +305,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các quan chức công quyền phải thể hiện trách nhiệm giải trình nghiêm ngặt.",
         "note": "Hold someone accountable.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-23",
@@ -297,7 +319,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Giảm thiểu rủi ro chủ động giúp hạn chế tối đa thất bại dự án.",
         "note": "Trái nghĩa: reactive.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-24",
@@ -310,7 +333,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Kiến trúc có khả năng mở rộng phục vụ hàng triệu người dùng đồng thời.",
         "note": "Scalability.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-25",
@@ -323,7 +347,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thưởng theo hiệu suất tạo ra động lực thúc đẩy hấp dẫn.",
         "note": "Incentivize employees.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-26",
@@ -336,7 +361,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tư duy phân tích là một năng lực cốt lõi không thể thiếu.",
         "note": "Core competency.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-27",
@@ -349,7 +375,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãy nộp hóa đơn để được hoàn trả tiền kịp thời.",
         "note": "Travel reimbursement.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-28",
@@ -362,7 +389,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Kiểm toán viên đã cảnh báo một sai lệch khó hiểu trong kiểm kê kho.",
         "note": "Discrepancy between A and B.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-29",
@@ -375,7 +403,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lỗi sản phẩm khiến nhà sản xuất đối mặt với trách nhiệm pháp lý nặng nề.",
         "note": "Assets and liabilities.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-30",
@@ -388,7 +417,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Ngân hàng đã thiết lập các quy trình tuân thủ quy định nghiêm ngặt.",
         "note": "In compliance with.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-31",
@@ -401,7 +431,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tỷ lệ luân chuyển nhân sự cao phản ánh sự yếu kém trong ban lãnh đạo.",
         "note": "Staff turnover / inventory turnover.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-32",
@@ -414,7 +445,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đãi ngộ cạnh tranh giúp giữ chân nhân tài hàng đầu.",
         "note": "Talent retention.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-33",
@@ -427,7 +459,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các công ty đã thu hẹp hoạt động để chống chọi lạm phát.",
         "note": "Cắt giảm nhân sự do khủng hoảng.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-34",
@@ -440,7 +473,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chúng tôi thu mua linh kiện điện tử từ các nhà cung ứng đã kiểm định.",
         "note": "Procurement department.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-35",
@@ -453,7 +487,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đánh giá nhiều nhà cung cấp bên thứ ba trước khi ký hợp đồng.",
         "note": "Vendor assessment.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-36",
@@ -466,7 +501,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các giám đốc điều hành đã đàm phán gói thù lao hàng năm của mình.",
         "note": "Formal term for salary.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-37",
@@ -479,7 +515,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đánh giá hàng quý giúp nhận diện cơ hội đào tạo nhân viên.",
         "note": "Performance appraisal.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-38",
@@ -492,7 +529,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Doanh nghiệp đa dạng hóa dải sản phẩm để mở rộng thị phần.",
         "note": "Diversification.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-39",
@@ -505,7 +543,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Quy định chống độc quyền kiềm chế các thế lực độc quyền phi lý.",
         "note": "Monopolistic market.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-40",
@@ -518,7 +557,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thâm hụt thương mại đã thu hẹp nhờ xuất khẩu tăng mạnh.",
         "note": "Budget deficit.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-41",
@@ -531,7 +571,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thặng dư ngân sách cho phép tái đầu tư vào hạ tầng công cộng.",
         "note": "Trade surplus.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-42",
@@ -544,7 +585,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đảm bảo điều khoản chấm dứt hợp đồng bảo vệ quyền sở hữu trí tuệ của chúng ta.",
         "note": "Contractual clause.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-43",
@@ -557,7 +599,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chia sẻ tài liệu bảo mật cấu thành hành vi vi phạm có thể bị kiện.",
         "note": "Breach of trust/contract.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-44",
@@ -570,7 +613,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Trọng tài thương mại cung cấp giải pháp giải quyết tranh chấp nhanh chóng.",
         "note": "Arbitration tribunal.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-45",
@@ -583,7 +627,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Giám đốc bao quát và giám sát các văn phòng khu vực quốc tế.",
         "note": "Supervise / manage.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-46",
@@ -596,7 +641,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Triển khai hoàn hảo kế hoạch tung chiến dịch tiếp thị.",
         "note": "Execution capability.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-47",
@@ -609,7 +655,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một điều phối viên độc lập đã dẫn dắt buổi hòa giải.",
         "note": "Meeting facilitator.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-48",
@@ -622,7 +669,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Trao quyền cho nhân viên tuyến đầu giải quyết khiếu nại khách hàng.",
         "note": "Employee empowerment.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-49",
@@ -635,7 +683,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tập đoàn đã tái cơ cấu để cắt giảm sự cồng kềnh trong bộ máy quản lý.",
         "note": "Corporate restructuring.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-50",
@@ -648,7 +697,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Điện toán đám mây vẫn là nhánh kinh doanh sinh lời nhất của công ty.",
         "note": "Lucrative opportunity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-51",
@@ -661,7 +711,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hội đồng đạo đức đã soi xét kỹ lưỡng dữ liệu thử nghiệm lâm sàng.",
         "note": "Xem xét chi tiết từng li.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-52",
@@ -674,7 +725,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà vật lý thiên văn giả định về sự tồn tại của năng lượng tối.",
         "note": "Hypothesis.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-53",
@@ -687,7 +739,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lời khai nhân chứng đã củng cố chứng cứ pháp y.",
         "note": "Xác nhận tính xác thực.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-54",
@@ -700,7 +753,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Dữ liệu mâu thuẫn hoàn toàn với khẳng định ban đầu trong phòng thí nghiệm.",
         "note": "Contradiction.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-55",
@@ -713,7 +767,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà nghiên cứu tổng hợp các phát hiện rời rạc thành khung lý thuyết mạch lạc.",
         "note": "Synthesis.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-56",
@@ -726,7 +781,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chuyên gia phân biệt triệu chứng lành tính với bệnh mãn tính.",
         "note": "Differentiate A from B.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-57",
@@ -739,7 +795,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chúng ta không thể ngoại suy xu hướng dài hạn chỉ từ một cuộc khảo sát đơn lẻ.",
         "note": "Statistical extrapolation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-58",
@@ -752,7 +809,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Từ các chứng minh toán học, các nhà vật lý đã suy luận ra khối lượng hạt.",
         "note": "Deductive reasoning.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-59",
@@ -765,7 +823,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một số hóa chất gây ra sự đột biến tế bào nhanh chóng.",
         "note": "Inductive logic.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-60",
@@ -778,7 +837,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Kết luận phải dựa trên sự xác minh thực nghiệm nghiêm ngặt.",
         "note": "Empirical research.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-61",
@@ -791,7 +851,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một phương pháp luận minh bạch đảm bảo khoa học có thể tái lập được.",
         "note": "Research methodology.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-62",
@@ -804,7 +865,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Điện toán lượng tử châm ngòi cho bước chuyển hệ hình trong mật mã học.",
         "note": "Paradigm shift.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-63",
@@ -817,7 +879,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Công kích cá nhân là một ngụy biện tu từ học kinh điển.",
         "note": "Logical fallacy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-64",
@@ -830,7 +893,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Anh ấy đã đưa ra lời giải thích hợp lý trong buổi điều trần trước hội đồng.",
         "note": "Plausibility.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-65",
@@ -843,7 +907,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những điều khoản hợp đồng mơ hồ sẽ dẫn tới kiện tụng kéo dài.",
         "note": "Ambiguity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-66",
@@ -856,7 +921,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cô ấy đã xây dựng câu chuyện mạch lạc xuyên suốt cả năm chương.",
         "note": "Coherence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-67",
@@ -869,7 +935,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhà báo đã chứng minh các cáo buộc bằng các tài liệu rò rỉ đã xác thực.",
         "note": "Bổ sung bằng chứng.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-68",
@@ -882,7 +949,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đánh giá đồng cấp đã bác bỏ thành công những kết luận sai sót.",
         "note": "Refutation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-69",
@@ -895,7 +963,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hoạt động địa chấn dị thường đã xuất hiện trước vụ phun trào núi lửa.",
         "note": "Anomaly.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-70",
@@ -908,7 +977,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lối sống lười vận động ngày càng phổ biến trong giới trẻ.",
         "note": "Prevalence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-71",
@@ -921,7 +991,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hạt vi nhựa đã trở nên phổ biến khắp nơi trong sinh vật biển đại dương.",
         "note": "Omnipresent.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-72",
@@ -934,7 +1005,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các cơ quan công quyền phổ biến những khuyến cáo tiêm chủng thiết yếu.",
         "note": "Dissemination.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-73",
@@ -947,7 +1019,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các tạp chí học thuật đòi hỏi phản biện kín hai chiều nghiêm ngặt.",
         "note": "Rigorous standards.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-74",
@@ -960,7 +1033,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhà sử học đã biên soạn một ghi chép tỉ mỉ về hiệp ước.",
         "note": "Meticulously researched.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-75",
@@ -973,7 +1047,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chúng tôi ủng hộ sự thỏa hiệp thực tế thay vì bế tắc giữa các đảng phái.",
         "note": "Pragmatism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-76",
@@ -986,7 +1061,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những niềm tin giáo điều cản trở trí tò mò tri thức và đối thoại.",
         "note": "Dogmatism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-77",
@@ -999,7 +1075,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà ngoại giao lão luyện nhận biết được sắc thái cảm xúc trong từng cách diễn đạt tinh tế.",
         "note": "Nuanced perspective.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-78",
@@ -1012,7 +1089,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chỉnh sửa gen kéo theo những hệ lụy đạo đức sâu sắc.",
         "note": "Policy implications.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-79",
@@ -1025,7 +1103,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự bất ổn là thuộc tính cố hữu của các thị trường đang phát triển.",
         "note": "Inherent risk.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-80",
@@ -1038,7 +1117,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự toàn vẹn an ninh mạng quốc gia là điều cấp bách tối thượng.",
         "note": "Of paramount importance.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-81",
@@ -1051,7 +1131,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tư duy phản biện là điều không thể thiếu trong diễn ngôn dân chủ.",
         "note": "Indispensable asset.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-82",
@@ -1064,7 +1145,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Công tắc cơ học đã bị đào thải bởi tự động hóa thông minh.",
         "note": "Planned obsolescence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-83",
@@ -1077,7 +1159,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tham nhũng tạo ra lực cản ngấm sâu vào tiến trình kinh tế.",
         "note": "Pervasive influence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-84",
@@ -1090,7 +1173,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lo âu mãn tính gây tổn hại đến sức sống của hệ tim mạch.",
         "note": "Detrimental impact.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-85",
@@ -1103,7 +1187,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãy làm nổi bật những khác biệt nổi cộm giữa hai bản thảo chính sách.",
         "note": "Salient points.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-86",
@@ -1116,7 +1201,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cộng đồng đã thể hiện sự tôn nghiêm lớn lao giữa nghịch cảnh khắc nghiệt.",
         "note": "Overcome adversity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-87",
@@ -1129,7 +1215,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà thiên văn đã quan sát thấy một vụ nổ siêu tân tinh chưa từng có tiền lệ.",
         "note": "Unprecedented scale.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-88",
@@ -1142,7 +1229,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Văn hóa cộng tác tạo điều kiện thuận lợi cho đổi mới mang tính đột phá.",
         "note": "Conducive environment.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-89",
@@ -1155,7 +1243,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự lãnh đạo phụng sự cộng đồng của ông là minh chứng điển hình cho nghĩa vụ công dân thực thụ.",
         "note": "Exemplary conduct.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-90",
@@ -1168,7 +1257,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Mật độ đô thị đóng vai trò là chất xúc tác cho giao lưu văn hóa.",
         "note": "Catalyst for change.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-91",
@@ -1181,7 +1271,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Trợ cấp có mục tiêu giúp giảm bớt tình trạng nghèo đói cùng cực ở trẻ em.",
         "note": "Alleviate suffering.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-92",
@@ -1194,7 +1285,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Trợ giá điện mặt trời đã tạo ra sự sụt giảm hữu hình trên hóa đơn tiện ích.",
         "note": "Tangible benefits.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-93",
@@ -1207,7 +1299,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Danh tiếng thương hiệu vẫn là tài sản vô hình vô giá của công ty.",
         "note": "Intangible cultural heritage.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-94",
@@ -1220,7 +1313,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bộ phim tài liệu đặt sự giàu sang xa hoa đối chiếu bên cạnh cảnh bần hàn.",
         "note": "Juxtaposition.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-95",
@@ -1233,7 +1327,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Phòng trà ấm cúng là trải nghiệm mang đậm bản sắc tinh túy nhất của nước Anh.",
         "note": "Quintessence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-96",
@@ -1246,7 +1341,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Khoảng cách giàu nghèo gia tăng gây căng thẳng cho sự gắn kết xã hội.",
         "note": "Economic disparity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-97",
@@ -1259,7 +1355,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự lan truyền trên mạng xã hội chỉ mang lại danh tiếng phù du thoáng chốc.",
         "note": "Ephemeral trend.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-98",
@@ -1272,7 +1369,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vật lý lý thuyết gợi mở những câu hỏi triết học sâu sắc tột bậc.",
         "note": "Profound insight.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-99",
@@ -1285,7 +1383,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một phân tích hời hợt sẽ bỏ qua các nguyên nhân mang tính hệ thống bên dưới.",
         "note": "Superficial knowledge.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-100",
@@ -1298,7 +1397,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự hiện diện ở khắp mọi nơi của màn hình số đang định hình lại khả năng tập trung của con người.",
         "note": "Ubiquitous nature.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-101",
@@ -1311,7 +1411,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những cộng đồng kiên cường tái thiết nhanh chóng sau các thảm họa tự nhiên.",
         "note": "Resilience.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-102",
@@ -1324,7 +1425,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bác sĩ biết thấu cảm sẽ hiểu các tín hiệu đau đớn không lời của người bệnh.",
         "note": "Empathy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-103",
@@ -1337,7 +1439,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nghiên cứu văn khố cần mẫn đã đính chính các mốc thời gian lịch sử sai sót.",
         "note": "Diligence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-104",
@@ -1350,7 +1453,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Kỹ sư đa năng chuyển đổi mượt mà giữa các nền tảng công nghệ phát triển.",
         "note": "Versatility.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-105",
@@ -1363,7 +1467,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Quản trị tài khóa thận trọng đã bảo vệ nền kinh tế khỏi các cú sụp đổ.",
         "note": "Prudence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-106",
@@ -1376,7 +1481,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những người ủng hộ hoạt ngôn đã kích hoạt sự hậu thuẫn của công chúng cho cải cách pháp luật.",
         "note": "Articulate speaker.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-107",
@@ -1389,7 +1495,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cách tiếp cận khéo léo của cô ấy đã hóa giải các cuộc đối đầu gay gắt trong phòng họp.",
         "note": "Diplomacy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-108",
@@ -1402,7 +1509,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãy hoài nghi những tuyên bố sức khỏe kỳ diệu thiếu chứng minh lâm sàng.",
         "note": "Healthy skepticism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-109",
@@ -1415,7 +1523,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhà khoa học trẻ đã bắt tay vào một thí nghiệm nhiệt hạch đầy tham vọng.",
         "note": "Ambition.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-110",
@@ -1428,7 +1537,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự kiên trì gan góc của cô ấy đã đem lại công lý cho các nạn nhân yếu thế.",
         "note": "Tenacity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-111",
@@ -1441,7 +1551,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Trong cuộc phỏng vấn bộc trực, ngài bộ trưởng đã thừa nhận những sơ suất chính sách.",
         "note": "Candid remarks.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-112",
@@ -1454,7 +1565,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Người sáng lập đầy lôi cuốn đã tập hợp các nhà đầu tư ủng hộ tầm nhìn xanh của mình.",
         "note": "Charisma.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-113",
@@ -1467,7 +1579,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà hảo tâm vị tha đã thành lập quỹ học bổng cho trẻ mồ côi.",
         "note": "Altruism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-114",
@@ -1480,7 +1593,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những người hoa tiêu tháo vát đã sống sót qua bão tuyết bằng công cụ thô sơ.",
         "note": "Resourcefulness.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-115",
@@ -1493,7 +1607,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự chịu đựng khắc kỷ đã giúp các tù binh chiến tranh giữ trọn phẩm giá.",
         "note": "Stoicism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-116",
@@ -1506,7 +1621,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Người phụ trách triển lãm rất kỹ tính về các góc chiếu sáng trong bảo tàng.",
         "note": "Fastidious taste.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-117",
@@ -1519,7 +1635,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những nhà đàm phán sắc sảo lường trước các phản biện của đối phương rất dễ dàng.",
         "note": "Astute businessman.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-118",
@@ -1532,7 +1649,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị chính khách đã cư xử hết sức đại lượng đối với các đối thủ chính trị vừa bại trận.",
         "note": "Magnanimity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-119",
@@ -1545,7 +1663,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đừng bao giờ trở nên tự mãn khi đang dẫn đầu trong một ngành đầy biến động.",
         "note": "Complacency.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-120",
@@ -1558,7 +1677,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Anh ấy trở nên bi quan cay đắng sau khi chứng kiến tệ nạn bè phái chính trị lan tràn.",
         "note": "Cynicism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-121",
@@ -1571,7 +1691,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thần thái niềm nở của vị nhà ngoại giao đã làm dịu các cuộc đàm phán quốc tế căng thẳng.",
         "note": "Affability.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-122",
@@ -1584,7 +1705,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những người hướng ngoại thích giao thiệp nạp năng lượng qua các buổi tụ họp tập thể sôi nổi.",
         "note": "Social butterfly.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-123",
@@ -1597,7 +1719,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự tĩnh lặng thúc đẩy những chiêm nghiệm triết học nội tâm sâu sắc.",
         "note": "Introspection.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-124",
@@ -1610,7 +1733,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhà phát minh lập dị sống trong một dinh thự rộng lớn chứa đầy đồng hồ.",
         "note": "Eccentricity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-125",
@@ -1623,7 +1747,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tổ chức một chuyến thám hiểm qua sông băng chưa vẽ bản đồ là kỳ tích táo bạo.",
         "note": "Audacity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-126",
@@ -1636,7 +1761,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị thẩm phán rất nghiêm cẩn trong việc tuân thủ tiền lệ luật định.",
         "note": "Scrupulous honesty.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-127",
@@ -1649,7 +1775,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cô ấy theo đuổi cải cách giáo dục với quyết tâm không hề nao núng.",
         "note": "Unwavering commitment.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-128",
@@ -1662,7 +1789,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Phong thái biểu diễn hoạt bát trên sân khấu của cô ấy đã tiếp thêm sinh lực cho khán giả kịch cổ điển.",
         "note": "Vivacity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-129",
@@ -1675,7 +1803,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những nhà sưu tập nghệ thuật sành sỏi nhận diện được các kiệt tác Phục hưng đích thực.",
         "note": "Discerning palate/eye.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-130",
@@ -1688,7 +1817,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị minh quân nhân từ đã tài trợ cho các trung tâm y tế chữa bệnh miễn phí.",
         "note": "Benevolence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-131",
@@ -1701,7 +1831,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đừng bao giờ coi sự đoàn kết gia đình là điều hiển nhiên giữa sóng gió cuộc đời.",
         "note": "Trân trọng những gì đang có.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-132",
@@ -1714,7 +1845,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hai nhà đồng sáng lập hiếm khi cùng chung góc nhìn về các ưu tiên mở rộng quy mô.",
         "note": "See eye to eye on.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-133",
@@ -1727,7 +1859,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Không có lịch trình cố định, dân phượt thích tùy cơ ứng biến hơn.",
         "note": "Improvise.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-134",
@@ -1740,7 +1873,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đội ngũ pháp lý đã thức trắng đêm để hoàn thiện bản tóm tắt hồ sơ xét xử.",
         "note": "Làm việc miệt mài.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-135",
@@ -1753,7 +1887,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các phương pháp điều trị y tế chuyên biệt ở nước ngoài tốn kém cả một gia tài.",
         "note": "Exorbitant cost.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-136",
@@ -1766,7 +1901,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thứ Tư tới chúng ta hãy liên lạc lại để đánh giá các mục tiêu quý nhé.",
         "note": "Brief check-in.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-137",
@@ -1779,7 +1915,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sau khi gỡ xong các lỗi nghiêm trọng, các lập trình viên quyết định dừng tay.",
         "note": "Wrap up.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-138",
@@ -1792,7 +1929,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Giám đốc tài chính đã cắn răng chịu đựng công bố đợt cắt giảm nhân sự bắt buộc.",
         "note": "Face inevitable hardship.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-139",
@@ -1805,7 +1943,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các kỹ sư phải tư duy vượt lối mòn để vượt qua các giới hạn nhiệt năng.",
         "note": "Innovative thinking.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-140",
@@ -1818,7 +1957,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đánh giá của cô ấy đã nói trúng phóc nguyên nhân khách hàng rời bỏ dịch vụ.",
         "note": "Spot on.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-141",
@@ -1831,7 +1971,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một hoạt động giao lưu tương tác đã phá vỡ sự ngại ngùng giữa các đại biểu.",
         "note": "Icebreaking.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-142",
@@ -1844,7 +1985,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãy từ chức một cách chuyên nghiệp; cắt đứt mọi mối quan hệ sẽ hạn chế triển vọng nghề nghiệp tương lai.",
         "note": "Preserve relationships.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-143",
@@ -1857,7 +1999,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà ngoại giao đọc ra ẩn ý đằng sau những thông cáo chính thức tinh tế.",
         "note": "Discern hidden meaning.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-144",
@@ -1870,7 +2013,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Diễn giả chính cảm thấy không được khỏe và đã hoãn bài giảng.",
         "note": "Minor illness.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-145",
@@ -1883,7 +2027,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những thành viên ủy ban chưa quyết định vẫn đang lưỡng lự về thương vụ sáp nhập.",
         "note": "Ambivalent.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-146",
@@ -1896,7 +2041,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những vụ rò rỉ được ghi nhận này mới chỉ là phần nổi của tảng băng chìm.",
         "note": "Deeper systemic issue.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-147",
@@ -1909,7 +2055,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những nhà cải cách thực thụ hiểu rằng hành động có sức nặng hơn muôn vàn lời hứa.",
         "note": "Tangible proof.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-148",
@@ -1922,7 +2069,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Mẫu thử nghiệm đã trượt bài kiểm tra khí động học; chúng ta phải quay lại làm lại từ đầu.",
         "note": "Restart planning.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-149",
@@ -1935,7 +2083,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đội ngũ bảo trì hàng không tuyệt đối không được làm ẩu bớt xén khâu kiểm tra.",
         "note": "Compromise quality.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-150",
@@ -1948,7 +2097,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các điều tra viên đã đi sai hướng khi lần theo các ví tiền mã hóa đó.",
         "note": "Misdirected effort.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-151",
@@ -1961,7 +2111,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Mất khách hàng đó hóa ra lại là trong cái rủi có cái may khi các hợp đồng tốt hơn xuất hiện.",
         "note": "Hidden benefit.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-152",
@@ -1974,7 +2125,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một người nội bộ đã làm lộ bí mật trước buổi ra mắt sản phẩm chính thức.",
         "note": "Divulge secret.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-153",
@@ -1987,7 +2139,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những đối tác kinh doanh trung thành đã sát cánh bên nhau qua mọi thăng trầm.",
         "note": "Unconditional support.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-154",
@@ -2000,7 +2153,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đừng ôm đồm quá sức bằng việc nhận cùng lúc ba vị trí công việc.",
         "note": "Overcommit.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-155",
@@ -2013,7 +2167,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Khoản dự trữ tiền mặt cạn kiệt là vấn đề nhức nhối hiển nhiên mà không ai dám nhắc tới.",
         "note": "Avoided obvious topic.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-156",
@@ -2026,7 +2181,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các kiểm toán viên pháp y đã lùng sục khắp nơi không bỏ sót dấu vết trong điều tra gian lận.",
         "note": "Exhaustive search.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-157",
@@ -2039,7 +2195,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các doanh nghiệp công nghệ sinh học đổi mới đầu tư sớm để luôn đi trước thời đại.",
         "note": "Trendsetter.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-158",
@@ -2052,7 +2209,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bất chấp những trở ngại nặng nề, công ty khởi nghiệp kiên cường đã từ chối bỏ cuộc.",
         "note": "Surrender.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-159",
@@ -2065,7 +2223,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà ngoại giao đã dàn xếp một thỏa thuận ngừng bắn khẩn cấp vào phút chót.",
         "note": "Last-minute.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-160",
@@ -2078,7 +2237,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sau khi quản lý yếu kém công quỹ, các nhà quản lý đã phải đứng ra gánh chịu hậu quả.",
         "note": "Accept consequences.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-161",
@@ -2091,7 +2251,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lạm phát dai dẳng làm xói mòn sức mua của các hộ gia đình trung lưu.",
         "note": "Hyperinflation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-162",
@@ -2104,7 +2265,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các quý tăng trưởng âm liên tiếp đã đẩy toàn bộ châu lục vào suy thoái.",
         "note": "Economic downturn.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-163",
@@ -2117,7 +2279,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các ngân hàng thương mại duy trì dự trữ thanh khoản cao để sống sót qua cơn siết tín dụng.",
         "note": "Liquid assets.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-164",
@@ -2130,7 +2293,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bất ổn địa chính trị gây ra sự biến động giá dữ dội trên khắp các thị trường hàng hóa.",
         "note": "Volatile swing.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-165",
@@ -2143,7 +2307,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cổ phiếu trả cổ tức thu hút các nhà đầu tư quỹ hưu trí thận trọng.",
         "note": "Dividend payout.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-166",
@@ -2156,7 +2321,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các liên minh quỹ đầu tư mạo hiểm mua cổ phần trong các phòng thí nghiệm AI triển vọng.",
         "note": "Private equity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-167",
@@ -2169,7 +2335,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các khoản khấu trừ kế toán thuế ghi nhận sự khấu hao tài sản bất động sản.",
         "note": "Depreciate.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-168",
@@ -2182,7 +2349,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tái cân bằng danh mục đầu tư hàng năm giúp bảo toàn lợi nhuận đã điều chỉnh rủi ro.",
         "note": "Asset allocation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-169",
@@ -2195,7 +2363,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những nỗ lực thâu tóm thù địch đã diễn ra trước thương vụ mua lại gây tranh cãi.",
         "note": "Mergers and acquisitions.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-170",
@@ -2208,7 +2377,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nếu không có sự bơm vốn nhanh chóng, các nhà phát triển địa phương có nguy cơ mất khả năng trả nợ.",
         "note": "Insolvency.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-171",
@@ -2221,7 +2391,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tập đoàn đa quốc gia khổng lồ đã thoái vốn khỏi các tài sản khai thác nhiên liệu hóa thạch.",
         "note": "Industrial conglomerate.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-172",
@@ -2234,7 +2405,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hạn chế giao dịch đầu cơ giúp kiềm chế sự phình to của bong bóng tài sản nhân tạo.",
         "note": "Speculative bubble.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-173",
@@ -2247,7 +2419,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chi tiêu tài khóa có kỷ luật ngăn chặn việc bị hạ xếp hạng tín nhiệm nợ quốc gia.",
         "note": "Fiscal stimulus.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-174",
@@ -2260,7 +2433,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chính sách tiền tệ thắt chặt kìm hãm chỉ số giá tiêu dùng tăng phi mã.",
         "note": "Monetary tightening.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-175",
@@ -2273,7 +2447,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đường cong lợi suất trái phiếu kho bạc đảo ngược dự báo chuẩn xác suy thoái sắp ập đến.",
         "note": "Yield curve.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-176",
@@ -2286,7 +2461,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bản quyền phần mềm vô hình trải qua lịch trình phân bổ khấu hao có cấu trúc.",
         "note": "Amortize debt.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-177",
@@ -2299,7 +2475,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các quỹ phòng hộ tần suất cao tận dụng chênh lệch giá tiền tệ siêu nhỏ để kiếm lời.",
         "note": "Riskless arbitrage.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-178",
@@ -2312,7 +2489,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bên đi vay thương mại thế chấp bất động sản thương mại có giá trị để làm tài sản bảo đảm.",
         "note": "Collateralized loan.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-179",
@@ -2325,7 +2503,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các bài kiểm tra sức chịu đựng đánh giá liệu các nhà băng lớn có duy trì đủ khả năng thanh toán dài hạn hay không.",
         "note": "Solvency ratio.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-180",
@@ -2338,7 +2517,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tỷ lệ đòn bẩy quá mức khuếch đại tính dễ tổn thương của tổ chức khi thị trường đi xuống.",
         "note": "Debt-to-equity ratio.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-181",
@@ -2351,7 +2531,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tôi sẽ rất cảm kích nếu bạn có thể làm rõ vấn đề này sớm nhất có thể trước buổi báo cáo khách hàng.",
         "note": "Mẫu câu nhờ vả cực kỳ trang trọng và lịch thiệp.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-182",
@@ -2364,7 +2545,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Mô hình của bạn rất triển vọng; bạn có thể nói rõ hơn về khuyến nghị biên độ rủi ro không?",
         "note": "Yêu cầu đào sâu thêm chi tiết.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-183",
@@ -2377,7 +2559,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãy cân nhắc kỹ lưỡng ưu nhược điểm trước khi rót vốn vào hạ tầng nước ngoài.",
         "note": "Đưa ra quyết định thận trọng.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-184",
@@ -2390,7 +2573,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Theo góc nhìn chiến lược của tôi, thâu tóm bằng sáng chế này đem lại tiềm năng dẫn đầu thị trường rất lớn.",
         "note": "Thể hiện tầm nhìn chuyên nghiệp.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-185",
@@ -2403,7 +2587,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Để đạt chỉ tiêu quý 4, chúng ta phải đồng bộ hóa các mục tiêu trên tất cả các đơn vị kinh doanh.",
         "note": "Đoàn kết và phối hợp nhịp nhàng.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-186",
@@ -2416,7 +2601,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sau khi nghiên cứu kỹ dự toán chi phí, tôi rất nghiêng về phía ủng hộ kế hoạch tái cấu trúc này.",
         "note": "Ủng hộ có căn cứ vững chắc.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-187",
@@ -2429,7 +2615,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Với tư cách là người bảo trợ chính, xin hãy luôn cập nhật cho tôi về các cột mốc dự án cốt lõi.",
         "note": "Giữ thông tin liên lạc xuyên suốt.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-188",
@@ -2442,7 +2629,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãy triệu tập một phiên họp tiếp theo vào sáng thứ Ba tới để đối soát sổ cái kiểm toán.",
         "note": "Giải quyết rốt ráo công việc.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-189",
@@ -2455,7 +2643,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nếu các nhà cung cấp không giao hàng đúng hạn, tôi xin đề xuất một phương án thay thế khả thi.",
         "note": "Chủ động đưa ra giải pháp mới.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-190",
@@ -2468,7 +2657,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Trong buổi họp hôm nay, chúng ta hãy điểm qua những chỉ số then chốt chi phối đợt kiểm toán vận hành.",
         "note": "Tập trung vào điểm trọng yếu.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-191",
@@ -2481,7 +2671,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thuật toán học máy phân tích hàng triệu ảnh chụp y tế.",
         "note": "Algorithmic trading.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-192",
@@ -2494,7 +2685,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Máy tính lượng tử đe dọa các hệ mật mã bất đối xứng truyền thống.",
         "note": "Cryptographic protocols.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-193",
@@ -2507,7 +2699,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tự động hóa công nghiệp thay thế lao động thủ công lặp đi lặp lại.",
         "note": "Automated systems.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-194",
@@ -2520,7 +2713,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Công nghệ nano cho phép đưa thuốc trúng đích vào bên trong khối u.",
         "note": "Nanoscale engineering.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-195",
@@ -2533,7 +2727,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đột phá công nghệ sinh học thúc đẩy lai tạo giống cây trồng chịu hạn.",
         "note": "Biotech industry.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-196",
@@ -2546,7 +2741,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Mạng cáp quang đã làm biến đổi ngành viễn thông toàn cầu.",
         "note": "Telecom sector.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-197",
@@ -2559,7 +2755,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các tổ chức tài chính đầu tư hàng tỷ đô la vào an ninh mạng chủ động.",
         "note": "Cyber attack defense.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-198",
@@ -2572,7 +2769,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự gián đoạn nguồn cung toàn cầu đã bóp nghẹt ngành sản xuất chất bán dẫn.",
         "note": "Microchip fabrication.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-199",
@@ -2585,7 +2783,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các đội máy bay không người lái tự hành kiểm tra các tua-bin gió ngoài khơi.",
         "note": "Autonomous vehicles.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-200",
@@ -2598,7 +2797,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hiện đại hóa hạ tầng đường sắt xuống cấp đòi hỏi quyết tâm của cả hai đảng.",
         "note": "Critical infrastructure.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-201",
@@ -2611,7 +2811,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Phá rừng đẩy nhanh sự mất mát đa dạng sinh học không thể cứu vãn ở rừng nhiệt đới.",
         "note": "Ecosystem diversity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-202",
@@ -2624,7 +2825,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nạn phá rừng trái phép đe dọa các vùng lãnh thổ của người bản địa trên khắp thế giới.",
         "note": "Reforestation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-203",
@@ -2637,7 +2839,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Mức trần phát thải carbon nghiêm ngặt sẽ phạt nặng những bên gây ô nhiễm lớn.",
         "note": "Zero emissions.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-204",
@@ -2650,7 +2853,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bảo tồn động vật hoang dã gìn giữ môi trường sống cho các loài có nguy cơ tuyệt chủng.",
         "note": "Conservationist.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-205",
@@ -2663,7 +2867,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Năng lượng gió và mặt trời đại diện cho các nguồn năng lượng tái tạo hàng đầu.",
         "note": "Renewable energy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-206",
@@ -2676,7 +2881,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hiện tượng tẩy trắng rạn san hô đe dọa các hệ sinh thái biển mong manh.",
         "note": "Ecosystem balance.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-207",
@@ -2689,7 +2895,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đánh bắt quá mức gây cạn kiệt tài nguyên đáng báo động ở các ngư trường ven biển.",
         "note": "Ozone depletion.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-208",
@@ -2702,7 +2909,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nước thải công nghiệp dẫn đến tình trạng nhiễm độc nguồn nước ngầm nghiêm trọng.",
         "note": "Chemical contamination.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-209",
@@ -2715,7 +2923,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đô thị hóa nhanh chóng gây căng thẳng cho hệ thống vệ sinh công cộng và nguồn cung nhà ở.",
         "note": "Urban sprawl.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-210",
@@ -2728,7 +2937,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nghị viện đã soạn thảo đạo luật mang tính bước ngoặt nhằm quản lý trí tuệ nhân tạo.",
         "note": "Pass legislation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-211",
@@ -2741,7 +2951,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tòa án quốc tế thiếu thẩm quyền tài phán ràng buộc đối với các phiên tòa quân sự quốc gia.",
         "note": "Legal jurisdiction.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-212",
@@ -2754,7 +2965,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chủ quyền lãnh thổ phải được tôn trọng theo luật pháp quốc tế.",
         "note": "National sovereignty.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-213",
@@ -2767,7 +2979,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thủ tục rườm rà và bộ máy quan liêu bóp nghẹt các sáng kiến kinh doanh.",
         "note": "Bureaucratic delay.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-214",
@@ -2780,7 +2993,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hiến pháp tôn vinh các quyền công dân cơ bản và quyền tự do ngôn luận.",
         "note": "Constitutional court.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-215",
@@ -2793,7 +3007,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vụ kiện tụng doanh nghiệp tốn kém đã kéo dài hơn tám năm.",
         "note": "Civil litigation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-216",
@@ -2806,7 +3021,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhóm nhân quyền ủng hộ các chính sách tị nạn công bằng.",
         "note": "Advocate for change.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-217",
@@ -2819,7 +3035,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các công tố viên liên bang đã truy tố những kẻ tài trợ cấp cao cho tập đoàn tội phạm.",
         "note": "Prosecution.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-218",
@@ -2832,7 +3049,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hệ thống trại giam nên tập trung vào việc phục hồi hoàn lương cho người chưa thành niên hơn là trừng phạt.",
         "note": "Rehab facility.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-219",
@@ -2845,7 +3063,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các lệnh trừng phạt kinh tế đã phong tỏa tài sản ngoại tệ của chế độ.",
         "note": "Impose sanctions.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-220",
@@ -2858,7 +3077,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Anh ấy đã từ bỏ con tàu bị hư hỏng để cứu các thuyền viên.",
         "note": "Abandon hope / ship.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-221",
@@ -2871,7 +3091,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Rừng mưa nhiệt đới che chở cho một lượng phong phú các loài thực vật quý hiếm.",
         "note": "Abundance.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-222",
@@ -2884,7 +3105,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những tiến bộ công nghệ đẩy nhanh sự biến đổi của xã hội.",
         "note": "Acceleration.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-223",
@@ -2897,7 +3119,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chất độc hại tích tụ dần trong chuỗi thức ăn đại dương.",
         "note": "Accumulation of wealth.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-224",
@@ -2910,7 +3133,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị bộ trưởng đã thừa nhận những thiếu sót mang tính hệ thống trong bộ.",
         "note": "Acknowledgment.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-225",
@@ -2923,7 +3147,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Trẻ em tiếp thu sự thành thạo ngôn ngữ một cách tự nhiên thông qua môi trường sống.",
         "note": "Language acquisition.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-226",
@@ -2936,7 +3161,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Khả năng thích ứng là một phẩm chất sống còn trong các nền kinh tế luôn biến đổi.",
         "note": "Adaptable mindset.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-227",
@@ -2949,7 +3175,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đảm bảo thông gió đầy đủ khi xử lý các hóa chất dễ bay hơi.",
         "note": "Trái nghĩa: inadequate.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-228",
@@ -2962,7 +3189,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Y tá tiêm truyền kháng sinh tĩnh mạch dưới sự giám sát của bác sĩ.",
         "note": "Administration.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-229",
@@ -2975,7 +3203,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bảo tàng kết hợp kiến trúc tối giản với sự hài hòa thẩm mỹ tự nhiên.",
         "note": "Aesthetics.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-230",
@@ -2988,7 +3217,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tổng cầu thúc đẩy sản lượng kinh tế vĩ mô dài hạn.",
         "note": "In the aggregate.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-231",
@@ -3001,7 +3231,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những biến đổi di truyền mang lại khả năng miễn dịch chống lại các chủng virus nghiêm trọng.",
         "note": "Alter.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-232",
@@ -3014,7 +3245,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Loại bỏ sự mơ hồ khỏi các văn bản luật để tránh hiểu sai.",
         "note": "Tolerate ambiguity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-233",
@@ -3027,7 +3259,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các buồng vang thông tin trên mạng xã hội khuếch đại những luận điệu gây chia rẽ.",
         "note": "Amplification.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-234",
@@ -3040,7 +3273,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà kinh tế dự liệu những đợt điều chỉnh tiền tệ mạnh tay vào cuối quý.",
         "note": "Anticipation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-235",
@@ -3053,7 +3287,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự sai lệch trở nên hiển nhiên ngay sau đợt đối soát cơ sở dữ liệu ban đầu.",
         "note": "Apparently.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-236",
@@ -3066,7 +3301,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các thỏa hiệp được soạn thảo để làm nguôi giận các đại biểu công đoàn đang đình công.",
         "note": "Appeasement policy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-237",
@@ -3079,7 +3315,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà độc tài áp đặt những lệnh cấm tùy tiện mà không có căn cứ hiến pháp.",
         "note": "Arbitrary decision.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-238",
@@ -3092,7 +3329,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự phát biểu khúc chiết các mục tiêu chiến lược giúp gắn kết lực lượng lao động đa quốc gia.",
         "note": "Articulate.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-239",
@@ -3105,7 +3343,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các thám tử tìm cách xác định chắc chắn trình tự chính xác của các sự kiện.",
         "note": "Ascertain the truth.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-240",
@@ -3118,7 +3357,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các sáng kiến giáo dục nuôi dưỡng khát vọng nghề nghiệp cao đẹp trong giới trẻ.",
         "note": "Aspire to.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-241",
@@ -3131,7 +3371,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Người nhập cư hòa nhập vào đời sống công dân trong khi vẫn tôn vinh truyền thống cội nguồn.",
         "note": "Cultural assimilation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-242",
@@ -3144,7 +3385,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hiếm có vận động viên nào đạt được huy chương vàng Olympic chỉ bằng tài năng đơn thuần.",
         "note": "Attainable.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-243",
@@ -3157,7 +3399,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các học giả đã xác minh bản thảo là một hiện vật thời Trung cổ đích thực.",
         "note": "Authenticity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-244",
@@ -3170,7 +3413,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các cơ quan quản lý đã ban hành chỉ thị đình chỉ các hoạt động lâm sàng nguy hiểm.",
         "note": "Authoritative.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-245",
@@ -3183,7 +3427,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà đầu tư thận trọng có một ác cảm tự nhiên đối với cổ phiếu biến động mạnh.",
         "note": "Risk aversion.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-246",
@@ -3196,7 +3441,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Quân đội đã đầu hàng sau cuộc vây hãm kéo dài.",
         "note": "Surrender.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-247",
@@ -3209,7 +3455,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Quản lý đã khiển trách đội ngũ vì những sơ suất thiếu cẩn trọng.",
         "note": "Scold severely.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-248",
@@ -3222,7 +3469,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lời thú tội bị ép buộc không được chấp nhận trước tòa.",
         "note": "Coercive power.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-249",
@@ -3235,7 +3483,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lãnh đạo phải nhận thức rõ những bất bình từ cơ sở.",
         "note": "Cognizant of.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-250",
@@ -3248,7 +3497,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các tập đoàn đã cấu kết ngầm để ấn định giá phi pháp.",
         "note": "Collusive behavior.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-251",
@@ -3261,7 +3511,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tiền lương nên tương xứng với kinh nghiệm và chuyên môn.",
         "note": "Commensurate with.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-252",
@@ -3274,7 +3525,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bên công tố đã đưa ra các bằng chứng pháp y đầy thuyết phục.",
         "note": "Compelling evidence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-253",
@@ -3287,7 +3539,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị đại sứ đã thể hiện một giọng điệu hòa giải trong các cuộc đàm phán.",
         "note": "Conciliation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-254",
@@ -3300,7 +3553,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hiện đại hóa kinh tế kéo theo những căng thẳng xã hội đi kèm.",
         "note": "Accompaniment.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-255",
@@ -3313,7 +3567,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các thẩm phán phúc thẩm đã tán thành phán quyết sơ thẩm.",
         "note": "Concur with.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-256",
@@ -3326,7 +3581,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nội quy nhà trường không dung túng hành vi bắt nạt.",
         "note": "Condone actions.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-257",
@@ -3339,7 +3595,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Số liệu kinh tế mâu thuẫn làm rối trí các chuyên gia phân tích thị trường.",
         "note": "Confounding variable.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-258",
@@ -3352,7 +3609,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các tuyên bố lịch sử phải dựa trên hiện vật, không thể chỉ là phỏng đoán.",
         "note": "Speculation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-259",
@@ -3365,7 +3623,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một người sành sỏi âm nhạc cổ điển nhận ra cách luyến ngắt vĩ cầm tinh tế.",
         "note": "Art connoisseur.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-260",
@@ -3378,7 +3637,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các tượng đài hiến dâng ký ức cho những người lính đã ngã xuống.",
         "note": "Dedicate solemnly.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-261",
@@ -3391,7 +3651,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Quy hoạch lại đất đai vẫn là một vấn đề địa phương gây tranh cãi nảy lửa.",
         "note": "Contentious debate.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-262",
@@ -3404,7 +3665,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bị cáo tỏ ra thực sự ăn năn hối lỗi trước khi tuyên án.",
         "note": "Contrition.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-263",
@@ -3417,7 +3679,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cân bằng kiểm soát lạm phát với việc làm là bài toán kinh tế nan giải.",
         "note": "Difficult puzzle.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-264",
@@ -3430,7 +3693,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhiều xu hướng công nghệ cùng hội tụ vào trí tuệ nhân tạo.",
         "note": "Convergence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-265",
@@ -3443,7 +3707,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cô ấy đã ghi chép tay rất nhiều ghi chú trong suốt buổi hội thảo.",
         "note": "Copious amounts.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-266",
@@ -3456,7 +3721,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự hoài nghi yếm thế gây ra tác động ăn mòn đối với niềm tin vào thể chế.",
         "note": "Corrosion.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-267",
@@ -3469,7 +3735,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãy lắng nghe lời khuyên khôn ngoan của những cố vấn tài chính dày dạn.",
         "note": "Legal counsel.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-268",
@@ -3482,7 +3749,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những tin đồn giật gân đã có được lòng tin dù thiếu bằng chứng vững chắc.",
         "note": "Give credence to.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-269",
@@ -3495,7 +3763,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các giám sát viên cẩu thả bị kết luận là có tội trong các tai nạn công trường.",
         "note": "Culpability.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-270",
@@ -3508,7 +3777,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các biểu mẫu xác minh bằng giấy lỗi thời tỏ ra quá cồng kềnh.",
         "note": "Cumbersome process.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-271",
@@ -3521,7 +3791,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chính phủ đã hạn chế đi lại để ngăn chặn dịch bệnh truyền nhiễm bùng phát.",
         "note": "Curtail spending.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-272",
@@ -3534,7 +3805,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự khan hiếm kỹ sư có trình độ làm chậm tiến bộ công nghệ.",
         "note": "Dearth of resources.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-273",
@@ -3547,7 +3819,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hen suyễn nặng có thể làm suy nhược các vận động viên trẻ nếu không điều trị.",
         "note": "Debilitating illness.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-274",
@@ -3560,7 +3833,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà ngôn ngữ học đã giải mã các chữ tượng hình cổ trên bia mộ hoàng gia.",
         "note": "Decipher code.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-275",
@@ -3573,7 +3847,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cấp dưới đối xử với vị chủ tịch sáng lập với sự tôn kính to lớn.",
         "note": "In deference to.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-276",
@@ -3586,7 +3861,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bản vẽ phác họa chi tiết các lộ trình sơ tán khẩn cấp.",
         "note": "Delineation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-277",
@@ -3599,7 +3875,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lời xin lỗi của cô ấy có vẻ thiếu chân thật sau các thông báo nội bộ bị rò rỉ.",
         "note": "Disingenuous remarks.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-278",
@@ -3612,7 +3889,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hội nghị đã tập hợp các chuyên ngành học thuật hoàn toàn khác biệt lại với nhau.",
         "note": "Disparate elements.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-279",
@@ -3625,7 +3903,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những nhà báo bất đồng chính kiến phải đối mặt với sự kiểm duyệt dưới chế độ độc tài.",
         "note": "Political dissident.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-280",
@@ -3638,7 +3917,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà kinh tế giữ những quan điểm phân kỳ trái chiều về việc cắt giảm lãi suất.",
         "note": "Divergence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-281",
@@ -3651,7 +3931,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Căn hộ của anh ấy có sự pha trộn đa dạng đầy tinh tế giữa nghệ thuật Scandinavia và phương Đông.",
         "note": "Eclectic style.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-282",
@@ -3664,7 +3945,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các thử nghiệm lâm sàng vắc-xin đã chứng minh hiệu lực trên chín mươi phần trăm.",
         "note": "Therapeutic efficacy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-283",
@@ -3677,7 +3959,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các xã hội theo chủ nghĩa bình đẳng ưu tiên việc tiếp cận công bằng đối với giáo dục cơ sở.",
         "note": "Egalitarian principles.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-284",
@@ -3690,7 +3973,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhà ngoại giao đã đưa ra lời tri ân hùng hồn dành cho các nhà đàm phán hòa bình.",
         "note": "Eloquence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-285",
@@ -3703,7 +3987,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị giáo sư đã làm sáng tỏ những điều phức tạp của hiện tượng rối lượng tử.",
         "note": "Elucidation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-286",
@@ -3716,7 +4001,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một phương pháp chữa trị dứt điểm căn bệnh Alzheimer vẫn còn rất khó nắm bắt.",
         "note": "Elusive goal.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-287",
@@ -3729,7 +4015,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Anh ấy đã thêu dệt hồi ký thời chiến của mình bằng những chiến công hư cấu.",
         "note": "Embellishment.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-288",
@@ -3742,7 +4029,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một hội đồng gồm các bác sĩ tim mạch lỗi lạc đã ủng hộ quy trình đột phá này.",
         "note": "Eminent scholar.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-289",
@@ -3755,7 +4043,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các kỹ sư cấp dưới cố gắng noi gương kỷ luật của vị kiến trúc sư trưởng.",
         "note": "Emulation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-290",
@@ -3768,7 +4057,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đạo luật toàn diện bao trùm cả thuế carbon và trợ cấp năng lượng mặt trời.",
         "note": "Encompass all aspects.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-291",
@@ -3781,7 +4071,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sốt rét vẫn là căn bệnh đặc hữu ở các vùng đất thấp nhiệt đới.",
         "note": "Endemic species.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-292",
@@ -3794,7 +4085,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Độ ẩm nhiệt đới ngột ngạt làm kiệt quệ sinh lực của những nhà thám hiểm phương Bắc.",
         "note": "Enervating climate.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-293",
@@ -3807,7 +4099,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự chênh lệch thu nhập làm phát sinh sự phẫn uất sâu sắc trong giới lao động.",
         "note": "Engender trust/hostility.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-294",
@@ -3820,7 +4113,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nụ cười bí hiểm của nàng Mona Lisa tiếp tục cuốn hút du khách muôn nơi.",
         "note": "Enigma.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-295",
@@ -3833,7 +4127,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Kiểm toán viên đã liệt kê mười ba vi phạm tuân thủ riêng biệt.",
         "note": "Enumeration.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-296",
@@ -3846,7 +4141,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hội đồng trọng tài đã đạt được sự phân chia công bằng các tài sản chung.",
         "note": "Equitable solution.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-297",
@@ -3859,7 +4155,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị chính khách đã đưa ra các tuyên bố mập mờ ba phải liên quan đến thuế quan thương mại.",
         "note": "Trái nghĩa: unequivocal.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-298",
@@ -3872,7 +4169,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các chiến dịch tiêm chủng toàn cầu hướng tới xóa sổ hoàn toàn bệnh bại liệt.",
         "note": "Eradication.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-299",
@@ -3885,7 +4183,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị giáo sư uyên bác đã trích dẫn các tác phẩm kinh điển tiếng Latinh hoàn toàn từ trí nhớ.",
         "note": "Erudition.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-300",
@@ -3898,7 +4197,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các lý thuyết trường lượng tử chứa đựng những chứng minh toán học vô cùng thâm sâu.",
         "note": "Esoteric knowledge.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-301",
@@ -3911,7 +4211,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thị trường chứng khoán trải qua cảm giác hưng phấn tột độ sau đợt cắt giảm lãi suất bất ngờ.",
         "note": "Euphoric state.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-302",
@@ -3924,7 +4225,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Điểm nghẽn nguồn cung làm trầm trọng thêm tình trạng lạm phát tiêu dùng sau đại dịch.",
         "note": "Exacerbate problems.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-303",
@@ -3937,7 +4239,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thủ tục quan liêu bất tận làm các doanh nhân nước ngoài tức giận phát điên.",
         "note": "Exasperation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-304",
@@ -3950,7 +4253,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Viên sĩ quan quân đội đã thể hiện lòng dũng cảm gương mẫu dưới làn bom đạn của đối phương.",
         "note": "Exemplary conduct.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-305",
@@ -3963,7 +4267,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Pháp y ADN đã minh oan cho phạm nhân bị kết án oan sau hai thập kỷ.",
         "note": "Exoneration.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-306",
@@ -3976,7 +4281,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các chính trị gia đã chọn một thỏa hiệp tình thế hơn là những cải cách cơ cấu dài hạn.",
         "note": "Political expedient.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-307",
@@ -3989,7 +4295,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Trả thêm phụ phí để đẩy nhanh tiến độ xử lý hộ chiếu trong vòng 24 giờ.",
         "note": "Expedited delivery.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-308",
@@ -4002,7 +4309,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hợp đồng đưa ra các hướng dẫn rõ ràng rành mạch liên quan đến quyền lưu trữ dữ liệu.",
         "note": "Explicit instructions.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-309",
@@ -4015,7 +4323,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các tập đoàn có đạo đức từ chối bóc lột lao động giá rẻ không được kiểm soát.",
         "note": "Exploitation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-310",
@@ -4028,7 +4337,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Giới phê bình ca ngợi hết lời kỹ thuật quay phim giàu cảm xúc của vị đạo diễn độc lập.",
         "note": "Extol virtues.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-311",
@@ -4041,7 +4351,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãy lược bỏ những đoạn nói vòng vo ngoại lai không liên quan khỏi bản thảo nghiên cứu của bạn.",
         "note": "Extraneous information.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-312",
@@ -4054,7 +4365,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những thám tử biến chất đã bịa đặt chứng cứ để có được lệnh bắt giữ trái pháp luật.",
         "note": "Fabrication.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-313",
@@ -4067,7 +4379,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đưa ra những lời nhận xét bỡn cợt trong phiên điều trần hội đồng đã làm hỏng uy tín của anh ấy.",
         "note": "Facetious tone.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-314",
@@ -4080,7 +4393,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Kết luận dựa hoàn toàn trên các giả định nhân khẩu học sai lầm ngụy biện.",
         "note": "Fallacious reasoning.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-315",
@@ -4093,7 +4407,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà khoa học chật vật để hiểu thấu quy mô bao la tột cùng của vũ trụ quan sát được.",
         "note": "Unfathomable.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-316",
@@ -4106,7 +4421,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cô ấy giữ một niềm tin tha thiết nồng nhiệt rằng năng lượng sạch sẽ thắng thế.",
         "note": "Fervent supporter.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-317",
@@ -4119,7 +4435,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Xu hướng thời trang phục vụ cho thị hiếu tiêu dùng tuổi teen vốn nổi tiếng là thay đổi thất thường.",
         "note": "Fickle weather.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-318",
@@ -4132,7 +4449,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hào quang tuổi trẻ là đặc quyền thoáng qua cần phải được sử dụng một cách có mục đích.",
         "note": "Fleeting moment.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-319",
@@ -4145,7 +4463,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Giá dầu thô dao động dữ dội trong các cuộc khủng hoảng ở Trung Đông.",
         "note": "Fluctuation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-320",
@@ -4158,7 +4477,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà ngoại giao đã xây dựng một khung hòa bình đa phương chặt chẽ.",
         "note": "Formulate policy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-321",
@@ -4171,7 +4491,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đột phá penicillin của Alexander Fleming bắt nguồn từ một sự cố đổ hóa chất tình cờ may mắn trong phòng thí nghiệm.",
         "note": "Fortuitous event.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-322",
@@ -4184,7 +4505,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các chương trình cố vấn nuôi dưỡng năng lực lãnh đạo phát triển phần mềm mới nổi.",
         "note": "Foster innovation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-323",
@@ -4197,7 +4519,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tự do lương tâm là một sự bảo đảm hiến pháp nền tảng căn bản.",
         "note": "Fundamental rights.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-324",
@@ -4210,7 +4533,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chống lại tự động hóa công nghệ trong các dây chuyền lắp ráp quy mô lớn là vô ích.",
         "note": "Futile attempt.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-325",
@@ -4223,7 +4547,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cuộc khủng hoảng nhân đạo đã thúc đẩy viện trợ khẩn cấp quốc tế hành động ngay lập tức.",
         "note": "Galvanize public opinion.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-326",
@@ -4236,7 +4561,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bác tài xế taxi ba hoa đã nói chuyện liên tục trong suốt hai tiếng di chuyển.",
         "note": "Loquacious.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-327",
@@ -4249,7 +4575,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các cuộc khảo sát tâm lý người tiêu dùng đo lường niềm tin kinh tế hàng quý.",
         "note": "Gauge public reaction.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-328",
@@ -4262,7 +4589,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thuốc không thương hiệu cung cấp hiệu lực điều trị tương đương với giá chỉ bằng một phần nhỏ.",
         "note": "Generic name.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-329",
@@ -4275,7 +4603,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự ấm áp niềm nở của người chủ nhà đã chào đón những người nhập cư lo lắng vào cộng đồng.",
         "note": "Genial atmosphere.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-330",
@@ -4288,7 +4617,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Anh ấy đã thể hiện sự ân hận chân thành vì sơ suất vận hành thiếu cẩn trọng của mình.",
         "note": "Genuine article.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-331",
@@ -4301,7 +4631,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chỉ trình bày những dữ liệu xác đáng có liên quan đến tranh chấp bằng sáng chế cốt lõi.",
         "note": "Germane to the topic.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-332",
@@ -4314,7 +4645,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tránh đưa ra những câu trả lời liến thoắng sáo rỗng cho các thắc mắc về bất bình đẳng cơ cấu phức tạp.",
         "note": "Glib salesman.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-333",
@@ -4327,7 +4659,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bộ phim đối mặt chỉ trích vì những cảnh bạo lực thừa thãi không cần thiết.",
         "note": "Gratuitous insult.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-334",
@@ -4340,7 +4673,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà biên kịch dựa vào những môtíp rập khuôn sáo mòn thay vì những đoạn hội thoại chân thực.",
         "note": "Hackneyed phrase.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-335",
@@ -4353,7 +4687,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những cơn mưa gió mùa xối xả đã cản trở công tác hậu cần cứu hộ trên núi.",
         "note": "Hamper progress.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-336",
@@ -4366,7 +4701,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Việc xếp dỡ kho bãi tùy tiện bừa bãi đã vi phạm các quy chuẩn kho bãi quốc tế.",
         "note": "Haphazard approach.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-337",
@@ -4379,7 +4715,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các chỉ thị của EU làm hài hòa các ngưỡng phát thải môi trường giữa các quốc gia.",
         "note": "Harmonization.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-338",
@@ -4392,7 +4729,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị quý tộc kiêu kỳ ngạo mạn đã gạt bỏ những lời than phiền của dân nghèo một cách khinh khỉnh.",
         "note": "Haughty manner.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-339",
@@ -4405,7 +4743,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tầng lớp thượng lưu La Mã cổ đại đắm chìm trong những yến tiệc xa hoa theo chủ nghĩa khoái lạc.",
         "note": "Hedonism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-340",
@@ -4418,7 +4757,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các siêu cường đã cạnh tranh để giành quyền bá chủ hải quân trên các eo biển vận tải toàn cầu.",
         "note": "Cultural hegemony.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-341",
@@ -4431,7 +4771,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các trung tâm đô thị lớn sở hữu hồ sơ nhân khẩu học hỗn hợp đa dạng phong phú.",
         "note": "Trái nghĩa: homogeneous.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-342",
@@ -4444,7 +4785,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bộ chỉ huy quân sự truyền thống tuân thủ thứ bậc vận hành nghiêm ngặt.",
         "note": "Hierarchical structure.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-343",
@@ -4457,7 +4799,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự chậm trễ quan liêu là chướng ngại vật lớn đối với việc thành lập doanh nghiệp nhỏ.",
         "note": "Hinder.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-344",
@@ -4470,7 +4813,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những thôn xóm nhỏ ở nông thôn thường duy trì dân số thuần nhất về mặt văn hóa.",
         "note": "Homogeneity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-345",
@@ -4483,7 +4827,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự khiêm tốn về mặt trí tuệ cho phép các nhà tư tưởng vĩ đại học hỏi từ những lời chỉ trích.",
         "note": "Humble attitude.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-346",
@@ -4496,7 +4841,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tuyên bố rằng chiếc điện thoại này biến đổi sự tiến hóa của loài người chỉ là phép phóng đại quảng cáo thuần túy.",
         "note": "Hyperbolic.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-347",
@@ -4509,7 +4855,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cử tri đã trừng phạt sự đạo đức giả của các tập đoàn liên quan đến cam kết môi trường.",
         "note": "Hypocritical.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-348",
@@ -4522,7 +4869,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãy xem xét một tình huống giả định nơi nguồn cung dầu toàn cầu bị cắt đứt hoàn toàn.",
         "note": "Hypothesis.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-349",
@@ -4535,7 +4883,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Steve Jobs là một người phá vỡ lối mòn, người đã giải thể các mô hình viễn thông lâu đời.",
         "note": "Iconoclastic ideas.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-350",
@@ -4548,7 +4897,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cách chấm câu độc đáo riêng biệt của tác giả tạo nên nét đặc trưng cho văn xuôi của bà.",
         "note": "Idiosyncrasy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-351",
@@ -4561,7 +4911,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Cuộc can thiệp quân sự thất bại đã kết thúc bằng một cuộc rút lui nhục nhã ê chề.",
         "note": "Ignominy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-352",
@@ -4574,7 +4925,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các cuộc khai quật chiếu rọi làm sáng tỏ các nghi thức gia đình hàng ngày của người Lưỡng Hà cổ đại.",
         "note": "Illumination.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-353",
@@ -4587,7 +4939,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những đợt tăng điểm cổ phiếu ngắn hạn mang lại ấn tượng ảo tưởng về sự ổn định kinh tế.",
         "note": "Illusion.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-354",
@@ -4600,7 +4953,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các định luật nhiệt động lực học cơ bản được coi là bất biến.",
         "note": "Trái nghĩa: mutable.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-355",
@@ -4613,7 +4967,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thẩm phán phải đưa ra những phán quyết công tâm không bị thiên kiến chính trị chi phối.",
         "note": "Impartiality.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-356",
@@ -4626,7 +4981,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Luận văn của cô được trình bày bằng văn phong học thuật hoàn hảo không một tì vết.",
         "note": "Impeccable manners.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-357",
@@ -4639,7 +4995,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Rào cản thương mại nghiêm ngặt cản trở sự hội nhập của dòng vốn nước ngoài.",
         "note": "Impediment.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-358",
@@ -4652,7 +5009,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chuyển dịch lưới điện tái tạo là một mệnh lệnh sinh thái và kinh tế cấp bách.",
         "note": "Categorical imperative.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-359",
@@ -4665,7 +5023,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự trôi dạt của sông băng di chuyển ở một tốc độ hàng ngày vi tế khó có thể nhận thấy.",
         "note": "Imperceptibly small.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-360",
@@ -4678,7 +5037,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Viên tướng đã ban hành những chỉ thị hống hách không chấp nhận bất kỳ sự bất đồng nào.",
         "note": "Imperious demeanor.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-361",
@@ -4691,7 +5051,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hợp kim thép không gỉ trơ trơ không bị ăn mòn bởi nước biển mặn.",
         "note": "Impervious to criticism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-362",
@@ -4704,7 +5065,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tránh việc triển khai vốn hấp tấp bốc đồng trong thời kỳ thị trường biến động.",
         "note": "Impetuous youth.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-363",
@@ -4717,7 +5079,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các thành viên trong nhóm chia sẻ niềm tin ngầm được nuôi dưỡng qua nhiều thập kỷ gắn bó.",
         "note": "Trái nghĩa: explicit.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-364",
@@ -4730,7 +5093,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các chu kỳ hạn hán đã tàn phá những ngôi làng nông nghiệp nghèo nàn xơ xác.",
         "note": "Impoverish.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-365",
@@ -4743,7 +5107,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các ban nhạc jazz ứng biến ngẫu hứng các khúc độc tấu phức tạp xung quanh chuỗi hợp âm nền.",
         "note": "Improvisation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-366",
@@ -4756,7 +5121,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Luật sư bào chữa đã cố gắng công kích bài bác tính trung thực của nhân chứng chủ chốt.",
         "note": "Impugn integrity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-367",
@@ -4769,7 +5135,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bản phát hành phần mềm chứa một lỗ hổng bảo mật vô tình sơ suất.",
         "note": "Inadvertently deleted.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-368",
@@ -4782,7 +5149,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Truyền thông giật gân phát sóng tin đồn người nổi tiếng rỗng tuếch suốt ngày đêm.",
         "note": "Inane comments.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-369",
@@ -4795,7 +5163,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chính quyền thành phố đã khánh thành một trung tâm tái chế rác thải hiện đại bậc nhất.",
         "note": "Inauguration ceremony.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-370",
@@ -4808,7 +5177,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Anh ấy đã ấp ủ những hoài bão kinh doanh mới phôi thai trong suốt thời đại học.",
         "note": "Inchoate thoughts.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-371",
@@ -4821,7 +5191,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bài phê bình sắc sảo của cô đã mổ xẻ những thiếu sót trong khung thuế được đề xuất.",
         "note": "Incisive analysis.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-372",
@@ -4834,7 +5205,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tòa nhà chọc trời bằng kính trông khập khiễng cọc cạch giữa những ngọn tháp nhà thờ Gothic.",
         "note": "Incongruity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-373",
@@ -4847,7 +5219,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những lỗi chính tả định dạng nhỏ trong các phụ lục bản thảo là không đáng kể về mặt pháp lý.",
         "note": "Trái nghĩa: consequential.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-374",
@@ -4860,7 +5233,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các phương tiện thông minh tích hợp các cảm biến tránh va chạm tinh vi.",
         "note": "Incorporation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-375",
@@ -4873,7 +5247,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tiền lương điều chỉnh theo các bước tăng chi phí sinh hoạt hàng năm.",
         "note": "Incremental change.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-376",
@@ -4886,7 +5261,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Trí tuệ thực vật học của người bản địa cung cấp thông tin cho các liệu pháp dược phẩm tiên tiến.",
         "note": "Indigenous peoples.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-377",
@@ -4899,7 +5275,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Người tiêu dùng trở nên phẫn nộ trước việc tăng phí ngân hàng không có lời giải thích.",
         "note": "Indignation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-378",
@@ -4912,7 +5289,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những buổi chiều ấm áp cám dỗ những thanh niên lười nhác vào những giấc ngủ trưa yên bình bên bờ sông.",
         "note": "Indolence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-379",
@@ -4925,7 +5303,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhà hoạt động nhân quyền đã thể hiện một tinh thần chiến đấu bất khuất không gì lay chuyển nổi.",
         "note": "Indomitable will.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-380",
@@ -4938,7 +5317,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Ngắm nhìn cực quang phương Bắc đã khơi dậy sự kinh ngạc tâm linh khôn tả không lời nào diễn tả xiết.",
         "note": "Ineffable joy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-381",
@@ -4951,7 +5331,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự lãnh đạo khủng hoảng kém cỏi vụng về đã làm trầm trọng thêm hậu quả ngập lụt đô thị.",
         "note": "Ineptitude.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-382",
@@ -4964,7 +5345,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sức ỳ của các thể chế làm chậm quá trình triển khai giảm thiểu carbon khẩn cấp.",
         "note": "Physical / bureaucratic inertia.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-383",
@@ -4977,7 +5359,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự chuyển dịch công nghệ hướng tới tự động hóa là điều tất yếu về mặt kinh tế.",
         "note": "Inevitability.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-384",
@@ -4990,7 +5373,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bước tiến không thể ngăn cản của thời gian làm nhụt chí mọi kẻ chinh phục đế quốc.",
         "note": "Inexorable rise.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-385",
@@ -5003,7 +5387,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Không có mô hình pháp y thuật toán nào là hoàn toàn không bao giờ mắc sai lầm.",
         "note": "Trái nghĩa: fallible.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-386",
@@ -5016,7 +5401,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đội ngũ robot đã nghĩ ra một cơ chế kiểm tra đường ống vô cùng tài tình và khéo léo.",
         "note": "Ingenuity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-387",
@@ -5029,7 +5415,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Niềm tin ngây thơ chân thật của cô vào lòng tốt của con người đã khiến cô dễ bị những kẻ lừa đảo lợi dụng.",
         "note": "Khác với ingenious.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-388",
@@ -5042,7 +5429,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhiệt độ cực lạnh ức chế các chu kỳ nhân bản của vi khuẩn.",
         "note": "Inhibition.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-389",
@@ -5055,7 +5443,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Việc kiểm soát giá cả quá mức tỏ ra có hại đối với sự đổi mới của thị trường tự do.",
         "note": "Inimical to progress.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-390",
@@ -5068,7 +5457,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lỗi phần mềm nhẹ này tỏ ra vô hại đối với các hồ sơ giao dịch được lưu trữ.",
         "note": "Innocuous remark.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-391",
@@ -5081,7 +5471,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị giám đốc điều hành đã dành một lượng thời gian quá mức để quản lý vi mô các chi tiết nhỏ.",
         "note": "Inordinate delays.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-392",
@@ -5094,7 +5485,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các trọng số mạng thần kinh sâu vẫn nổi tiếng là khôn dò khó hiểu đối với người ngoại đạo.",
         "note": "Inscrutable face.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-393",
@@ -5107,7 +5499,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Khí carbon monoxide là một mối nguy hiểm ngấm ngầm không mùi trong gia đình.",
         "note": "Insidious disease.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-394",
@@ -5120,7 +5513,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các đối thủ đã ám chỉ bóng gió rằng vị bộ trưởng đã nhận tiền lại quả trong chiến dịch.",
         "note": "Insinuation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-395",
@@ -5133,7 +5527,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhà phê bình đã gạt bỏ bộ phim hài lãng mạn vì nó quá nhạt nhẽo và mang tính công thức.",
         "note": "Insipid food / dialogue.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-396",
@@ -5146,7 +5541,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Người nhân viên bán hàng xấc xược đã xúc phạm những khách hàng lớn tuổi tại quầy dịch vụ.",
         "note": "Insolence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-397",
@@ -5159,7 +5555,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thực tập thực tế là một phần không thể thiếu gắn liền với văn bằng y khoa.",
         "note": "Integral part.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-398",
@@ -5172,7 +5569,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thương vụ mua lại nhằm mục đích tích hợp phần mềm đám mây vào bảng điều khiển xe.",
         "note": "Integration.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-399",
@@ -5185,7 +5583,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà khoa học phải bảo vệ tính toàn vẹn của dữ liệu chống lại sự can thiệp chính trị.",
         "note": "Moral integrity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-400",
@@ -5198,7 +5597,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Ông đã tóm tắt các mã số thuế phức tạp thành các thuật ngữ dễ hiểu cho người bình thường.",
         "note": "Trái nghĩa: unintelligible.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-401",
@@ -5211,7 +5611,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bão nhiệt đới gia tăng cường độ nhanh chóng trên vùng biển ấm trái mùa.",
         "note": "Intensification.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-402",
@@ -5224,7 +5625,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một giám đốc điều hành lâm thời đã được bổ nhiệm sau khi có đơn từ chức đột ngột.",
         "note": "Interim report.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-403",
@@ -5237,7 +5639,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Kết nối internet gián đoạn lúc có lúc không đã làm chậm các buổi truyền video trực tiếp.",
         "note": "Intermittent fasting.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-404",
@@ -5250,7 +5653,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Diễn giả đã ngầm gợi ý rằng các thông báo tái cơ cấu tiếp theo sắp diễn ra.",
         "note": "Động từ: gợi ý gián tiếp.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-405",
@@ -5263,7 +5667,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tình trạng đói nghèo cùng cực mãn tính vẫn là một thách thức phát triển toàn cầu nan giải khó trị.",
         "note": "Intractable problem.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-406",
@@ -5276,7 +5681,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những phóng viên ảnh gan dạ dũng cảm đã ghi lại các cuộc chiến tuyến đầu với rủi ro cá nhân to lớn.",
         "note": "Intrepid explorer.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-407",
@@ -5289,7 +5695,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đồng hồ cơ sang trọng của Thụy Sĩ có cơ chế bánh răng tinh xảo rắc rối.",
         "note": "Intricate design.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-408",
@@ -5302,7 +5709,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự tò mò là động lực nội tại thuộc về bản chất cho sự khám phá khoa học.",
         "note": "Intrinsic value.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-409",
@@ -5315,7 +5723,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hệ điều hành máy tính bảng màn hình cảm ứng dựa trên điều hướng cử chỉ trực quan dễ dùng.",
         "note": "Intuition.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-410",
@@ -5328,7 +5737,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đường dây trợ giúp đã bị ngập lụt dồn dập các cuộc gọi khẩn cấp trong cơn bão.",
         "note": "Inundated with work.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-411",
@@ -5341,7 +5751,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vi phạm quy trình pháp lý làm mất hiệu lực các lệnh truy tố then chốt.",
         "note": "Invalidation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-412",
@@ -5354,7 +5765,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tốc độ ánh sáng trong chân không là một hằng số vũ trụ bất biến không đổi.",
         "note": "Invariably.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-413",
@@ -5367,7 +5779,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các lực lượng đặc nhiệm chuyên trách điều tra tội phạm hối lộ cổ cồn trắng trong doanh nghiệp.",
         "note": "Investigation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-414",
@@ -5380,7 +5793,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thủ tướng đã viện dẫn các quyền hạn khẩn cấp để kiềm chế các cuộc bạo loạn dân sự.",
         "note": "Invoke article.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-415",
@@ -5393,7 +5807,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Không có mạng lưới ngân hàng quốc gia nào là hoàn toàn bất khả xâm phạm trước chiến tranh mạng do nhà nước tài trợ.",
         "note": "Trái nghĩa: vulnerable.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-416",
@@ -5406,7 +5821,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị nhạc trưởng nóng nảy cáu bẳn đã hét vào mặt các nhạc công trong buổi tổng duyệt.",
         "note": "Irascible temperament.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-417",
@@ -5419,7 +5835,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Ký văn kiện đầu hàng quốc tế là một hành động ngoại giao không thể thu hồi đảo ngược.",
         "note": "Irrevocable decision.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-418",
@@ -5432,7 +5849,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhóm phần mềm linh hoạt liên tục lặp lại các vòng phát triển dựa trên dữ liệu người dùng trực tiếp.",
         "note": "Iteration.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-419",
@@ -5445,7 +5863,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Khoan dầu ngoài khơi không kiểm soát đặt hệ sinh thái ven biển vào tình thế cực kỳ nguy hiểm.",
         "note": "In jeopardy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-420",
@@ -5458,7 +5877,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà bảo vệ môi trường xót xa than thở trước sự tuyệt chủng bi thảm của loài tê giác trắng phương Bắc.",
         "note": "Lamentation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-421",
@@ -5471,7 +5891,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Dòng sông êm đềm trôi với vẻ duyên dáng uể oải chậm rãi qua các đồn điền nhiệt đới.",
         "note": "Languid afternoon.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-422",
@@ -5484,7 +5905,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Xét nghiệm di truyền phát hiện khả năng nhạy cảm tiềm ẩn đối với các khiếm khuyết tim mạch.",
         "note": "Latent talent.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-423",
@@ -5497,7 +5919,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những nỗ lực của tổ chức phi chính phủ nhằm giáo dục trẻ mồ côi nghèo khó thực sự rất đáng khen ngợi.",
         "note": "Laudable goal.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-424",
@@ -5510,7 +5933,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đám cưới hoàng gia nổi bật với những bàn tiệc và trang trí hoa tươi xa hoa lộng lẫy.",
         "note": "Lavish lifestyle.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-425",
@@ -5523,7 +5947,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nelson Mandela đã để lại một di sản vĩ đại về sự hòa giải chủng tộc.",
         "note": "Historical legacy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-426",
@@ -5536,7 +5961,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các cuộc bỏ phiếu của nghị viện dân chủ hợp pháp hóa các sắc lệnh của nội các hành pháp.",
         "note": "Legitimacy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-427",
@@ -5549,7 +5975,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Vị thẩm phán đã tuyên một bản án khoan dung nhân từ đối với những người phạm tội vị thành niên lần đầu.",
         "note": "Leniency.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-428",
@@ -5562,7 +5989,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Mất nước khiến những người du hành trên sa mạc cảm thấy mất phương hướng và lờ đờ mệt mỏi.",
         "note": "Lethargy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-429",
@@ -5575,7 +6003,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Một chút hài hước cợt nhả thoáng qua đã làm giảm bớt sự căng thẳng trong phòng họp đầy rủi ro.",
         "note": "Treat with levity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-430",
@@ -5588,7 +6017,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các lực lượng đồng minh đã chiến đấu quyết liệt để giải phóng các thị trấn châu Âu bị chiếm đóng.",
         "note": "Liberation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-431",
@@ -5601,7 +6031,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Loài cá vây chân phát quang sinh học dưới biển sâu phát ra những mồi nhử sáng chói trong bóng tối đen như mực.",
         "note": "Luminosity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-432",
@@ -5614,7 +6045,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các quan chức đã đánh giá thấp quy mô thảm khốc của trận sóng thần sắp ập đến.",
         "note": "Order of magnitude.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-433",
@@ -5627,7 +6059,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bên công tố đã chứng minh bị cáo hành động với ác ý có tính toán trước đầy cố ý.",
         "note": "Malicious intent.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-434",
@@ -5640,7 +6073,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tuân thủ thắt dây an toàn là bắt buộc theo luật giao thông đường cao tốc phổ thông.",
         "note": "Mandatory requirement.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-435",
@@ -5653,7 +6087,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Căng thẳng nghiêm trọng thường biểu hiện rõ ràng dưới dạng rối loạn giấc ngủ thể chất mãn tính.",
         "note": "Manifestation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-436",
@@ -5666,7 +6101,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các tập đoàn tiền tệ đã thao túng các mốc chuẩn ngoại hối một cách bất hợp pháp.",
         "note": "Market manipulation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-437",
@@ -5679,7 +6115,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tổng thống đã huy động sự ủng hộ rộng rãi của lưỡng đảng cho các dự luật cơ sở hạ tầng.",
         "note": "Marshal resources.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-438",
@@ -5692,7 +6129,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đấu trường La Mã cổ đại sừng sững như một kỳ quan kỹ thuật kiến trúc.",
         "note": "Marvel at.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-439",
@@ -5705,7 +6143,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Con suối chậm rãi uốn khúc lười biếng quanh co qua những đồng cỏ núi cao trập trùng.",
         "note": "Meandering river / speech.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-440",
@@ -5718,7 +6157,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các đại sứ Thụy Sĩ trung lập đã đề nghị đứng ra hòa giải các tranh chấp biên giới quốc tế.",
         "note": "Mediation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-441",
@@ -5731,7 +6171,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Mưa mùa thu đã gợi lên một cảm giác sầu muộn, yên tĩnh và đầy suy ngẫm.",
         "note": "Melancholic melody.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-442",
@@ -5744,7 +6185,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Rừng ngập mặn làm giảm bớt sự tàn phá của triều cường bão ven biển thảm khốc.",
         "note": "Mitigation strategy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-443",
@@ -5757,7 +6199,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hội Chữ thập đỏ đã huy động các tình nguyện viên cứu trợ toàn cầu trong vòng 48 giờ.",
         "note": "Mobilization.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-444",
@@ -5770,7 +6213,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các bác sĩ ủng hộ việc tập thể dục nhịp điệu vừa phải điều độ thường xuyên.",
         "note": "Moderation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-445",
@@ -5783,7 +6227,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các kỹ sư đã sửa đổi cánh tà để tăng cường lực nâng ở tốc độ thấp.",
         "note": "Modification.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-446",
@@ -5796,7 +6241,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hãng hàng không đã phát hành phiếu mua vé để xoa dịu những hành khách bị mắc kẹt.",
         "note": "Mollify anger.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-447",
@@ -5809,7 +6255,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Lĩnh vực công nghệ xanh đã đạt được đà tăng trưởng kinh tế toàn cầu không thể ngăn cản.",
         "note": "Gain momentum.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-448",
@@ -5822,7 +6269,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các công ty độc quyền công nghệ độc chiếm các kênh phân phối ứng dụng một cách phi pháp.",
         "note": "Monopoly.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-449",
@@ -5835,7 +6283,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhiệm vụ nhập dữ liệu lặp đi lặp lại trở nên đơn điệu về mặt tinh thần trong các ca làm việc kéo dài.",
         "note": "Monotony.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-450",
@@ -5848,7 +6297,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Việc lập bản đồ toàn bộ hệ gen người là một cột mốc sinh học đồ sộ mang tính vĩ đại.",
         "note": "Monumental achievement.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-451",
@@ -5861,7 +6311,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Anh ấy đã phát triển một sự say mê kỳ lạ rùng rợn u ám với văn hóa dân gian nghĩa trang và tội phạm.",
         "note": "Morbid curiosity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-452",
@@ -5874,7 +6325,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà phát minh thiên tài thường bỏ qua những trách nhiệm gia đình đời thường tầm thường.",
         "note": "Mundane tasks.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-453",
@@ -5887,7 +6339,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các rạn san hô vòng che chở cho vô số muôn vàn sinh vật không xương sống nhiệt đới.",
         "note": "A myriad of choices.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-454",
@@ -5900,7 +6353,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bảng tin mạng xã hội khuếch đại tính tự luyến công khai và sự công nhận nông cạn.",
         "note": "Narcissistic personality.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-455",
@@ -5913,7 +6367,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hạ tầng hydro sạch hiện đang trong giai đoạn phát triển non trẻ mới chớm nở.",
         "note": "Nascent industry.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-456",
@@ -5926,7 +6381,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà ngoại giao lành nghề chèo lái vượt qua các cuộc đàm phán lãnh thổ địa chính trị đầy sóng gió.",
         "note": "Navigation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-457",
@@ -5939,7 +6395,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thuế quan logistics cao làm mất tác dụng của việc tiết kiệm chi phí lao động ở nước ngoài cạnh tranh.",
         "note": "Negation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-458",
@@ -5952,7 +6409,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhà thầu bị coi là cẩu thả thiếu trách nhiệm đến mức phạm tội hình sự vì sự cố sập giàn giáo an toàn.",
         "note": "Negligence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-459",
@@ -5965,7 +6423,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những người chăn nuôi gia súc du mục đi qua các vùng cao nguyên thảo nguyên Trung Á theo mùa.",
         "note": "Nomadic lifestyle.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-460",
@@ -5978,7 +6437,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Ông nắm giữ một chức danh điều hành danh nghĩa mà không có thẩm quyền vận hành trực tiếp.",
         "note": "Nominal fee.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-461",
@@ -5991,7 +6451,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những chiếc đĩa than cổ điển gợi lên nỗi hoài niệm sâu sắc về tuổi trẻ giữa thế kỷ trước.",
         "note": "Nostalgic feeling.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-462",
@@ -6004,7 +6465,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hội nghị thượng đỉnh đã tạo ra tiến bộ đáng chú ý về các hiệp ước phát thải xuyên biên giới.",
         "note": "Notably absent.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-463",
@@ -6017,7 +6479,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Hành lang bay này khét tiếng vì những luồng gió cắt nguy hiểm và nhiễu động hàng không.",
         "note": "Notoriety.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-464",
@@ -6030,7 +6493,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các thẩm phán tòa án tối cao đã vô hiệu hóa sắc lệnh giám sát vi hiến.",
         "note": "Nullification.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-465",
@@ -6043,7 +6507,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Văn hóa học thuật hòa nhập nuôi dưỡng những đột phá khoa học mang tính cách mạng.",
         "note": "Nature versus nurture.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-466",
@@ -6056,7 +6521,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Anh ấy bước vào luồng xe cộ, hoàn toàn không hay biết gì về nguy hiểm.",
         "note": "Oblivious of/to.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-467",
@@ -6069,7 +6535,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Điển tích này nhắc đến một nhà thơ thế kỷ 19 ít người biết đến.",
         "note": "Obscurity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-468",
@@ -6082,7 +6549,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những đám mây giông đen kịt phủ bóng đen điềm gở khắp thung lũng.",
         "note": "Ominous silence.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-469",
@@ -6095,7 +6563,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bộ này đã đưa ra những lời giải thích mờ đục khó hiểu về chi tiêu công.",
         "note": "Opacity.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-470",
@@ -6108,7 +6577,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà đầu tư cơ hội đã mua tài sản bất động sản bị mất giá với giá rẻ mạt.",
         "note": "Opportunism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-471",
@@ -6121,7 +6591,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thuật toán đã tính toán lộ trình tối ưu để tránh các điểm nghẽn giao thông.",
         "note": "Optimum.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-472",
@@ -6134,7 +6605,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Ông đã từ bỏ các lý thuyết kinh tế chính thống để nghiên cứu tài chính phi tập trung.",
         "note": "Trái nghĩa: unorthodox.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-473",
@@ -6147,7 +6619,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Tâm lý người tiêu dùng dao động giữa sự lạc quan và nỗi sợ lạm phát gay gắt.",
         "note": "Oscillation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-474",
@@ -6160,7 +6633,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Chiếc du thuyền siêu sang phô trương khoe của tỷ phú đã thu hút sự phẫn nộ của công chúng.",
         "note": "Ostentation.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-475",
@@ -6173,7 +6647,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các công ty công nghệ thuê ngoài dịch vụ chăm sóc khách hàng để cắt giảm chi phí vận hành.",
         "note": "Outsourcing.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-476",
@@ -6186,7 +6661,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà ngoại giao đã cố gắng xoa dịu các phe phái tham chiến thông qua các hiệp ước thương mại.",
         "note": "Pacification.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-477",
@@ -6199,7 +6675,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Việc phục hồi các bức bích họa cổ đòi hỏi tay nghề công phu, tỉ mỉ và tinh tế.",
         "note": "Painstaking effort.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-478",
@@ -6212,7 +6689,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Thỏa hiệp này là có thể chấp nhận được về mặt chính trị đối với cả hai phe lập pháp.",
         "note": "Trái nghĩa: unpalatable.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-479",
@@ -6225,7 +6703,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nghịch lý của sự tiết kiệm cho thấy việc tiết kiệm có thể làm giảm tổng cầu kinh tế.",
         "note": "Paradoxical.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-480",
@@ -6238,7 +6717,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự đưa tin mang tính đảng phái phiến diện làm sâu sắc thêm sự chia rẽ và ngờ vực xã hội.",
         "note": "Bipartisan.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-481",
@@ -6251,7 +6731,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đừng bao giờ lên mặt trịch thượng với các cộng sự cấp dưới trong các buổi động não kỹ thuật.",
         "note": "Patronizing tone.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-482",
@@ -6264,7 +6745,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự khan hiếm bằng chứng thực nghiệm đã làm suy yếu luận văn học thuật táo bạo này.",
         "note": "Paucity of data.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-483",
@@ -6277,7 +6759,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà phê bình đã gạt bỏ người đánh giá vì quá câu nệ mọt sách về những lỗi ngữ pháp nhỏ nhặt.",
         "note": "Pedantry.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-484",
@@ -6290,7 +6773,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Kỹ thuật thanh nhạc vô song của cô ấy đã chinh phục khán giả opera trên toàn thế giới.",
         "note": "Peerless quality.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-485",
@@ -6303,7 +6787,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Ông có một sở thích thiên hướng suốt đời đối với các khoản đầu tư mạo hiểm rủi ro cao.",
         "note": "Penchant for.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-486",
@@ -6316,7 +6801,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các nhà đầu tư nhìn nhận sự bất ổn chính trị là một yếu tố rủi ro quốc gia nghiêm trọng.",
         "note": "Perception.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-487",
@@ -6329,7 +6815,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những quan sát nhạy bén tinh tế của cô ấy đã nhận diện các điểm nghẽn trước khi dự án thất bại.",
         "note": "Perceptive insight.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-488",
@@ -6342,7 +6829,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự khan hiếm nước vẫn là một thách thức lâu dài thường trực đối với các lưu vực canh tác khô cằn.",
         "note": "Perennial problem.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-489",
@@ -6355,7 +6843,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Đừng mất tập trung vào các vấn đề thứ yếu bên lề trong các cuộc đàm phán mang tính quyết định.",
         "note": "Peripheral vision.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-490",
@@ -6368,7 +6857,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các công nghệ giám sát kỹ thuật số thấm nhuần len lỏi vào mọi khía cạnh của đời sống dân sự đô thị.",
         "note": "Permeate society.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-491",
@@ -6381,7 +6871,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Khu vực này đã phải chịu đựng những cuộc giao tranh lãnh thổ liên tục không dứt trong suốt ba thập kỷ.",
         "note": "Perpetual motion.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-492",
@@ -6394,7 +6885,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những dị thường vật lý lượng tử kỳ quặc tiếp tục làm bối rối các nhà nghiên cứu dày dạn kinh nghiệm.",
         "note": "Perplexing puzzle.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-493",
@@ -6407,7 +6899,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các công ty khởi nghiệp kiên trì bền bỉ vượt qua giai đoạn cạn kiệt vốn ban đầu thường sẽ thành công.",
         "note": "Perseverance.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-494",
@@ -6420,7 +6913,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nếu các triệu chứng sốt cao kéo dài dai dẳng quá 48 giờ, hãy tham khảo ý kiến bác sĩ.",
         "note": "Persistent effort.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-495",
@@ -6433,7 +6927,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sống ở nước ngoài mang lại một góc nhìn biến đổi sâu sắc về văn hóa quê nhà.",
         "note": "Broaden perspective.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-496",
@@ -6446,7 +6941,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Sự bi quan kinh tế vô căn cứ kìm hãm các khoản chi tiêu vốn hiệu quả của doanh nghiệp.",
         "note": "Trái nghĩa: optimism.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-497",
@@ -6459,7 +6955,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Nhà từ thiện tỷ phú đã quyên tặng các trường đại học những quỹ tín thác nghiên cứu ung thư.",
         "note": "Philanthropy.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-498",
@@ -6472,7 +6969,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Marie Curie là người tiên phong dũng cảm không biết sợ trong khoa học bức xạ hạt nhân thực nghiệm.",
         "note": "Pioneering work.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-499",
@@ -6485,7 +6983,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Câu đố mật mã đã kích thích sự tò mò của thiên tài toán học.",
         "note": "Pique one's interest.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-500",
@@ -6498,7 +6997,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Các đội kiểm toán đã nêu bật những cạm bẫy quy định quan trọng trong các thỏa thuận xuyên biên giới.",
         "note": "Avoid pitfalls.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-501",
@@ -6511,7 +7011,8 @@ const INITIAL_DATA = [
         "exampleMeaning": "Bộ phim tài liệu chiến tranh kết thúc bằng một lời chứng thấm thía chua xót cho hòa bình.",
         "note": "Poignant memory.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
     },
     {
         "id": "adv-502",
@@ -6524,7 +7025,2766 @@ const INITIAL_DATA = [
         "exampleMeaning": "Những cuộc tranh luận hiến pháp nảy lửa gây phân cực cử tri sâu sắc theo các ranh giới nhân khẩu học.",
         "note": "Polarization.",
         "status": "new",
-        "dateAdded": "2026-10-08"
+        "dateAdded": "2026-10-08",
+        "level": "B2 - C1"
+    },
+    {
+        "id": "b1-1",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "candidate",
+        "ipa": "/ˈkæn.dɪ.dət/",
+        "meaning": "ứng viên, người dự tuyển",
+        "topic": "Công sở & Đàm phán",
+        "example": "She is the strongest candidate for the marketing position.",
+        "exampleMeaning": "Cô ấy là ứng viên sáng giá nhất cho vị trí tiếp thị.",
+        "note": "Đi với for (vị trí/công việc). Danh từ: candidacy.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-2",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "deadline",
+        "ipa": "/ˈded.laɪn/",
+        "meaning": "hạn chót hoàn thành",
+        "topic": "Công sở & Đàm phán",
+        "example": "We must work together to meet the tight deadline.",
+        "exampleMeaning": "Chúng ta phải làm việc cùng nhau để kịp hạn chót gấp rút.",
+        "note": "Cụm thường gặp: meet a deadline (kịp hạn), miss a deadline (trễ hạn).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-3",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "presentation",
+        "ipa": "/ˌprez.ənˈteɪ.ʃən/",
+        "meaning": "bài thuyết trình, phần trình bày",
+        "topic": "Công sở & Đàm phán",
+        "example": "His presentation about the new quarterly budget was very convincing.",
+        "exampleMeaning": "Bài thuyết trình của anh ấy về ngân sách quý mới rất thuyết phục.",
+        "note": "Động từ: present /prɪˈzent/. Give/make a presentation.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-4",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "feedback",
+        "ipa": "/ˈfiːd.bæk/",
+        "meaning": "ý kiến phản hồi, nhận xét đóng góp",
+        "topic": "Công sở & Đàm phán",
+        "example": "Constructive feedback helps employees improve their skills.",
+        "exampleMeaning": "Phản hồi mang tính xây dựng giúp nhân viên nâng cao kỹ năng.",
+        "note": "Danh từ không đếm được. Give feedback / receive feedback.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-5",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "schedule",
+        "ipa": "/ˈskedʒ.uːl/",
+        "meaning": "lịch trình, thời gian biểu",
+        "topic": "Công sở & Đàm phán",
+        "example": "I will check my schedule and confirm our appointment tomorrow.",
+        "exampleMeaning": "Tôi sẽ kiểm tra lịch trình của mình và xác nhận cuộc hẹn vào ngày mai.",
+        "note": "Ahead of schedule (sớm hơn lịch), behind schedule (chậm tiến độ).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-6",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "coordinate",
+        "ipa": "/koʊˈɔːr.dən.eɪt/",
+        "meaning": "phối hợp, điều phối công việc",
+        "topic": "Công sở & Đàm phán",
+        "example": "The manager coordinates daily activities between design and engineering.",
+        "exampleMeaning": "Người quản lý điều phối các hoạt động hàng ngày giữa thiết kế và kỹ thuật.",
+        "note": "Danh từ: coordination, coordinator.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-7",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "supervise",
+        "ipa": "/ˈsuː.pɚ.vaɪz/",
+        "meaning": "giám sát, chỉ đạo cấp dưới",
+        "topic": "Công sở & Đàm phán",
+        "example": "She supervises a team of eight customer service representatives.",
+        "exampleMeaning": "Cô ấy giám sát một đội ngũ gồm tám nhân viên chăm sóc khách hàng.",
+        "note": "Danh từ: supervisor (người giám sát), supervision.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-8",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "colleague",
+        "ipa": "/ˈkɑː.liːɡ/",
+        "meaning": "đồng nghiệp",
+        "topic": "Công sở & Đàm phán",
+        "example": "I consulted my colleague before sending the formal email.",
+        "exampleMeaning": "Tôi đã tham khảo ý kiến đồng nghiệp trước khi gửi email trang trọng.",
+        "note": "Đồng nghĩa với coworker nhưng trang trọng hơn.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-9",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "promote",
+        "ipa": "/prəˈmoʊt/",
+        "meaning": "thăng chức, thăng tiến / thúc đẩy",
+        "topic": "Công sở & Đàm phán",
+        "example": "He was promoted to senior software engineer last month.",
+        "exampleMeaning": "Anh ấy đã được thăng chức lên kỹ sư phần mềm cao cấp vào tháng trước.",
+        "note": "Be promoted to (vị trí). Danh từ: promotion.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-10",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "resume",
+        "ipa": "/ˈrez.ə.meɪ/",
+        "meaning": "hồ sơ xin việc, sơ yếu lý lịch",
+        "topic": "Công sở & Đàm phán",
+        "example": "Make sure your resume highlights relevant professional achievements.",
+        "exampleMeaning": "Hãy đảm bảo sơ yếu lý lịch nêu bật các thành tựu nghề nghiệp phù hợp.",
+        "note": "Phát âm khác động từ resume /rɪˈzuːm/ (tiếp tục lại).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-11",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "procedure",
+        "ipa": "/prəˈsiː.dʒɚ/",
+        "meaning": "thủ tục, quy trình thực hiện",
+        "topic": "Công sở & Đàm phán",
+        "example": "All staff members must follow the standard security procedure.",
+        "exampleMeaning": "Tất cả nhân viên phải tuân theo quy trình bảo mật tiêu chuẩn.",
+        "note": "Operating procedure (quy trình vận hành).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-12",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "efficiency",
+        "ipa": "/ɪˈfɪʃ.ən.si/",
+        "meaning": "hiệu suất, tính hiệu quả cao",
+        "topic": "Công sở & Đàm phán",
+        "example": "Automation tools have greatly improved our operational efficiency.",
+        "exampleMeaning": "Các công cụ tự động hóa đã cải thiện đáng kể hiệu suất vận hành.",
+        "note": "Tính từ: efficient. Trái nghĩa: inefficiency.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-13",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "requirement",
+        "ipa": "/rɪˈkwaɪr.mənt/",
+        "meaning": "yêu cầu, điều kiện tiên quyết",
+        "topic": "Công sở & Đàm phán",
+        "example": "Fluency in spoken English is an essential requirement for this job.",
+        "exampleMeaning": "Lưu loát tiếng Anh giao tiếp là yêu cầu thiết yếu cho công việc này.",
+        "note": "Động từ: require. Meet requirements (đáp ứng yêu cầu).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-14",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "performance",
+        "ipa": "/pɚˈfɔːr.məns/",
+        "meaning": "kết quả làm việc, hiệu năng",
+        "topic": "Công sở & Đàm phán",
+        "example": "Her outstanding performance earned her an annual bonus.",
+        "exampleMeaning": "Kết quả làm việc xuất sắc đã mang lại cho cô ấy khoản tiền thưởng năm.",
+        "note": "Performance review (đánh giá hiệu suất làm việc).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-15",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "proposal",
+        "ipa": "/prəˈpoʊ.zəl/",
+        "meaning": "bản đề xuất, kế hoạch đề xuất",
+        "topic": "Công sở & Đàm phán",
+        "example": "We submitted a comprehensive project proposal to the client.",
+        "exampleMeaning": "Chúng tôi đã gửi một bản đề xuất dự án toàn diện tới khách hàng.",
+        "note": "Động từ: propose. Submit/approve a proposal.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-16",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Could you please give me an update on the project status?",
+        "ipa": "/kʊd juː pliːz ɡɪv miː ən ˈʌp.deɪt ɑːn ðə ˈprɑː.dʒekt ˈsteɪ.t̬əs/",
+        "meaning": "Bạn có thể vui lòng cập nhật tình hình dự án cho tôi được không?",
+        "topic": "Mẫu câu Chuyên nghiệp",
+        "example": "Could you please give me an update on the project status before our meeting?",
+        "exampleMeaning": "Bạn có thể vui lòng cập nhật tình hình dự án trước cuộc họp của chúng ta không?",
+        "note": "Mẫu câu công sở lịch sự khi hỏi tiến độ công việc.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-17",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "I would appreciate it if you could review this document by Friday.",
+        "ipa": "/aɪ wʊd əˈpriː.ʃi.eɪt ɪt ɪf juː kʊd rɪˈvjuː ðɪs ˈdɑːk.jə.mənt baɪ ˈfraɪ.deɪ/",
+        "meaning": "Tôi sẽ rất cảm kích nếu bạn có thể xem qua tài liệu này trước thứ Sáu.",
+        "topic": "Mẫu câu Chuyên nghiệp",
+        "example": "I would appreciate it if you could review this document by Friday morning.",
+        "exampleMeaning": "Tôi rất cảm kích nếu bạn xem qua tài liệu này trước sáng thứ Sáu.",
+        "note": "Cấu trúc 'I would appreciate it if you could...' thể hiện yêu cầu rất trang nhã.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-18",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Let us schedule a follow-up call to discuss the details.",
+        "ipa": "/let ʌs ˈskedʒ.uːl ə ˈfɑː.loʊ.ʌp kɔːl tə dɪˈskʌs ðə ˈdiː.teɪlz/",
+        "meaning": "Chúng ta hãy hẹn một cuộc gọi trao đổi tiếp theo để thảo luận chi tiết.",
+        "topic": "Mẫu câu Chuyên nghiệp",
+        "example": "Let us schedule a follow-up call to discuss the contract terms.",
+        "exampleMeaning": "Chúng ta hãy hẹn một cuộc gọi trao đổi thêm về các điều khoản hợp đồng.",
+        "note": "Follow-up call/meeting: cuộc trao đổi theo dõi tiếp theo.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-19",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "destination",
+        "ipa": "/ˌdes.təˈneɪ.ʃən/",
+        "meaning": "điểm đến, nơi dự định tới",
+        "topic": "Du lịch & Khách sạn",
+        "example": "Da Nang is a very popular travel destination for international tourists.",
+        "exampleMeaning": "Đà Nẵng là điểm đến du lịch rất phổ biến đối với du khách quốc tế.",
+        "note": "Tourist destination, holiday destination.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-20",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "itinerary",
+        "ipa": "/aɪˈtɪn.ə.rer.i/",
+        "meaning": "lịch trình chi tiết chuyến đi",
+        "topic": "Du lịch & Khách sạn",
+        "example": "Our travel agent prepared a seven-day sightseeing itinerary.",
+        "exampleMeaning": "Đại lý du lịch đã chuẩn bị một lịch trình tham quan kéo dài bảy ngày.",
+        "note": "Trọng âm rơi vào âm tiết thứ hai: /aɪˈtɪn-/. Planned route.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-21",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "accommodation",
+        "ipa": "/əˌkɑː.məˈdeɪ.ʃən/",
+        "meaning": "chỗ ở, nơi lưu trú (khách sạn, nhà nghỉ)",
+        "topic": "Du lịch & Khách sạn",
+        "example": "Hotel accommodation was included in the total tour package price.",
+        "exampleMeaning": "Chỗ ở khách sạn đã được bao gồm trong tổng giá gói tour.",
+        "note": "Danh từ không đếm được trong Anh-Mỹ. Book accommodation.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-22",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "departure",
+        "ipa": "/dɪˈpɑːr.tʃɚ/",
+        "meaning": "sự khởi hành, giờ xuất phát",
+        "topic": "Du lịch & Khách sạn",
+        "example": "Please arrive at the terminal two hours before your scheduled departure.",
+        "exampleMeaning": "Vui lòng đến nhà ga hai tiếng trước giờ khởi hành dự kiến.",
+        "note": "Trái nghĩa: arrival (đến nơi). Departure gate, departure lounge.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-23",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "boarding pass",
+        "ipa": "/ˈbɔːr.dɪŋ ˌpæs/",
+        "meaning": "thẻ lên máy bay / tàu",
+        "topic": "Du lịch & Khách sạn",
+        "example": "You must show your passport and boarding pass at security.",
+        "exampleMeaning": "Bạn phải xuất trình hộ chiếu và thẻ lên máy bay tại cửa an ninh.",
+        "note": "Mobile boarding pass (thẻ điện tử trên điện thoại).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-24",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "passenger",
+        "ipa": "/ˈpæs.ən.dʒɚ/",
+        "meaning": "hành khách đi xe, tàu, máy bay",
+        "topic": "Du lịch & Khách sạn",
+        "example": "All passengers are requested to fasten their seatbelts.",
+        "exampleMeaning": "Tất cả hành khách được yêu cầu thắt dây an toàn.",
+        "note": "Passenger seat (ghế hành khách).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-25",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "luggage",
+        "ipa": "/ˈlʌɡ.ɪdʒ/",
+        "meaning": "hành lý, vali túi xách",
+        "topic": "Du lịch & Khách sạn",
+        "example": "Carry-on luggage must fit in the overhead storage bin.",
+        "exampleMeaning": "Hành lý xách tay phải vừa với khoang hành lý phía trên đầu.",
+        "note": "Danh từ không đếm được. Đồng nghĩa: baggage.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-26",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "delay",
+        "ipa": "/dɪˈleɪ/",
+        "meaning": "sự hoãn lại, chậm trễ",
+        "topic": "Du lịch & Khách sạn",
+        "example": "The flight was delayed due to severe thunderstorms.",
+        "exampleMeaning": "Chuyến bay đã bị hoãn do dông bão nghiêm trọng.",
+        "note": "Vừa là động từ vừa là danh từ. Flight delay.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-27",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "sightseeing",
+        "ipa": "/ˈsaɪtˌsiː.ɪŋ/",
+        "meaning": "việc tham quan ngắm cảnh",
+        "topic": "Du lịch & Khách sạn",
+        "example": "We spent Saturday afternoon sightseeing around the ancient town.",
+        "exampleMeaning": "Chúng tôi dành cả chiều thứ Bảy đi ngắm cảnh quanh khu phố cổ.",
+        "note": "Go sightseeing (đi tham quan ngắm cảnh).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-28",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Excuse me, where can I find the luggage claim area?",
+        "ipa": "/ɪkˈskjuːz miː wer kæn aɪ faɪnd ðə ˈlʌɡ.ɪdʒ kleɪm ˈer.i.ə/",
+        "meaning": "Xin lỗi, tôi có thể tìm khu vực nhận lại hành lý ở đâu?",
+        "topic": "Du lịch & Khách sạn",
+        "example": "Excuse me, where can I find the luggage claim area for flight VN215?",
+        "exampleMeaning": "Xin lỗi, khu nhận hành lý của chuyến bay VN215 ở đâu vậy?",
+        "note": "Luggage claim / baggage claim: băng chuyền nhận hành lý.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-29",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Is breakfast included in the room rate?",
+        "ipa": "/ɪz ˈbrek.fəst ɪnˈkluː.dɪd ɪn ðə ruːm reɪt/",
+        "meaning": "Bữa sáng đã được bao gồm trong giá phòng chưa?",
+        "topic": "Du lịch & Khách sạn",
+        "example": "Is breakfast included in the room rate, or is there an extra charge?",
+        "exampleMeaning": "Bữa sáng đã bao gồm trong giá phòng hay có tính thêm phí ạ?",
+        "note": "Câu hỏi phổ biến khi nhận phòng khách sạn.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-30",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "neighborhood",
+        "ipa": "/ˈneɪ.bɚ.hʊd/",
+        "meaning": "khu dân cư, khu phố lân cận",
+        "topic": "Đời sống & Nhà ở",
+        "example": "This is a quiet, safe neighborhood with plenty of green parks.",
+        "exampleMeaning": "Đây là một khu dân cư yên tĩnh, an toàn với nhiều công viên cây xanh.",
+        "note": "Friendly neighborhood, quiet neighborhood.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-31",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "receipt",
+        "ipa": "/rɪˈsiːt/",
+        "meaning": "hóa đơn, biên nhận mua hàng",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Please retain your receipt in case you wish to exchange the shirt.",
+        "exampleMeaning": "Vui lòng giữ lại hóa đơn trong trường hợp bạn muốn đổi áo.",
+        "note": "Chữ 'p' là âm câm, phát âm là /rɪˈsiːt/.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-32",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "refund",
+        "ipa": "/ˈriː.fʌnd/",
+        "meaning": "khoản tiền hoàn lại / hoàn trả tiền",
+        "topic": "Đời sống & Nhà ở",
+        "example": "The store issued a full refund for the damaged blender.",
+        "exampleMeaning": "Cửa hàng đã hoàn tiền toàn bộ cho chiếc máy xay sinh tố bị hỏng.",
+        "note": "Get a refund, request a refund, non-refundable.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-33",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "warranty",
+        "ipa": "/ˈwɔːr.ən.t̬i/",
+        "meaning": "chế độ bảo hành",
+        "topic": "Đời sống & Nhà ở",
+        "example": "The electronic laptop comes with a two-year manufacturer warranty.",
+        "exampleMeaning": "Chiếc máy tính xách tay điện tử đi kèm bảo hành hai năm từ nhà sản xuất.",
+        "note": "Under warranty (còn trong hạn bảo hành).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-34",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "maintenance",
+        "ipa": "/ˈmeɪn.tən.əns/",
+        "meaning": "sự bảo dưỡng, bảo trì định kỳ",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Routine elevator maintenance is scheduled for Tuesday morning.",
+        "exampleMeaning": "Bảo trì thang máy định kỳ được lên lịch vào sáng thứ Ba.",
+        "note": "Động từ: maintain /meɪnˈteɪn/. Low-maintenance.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-35",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "appliance",
+        "ipa": "/əˈplaɪ.əns/",
+        "meaning": "thiết bị gia dụng trong nhà",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Kitchen appliances such as the microwave and refrigerator are included.",
+        "exampleMeaning": "Các thiết bị nhà bếp như lò vi sóng và tủ lạnh đã được bao gồm.",
+        "note": "Home appliances, electrical appliances.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-36",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "grocery",
+        "ipa": "/ˈɡroʊ.sɚ.i/",
+        "meaning": "hàng tạp hóa, thực phẩm thiết yếu",
+        "topic": "Đời sống & Nhà ở",
+        "example": "I need to stop by the grocery store on my way home from work.",
+        "exampleMeaning": "Tôi cần ghé qua cửa hàng tạp hóa trên đường đi làm về.",
+        "note": "Grocery store, grocery shopping.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-37",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "I would like to exchange this sweater for a different size, please.",
+        "ipa": "/aɪ wʊd laɪk tə ɪksˈtʃeɪndʒ ðɪs ˈswet̬.ɚ fɔːr ə ˈdɪf.ɚ.ənt saɪz pliːz/",
+        "meaning": "Tôi muốn đổi chiếc áo len này sang một cỡ khác làm ơn.",
+        "topic": "Đời sống & Nhà ở",
+        "example": "I would like to exchange this sweater for a medium size, please.",
+        "exampleMeaning": "Tôi muốn đổi chiếc áo len này sang cỡ M làm ơn.",
+        "note": "Exchange something for something: đổi vật này lấy vật khác.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-38",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "prescription",
+        "ipa": "/prɪˈskrɪp.ʃən/",
+        "meaning": "đơn thuốc, toa thuốc bác sĩ kê",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "The pharmacist carefully filled the doctor's prescription.",
+        "exampleMeaning": "Dược sĩ đã cẩn thận lấy thuốc theo đơn của bác sĩ.",
+        "note": "Prescription medication (thuốc kê đơn). Động từ: prescribe.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-39",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "symptom",
+        "ipa": "/ˈsɪmp.təm/",
+        "meaning": "triệu chứng của bệnh",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "A persistent headache and fatigue are early symptoms of dehydration.",
+        "exampleMeaning": "Đau đầu kéo dài và mệt mỏi là các triệu chứng sớm của mất nước.",
+        "note": "Flu symptoms, common symptoms.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-40",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "pharmacy",
+        "ipa": "/ˈfɑːr.mə.si/",
+        "meaning": "hiệu thuốc, nhà thuốc",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Is there a 24-hour pharmacy nearby where I can buy cough medicine?",
+        "exampleMeaning": "Gần đây có hiệu thuốc nào mở cửa 24 giờ để mua thuốc ho không?",
+        "note": "Đồng nghĩa: drugstore (Mỹ), chemist (Anh).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-41",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "nutritious",
+        "ipa": "/nuːˈtrɪʃ.əs/",
+        "meaning": "giàu dinh dưỡng, bổ dưỡng",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Eating a nutritious breakfast provides steady energy throughout the day.",
+        "exampleMeaning": "Ăn bữa sáng bổ dưỡng cung cấp năng lượng ổn định suốt cả ngày.",
+        "note": "Danh từ: nutrition, nutrient.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-42",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "recovery",
+        "ipa": "/rɪˈkʌv.ɚ.i/",
+        "meaning": "sự hồi phục sức khỏe sau ốm",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Adequate sleep and hydration accelerate physical recovery.",
+        "exampleMeaning": "Ngủ đủ giấc và uống đủ nước giúp đẩy nhanh quá trình hồi phục thể chất.",
+        "note": "Make a full recovery (hồi phục hoàn toàn). Động từ: recover.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-43",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Take this medication twice a day after meals with plenty of water.",
+        "ipa": "/teɪk ðɪs ˌmed.əˈkeɪ.ʃən twaɪs ə deɪ ˈæf.tɚ miːlz wɪð ˈplen.t̬i əv ˈwɑː.t̬ɚ/",
+        "meaning": "Hãy uống thuốc này hai lần mỗi ngày sau bữa ăn với nhiều nước.",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Take this medication twice a day after meals with plenty of water for five days.",
+        "exampleMeaning": "Uống thuốc này 2 lần/ngày sau ăn với nhiều nước trong 5 ngày.",
+        "note": "Hướng dẫn dùng thuốc thông dụng của dược sĩ.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-44",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "application",
+        "ipa": "/ˌæp.ləˈkeɪ.ʃən/",
+        "meaning": "ứng dụng phần mềm / đơn xin",
+        "topic": "Khoa học & Đổi mới",
+        "example": "You can download the mobile application directly from the app store.",
+        "exampleMeaning": "Bạn có thể tải ứng dụng di động trực tiếp từ cửa hàng ứng dụng.",
+        "note": "Thường gọi tắt là app. Job application (đơn xin việc).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-45",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "cybersecurity",
+        "ipa": "/ˌsaɪ.bɚ.səˈkjʊr.ə.t̬i/",
+        "meaning": "an ninh mạng, an toàn thông tin số",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Strong passwords and two-factor authentication improve cybersecurity.",
+        "exampleMeaning": "Mật khẩu mạnh và xác thực hai yếu tố giúp cải thiện an ninh mạng.",
+        "note": "Cybersecurity threats, cybersecurity breach.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-46",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "wireless",
+        "ipa": "/ˈwaɪr.ləs/",
+        "meaning": "không dây (kết nối không dây)",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Wireless headphones provide freedom of movement while jogging.",
+        "exampleMeaning": "Tai nghe không dây mang lại sự tự do cử động khi chạy bộ.",
+        "note": "Wireless network, wireless charging.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-47",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "backup",
+        "ipa": "/ˈbæk.ʌp/",
+        "meaning": "bản sao lưu dữ liệu dự phòng",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Always create a cloud backup of your essential documents.",
+        "exampleMeaning": "Hãy luôn tạo một bản sao lưu đám mây cho các tài liệu thiết yếu.",
+        "note": "Backup files, backup plan (kế hoạch dự phòng).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-48",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Make sure to save your work before restarting the operating system.",
+        "ipa": "/meɪk ʃʊr tə seɪv jʊr wɝːk bɪˈfɔːr ˌriːˈstɑːr.t̬ɪŋ ðə ˈɑː.pə.reɪ.t̬ɪŋ ˈsɪs.təm/",
+        "meaning": "Hãy nhớ lưu lại bài làm trước khi khởi động lại hệ điều hành.",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Make sure to save your work before restarting the operating system for updates.",
+        "exampleMeaning": "Hãy chắc chắn lưu lại công việc trước khi khởi động lại máy để cập nhật.",
+        "note": "Operating system: hệ điều hành (Windows, macOS, Linux).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-49",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "renewable",
+        "ipa": "/rɪˈnuː.ə.bəl/",
+        "meaning": "tái tạo được (năng lượng sạch)",
+        "topic": "Môi trường & Xã hội",
+        "example": "Solar and wind power are fast-growing sources of renewable energy.",
+        "exampleMeaning": "Năng lượng mặt trời và gió là các nguồn năng lượng tái tạo phát triển nhanh.",
+        "note": "Renewable resources. Trái nghĩa: non-renewable.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-50",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "recycle",
+        "ipa": "/ˌriːˈsaɪ.kəl/",
+        "meaning": "tái chế vật liệu phế thải",
+        "topic": "Môi trường & Xã hội",
+        "example": "Our office recycles plastic bottles, aluminum cans, and paper.",
+        "exampleMeaning": "Văn phòng chúng tôi tái chế chai nhựa, lon nhôm và giấy.",
+        "note": "Recycled materials, recyclable packaging.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-51",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "conservation",
+        "ipa": "/ˌkɑːn.sɚˈveɪ.ʃən/",
+        "meaning": "sự bảo tồn thiên nhiên và động vật hoang dã",
+        "topic": "Môi trường & Xã hội",
+        "example": "Wildlife conservation projects protect endangered species from extinction.",
+        "exampleMeaning": "Các dự án bảo tồn động vật hoang dã bảo vệ các loài nguy cấp khỏi tuyệt chủng.",
+        "note": "Động từ: conserve. Conservation area.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-52",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Small daily habits like reducing plastic waste can make a big difference.",
+        "ipa": "/smɑːl ˈdeɪ.li ˈhæb.ɪts laɪk rɪˈduː.sɪŋ ˈplæs.tɪk weɪst kæn meɪk ə bɪɡ ˈdɪf.ɚ.əns/",
+        "meaning": "Những thói quen nhỏ hàng ngày như giảm rác thải nhựa có thể tạo nên sự khác biệt lớn.",
+        "topic": "Môi trường & Xã hội",
+        "example": "Small daily habits like reducing plastic waste can make a big difference over time.",
+        "exampleMeaning": "Thói quen nhỏ như giảm rác nhựa theo thời gian sẽ tạo nên khác biệt lớn.",
+        "note": "Make a difference: tạo nên sự khác biệt / có tác động tích cực.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-53",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "confident",
+        "ipa": "/ˈkɑːn.fə.dənt/",
+        "meaning": "tự tin, tin tưởng vào bản thân",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "She felt confident after preparing thoroughly for the English exam.",
+        "exampleMeaning": "Cô ấy cảm thấy tự tin sau khi đã chuẩn bị kỹ lưỡng cho kỳ thi tiếng Anh.",
+        "note": "Danh từ: confidence. Confident in/about something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-54",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "ambitious",
+        "ipa": "/æmˈbɪʃ.əs/",
+        "meaning": "có nhiều hoài bão, giàu tham vọng",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "The ambitious young entrepreneur plans to expand his business overseas.",
+        "exampleMeaning": "Nhà khởi nghiệp trẻ giàu hoài bão dự định mở rộng kinh doanh ra nước ngoài.",
+        "note": "Danh từ: ambition. Ambitious plan, ambitious goal.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-55",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "reliable",
+        "ipa": "/rɪˈlaɪ.ə.bəl/",
+        "meaning": "đáng tin cậy, đáng tin tưởng",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "He is a reliable friend who always keeps his promises.",
+        "exampleMeaning": "Anh ấy là một người bạn đáng tin cậy luôn giữ đúng lời hứa.",
+        "note": "Động từ: rely on. Trái nghĩa: unreliable.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-56",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "empathetic",
+        "ipa": "/ˌem.pəˈθet̬.ɪk/",
+        "meaning": "biết thấu cảm, biết đặt mình vào vị trí người khác",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "An empathetic leader listens patiently to the concerns of team members.",
+        "exampleMeaning": "Một nhà lãnh đạo biết thấu cảm sẽ kiên nhẫn lắng nghe tâm tư của các thành viên.",
+        "note": "Danh từ: empathy. Empathetic listener.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-57",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "I really appreciate your help and support during this challenging time.",
+        "ipa": "/aɪ ˈriː.ə.li əˈpriː.ʃi.eɪt jʊr help ənd səˈpɔːrt ˈdʊr.ɪŋ ðɪs ˈtʃæl.ɪn.dʒɪŋ taɪm/",
+        "meaning": "Tôi thực sự rất trân trọng sự giúp đỡ và hỗ trợ của bạn trong giai đoạn thử thách này.",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "I really appreciate your help and support during this challenging project.",
+        "exampleMeaning": "Tôi thực sự rất trân trọng sự giúp đỡ của bạn trong dự án thử thách này.",
+        "note": "Cách bày tỏ lòng biết ơn chân thành và chuyên nghiệp.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-58",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "negotiate",
+        "ipa": "/nəˈɡoʊ.ʃi.eɪt/",
+        "meaning": "thương lượng, đàm phán hợp đồng",
+        "topic": "Công sở & Đàm phán",
+        "example": "We managed to negotiate a lower price for the raw materials.",
+        "exampleMeaning": "Chúng tôi đã đàm phán được mức giá thấp hơn cho nguyên liệu thô.",
+        "note": "Negotiation (cuộc đàm phán).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-59",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "collaborate",
+        "ipa": "/kəˈlæb.ə.reɪt/",
+        "meaning": "cộng tác, hợp tác làm việc",
+        "topic": "Công sở & Đàm phán",
+        "example": "The two departments collaborate closely on marketing research.",
+        "exampleMeaning": "Hai phòng ban hợp tác chặt chẽ trong nghiên cứu thị trường.",
+        "note": "Collaborate with someone on a project.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-60",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "revenue",
+        "ipa": "/ˈrev.ə.nuː/",
+        "meaning": "doanh thu, tiền thu vào",
+        "topic": "Tài chính & Kinh tế",
+        "example": "Company revenue increased significantly in the final quarter.",
+        "exampleMeaning": "Doanh thu công ty đã tăng đáng kể vào quý cuối năm.",
+        "note": "Annual revenue, total revenue.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-61",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "expense",
+        "ipa": "/ɪkˈspens/",
+        "meaning": "chi phí, khoản chi tiêu",
+        "topic": "Tài chính & Kinh tế",
+        "example": "Travel expenses will be reimbursed by the finance department.",
+        "exampleMeaning": "Các khoản chi phí đi lại sẽ được phòng tài chính hoàn trả.",
+        "note": "At the expense of something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-62",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "budget",
+        "ipa": "/ˈbʌdʒ.ɪt/",
+        "meaning": "ngân sách chi tiêu dự tính",
+        "topic": "Tài chính & Kinh tế",
+        "example": "We must stay within the allocated advertising budget.",
+        "exampleMeaning": "Chúng ta phải duy trì trong phạm vi ngân sách quảng cáo được giao.",
+        "note": "On a tight budget, budget deficit.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-63",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "conference",
+        "ipa": "/ˈkɑːn.fɚ.əns/",
+        "meaning": "hội nghị, hội thảo chuyên đề",
+        "topic": "Công sở & Đàm phán",
+        "example": "Over five hundred delegates attended the annual tech conference.",
+        "exampleMeaning": "Hơn năm trăm đại biểu đã tham dự hội nghị công nghệ thường niên.",
+        "note": "Conference room, press conference.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-64",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "strategy",
+        "ipa": "/ˈstræt̬.ə.dʒi/",
+        "meaning": "chiến lược, kế hoạch dài hạn",
+        "topic": "Công sở & Đàm phán",
+        "example": "The management unveiled a five-year global expansion strategy.",
+        "exampleMeaning": "Ban quản lý đã công bố chiến lược mở rộng toàn cầu 5 năm.",
+        "note": "Strategic planning, business strategy.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-65",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "contract",
+        "ipa": "/ˈkɑːn.trækt/",
+        "meaning": "hợp đồng giao kết pháp lý",
+        "topic": "Công sở & Đàm phán",
+        "example": "Both parties signed a binding two-year employment contract.",
+        "exampleMeaning": "Cả hai bên đã ký hợp đồng lao động ràng buộc thời hạn hai năm.",
+        "note": "Sign a contract, breach of contract.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-66",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "milestone",
+        "ipa": "/ˈmaɪl.stoʊn/",
+        "meaning": "cột mốc quan trọng, dấu mốc",
+        "topic": "Công sở & Đàm phán",
+        "example": "Completing the beta software version was a major milestone.",
+        "exampleMeaning": "Hoàn thành phiên bản phần mềm thử nghiệm là một cột mốc quan trọng.",
+        "note": "Reach a milestone.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-67",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "evaluate",
+        "ipa": "/ɪˈvæl.ju.eɪt/",
+        "meaning": "đánh giá, thẩm định chất lượng",
+        "topic": "Tư duy & Học thuật",
+        "example": "The committee will evaluate all proposals before deciding.",
+        "exampleMeaning": "Ủy ban sẽ đánh giá tất cả các đề xuất trước khi đưa ra quyết định.",
+        "note": "Danh từ: evaluation.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-68",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "invest",
+        "ipa": "/ɪnˈvest/",
+        "meaning": "đầu tư tiền bạc hoặc thời gian",
+        "topic": "Tài chính & Kinh tế",
+        "example": "The company decided to invest heavily in renewable energy.",
+        "exampleMeaning": "Công ty đã quyết định đầu tư mạnh vào năng lượng tái tạo.",
+        "note": "Investor, investment portfolio.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-69",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "profit",
+        "ipa": "/ˈprɑː.fɪt/",
+        "meaning": "lợi nhuận sau khi trừ chi phí",
+        "topic": "Tài chính & Kinh tế",
+        "example": "The retail division generated a healthy net profit this year.",
+        "exampleMeaning": "Bộ phận bán lẻ đã tạo ra lợi nhuận ròng rất tốt trong năm nay.",
+        "note": "Make a profit, profitable business.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-70",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "resolve",
+        "ipa": "/rɪˈzɑːlv/",
+        "meaning": "giải quyết ổn thỏa bất đồng/vấn đề",
+        "topic": "Công sở & Đàm phán",
+        "example": "The customer service team quickly resolved the dispute.",
+        "exampleMeaning": "Đội ngũ chăm sóc khách hàng đã nhanh chóng giải quyết tranh chấp.",
+        "note": "Resolve a conflict, resolution.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-71",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "objective",
+        "ipa": "/əbˈdʒek.tɪv/",
+        "meaning": "mục tiêu cụ thể cần đạt được",
+        "topic": "Công sở & Đàm phán",
+        "example": "Our primary objective is to increase user engagement by 20%.",
+        "exampleMeaning": "Mục tiêu chính của chúng tôi là tăng mức độ tương tác người dùng thêm 20%.",
+        "note": "Achieve an objective.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-72",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "priority",
+        "ipa": "/praɪˈɔːr.ə.t̬i/",
+        "meaning": "sự ưu tiên, việc cấp bách hàng đầu",
+        "topic": "Công sở & Đàm phán",
+        "example": "Customer satisfaction is our company's top priority.",
+        "exampleMeaning": "Sự hài lòng của khách hàng là ưu tiên hàng đầu của công ty chúng tôi.",
+        "note": "Take priority over something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-73",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "reservation",
+        "ipa": "/ˌrez.ɚˈveɪ.ʃən/",
+        "meaning": "sự đặt chỗ trước",
+        "topic": "Du lịch & Khách sạn",
+        "example": "I would like to make a dinner reservation for four people.",
+        "exampleMeaning": "Tôi muốn đặt bàn ăn tối cho bốn người.",
+        "note": "Make a reservation, cancel a reservation.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-74",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "shuttle",
+        "ipa": "/ˈʃʌt̬.əl/",
+        "meaning": "xe buýt đưa đón tuyến cố định",
+        "topic": "Du lịch & Khách sạn",
+        "example": "The hotel offers a complimentary airport shuttle service.",
+        "exampleMeaning": "Khách sạn cung cấp dịch vụ xe buýt đưa đón sân bay miễn phí.",
+        "note": "Shuttle bus.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-75",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "terminal",
+        "ipa": "/ˈtɝː.mən.əl/",
+        "meaning": "nhà ga sân bay, bến bãi đón khách",
+        "topic": "Du lịch & Khách sạn",
+        "example": "International flights depart from terminal two.",
+        "exampleMeaning": "Các chuyến bay quốc tế khởi hành từ nhà ga số hai.",
+        "note": "Terminal building.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-76",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "landmark",
+        "ipa": "/ˈlænd.mɑːrk/",
+        "meaning": "địa danh nổi tiếng, thắng cảnh đặc trưng",
+        "topic": "Du lịch & Khách sạn",
+        "example": "The Eiffel Tower is the most iconic landmark in Paris.",
+        "exampleMeaning": "Tháp Eiffel là địa danh biểu tượng nổi tiếng nhất ở Paris.",
+        "note": "Historical landmark.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-77",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "commute",
+        "ipa": "/kəˈmjuːt/",
+        "meaning": "quãng đường đi làm hàng ngày",
+        "topic": "Du lịch & Khách sạn",
+        "example": "His daily commute by train takes approximately forty minutes.",
+        "exampleMeaning": "Chuyến đi làm hàng ngày bằng tàu hỏa của anh ấy mất khoảng 40 phút.",
+        "note": "Daily commute, commuter train.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-78",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "delayed",
+        "ipa": "/dɪˈleɪd/",
+        "meaning": "bị hoãn, bị chậm giờ",
+        "topic": "Du lịch & Khách sạn",
+        "example": "Our connecting train was delayed due to heavy snowfall.",
+        "exampleMeaning": "Chuyến tàu chuyển tiếp của chúng tôi đã bị hoãn do tuyết rơi dày.",
+        "note": "Delayed flight.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-79",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "explore",
+        "ipa": "/ɪkˈsplɔːr/",
+        "meaning": "khám phá, thám hiểm vùng đất mới",
+        "topic": "Du lịch & Khách sạn",
+        "example": "We rented bicycles to explore the charming coastal village.",
+        "exampleMeaning": "Chúng tôi thuê xe đạp để khám phá ngôi làng ven biển xinh đẹp.",
+        "note": "Exploration, explorer.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-80",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "scenic",
+        "ipa": "/ˈsiː.nɪk/",
+        "meaning": "có cảnh quan thiên nhiên tuyệt đẹp",
+        "topic": "Du lịch & Khách sạn",
+        "example": "We took the scenic mountain route instead of the highway.",
+        "exampleMeaning": "Chúng tôi đã đi theo tuyến đường núi ngắm cảnh thay vì đường cao tốc.",
+        "note": "Scenic view, scenic route.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-81",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "complimentary",
+        "ipa": "/ˌkɑːm.pləˈmen.t̬ɚ.i/",
+        "meaning": "miễn phí kèm theo dịch vụ",
+        "topic": "Du lịch & Khách sạn",
+        "example": "Guests receive a complimentary fruit basket upon check-in.",
+        "exampleMeaning": "Du khách nhận được một giỏ trái cây miễn phí khi nhận phòng.",
+        "note": "Complimentary breakfast, complimentary drinks.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-82",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "souvenir",
+        "ipa": "/ˌsuː.vəˈnɪr/",
+        "meaning": "quà lưu niệm kỷ niệm chuyến đi",
+        "topic": "Du lịch & Khách sạn",
+        "example": "I bought handcrafted wooden souvenirs for my family.",
+        "exampleMeaning": "Tôi đã mua những món quà lưu niệm bằng gỗ thủ công cho gia đình.",
+        "note": "Buy souvenirs.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-83",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "landlord",
+        "ipa": "/ˈlænd.lɔːrd/",
+        "meaning": "chủ nhà, người cho thuê nhà",
+        "topic": "Đời sống & Nhà ở",
+        "example": "The landlord agreed to replace the broken washing machine.",
+        "exampleMeaning": "Chủ nhà đã đồng ý thay thế chiếc máy giặt bị hỏng.",
+        "note": "Trái nghĩa: tenant (người thuê).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-84",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "tenant",
+        "ipa": "/ˈten.ənt/",
+        "meaning": "người thuê nhà, khách thuê",
+        "topic": "Đời sống & Nhà ở",
+        "example": "The tenant pays twelve hundred dollars in rent on the first.",
+        "exampleMeaning": "Người thuê nhà trả một nghìn hai trăm đô tiền nhà vào ngày mùng một.",
+        "note": "Prospective tenant.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-85",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "lease",
+        "ipa": "/liːs/",
+        "meaning": "hợp đồng thuê nhà có thời hạn",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Our residential lease expires at the end of December.",
+        "exampleMeaning": "Hợp đồng thuê nhà của chúng tôi sẽ hết hạn vào cuối tháng Mười Hai.",
+        "note": "Sign a lease, break a lease.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-86",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "deposit",
+        "ipa": "/dɪˈpɑː.zɪt/",
+        "meaning": "khoản tiền đặt cọc",
+        "topic": "Đời sống & Nhà ở",
+        "example": "You must pay a security deposit equal to one month rent.",
+        "exampleMeaning": "Bạn phải trả khoản tiền đặt cọc tương đương một tháng tiền nhà.",
+        "note": "Security deposit, refund a deposit.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-87",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "utilities",
+        "ipa": "/juːˈtɪl.ə.t̬iz/",
+        "meaning": "tiện ích thiết yếu (điện, nước, gas)",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Monthly utilities are estimated at around one hundred dollars.",
+        "exampleMeaning": "Tiền tiện ích hàng tháng ước tính khoảng một trăm đô la.",
+        "note": "Utility bill.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-88",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "defective",
+        "ipa": "/dɪˈfek.tɪv/",
+        "meaning": "bị lỗi, có khuyết tật kỹ thuật",
+        "topic": "Đời sống & Nhà ở",
+        "example": "The company replaced the defective toaster free of charge.",
+        "exampleMeaning": "Công ty đã đổi chiếc máy nướng bánh mì bị lỗi hoàn toàn miễn phí.",
+        "note": "Defective product.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-89",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "complaint",
+        "ipa": "/kəmˈpleɪnt/",
+        "meaning": "lời phàn nàn, khiếu nại của khách",
+        "topic": "Đời sống & Nhà ở",
+        "example": "The hotel manager personally resolved the customer complaint.",
+        "exampleMeaning": "Quản lý khách sạn đã trực tiếp giải quyết khiếu nại của khách hàng.",
+        "note": "File a complaint, make a complaint.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-90",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "cashier",
+        "ipa": "/kæʃˈɪr/",
+        "meaning": "nhân viên thu ngân tại quầy",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Please pay the cashier at counter number three.",
+        "exampleMeaning": "Vui lòng thanh toán cho nhân viên thu ngân tại quầy số ba.",
+        "note": "Cashier counter.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-91",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "discount",
+        "ipa": "/ˈdɪs.kaʊnt/",
+        "meaning": "mức giảm giá, chiết khấu",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Students receive a ten percent discount with valid student ID.",
+        "exampleMeaning": "Sinh viên được giảm giá 10% khi xuất trình thẻ sinh viên hợp lệ.",
+        "note": "Offer a discount, discounted price.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-92",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "spacious",
+        "ipa": "/ˈspeɪ.ʃəs/",
+        "meaning": "rộng rãi, thoáng đãng",
+        "topic": "Đời sống & Nhà ở",
+        "example": "The master bedroom is bright, comfortable, and spacious.",
+        "exampleMeaning": "Phòng ngủ chính rất sáng sủa, thoải mái và rộng rãi.",
+        "note": "Spacious apartment, spacious room.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-93",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "fever",
+        "ipa": "/ˈfiː.vɚ/",
+        "meaning": "cơn sốt, thân nhiệt cao",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "He stayed home from school because he had a high fever.",
+        "exampleMeaning": "Cậu bé nghỉ học ở nhà vì bị sốt cao.",
+        "note": "Run a fever, reduce a fever.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-94",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "infection",
+        "ipa": "/ɪnˈfek.ʃən/",
+        "meaning": "sự nhiễm trùng, nhiễm vi khuẩn",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Wash the wound immediately with antiseptic to avoid infection.",
+        "exampleMeaning": "Rửa vết thương ngay bằng cồn sát trùng để tránh nhiễm trùng.",
+        "note": "Bacterial infection, viral infection.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-95",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "allergy",
+        "ipa": "/ˈæl.ɚ.dʒi/",
+        "meaning": "dị ứng với thức ăn/thời tiết",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "She has a severe peanut allergy and cannot eat nuts.",
+        "exampleMeaning": "Cô ấy bị dị ứng lạc rất nặng và không thể ăn các loại hạt.",
+        "note": "Allergic reaction, food allergy.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-96",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "medication",
+        "ipa": "/ˌmed.əˈkeɪ.ʃən/",
+        "meaning": "dược phẩm, thuốc điều trị",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Do not stop taking prescribed medication without consulting your doctor.",
+        "exampleMeaning": "Đừng ngừng uống thuốc được kê đơn mà không tham khảo ý kiến bác sĩ.",
+        "note": "Take medication.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-97",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "fatigue",
+        "ipa": "/fəˈtiːɡ/",
+        "meaning": "sự mệt mỏi rã rời, kiệt sức",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Chronic fatigue can be caused by prolonged psychological stress.",
+        "exampleMeaning": "Mệt mỏi mạn tính có thể do căng thẳng tâm lý kéo dài gây ra.",
+        "note": "Mental fatigue, muscle fatigue.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-98",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "hygiene",
+        "ipa": "/ˈhaɪ.dʒiːn/",
+        "meaning": "vệ sinh phòng bệnh, giữ sạch",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Good hand hygiene is crucial to prevent the spread of germs.",
+        "exampleMeaning": "Giữ vệ sinh tay tốt là điều tối quan trọng để ngăn ngừa mầm bệnh.",
+        "note": "Personal hygiene, dental hygiene.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-99",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "consult",
+        "ipa": "/kənˈsʌlt/",
+        "meaning": "hỏi ý kiến bác sĩ / chuyên gia",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "You should consult a physician if your symptoms persist.",
+        "exampleMeaning": "Bạn nên đi khám bác sĩ nếu các triệu chứng vẫn kéo dài.",
+        "note": "Consultation, consultant.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-100",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "fitness",
+        "ipa": "/ˈfɪt.nəs/",
+        "meaning": "thể lực, sự dẻo dai khỏe mạnh",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Regular cardiovascular exercise improves overall fitness.",
+        "exampleMeaning": "Tập thể dục tim mạch đều đặn giúp nâng cao thể lực tổng thể.",
+        "note": "Fitness level, physical fitness.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-101",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "dehydration",
+        "ipa": "/ˌdiː.haɪˈdreɪ.ʃən/",
+        "meaning": "tình trạng mất nước của cơ thể",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Drink water frequently during hot weather to prevent dehydration.",
+        "exampleMeaning": "Uống nước thường xuyên trong thời tiết nắng nóng để tránh mất nước.",
+        "note": "Severe dehydration.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-102",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "diagnosis",
+        "ipa": "/ˌdaɪ.əɡˈnoʊ.sɪs/",
+        "meaning": "sự chẩn đoán bệnh của bác sĩ",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "An accurate diagnosis is the first step toward effective recovery.",
+        "exampleMeaning": "Chẩn đoán chính xác là bước đầu tiên hướng tới sự hồi phục hiệu quả.",
+        "note": "Early diagnosis, medical diagnosis.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-103",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "device",
+        "ipa": "/dɪˈvaɪs/",
+        "meaning": "thiết bị công nghệ điện tử",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Please disconnect all electronic devices before the flight takes off.",
+        "exampleMeaning": "Vui lòng ngắt kết nối các thiết bị điện tử trước khi máy bay cất cánh.",
+        "note": "Mobile device, smart device.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-104",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "password",
+        "ipa": "/ˈpæs.wɝːd/",
+        "meaning": "mật khẩu bảo mật",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Never share your banking password or security PIN with anyone.",
+        "exampleMeaning": "Đừng bao giờ chia sẻ mật khẩu ngân hàng hoặc mã PIN với bất kỳ ai.",
+        "note": "Strong password, reset password.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-105",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "notification",
+        "ipa": "/ˌnoʊ.t̬ə.fəˈkeɪ.ʃən/",
+        "meaning": "thông báo trên điện thoại/máy tính",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Turn off non-essential notifications to maintain concentration while studying.",
+        "exampleMeaning": "Tắt các thông báo không cần thiết để giữ tập trung khi học.",
+        "note": "Push notification.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-106",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "software",
+        "ipa": "/ˈsɑːft.wer/",
+        "meaning": "phần mềm máy tính",
+        "topic": "Khoa học & Đổi mới",
+        "example": "The software updates automatically overnight to fix security bugs.",
+        "exampleMeaning": "Phần mềm tự động cập nhật qua đêm để vá các lỗi bảo mật.",
+        "note": "Software update, antivirus software.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-107",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "hardware",
+        "ipa": "/ˈhɑːrd.wer/",
+        "meaning": "phần cứng thiết bị máy móc",
+        "topic": "Khoa học & Đổi mới",
+        "example": "We upgraded the computer hardware with a faster solid-state drive.",
+        "exampleMeaning": "Chúng tôi đã nâng cấp phần cứng máy tính bằng ổ cứng SSD nhanh hơn.",
+        "note": "Computer hardware.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-108",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "database",
+        "ipa": "/ˈdeɪ.t̬ə.beɪs/",
+        "meaning": "cơ sở dữ liệu lưu trữ thông tin",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Customer contact details are stored securely in a central database.",
+        "exampleMeaning": "Thông tin liên hệ của khách hàng được lưu trữ bảo mật trong cơ sở dữ liệu.",
+        "note": "Database management.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-109",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "troubleshoot",
+        "ipa": "/ˈtrʌb.əl.ʃuːt/",
+        "meaning": "dò tìm và sửa lỗi kỹ thuật",
+        "topic": "Khoa học & Đổi mới",
+        "example": "The manual provides step-by-step instructions to troubleshoot connection errors.",
+        "exampleMeaning": "Sách hướng dẫn cung cấp các bước từng bước để sửa lỗi kết nối.",
+        "note": "Troubleshooting guide.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-110",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "privacy",
+        "ipa": "/ˈpraɪ.və.si/",
+        "meaning": "quyền riêng tư, tính bảo mật cá nhân",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Adjust your privacy settings to control who can view your profile.",
+        "exampleMeaning": "Điều chỉnh cài đặt quyền riêng tư để kiểm soát người xem hồ sơ của bạn.",
+        "note": "Privacy policy, data privacy.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-111",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "subscribe",
+        "ipa": "/səbˈskraɪb/",
+        "meaning": "đăng ký dịch vụ định kỳ",
+        "topic": "Khoa học & Đổi mới",
+        "example": "You can subscribe to our weekly newsletter for free.",
+        "exampleMeaning": "Bạn có thể đăng ký nhận bản tin tuần miễn phí của chúng tôi.",
+        "note": "Subscription, subscriber.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-112",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "glitch",
+        "ipa": "/ɡlɪtʃ/",
+        "meaning": "lỗi nhỏ tạm thời của hệ thống",
+        "topic": "Khoa học & Đổi mới",
+        "example": "A temporary software glitch delayed order processing for ten minutes.",
+        "exampleMeaning": "Một lỗi phần mềm tạm thời đã làm chậm việc xử lý đơn hàng trong 10 phút.",
+        "note": "Technical glitch.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-113",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "pollution",
+        "ipa": "/pəˈluː.ʃən/",
+        "meaning": "sự ô nhiễm không khí/nước",
+        "topic": "Môi trường & Xã hội",
+        "example": "Stricter vehicle emission standards help reduce urban air pollution.",
+        "exampleMeaning": "Quy chuẩn khí thải xe nghiêm ngặt hơn giúp giảm ô nhiễm không khí đô thị.",
+        "note": "Air pollution, water pollution.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-114",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "sustainable",
+        "ipa": "/səˈsteɪ.nə.bəl/",
+        "meaning": "bền vững, thân thiện môi trường",
+        "topic": "Môi trường & Xã hội",
+        "example": "The architect designs eco-friendly buildings using sustainable timber.",
+        "exampleMeaning": "Kiến trúc sư thiết kế các tòa nhà sinh thái bằng gỗ bền vững.",
+        "note": "Sustainable development.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-115",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "ecosystem",
+        "ipa": "/ˈiː.koʊˌsɪs.təm/",
+        "meaning": "hệ sinh thái tự nhiên",
+        "topic": "Môi trường & Xã hội",
+        "example": "Coral reefs support an incredibly diverse marine ecosystem.",
+        "exampleMeaning": "Rạn san hô nuôi dưỡng một hệ sinh thái biển vô cùng đa dạng.",
+        "note": "Marine ecosystem.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-116",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "footprint",
+        "ipa": "/ˈfʊt.prɪnt/",
+        "meaning": "dấu chân sinh thái, tác động môi trường",
+        "topic": "Môi trường & Xã hội",
+        "example": "Walking or cycling to work reduces your personal carbon footprint.",
+        "exampleMeaning": "Đi bộ hoặc đi xe đạp đi làm giúp giảm dấu chân carbon cá nhân.",
+        "note": "Carbon footprint.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-117",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "volunteer",
+        "ipa": "/ˌvɑː.lənˈtɪr/",
+        "meaning": "tình nguyện viên / làm tình nguyện",
+        "topic": "Môi trường & Xã hội",
+        "example": "Many college students volunteer at local community shelters.",
+        "exampleMeaning": "Nhiều sinh viên đại học tham gia làm tình nguyện tại các mái ấm cộng đồng.",
+        "note": "Volunteer work.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-118",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "community",
+        "ipa": "/kəˈmjuː.nə.t̬i/",
+        "meaning": "cộng đồng cư dân địa phương",
+        "topic": "Môi trường & Xã hội",
+        "example": "The local community organized a park cleanup event on Sunday.",
+        "exampleMeaning": "Cộng đồng địa phương đã tổ chức buổi dọn dẹp công viên vào Chủ nhật.",
+        "note": "Local community, community center.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-119",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "wildlife",
+        "ipa": "/ˈwaɪld.laɪf/",
+        "meaning": "động thực vật hoang dã tự nhiên",
+        "topic": "Môi trường & Xã hội",
+        "example": "National parks provide a safe haven for native wildlife species.",
+        "exampleMeaning": "Các vườn quốc gia mang lại nơi trú ẩn an toàn cho các loài hoang dã bản địa.",
+        "note": "Wildlife protection.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-120",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "solar energy",
+        "ipa": "/ˈsoʊ.lɚ ˈen.ɚ.dʒi/",
+        "meaning": "năng lượng mặt trời sạch",
+        "topic": "Môi trường & Xã hội",
+        "example": "Installing rooftop solar panels lowers domestic electricity bills.",
+        "exampleMeaning": "Lắp đặt tấm pin mặt trời trên mái nhà giúp giảm hóa đơn tiền điện.",
+        "note": "Solar power, solar panel.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-121",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "climate change",
+        "ipa": "/ˈklaɪ.mət tʃeɪndʒ/",
+        "meaning": "sự biến đổi khí hậu toàn cầu",
+        "topic": "Môi trường & Xã hội",
+        "example": "Global cooperation is essential to mitigate the effects of climate change.",
+        "exampleMeaning": "Hợp tác toàn cầu là điều thiết yếu để giảm thiểu tác động của biến đổi khí hậu.",
+        "note": "Fight climate change.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-122",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "organic",
+        "ipa": "/ɔːrˈɡæn.ɪk/",
+        "meaning": "hữu cơ, không dùng hóa chất",
+        "topic": "Môi trường & Xã hội",
+        "example": "Organic vegetables are grown without synthetic fertilizers or pesticides.",
+        "exampleMeaning": "Rau hữu cơ được trồng mà không sử dụng phân bón hay thuốc trừ sâu hóa học.",
+        "note": "Organic food, organic farming.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-123",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "patient",
+        "ipa": "/ˈpeɪ.ʃənt/",
+        "meaning": "kiên nhẫn, nhẫn nại / bệnh nhân",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "Teaching young children requires a calm and patient demeanor.",
+        "exampleMeaning": "Dạy trẻ nhỏ đòi hỏi một thái độ điềm tĩnh và kiên nhẫn.",
+        "note": "Be patient with someone.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-124",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "generous",
+        "ipa": "/ˈdʒen.ər.əs/",
+        "meaning": "hào phóng, rộng lượng tốt bụng",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "He made a generous financial donation to the children hospital.",
+        "exampleMeaning": "Anh ấy đã quyên góp một khoản tiền hào phóng cho bệnh viện nhi.",
+        "note": "Generosity, generous offer.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-125",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "stubborn",
+        "ipa": "/ˈstʌb.ɚn/",
+        "meaning": "bướng bỉnh, cứng đầu khó bảo",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "He is too stubborn to admit that his initial plan was wrong.",
+        "exampleMeaning": "Anh ta quá bướng bỉnh đến mức không chịu thừa nhận kế hoạch ban đầu là sai.",
+        "note": "Stubborn attitude.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-126",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "anxious",
+        "ipa": "/ˈæŋk.ʃəs/",
+        "meaning": "lo lắng, bồn chồn bất an",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "She felt anxious while waiting for her final examination results.",
+        "exampleMeaning": "Cô ấy cảm thấy lo lắng trong lúc chờ đợi kết quả kỳ thi tốt nghiệp.",
+        "note": "Feel anxious about something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-127",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "relieved",
+        "ipa": "/rɪˈliːvd/",
+        "meaning": "nhẹ nhõm, trút được gánh nặng",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "We were greatly relieved to hear that our flight landed safely.",
+        "exampleMeaning": "Chúng tôi vô cùng nhẹ nhõm khi nghe tin chuyến bay đã hạ cánh an toàn.",
+        "note": "Feel relieved.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-128",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "sincere",
+        "ipa": "/sɪnˈsɪr/",
+        "meaning": "chân thành, thật lòng không dối",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "Please accept our sincere apologies for the unexpected delay.",
+        "exampleMeaning": "Xin hãy chấp nhận lời xin lỗi chân thành của chúng tôi vì sự chậm trễ này.",
+        "note": "Sincere gratitude, sincerely.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-129",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "curious",
+        "ipa": "/ˈkjʊr.i.əs/",
+        "meaning": "tò mò, ham học hỏi tìm tòi",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "Curious students always ask insightful questions during lectures.",
+        "exampleMeaning": "Những học sinh ham học hỏi luôn đặt những câu hỏi sâu sắc trong giờ học.",
+        "note": "Curiosity, curious about something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-130",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "independent",
+        "ipa": "/ˌɪn.dɪˈpen.dənt/",
+        "meaning": "độc lập, tự chủ không phụ thuộc",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "She moved into her own apartment to become more independent.",
+        "exampleMeaning": "Cô ấy chuyển ra ở căn hộ riêng để trở nên tự lập hơn.",
+        "note": "Financial independence.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-131",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "mature",
+        "ipa": "/məˈtʊr/",
+        "meaning": "chín chắn, trưởng thành trong suy nghĩ",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "Handling criticism calmly is a hallmark of a mature professional.",
+        "exampleMeaning": "Tiếp nhận lời chỉ trích một cách bình tĩnh là dấu hiệu của người chín chắn.",
+        "note": "Emotional maturity.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-132",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "grateful",
+        "ipa": "/ˈɡreɪt.fəl/",
+        "meaning": "biết ơn, cảm kích sâu sắc",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "I am deeply grateful for the guidance my mentors provided.",
+        "exampleMeaning": "Tôi vô cùng biết ơn sự hướng dẫn tận tình mà các cố vấn đã dành cho tôi.",
+        "note": "Be grateful to someone for something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-133",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "I would be grateful if you could get back to me as soon as possible.",
+        "ipa": "/aɪ wʊd biː ˈɡreɪt.fəl ɪf juː kʊd ɡet bæk tə miː æz suːn æz ˈpɑː.sə.bəl/",
+        "meaning": "Tôi sẽ rất biết ơn nếu bạn có thể phản hồi lại cho tôi càng sớm càng tốt.",
+        "topic": "Mẫu câu Chuyên nghiệp",
+        "example": "\"I would be grateful if you could get back to me as soon as possible.\"",
+        "exampleMeaning": "→ Tôi sẽ rất biết ơn nếu bạn có thể phản hồi lại cho tôi càng sớm càng tốt.",
+        "note": "Email closing pattern.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-134",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "As far as I am concerned, the current solution works reasonably well.",
+        "ipa": "/æz fɑːr æz aɪ æm kənˈsɝːnd ðə ˈkɝː.ənt səˈluː.ʃən wɝːks ˈriː.zən.ə.bli wel/",
+        "meaning": "Theo như tôi thấy, giải pháp hiện tại đang hoạt động khá ổn thỏa.",
+        "topic": "Mẫu câu Chuyên nghiệp",
+        "example": "\"As far as I am concerned, the current solution works reasonably well.\"",
+        "exampleMeaning": "→ Theo như tôi thấy, giải pháp hiện tại đang hoạt động khá ổn thỏa.",
+        "note": "Expressing personal viewpoint.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-135",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Don't hesitate to reach out if you encounter any difficulties.",
+        "ipa": "/doʊnt ˈhez.ə.teɪt tə riːtʃ aʊt ɪf juː ɪnˈkaʊn.t̬ɚ ˈen.i ˈdɪf.ə.kəl.t̬iz/",
+        "meaning": "Đừng ngần ngại liên hệ nếu bạn gặp phải bất kỳ khó khăn nào.",
+        "topic": "Mẫu câu Chuyên nghiệp",
+        "example": "\"Don't hesitate to reach out if you encounter any difficulties.\"",
+        "exampleMeaning": "→ Đừng ngần ngại liên hệ nếu bạn gặp phải bất kỳ khó khăn nào.",
+        "note": "Friendly offer of assistance.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-136",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "It goes without saying that consistent practice leads to fluency.",
+        "ipa": "/ɪt ɡoʊz wɪˈðaʊt ˈseɪ.ɪŋ ðæt kənˈsɪs.tənt ˈpræk.tɪs liːdz tə ˈfluː.ən.si/",
+        "meaning": "Hiển nhiên là việc luyện tập kiên trì sẽ dẫn tới sự lưu loát.",
+        "topic": "Thành ngữ & Cụm từ hay",
+        "example": "\"It goes without saying that consistent practice leads to fluency.\"",
+        "exampleMeaning": "→ Hiển nhiên là việc luyện tập kiên trì sẽ dẫn tới sự lưu loát.",
+        "note": "Common rhetorical phrase.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-137",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "I have mixed feelings about moving to another city for work.",
+        "ipa": "/aɪ hæv mɪkst ˈfiː.lɪŋz əˈbaʊt ˈmuː.vɪŋ tə əˈnʌð.ɚ ˈsɪt̬.i fɔːr wɝːk/",
+        "meaning": "Tôi có cảm xúc lẫn lộn (vừa mừng vừa lo) về việc chuyển thành phố vì công việc.",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "\"I have mixed feelings about moving to another city for work.\"",
+        "exampleMeaning": "→ Tôi có cảm xúc lẫn lộn (vừa mừng vừa lo) về việc chuyển thành phố vì công việc.",
+        "note": "Mixed feelings: cảm xúc vui buồn đan xen.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-138",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Could you please show me the way to the nearest subway station?",
+        "ipa": "/kʊd juː pliːz ʃoʊ miː ðə weɪ tə ðə ˈnɪr.ɪst ˈsʌb.weɪ ˈsteɪ.ʃən/",
+        "meaning": "Bạn có thể vui lòng chỉ cho tôi đường đến ga tàu điện ngầm gần nhất không?",
+        "topic": "Du lịch & Khách sạn",
+        "example": "\"Could you please show me the way to the nearest subway station?\"",
+        "exampleMeaning": "→ Bạn có thể vui lòng chỉ cho tôi đường đến ga tàu điện ngầm gần nhất không?",
+        "note": "Asking for directions politely.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-139",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "How long does it take to get to the downtown financial center by bus?",
+        "ipa": "/haʊ lɑːŋ dʌz ɪt teɪk tə ɡet tə ðə ˈdaʊn.taʊn faɪˈnæn.ʃəl ˈsen.t̬ɚ baɪ bʌs/",
+        "meaning": "Đi xe buýt đến trung tâm tài chính thành phố mất khoảng bao lâu?",
+        "topic": "Du lịch & Khách sạn",
+        "example": "\"How long does it take to get to the downtown financial center by bus?\"",
+        "exampleMeaning": "→ Đi xe buýt đến trung tâm tài chính thành phố mất khoảng bao lâu?",
+        "note": "Asking about travel duration.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-140",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "I would like to open a checking account with online banking features.",
+        "ipa": "/aɪ wʊd laɪk tə ˈoʊ.pən ə ˈtʃek.ɪŋ əˈkaʊnt wɪð ˈɑːn.laɪn ˈbæŋ.kɪŋ ˈfiː.tʃɚz/",
+        "meaning": "Tôi muốn mở một tài khoản thanh toán có tính năng ngân hàng điện tử.",
+        "topic": "Tài chính & Kinh tế",
+        "example": "\"I would like to open a checking account with online banking features.\"",
+        "exampleMeaning": "→ Tôi muốn mở một tài khoản thanh toán có tính năng ngân hàng điện tử.",
+        "note": "Bank account opening.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-141",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Could you please double-check if my payment has gone through?",
+        "ipa": "/kʊd juː pliːz ˌdʌb.əlˈtʃek ɪf maɪ ˈpeɪ.mənt hæz ɡɑːn θruː/",
+        "meaning": "Bạn có thể vui lòng kiểm tra lại xem khoản thanh toán của tôi đã thành công chưa?",
+        "topic": "Tài chính & Kinh tế",
+        "example": "\"Could you please double-check if my payment has gone through?\"",
+        "exampleMeaning": "→ Bạn có thể vui lòng kiểm tra lại xem khoản thanh toán của tôi đã thành công chưa?",
+        "note": "Payment confirmation inquiry.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-142",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "I am writing to inquire about the job opening advertised on your website.",
+        "ipa": "/aɪ æm ˈraɪ.t̬ɪŋ tə ɪnˈkwaɪr əˈbaʊt ðə dʒɑːb ˈoʊ.pən.ɪŋ ˈæd.vɚ.taɪzd ɑːn jʊr ˈweb.saɪt/",
+        "meaning": "Tôi viết thư này để hỏi thăm về vị trí tuyển dụng được đăng trên trang web của quý công ty.",
+        "topic": "Mẫu câu Chuyên nghiệp",
+        "example": "\"I am writing to inquire about the job opening advertised on your website.\"",
+        "exampleMeaning": "→ Tôi viết thư này để hỏi thăm về vị trí tuyển dụng được đăng trên trang web của quý công ty.",
+        "note": "Cover letter opening sentence.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-143",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Please find attached my updated resume and portfolio for your review.",
+        "ipa": "/pliːz faɪnd əˈtætʃt maɪ ˈʌp.deɪ.t̬ɪd ˈrez.ə.meɪ ənd pɔːrtˈfoʊ.li.oʊ fɔːr jʊr rɪˈvjuː/",
+        "meaning": "Xin vui lòng xem sơ yếu lý lịch và hồ sơ năng lực cập nhật của tôi đính kèm dưới đây.",
+        "topic": "Mẫu câu Chuyên nghiệp",
+        "example": "\"Please find attached my updated resume and portfolio for your review.\"",
+        "exampleMeaning": "→ Xin vui lòng xem sơ yếu lý lịch và hồ sơ năng lực cập nhật của tôi đính kèm dưới đây.",
+        "note": "Standard job application phrase.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-144",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "We should weigh the pros and cons before making a definitive decision.",
+        "ipa": "/wiː ʃʊd weɪ ðə proʊz ənd kɑːnz bɪˈfɔːr ˈmeɪ.kɪŋ ə dɪˈfɪn.ə.t̬ɪv dɪˈsɪʒ.ən/",
+        "meaning": "Chúng ta nên cân nhắc mặt lợi và mặt hại trước khi đưa ra quyết định dứt khoát.",
+        "topic": "Tư duy & Học thuật",
+        "example": "\"We should weigh the pros and cons before making a definitive decision.\"",
+        "exampleMeaning": "→ Chúng ta nên cân nhắc mặt lợi và mặt hại trước khi đưa ra quyết định dứt khoát.",
+        "note": "Pros and cons: ưu điểm và nhược điểm.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-145",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "In my opinion, regular exercise is essential for stress relief.",
+        "ipa": "/ɪn maɪ əˈpɪn.jən ˈreɡ.jə.lɚ ˈek.sɚ.saɪz ɪz ɪˈsen.ʃəl fɔːr stres rɪˈliːf/",
+        "meaning": "Theo quan điểm của tôi, tập thể dục đều đặn là điều thiết yếu để giải tỏa căng thẳng.",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "\"In my opinion, regular exercise is essential for stress relief.\"",
+        "exampleMeaning": "→ Theo quan điểm của tôi, tập thể dục đều đặn là điều thiết yếu để giải tỏa căng thẳng.",
+        "note": "Expressing personal opinion.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-146",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "I am accustomed to working under pressure and tight deadlines.",
+        "ipa": "/aɪ æm əˈkʌs.təmd tə ˈwɝː.kɪŋ ˈʌn.dɚ ˈpreʃ.ɚ ənd taɪt ˈded.laɪnz/",
+        "meaning": "Tôi đã quen với việc làm việc dưới áp lực và các hạn chót gấp.",
+        "topic": "Công sở & Đàm phán",
+        "example": "\"I am accustomed to working under pressure and tight deadlines.\"",
+        "exampleMeaning": "→ Tôi đã quen với việc làm việc dưới áp lực và các hạn chót gấp.",
+        "note": "Be accustomed to: đã quen với điều gì.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-147",
+        "type": "sentence",
+        "level": "B1 - B2",
+        "text": "Thank you very much for taking the time to meet with me today.",
+        "ipa": "/θæŋk juː ˈver.i mʌtʃ fɔːr ˈteɪ.kɪŋ ðə taɪm tə miːt wɪð miː təˈdeɪ/",
+        "meaning": "Cảm ơn bạn rất nhiều vì đã dành thời gian gặp tôi hôm nay.",
+        "topic": "Mẫu câu Chuyên nghiệp",
+        "example": "\"Thank you very much for taking the time to meet with me today.\"",
+        "exampleMeaning": "→ Cảm ơn bạn rất nhiều vì đã dành thời gian gặp tôi hôm nay.",
+        "note": "Interview or business meeting polite closing.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-148",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "achieve",
+        "ipa": "/əˈtʃiːv/",
+        "meaning": "đạt được mục tiêu qua nỗ lực",
+        "topic": "Tư duy & Học thuật",
+        "example": "She worked hard to achieve her dream of becoming a doctor.",
+        "exampleMeaning": "Cô ấy làm việc chăm chỉ để đạt được ước mơ trở thành bác sĩ.",
+        "note": "Achieve a goal, achievement.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-149",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "admire",
+        "ipa": "/ədˈmaɪr/",
+        "meaning": "ngưỡng mộ, khâm phục ai đó",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "I really admire her dedication to environmental protection.",
+        "exampleMeaning": "Tôi thực sự ngưỡng mộ sự tận tâm của cô ấy đối với bảo vệ môi trường.",
+        "note": "Admiration, admirable.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-150",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "benefit",
+        "ipa": "/ˈben.ə.fɪt/",
+        "meaning": "lợi ích, điều có lợi",
+        "topic": "Tài chính & Kinh tế",
+        "example": "Regular exercise brings numerous health benefits.",
+        "exampleMeaning": "Tập thể dục đều đặn mang lại vô số lợi ích sức khỏe.",
+        "note": "Beneficial, benefit from.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-151",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "calculate",
+        "ipa": "/ˈkæl.kjə.leɪt/",
+        "meaning": "tính toán số liệu, chi phí",
+        "topic": "Tài chính & Kinh tế",
+        "example": "You should calculate the total travel expenses in advance.",
+        "exampleMeaning": "Bạn nên tính toán tổng chi phí đi lại trước.",
+        "note": "Calculation, calculator.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-152",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "challenge",
+        "ipa": "/ˈtʃæl.ɪndʒ/",
+        "meaning": "thách thức, thử thách khó khăn",
+        "topic": "Tư duy & Học thuật",
+        "example": "Learning a new language is a wonderful intellectual challenge.",
+        "exampleMeaning": "Học một ngôn ngữ mới là một thử thách trí tuệ tuyệt vời.",
+        "note": "Challenging task.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-153",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "communicate",
+        "ipa": "/kəˈmjuː.nə.keɪt/",
+        "meaning": "giao tiếp, truyền đạt thông điệp",
+        "topic": "Công sở & Đàm phán",
+        "example": "Effective leaders communicate clearly with their teams.",
+        "exampleMeaning": "Các nhà lãnh đạo hiệu quả luôn giao tiếp rõ ràng với đội ngũ.",
+        "note": "Communication skills.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-154",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "compete",
+        "ipa": "/kəmˈpiːt/",
+        "meaning": "cạnh tranh, thi đua",
+        "topic": "Tài chính & Kinh tế",
+        "example": "Small businesses must innovate to compete with global retail giants.",
+        "exampleMeaning": "Các doanh nghiệp nhỏ phải đổi mới để cạnh tranh với các tập đoàn bán lẻ.",
+        "note": "Competition, competitive.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-155",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "complain",
+        "ipa": "/kəmˈpleɪn/",
+        "meaning": "phàn nàn, kêu ca về điều gì",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Customers rarely complain when service is prompt and friendly.",
+        "exampleMeaning": "Khách hàng hiếm khi phàn nàn khi dịch vụ nhanh chóng và thân thiện.",
+        "note": "Complain about something, complaint.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-156",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "conclude",
+        "ipa": "/kənˈkluːd/",
+        "meaning": "kết luận, kết thúc bài phát biểu",
+        "topic": "Tư duy & Học thuật",
+        "example": "The speaker concluded her talk with an inspiring quotation.",
+        "exampleMeaning": "Diễn giả đã kết luận bài nói bằng một câu trích dẫn đầy cảm hứng.",
+        "note": "In conclusion, conclusive.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-157",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "contribute",
+        "ipa": "/kənˈtrɪb.juːt/",
+        "meaning": "đóng góp công sức hoặc tài chính",
+        "topic": "Môi trường & Xã hội",
+        "example": "Every citizen can contribute to keeping the city clean.",
+        "exampleMeaning": "Mỗi công dân đều có thể đóng góp vào việc giữ gìn thành phố sạch đẹp.",
+        "note": "Contribution to something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-158",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "convenient",
+        "ipa": "/kənˈviː.ni.ənt/",
+        "meaning": "thuận tiện, tiện lợi dễ dùng",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Online banking is far more convenient than visiting a physical branch.",
+        "exampleMeaning": "Ngân hàng trực tuyến thuận tiện hơn nhiều so với việc đến chi nhánh trực tiếp.",
+        "note": "Convenience store.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-159",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "criticize",
+        "ipa": "/ˈkrɪt̬.ə.saɪz/",
+        "meaning": "phê bình, chỉ trích khuyết điểm",
+        "topic": "Tư duy & Học thuật",
+        "example": "It is easy to criticize, but offering solutions is much harder.",
+        "exampleMeaning": "Chỉ trích thì dễ, nhưng đưa ra giải pháp mới khó hơn nhiều.",
+        "note": "Constructive criticism.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-160",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "describe",
+        "ipa": "/dɪˈskraɪb/",
+        "meaning": "miêu tả, mô tả chi tiết",
+        "topic": "Tư duy & Học thuật",
+        "example": "Can you describe the person you saw at the train station?",
+        "exampleMeaning": "Bạn có thể miêu tả người mà bạn đã thấy ở ga tàu không?",
+        "note": "Description, descriptive.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-161",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "determine",
+        "ipa": "/dɪˈtɝː.mɪn/",
+        "meaning": "xác định, quyết định dứt khoát",
+        "topic": "Tư duy & Học thuật",
+        "example": "Your attitude determines your long-term success.",
+        "exampleMeaning": "Thái độ của bạn quyết định sự thành công lâu dài của bạn.",
+        "note": "Determined, determination.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-162",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "disagree",
+        "ipa": "/ˌdɪs.əˈɡriː/",
+        "meaning": "không đồng ý, bất đồng ý kiến",
+        "topic": "Công sở & Đàm phán",
+        "example": "It is completely normal for team members to disagree politely.",
+        "exampleMeaning": "Việc các thành viên trong nhóm bất đồng ý kiến lịch sự là điều hoàn toàn bình thường.",
+        "note": "Disagree with someone on something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-163",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "encourage",
+        "ipa": "/ɪnˈkɝː.ɪdʒ/",
+        "meaning": "khuyến khích, động viên tinh thần",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "Teachers encourage students to express their own thoughts.",
+        "exampleMeaning": "Thầy cô khuyến khích học sinh bày tỏ suy nghĩ riêng của mình.",
+        "note": "Encouragement, encouraging.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-164",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "estimate",
+        "ipa": "/ˈes.tə.meɪt/",
+        "meaning": "ước tính, dự đoán con số",
+        "topic": "Tài chính & Kinh tế",
+        "example": "Engineers estimate the repair will take around three hours.",
+        "exampleMeaning": "Các kỹ sư ước tính việc sửa chữa sẽ mất khoảng ba tiếng.",
+        "note": "Rough estimate, estimation.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-165",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "examine",
+        "ipa": "/ɪɡˈzæm.ɪn/",
+        "meaning": "kiểm tra kỹ lưỡng, khám nghiệm",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "The doctor examined her throat and prescribed warm tea.",
+        "exampleMeaning": "Bác sĩ đã kiểm tra họng của cô ấy và kê trà ấm.",
+        "note": "Examination, examiner.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-166",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "expand",
+        "ipa": "/ɪkˈspænd/",
+        "meaning": "mở rộng quy mô, phát triển thêm",
+        "topic": "Tài chính & Kinh tế",
+        "example": "The company plans to expand into international markets next year.",
+        "exampleMeaning": "Công ty dự định mở rộng sang các thị trường quốc tế vào năm tới.",
+        "note": "Expansion.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-167",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "experience",
+        "ipa": "/ɪkˈspɪr.i.əns/",
+        "meaning": "kinh nghiệm sống / trải nghiệm",
+        "topic": "Tư duy & Học thuật",
+        "example": "She has valuable experience in international customer service.",
+        "exampleMeaning": "Cô ấy có kinh nghiệm quý báu trong dịch vụ chăm sóc khách hàng quốc tế.",
+        "note": "Experienced professional.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-168",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "hesitate",
+        "ipa": "/ˈhez.ə.teɪt/",
+        "meaning": "ngập ngừng, do dự chưa quyết",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "Do not hesitate to ask if you need further clarification.",
+        "exampleMeaning": "Đừng ngần ngại hỏi nếu bạn cần làm rõ thêm điều gì.",
+        "note": "Hesitation, hesitant.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-169",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "identify",
+        "ipa": "/aɪˈden.t̬ə.faɪ/",
+        "meaning": "nhận diện, xác định danh tính",
+        "topic": "Tư duy & Học thuật",
+        "example": "The audit helped us identify areas where costs could be reduced.",
+        "exampleMeaning": "Cuộc kiểm toán đã giúp chúng tôi xác định các khu vực có thể cắt giảm chi phí.",
+        "note": "Identification (ID).",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-170",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "ignore",
+        "ipa": "/ɪɡˈnɔːr/",
+        "meaning": "phớt lờ, bỏ qua không bận tâm",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "It is unwise to ignore early warning signs of physical fatigue.",
+        "exampleMeaning": "Thật không khôn ngoan khi phớt lờ các dấu hiệu cảnh báo mệt mỏi thể chất sớm.",
+        "note": "Ignorant, ignorance.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-171",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "impress",
+        "ipa": "/ɪmˈpres/",
+        "meaning": "gây ấn tượng tốt đẹp",
+        "topic": "Công sở & Đàm phán",
+        "example": "His thorough preparation really impressed the interview panel.",
+        "exampleMeaning": "Sự chuẩn bị kỹ lưỡng của anh ấy thực sự gây ấn tượng với hội đồng phỏng vấn.",
+        "note": "Impressive, impression.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-172",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "influence",
+        "ipa": "/ˈɪn.flu.əns/",
+        "meaning": "ảnh hưởng, tác động đến ai",
+        "topic": "Môi trường & Xã hội",
+        "example": "Social media influencers have a strong impact on youth purchasing habits.",
+        "exampleMeaning": "Những người có ảnh hưởng trên mạng xã hội có tác động lớn đến thói quen mua sắm của giới trẻ.",
+        "note": "Have an influence on.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-173",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "insist",
+        "ipa": "/ɪnˈsɪst/",
+        "meaning": "khăng khăng, kiên quyết giữ ý",
+        "topic": "Công sở & Đàm phán",
+        "example": "He insisted on paying for the entire dinner bill.",
+        "exampleMeaning": "Anh ấy khăng khăng đòi trả toàn bộ hóa đơn bữa tối.",
+        "note": "Insist on doing something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-174",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "inspire",
+        "ipa": "/ɪnˈspaɪr/",
+        "meaning": "truyền cảm hứng, khơi gợi sáng tạo",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "Her resilience inspired everyone in the company.",
+        "exampleMeaning": "Sự kiên cường của cô ấy đã truyền cảm hứng cho tất cả mọi người trong công ty.",
+        "note": "Inspiration, inspirational.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-175",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "intend",
+        "ipa": "/ɪnˈtend/",
+        "meaning": "có ý định, dự định làm gì",
+        "topic": "Tư duy & Học thuật",
+        "example": "I intend to complete my master thesis by the end of spring.",
+        "exampleMeaning": "Tôi dự định hoàn thành luận văn thạc sĩ vào cuối mùa xuân.",
+        "note": "Intention, intentional.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-176",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "interrupt",
+        "ipa": "/ˌɪn.t̬əˈrʌpt/",
+        "meaning": "cắt lời, làm gián đoạn",
+        "topic": "Công sở & Đàm phán",
+        "example": "Please do not interrupt when someone is speaking during a presentation.",
+        "exampleMeaning": "Xin vui lòng đừng cắt lời khi ai đó đang thuyết trình.",
+        "note": "Interruption.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-177",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "introduce",
+        "ipa": "/ˌɪn.trəˈduːs/",
+        "meaning": "giới thiệu bản thân/sản phẩm mới",
+        "topic": "Công sở & Đàm phán",
+        "example": "Allow me to introduce our keynote speaker for this evening.",
+        "exampleMeaning": "Cho phép tôi được giới thiệu diễn giả chính của chúng ta tối nay.",
+        "note": "Introduction, introductory.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-178",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "manage",
+        "ipa": "/ˈmæn.ədʒ/",
+        "meaning": "quản lý, xoay sở giải quyết",
+        "topic": "Công sở & Đàm phán",
+        "example": "She manages her busy schedule by prioritizing daily tasks.",
+        "exampleMeaning": "Cô ấy quản lý lịch trình bận rộn bằng cách sắp xếp thứ tự ưu tiên các công việc hàng ngày.",
+        "note": "Management, manager.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-179",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "motivate",
+        "ipa": "/ˈmoʊ.t̬ə.veɪt/",
+        "meaning": "thúc đẩy, tạo động lực",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "Clear goals motivate students to achieve higher results.",
+        "exampleMeaning": "Mục tiêu rõ ràng tạo động lực cho học sinh đạt kết quả cao hơn.",
+        "note": "Motivation, motivational.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-180",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "organize",
+        "ipa": "/ˈɔːr.ɡən.aɪz/",
+        "meaning": "tổ chức sự kiện, sắp xếp ngăn nắp",
+        "topic": "Công sở & Đàm phán",
+        "example": "Our team organized a charity auction for local schools.",
+        "exampleMeaning": "Nhóm chúng tôi đã tổ chức một buổi đấu giá từ thiện cho các trường học địa phương.",
+        "note": "Organization, organized.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-181",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "participate",
+        "ipa": "/pɑːrˈtɪs.ə.peɪt/",
+        "meaning": "tham gia vào hoạt động",
+        "topic": "Môi trường & Xã hội",
+        "example": "Students are encouraged to participate in extracurricular clubs.",
+        "exampleMeaning": "Học sinh được khuyến khích tham gia vào các câu lạc bộ ngoại khóa.",
+        "note": "Participate in, participation.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-182",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "persuade",
+        "ipa": "/pɚˈsweɪd/",
+        "meaning": "thuyết phục ai tin hoặc làm gì",
+        "topic": "Công sở & Đàm phán",
+        "example": "The salesman persuaded the customer with clear product demonstrations.",
+        "exampleMeaning": "Người bán hàng đã thuyết phục khách bằng các phần trình diễn sản phẩm rõ ràng.",
+        "note": "Persuasion, persuasive.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-183",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "predict",
+        "ipa": "/prɪˈdɪkt/",
+        "meaning": "dự đoán trước tương lai",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Meteorologists predict heavy rainfall over the weekend.",
+        "exampleMeaning": "Các nhà khí tượng học dự đoán sẽ có mưa to vào cuối tuần.",
+        "note": "Prediction, predictable.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-184",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "prefer",
+        "ipa": "/prɪˈfɝː/",
+        "meaning": "thích cái gì hơn cái gì",
+        "topic": "Đời sống & Nhà ở",
+        "example": "I prefer drinking green tea to sweet carbonated sodas.",
+        "exampleMeaning": "Tôi thích uống trà xanh hơn nước ngọt có ga nhiều đường.",
+        "note": "Preference, preferential.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-185",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "prevent",
+        "ipa": "/prɪˈvent/",
+        "meaning": "ngăn chặn, phòng ngừa rủi ro",
+        "topic": "Sức khỏe & Tâm lý",
+        "example": "Wearing seatbelts prevents severe injuries in road accidents.",
+        "exampleMeaning": "Thắt dây an toàn giúp phòng ngừa chấn thương nặng trong tai nạn giao thông.",
+        "note": "Prevention, preventative.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-186",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "protect",
+        "ipa": "/prəˈtekt/",
+        "meaning": "bảo vệ an toàn, che chở",
+        "topic": "Môi trường & Xã hội",
+        "example": "Sunscreen protects your delicate skin from harmful ultraviolet rays.",
+        "exampleMeaning": "Kem chống nắng bảo vệ làn da mỏng manh của bạn khỏi tia cực tím có hại.",
+        "note": "Protection, protective.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-187",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "provide",
+        "ipa": "/prəˈvaɪd/",
+        "meaning": "cung cấp, chu cấp phương tiện",
+        "topic": "Công sở & Đàm phán",
+        "example": "The company provides all remote workers with laptop computers.",
+        "exampleMeaning": "Công ty cung cấp máy tính xách tay cho tất cả nhân viên làm từ xa.",
+        "note": "Provide someone with something.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-188",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "recognize",
+        "ipa": "/ˈrek.əɡ.naɪz/",
+        "meaning": "nhận ra người quen / công nhận",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "The firm recognized her five years of dedicated service.",
+        "exampleMeaning": "Công ty đã công nhận 5 năm cống hiến tận tụy của cô ấy.",
+        "note": "Recognition.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-189",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "recommend",
+        "ipa": "/ˌrek.əˈmend/",
+        "meaning": "giới thiệu, khuyên nên dùng",
+        "topic": "Đời sống & Nhà ở",
+        "example": "Can you recommend a good Vietnamese restaurant in this district?",
+        "exampleMeaning": "Bạn có thể giới thiệu một nhà hàng Việt Nam ngon ở quận này không?",
+        "note": "Recommendation.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-190",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "reduce",
+        "ipa": "/rɪˈduːs/",
+        "meaning": "giảm bớt lượng, hạ thấp chi phí",
+        "topic": "Tài chính & Kinh tế",
+        "example": "Using energy-saving bulbs reduces monthly electricity consumption.",
+        "exampleMeaning": "Sử dụng bóng đèn tiết kiệm năng lượng giúp giảm lượng điện tiêu thụ hàng tháng.",
+        "note": "Reduction.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-191",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "refuse",
+        "ipa": "/rɪˈfjuːz/",
+        "meaning": "từ chối lời đề nghị/yêu cầu",
+        "topic": "Công sở & Đàm phán",
+        "example": "He politely refused the extra assignment because of his workload.",
+        "exampleMeaning": "Anh ấy đã lịch sự từ chối nhiệm vụ thêm vì khối lượng công việc hiện tại.",
+        "note": "Refusal.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-192",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "remind",
+        "ipa": "/rɪˈmaɪnd/",
+        "meaning": "nhắc nhở ai nhớ làm việc gì",
+        "topic": "Công sở & Đàm phán",
+        "example": "Please remind me to submit the quarterly tax report tomorrow.",
+        "exampleMeaning": "Vui lòng nhắc tôi nộp báo cáo thuế quý vào ngày mai nhé.",
+        "note": "Remind someone of/about something, reminder.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-193",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "replace",
+        "ipa": "/rɪˈpleɪs/",
+        "meaning": "thay thế cái cũ bằng cái mới",
+        "topic": "Đời sống & Nhà ở",
+        "example": "You should replace your toothbrush every three months.",
+        "exampleMeaning": "Bạn nên thay bàn chải đánh răng ba tháng một lần.",
+        "note": "Replacement.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-194",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "satisfy",
+        "ipa": "/ˈsæt̬.ɪs.faɪ/",
+        "meaning": "làm hài lòng, thỏa mãn nhu cầu",
+        "topic": "Công sở & Đàm phán",
+        "example": "Our goal is to satisfy customer needs with top-quality products.",
+        "exampleMeaning": "Mục tiêu của chúng tôi là làm hài lòng nhu cầu khách hàng với các sản phẩm chất lượng cao.",
+        "note": "Satisfaction, satisfied.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-195",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "suggest",
+        "ipa": "/səɡˈdʒest/",
+        "meaning": "gợi ý, đề xuất ý kiến",
+        "topic": "Công sở & Đàm phán",
+        "example": "I suggest we take a short ten-minute coffee break.",
+        "exampleMeaning": "Tôi đề xuất chúng ta nghỉ giải lao uống cà phê mười phút.",
+        "note": "Suggestion, suggestive.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-196",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "support",
+        "ipa": "/səˈpɔːrt/",
+        "meaning": "ủng hộ, hỗ trợ giúp đỡ",
+        "topic": "Tính cách & Phẩm chất",
+        "example": "Her family supported her decision to start her own business.",
+        "exampleMeaning": "Gia đình đã ủng hộ quyết định tự mở doanh nghiệp của cô ấy.",
+        "note": "Supportive, supporter.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
+    },
+    {
+        "id": "b1-197",
+        "type": "vocab",
+        "level": "B1 - B2",
+        "text": "survive",
+        "ipa": "/sɚˈvaɪv/",
+        "meaning": "sống sót qua tai nạn, tồn tại",
+        "topic": "Khoa học & Đổi mới",
+        "example": "Cactus plants survive in arid deserts by storing water in their stems.",
+        "exampleMeaning": "Cây xương rồng sống sót trên sa mạc khô hạn bằng cách tích nước trong thân cây.",
+        "note": "Survival, survivor.",
+        "status": "new",
+        "dateAdded": "2026-10-14"
     }
 ];
 
@@ -6545,5 +9805,11 @@ const DEFAULT_TOPICS = [
     "Xã hội & Đạo đức",
     "Văn hóa & Lịch sử",
     "Kinh tế & Thị trường",
-    "Sức khỏe & Tâm lý"
+    "Sức khỏe & Tâm lý",
+    "Du lịch & Khách sạn",
+    "Đời sống & Nhà ở"
 ];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { INITIAL_DATA, DEFAULT_TOPICS };
+}
